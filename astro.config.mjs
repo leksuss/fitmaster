@@ -7,3 +7,8 @@ import vue from '@astrojs/vue';
 export default defineConfig({
   integrations: [vue()]
 });
+
+export default defineConfig({
+  site: 'https://leksuss.github.io',
+  base: '/fitmaster',
+});
