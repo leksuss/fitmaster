@@ -1,11 +1,374 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Влад - Хелс-коуч | Главная">
+	<section class="hero">
+		<div class="hero-content">
+			<div class="hero-text">
+				<h1 class="hero-title">Влад – твой хелс-коуч: Худей без запретов и голодовок!</h1>
+				<p class="hero-subtitle">Открой путь к стройному телу с поддержкой и гарантированным результатом, наслаждаясь любимой едой. Я научу тебя есть много и вкусно, создавая устойчивые здоровые привычки.</p>
+				<a href="/services" class="cta-button">Начни свой путь к идеальному телу</a>
+			</div>
+			<div class="hero-image">
+				<div class="hero-placeholder">
+					<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="200" cy="200" r="180" fill="url(#gradient)" opacity="0.1"/>
+						<circle cx="200" cy="200" r="120" fill="url(#gradient)" opacity="0.2"/>
+						<circle cx="200" cy="200" r="60" fill="url(#gradient)" opacity="0.3"/>
+						<defs>
+							<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+								<stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+							</linearGradient>
+						</defs>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="features">
+		<div class="container">
+			<h2 class="section-title">Почему выбирают меня?</h2>
+			<div class="features-grid">
+				<div class="feature-card">
+					<div class="feature-icon">🎯</div>
+					<h3>Индивидуальный подход</h3>
+					<p>Персональная программа, адаптированная под твои цели и образ жизни</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">🍽️</div>
+					<h3>Без голодовок</h3>
+					<p>Ешь много и вкусно, не отказывайся от любимых блюд</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">📈</div>
+					<h3>Гарантированный результат</h3>
+					<p>Научно обоснованные методы и постоянная поддержка</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">🌍</div>
+					<h3>Онлайн из Испании</h3>
+					<p>Удобные консультации на русском и английском языках</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="testimonials">
+		<div class="container">
+			<h2 class="section-title">Результаты моих клиентов</h2>
+			<div class="testimonials-grid">
+				<div class="testimonial-card">
+					<div class="testimonial-content">
+						<p>"За 3 месяца работы с Владом я сбросил 15 кг и при этом ни разу не голодал. Теперь у меня есть все необходимые знания для поддержания формы!"</p>
+					</div>
+					<div class="testimonial-author">
+						<strong>Анна, 32 года</strong>
+						<span>-15 кг за 3 месяца</span>
+					</div>
+				</div>
+				<div class="testimonial-card">
+					<div class="testimonial-content">
+						<p>"Влад полностью изменил мое отношение к питанию. Я научился есть осознанно и больше не испытываю стресс от еды."</p>
+					</div>
+					<div class="testimonial-author">
+						<strong>Михаил, 28 лет</strong>
+						<span>-12 кг за 2 месяца</span>
+					</div>
+				</div>
+				<div class="testimonial-card">
+					<div class="testimonial-content">
+						<p>"Думала, что никогда не смогу похудеть без строгих диет. Влад доказал обратное - худеть можно вкусно и с удовольствием!"</p>
+					</div>
+					<div class="testimonial-author">
+						<strong>Елена, 35 лет</strong>
+						<span>-18 кг за 4 месяца</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="cta-section">
+		<div class="container">
+			<div class="cta-content">
+				<h2>Готов начать свое преображение?</h2>
+				<p>Запишись на консультацию или изучи мои услуги</p>
+				<div class="cta-buttons">
+					<a href="/services" class="cta-button primary">Мои услуги</a>
+					<a href="/about" class="cta-button secondary">Узнать больше</a>
+				</div>
+			</div>
+		</div>
+	</section>
 </Layout>
+
+<style>
+	.hero {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+		padding: 100px 0;
+		min-height: 600px;
+		display: flex;
+		align-items: center;
+	}
+
+	.hero-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 60px;
+		align-items: center;
+	}
+
+	.hero-title {
+		font-size: 3rem;
+		font-weight: 700;
+		line-height: 1.2;
+		margin-bottom: 20px;
+		animation: fadeInUp 1s ease-out;
+	}
+
+	.hero-subtitle {
+		font-size: 1.2rem;
+		line-height: 1.6;
+		margin-bottom: 30px;
+		opacity: 0.9;
+		animation: fadeInUp 1s ease-out 0.2s both;
+	}
+
+	.cta-button {
+		display: inline-block;
+		background: #10b981;
+		color: white;
+		padding: 15px 30px;
+		border-radius: 50px;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 1.1rem;
+		transition: all 0.3s ease;
+		animation: fadeInUp 1s ease-out 0.4s both;
+	}
+
+	.cta-button:hover {
+		background: #059669;
+		transform: translateY(-2px);
+		box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+	}
+
+	.hero-image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		animation: fadeIn 1s ease-out 0.6s both;
+	}
+
+	.hero-placeholder {
+		animation: pulse 2s infinite;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 50px;
+		color: var(--text-color);
+	}
+
+	.features {
+		padding: 80px 0;
+		background: var(--bg-light);
+	}
+
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 30px;
+	}
+
+	.feature-card {
+		background: white;
+		padding: 40px 30px;
+		border-radius: 15px;
+		text-align: center;
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+	}
+
+	.feature-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.feature-icon {
+		font-size: 3rem;
+		margin-bottom: 20px;
+	}
+
+	.feature-card h3 {
+		font-size: 1.3rem;
+		font-weight: 600;
+		margin-bottom: 15px;
+		color: var(--text-color);
+	}
+
+	.feature-card p {
+		color: var(--text-light);
+		line-height: 1.6;
+	}
+
+	.testimonials {
+		padding: 80px 0;
+	}
+
+	.testimonials-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 30px;
+	}
+
+	.testimonial-card {
+		background: white;
+		padding: 30px;
+		border-radius: 15px;
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+	}
+
+	.testimonial-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.testimonial-content {
+		margin-bottom: 20px;
+	}
+
+	.testimonial-content p {
+		font-style: italic;
+		color: var(--text-light);
+		line-height: 1.6;
+	}
+
+	.testimonial-author strong {
+		display: block;
+		color: var(--text-color);
+		margin-bottom: 5px;
+	}
+
+	.testimonial-author span {
+		color: var(--secondary-color);
+		font-weight: 600;
+	}
+
+	.cta-section {
+		background: var(--primary-color);
+		color: white;
+		padding: 80px 0;
+		text-align: center;
+	}
+
+	.cta-content h2 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 15px;
+	}
+
+	.cta-content p {
+		font-size: 1.2rem;
+		margin-bottom: 30px;
+		opacity: 0.9;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.cta-button.primary {
+		background: var(--secondary-color);
+	}
+
+	.cta-button.secondary {
+		background: transparent;
+		border: 2px solid white;
+	}
+
+	.cta-button.secondary:hover {
+		background: white;
+		color: var(--primary-color);
+	}
+
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes pulse {
+		0%, 100% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.05);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero-content {
+			grid-template-columns: 1fr;
+			gap: 40px;
+			text-align: center;
+		}
+
+		.hero-title {
+			font-size: 2.2rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1.1rem;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.cta-content h2 {
+			font-size: 2rem;
+		}
+
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.cta-button {
+			width: 100%;
+			max-width: 300px;
+		}
+	}
+</style>

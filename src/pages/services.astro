@@ -1,0 +1,747 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Мои услуги - Влад Хелс-коуч">
+	<section class="services-hero">
+		<div class="container">
+			<div class="hero-content">
+				<h1>Выбери свой путь к здоровому телу: без марафонов, запретов и голодовок</h1>
+				<p class="hero-subtitle">Минимальный срок работы со мной — 2 месяца. Продление возможно помесячно.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="coaching-section">
+		<div class="container">
+			<h2 class="section-title">Коучинг по питанию</h2>
+			<div class="services-grid">
+				
+				<div class="service-card easy-mode">
+					<div class="service-header">
+						<h3>Режим: EASY</h3>
+					</div>
+					<div class="service-content">
+						<div class="easy-mode-center">
+							<button class="service-button" onclick="toggleEasyMode()">Узнать больше</button>
+						</div>
+						<div id="easyModeContent" class="easy-mode-content" style="display: none;">
+							<p class="service-description">Я не верю в легкий путь без действий, но я обещаю, что мой подход будет максимально комфортным и эффективным! Запишись на консультацию, чтобы достичь своей цели!</p>
+							<div class="service-button-container">
+								<button class="service-button available">Записаться</button>
+								<button class="service-button-collapse" onclick="toggleEasyMode()">Свернуть</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="service-card normal-mode">
+					<div class="service-header">
+						<h3>Режим: NORMAL</h3>
+						<div class="service-subtitle">Ведение без подсчета КБЖУ</div>
+					</div>
+					<div class="service-price">
+						<span class="price">550 евро/месяц</span>
+						<span class="duration">от 2-х месяцев</span>
+					</div>
+					<div class="service-content">
+						<p class="service-description">Твой гибкий путь к осознанному питанию. Ты научишься ориентироваться в питании с помощью метода ладони (кулак, ладонь, палец). Идеально для тех, кто хочет сбросить лишний вес и ищет комфортный подход, готовый довериться ощущениям и моим рекомендациям.</p>
+						<div class="service-button-container">
+							<button class="service-button available">Записаться</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="service-card hard-mode">
+					<div class="service-header">
+						<h3>Режим: HARD</h3>
+						<div class="service-subtitle">Ведение с подсчетом КБЖУ</div>
+					</div>
+					<div class="service-price">
+						<span class="price">450 евро/месяц</span>
+						<span class="duration">от 2-х месяцев</span>
+					</div>
+					<div class="service-content">
+						<p class="service-description">Твой пошаговый план для максимального контроля и понимания процесса. Ты будешь детально отслеживать прогресс, а также считать и точно знать свои КБЖУ. Отлично подходит для тех, кто хочет стать очень сухим, любит системный подход и готов ежедневно взвешивать всю свою еду.</p>
+						<div class="service-button-container">
+							<button class="service-button available">Записаться</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="training-section">
+		<div class="container">
+			<h2 class="section-title">Коучинг по тренировкам</h2>
+			<div class="services-grid">
+				
+				<div class="service-card training-only">
+					<div class="service-header">
+						<h3>Только тренировки</h3>
+						<div class="service-status closed">Временно запись закрыта</div>
+					</div>
+					<div class="service-price">
+						<span class="price">150 евро/месяц</span>
+					</div>
+					<div class="service-content">
+						<p class="service-description">Индивидуальные программы тренировок, разработанные специально для твоих целей и образа жизни.</p>
+						<div class="service-button-container">
+							<button class="service-button closed" disabled>Недоступно</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="service-card normal-training">
+					<div class="service-header">
+						<h3>NORMAL + Тренировки</h3>
+						<div class="service-status closed">Временно запись закрыта</div>
+					</div>
+					<div class="service-price">
+						<span class="price">650 евро/месяц</span>
+					</div>
+					<div class="service-content">
+						<p class="service-description">Комплексный подход: питание без подсчета КБЖУ + индивидуальные тренировки.</p>
+						<div class="service-button-container">
+							<button class="service-button closed" disabled>Недоступно</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="service-card hard-training">
+					<div class="service-header">
+						<h3>HARD + Тренировки</h3>
+						<div class="service-status closed">Временно запись закрыта</div>
+					</div>
+					<div class="service-price">
+						<span class="price">550 евро/месяц</span>
+					</div>
+					<div class="service-content">
+						<p class="service-description">Максимальный контроль: питание с подсчетом КБЖУ + индивидуальные тренировки.</p>
+						<div class="service-button-container">
+							<button class="service-button closed" disabled>Недоступно</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="additional-services">
+		<div class="container">
+			<h2 class="section-title">Дополнительные услуги</h2>
+			<div class="additional-grid">
+				
+				<div class="additional-card guide">
+					<div class="additional-header">
+						<h3>Гайд: «Как похудеть? 8 четких правил»</h3>
+						<div class="additional-price">30 евро</div>
+					</div>
+					<div class="additional-content">
+						<p>Твой практический гид по основам снижения веса без жестких ограничений. Получи 8 простых и действенных правил, которые можно начать применять прямо сейчас для старта твоего преображения.</p>
+						<h4>Что ты получишь:</h4>
+						<ul>
+							<li>8 четких и понятных правил для похудения</li>
+							<li>Практические советы без строгих ограничений</li>
+							<li>Готовый план действий на каждый день</li>
+							<li>Научный подход к снижению веса</li>
+						</ul>
+						<div class="additional-button-container">
+							<button class="additional-button">Купить гайд</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="additional-card consultation">
+					<div class="additional-header">
+						<h3>Личная консультация</h3>
+						<div class="additional-price">10 000 руб. / 100 евро</div>
+						<div class="additional-duration">50 минут</div>
+					</div>
+					<div class="additional-content">
+						<h4>Что входит:</h4>
+						<ul>
+							<li>Расширенная версия гайда «Как похудеть?» с пошаговыми пояснениями</li>
+							<li>Разбор твоей проблемы и постановка реалистичных целей</li>
+							<li>За 50 минут мы сопоставим шаги вокруг подробного гайда, и я сообщу, как действовать, опираясь на него</li>
+							<li><strong>Важно:</strong> Волшебной таблетки не обещаю — работа без сопровождения требует больше дисциплины и твоей ответственности</li>
+							<li><strong>Бонус:</strong> Покупая личную консультацию, ты получаешь скидку 10% на любое из моих сопровождений</li>
+						</ul>
+						<div class="additional-button-container">
+							<button class="additional-button">Записаться на консультацию</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="results-section">
+		<div class="container">
+			<div class="results-header">
+				<h2 class="section-title">Что ты получишь, обращаясь ко мне?</h2>
+				<div class="results-subtitle">Результаты, которые ты увидишь и почувствуешь</div>
+			</div>
+			<div class="results-grid">
+				<div class="result-card">
+					<div class="result-icon">📉</div>
+					<h3>Снижение веса</h3>
+					<p>Снижение веса и его устойчивое удержание</p>
+				</div>
+				<div class="result-card">
+					<div class="result-icon">💪</div>
+					<h3>Уверенность</h3>
+					<p>Уверенность в себе и своих силах</p>
+				</div>
+				<div class="result-card">
+					<div class="result-icon">🎯</div>
+					<h3>Полезные навыки</h3>
+					<p>Необходимые навыки и полезные привычки в питании и в жизни, которые помогут надежно удержать результат</p>
+				</div>
+				<div class="result-card">
+					<div class="result-icon">🤝</div>
+					<h3>Постоянная поддержка</h3>
+					<p>Постоянную поддержку и ни капли осуждения</p>
+				</div>
+				<div class="result-card">
+					<div class="result-icon">❤️</div>
+					<h3>Помощь близким</h3>
+					<p>Возможность помочь своим близким, потому что это работает!</p>
+				</div>
+				<div class="result-card">
+					<div class="result-icon">🧠</div>
+					<h3>Новое мышление</h3>
+					<p>Здоровое отношение к еде и своему телу без стресса и самоограничений</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="cta-section">
+		<div class="container">
+			<div class="cta-content">
+				<h2>Готов начать свое преображение?</h2>
+				<p>Выбери подходящий тариф и начни работу уже сегодня</p>
+				<a href="/about" class="cta-button">Узнать больше обо мне</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>
+
+<style>
+	.services-hero {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+		padding: 100px 0;
+		text-align: center;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.hero-content h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		line-height: 1.2;
+		margin-bottom: 20px;
+		animation: fadeInUp 1s ease-out;
+	}
+
+	.hero-subtitle {
+		font-size: 1.2rem;
+		opacity: 0.9;
+		animation: fadeInUp 1s ease-out 0.2s both;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 50px;
+		color: var(--text-color);
+	}
+
+	.coaching-section,
+	.training-section,
+	.additional-services {
+		padding: 80px 0;
+	}
+
+	.training-section {
+		background: var(--bg-light);
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 30px;
+		margin-bottom: 50px;
+	}
+
+	.service-card {
+		background: white;
+		border-radius: 20px;
+		padding: 30px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		border: 3px solid transparent;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	.service-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+	}
+
+	.service-card.normal-mode {
+		border-color: var(--primary-color);
+	}
+
+	.service-card.hard-mode {
+		border-color: var(--secondary-color);
+	}
+
+	.service-card.easy-mode {
+		border-color: #fbbf24;
+	}
+
+	.easy-mode-center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-grow: 1;
+	}
+
+	.easy-mode-content {
+		margin-top: 20px;
+		animation: slideDown 0.3s ease-out;
+	}
+
+	@keyframes slideDown {
+		from {
+			opacity: 0;
+			transform: translateY(-10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.service-header h3 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 10px;
+		color: var(--text-color);
+	}
+
+	.service-subtitle {
+		color: var(--text-light);
+		font-size: 0.9rem;
+		margin-bottom: 15px;
+	}
+
+	.service-status {
+		display: inline-block;
+		padding: 5px 15px;
+		border-radius: 20px;
+		font-size: 0.8rem;
+		font-weight: 600;
+		margin-bottom: 15px;
+	}
+
+	.service-status.not-available {
+		background: #fef3c7;
+		color: #d97706;
+	}
+
+	.service-status.closed {
+		background: #fee2e2;
+		color: #dc2626;
+	}
+
+	.service-price {
+		margin-bottom: 20px;
+	}
+
+	.service-price .price {
+		font-size: 1.8rem;
+		font-weight: 700;
+		color: var(--primary-color);
+		display: block;
+	}
+
+	.service-price .duration {
+		color: var(--text-light);
+		font-size: 0.9rem;
+	}
+
+	.service-content {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		justify-content: space-between;
+	}
+
+	.service-button-container {
+		margin-top: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.service-button-collapse {
+		width: 100%;
+		padding: 10px;
+		border: 1px solid var(--border-color);
+		border-radius: 10px;
+		background: transparent;
+		color: var(--text-light);
+		font-size: 0.9rem;
+		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.service-button-collapse:hover {
+		background: var(--bg-light);
+		color: var(--text-color);
+	}
+
+	.service-description {
+		line-height: 1.6;
+		color: var(--text-color);
+		margin-bottom: 25px;
+	}
+
+	.service-button {
+		width: 100%;
+		padding: 15px;
+		border: none;
+		border-radius: 10px;
+		font-size: 1.1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.service-button.available {
+		background: var(--primary-color);
+		color: white;
+	}
+
+	.service-button.available:hover {
+		background: var(--primary-dark);
+		transform: translateY(-2px);
+	}
+
+	.service-button.closed {
+		background: #d1d5db;
+		color: #6b7280;
+		cursor: not-allowed;
+	}
+
+	.service-button:not(.available):not(.closed) {
+		background: #fbbf24;
+		color: white;
+	}
+
+	.service-button:not(.available):not(.closed):hover {
+		background: #f59e0b;
+	}
+
+	.additional-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		gap: 30px;
+	}
+
+	.additional-card {
+		background: white;
+		border-radius: 20px;
+		padding: 40px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		border: 3px solid transparent;
+	}
+
+	.additional-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.additional-card.guide {
+		border-color: var(--primary-color);
+	}
+
+	.additional-card.consultation {
+		border-color: var(--secondary-color);
+	}
+
+	.additional-header h3 {
+		font-size: 1.4rem;
+		font-weight: 700;
+		margin-bottom: 15px;
+		color: var(--text-color);
+	}
+
+	.additional-price {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--primary-color);
+		margin-bottom: 10px;
+	}
+
+	.additional-duration {
+		color: var(--text-light);
+		font-size: 0.9rem;
+		margin-bottom: 20px;
+	}
+
+	.additional-content h4 {
+		font-size: 1.1rem;
+		font-weight: 600;
+		margin-bottom: 15px;
+		color: var(--text-color);
+	}
+
+	.additional-content ul {
+		list-style: none;
+		padding: 0;
+		margin-bottom: 25px;
+	}
+
+	.additional-content li {
+		padding: 8px 0;
+		border-bottom: 1px solid var(--border-color);
+		color: var(--text-color);
+	}
+
+	.additional-content li:last-child {
+		border-bottom: none;
+	}
+
+	.additional-content {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+	}
+
+	.additional-button-container {
+		margin-top: auto;
+		padding-top: 20px;
+	}
+
+	.additional-button {
+		width: 100%;
+		padding: 15px;
+		background: var(--secondary-color);
+		color: white;
+		border: none;
+		border-radius: 10px;
+		font-size: 1.1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.additional-button:hover {
+		background: #059669;
+		transform: translateY(-2px);
+	}
+
+	.results-section {
+		padding: 80px 0;
+		background: var(--bg-light);
+	}
+
+	.results-header {
+		text-align: center;
+		margin-bottom: 60px;
+	}
+
+	.results-header .section-title {
+		margin-bottom: 20px;
+		background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		position: relative;
+	}
+
+	.results-header .section-title::after {
+		content: '';
+		position: absolute;
+		bottom: -10px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100px;
+		height: 4px;
+		background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+		border-radius: 2px;
+	}
+
+	.results-subtitle {
+		font-size: 1.4rem;
+		color: var(--text-light);
+		font-weight: 500;
+		background: var(--bg-light);
+		padding: 15px 30px;
+		border-radius: 50px;
+		display: inline-block;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	}
+
+	.results-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px;
+	}
+
+	.result-card {
+		background: white;
+		padding: 30px;
+		border-radius: 15px;
+		text-align: center;
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+	}
+
+	.result-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.result-icon {
+		font-size: 3rem;
+		margin-bottom: 20px;
+	}
+
+	.result-card h3 {
+		font-size: 1.3rem;
+		font-weight: 600;
+		margin-bottom: 15px;
+		color: var(--text-color);
+	}
+
+	.result-card p {
+		color: var(--text-light);
+		line-height: 1.6;
+	}
+
+	.cta-section {
+		background: var(--primary-color);
+		color: white;
+		padding: 80px 0;
+		text-align: center;
+	}
+
+	.cta-content h2 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 15px;
+	}
+
+	.cta-content p {
+		font-size: 1.2rem;
+		margin-bottom: 30px;
+		opacity: 0.9;
+	}
+
+	.cta-button {
+		display: inline-block;
+		background: var(--secondary-color);
+		color: white;
+		padding: 15px 30px;
+		border-radius: 50px;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 1.1rem;
+		transition: all 0.3s ease;
+	}
+
+	.cta-button:hover {
+		background: #059669;
+		transform: translateY(-2px);
+		box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+	}
+
+
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+
+	@media (max-width: 1024px) {
+		.results-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero-content h1 {
+			font-size: 2rem;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.services-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.additional-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.cta-content h2 {
+			font-size: 2rem;
+		}
+
+		.results-grid {
+			grid-template-columns: 1fr;
+			gap: 20px;
+		}
+
+		.results-subtitle {
+			font-size: 1.2rem;
+			padding: 12px 20px;
+		}
+
+		.results-header .section-title::after {
+			width: 60px;
+		}
+
+	}
+</style>
+
+<script is:inline>
+	function toggleEasyMode() {
+		const content = document.getElementById('easyModeContent');
+		const buttonContainer = document.querySelector('.easy-mode-center');
+		
+		if (content.style.display === 'none' || content.style.display === '') {
+			content.style.display = 'block';
+			buttonContainer.style.display = 'none';
+		} else {
+			content.style.display = 'none';
+			buttonContainer.style.display = 'flex';
+		}
+	}
+</script>
