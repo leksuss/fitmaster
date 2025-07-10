@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Мои услуги - Влад Хелс-коуч">
@@ -223,7 +224,7 @@ import Layout from '../layouts/Layout.astro';
 			<div class="cta-content">
 				<h2>Готов начать свое преображение?</h2>
 				<p>Выбери подходящий тариф и начни работу уже сегодня</p>
-				<a href="./about" class="cta-button">Узнать больше обо мне</a>
+				<a href={`${base}about`} class="cta-button">Узнать больше обо мне</a>
 			</div>
 		</div>
 	</section>
