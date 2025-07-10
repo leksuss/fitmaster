@@ -1,6 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 const base = import.meta.env.BASE_URL;
+
+function getLink(path: string) {
+  if (path === '') return base;
+  return base.endsWith('/') ? `${base}${path}/` : `${base}/${path}/`;
+}
 ---
 
 <Layout title="Обо мне - Влад Хелс-коуч">
@@ -106,7 +111,7 @@ const base = import.meta.env.BASE_URL;
 			<div class="cta-content">
 				<h2>Готов начать работу со мной?</h2>
 				<p>Изучи мои услуги и выбери подходящий вариант сопровождения</p>
-				<a href={`${base}/services/`} class="cta-button">Мои услуги</a>
+				<a href={getLink('services')} class="cta-button">Мои услуги</a>
 			</div>
 		</div>
 	</section>
