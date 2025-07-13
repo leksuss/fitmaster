@@ -41,9 +41,43 @@ function getLink(path: string) {
 		</main>
 		<footer class="footer">
 			<div class="footer-content">
-				<p>&copy; 2024 Влад - Хелс-коуч. Все права защищены.</p>
+				<p>&copy; 2025 Влад - Хелс-коуч. Все права защищены.</p>
 			</div>
 		</footer>
+
+		<!-- Модальное окно для записи -->
+		<div id="booking-modal" class="modal-overlay">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2>Записаться на консультацию</h2>
+					<button class="modal-close" onclick="closeBookingModal()">&times;</button>
+				</div>
+				<form id="booking-form" class="booking-form">
+					<div class="form-group">
+						<label for="name">Имя *</label>
+						<input type="text" id="name" name="name" required>
+					</div>
+					<div class="form-group">
+						<label for="contact">Контакт *</label>
+						<input type="text" id="contact" name="contact" placeholder="телефон, емейл, телеграм" required>
+					</div>
+					<button type="submit" class="submit-button">Отправить</button>
+				</form>
+				<div id="success-message" class="success-message" style="display: none;">
+					<div class="success-content">
+						<div class="success-icon">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M9 12l2 2 4-4"/>
+								<circle cx="12" cy="12" r="10"/>
+							</svg>
+						</div>
+						<h3>Спасибо за ваше доверие!</h3>
+						<p>Свяжемся с вами в течение 24 часов</p>
+						<button onclick="closeBookingModal()" class="close-success-button">Закрыть</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
 
@@ -192,4 +226,264 @@ function getLink(path: string) {
 			font-size: 0.9rem;
 		}
 	}
+
+	/* Стили для модального окна */
+	.modal-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5);
+		backdrop-filter: blur(5px);
+		display: none;
+		justify-content: center;
+		align-items: center;
+		z-index: 10000;
+		animation: fadeIn 0.3s ease-out;
+	}
+
+	.modal-overlay.active {
+		display: flex;
+	}
+
+	.modal-content {
+		background: white;
+		border-radius: 20px;
+		padding: 0;
+		max-width: 500px;
+		width: 90%;
+		max-height: 90vh;
+		overflow: hidden;
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+		transform: scale(0.9);
+		animation: modalSlideIn 0.3s ease-out forwards;
+	}
+
+	.modal-header {
+		background: linear-gradient(135deg, var(--accent-normal), var(--accent-hard));
+		color: white;
+		padding: 25px 30px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.modal-header h2 {
+		margin: 0;
+		font-size: 1.5rem;
+		font-weight: 600;
+	}
+
+	.modal-close {
+		background: none;
+		border: none;
+		color: white;
+		font-size: 2rem;
+		cursor: pointer;
+		padding: 0;
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		transition: background 0.3s ease;
+	}
+
+	.modal-close:hover {
+		background: rgba(255, 255, 255, 0.2);
+	}
+
+	.booking-form {
+		padding: 30px;
+	}
+
+	.form-group {
+		margin-bottom: 20px;
+	}
+
+	.form-group label {
+		display: block;
+		margin-bottom: 8px;
+		font-weight: 600;
+		color: var(--text-color);
+	}
+
+	.form-group input {
+		width: 100%;
+		padding: 12px 16px;
+		border: 2px solid #e5e7eb;
+		border-radius: 10px;
+		font-size: 1rem;
+		transition: border-color 0.3s ease;
+		font-family: inherit;
+	}
+
+	.form-group input:focus {
+		outline: none;
+		border-color: var(--accent-normal);
+		box-shadow: 0 0 0 3px rgba(255, 145, 77, 0.1);
+	}
+
+	.submit-button {
+		width: 100%;
+		background: var(--accent-normal);
+		color: white;
+		border: none;
+		padding: 15px;
+		border-radius: 10px;
+		font-size: 1.1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		font-family: inherit;
+	}
+
+	.submit-button:hover {
+		background: var(--accent-hard);
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(255, 145, 77, 0.3);
+	}
+
+	.success-message {
+		padding: 40px 30px;
+		text-align: center;
+	}
+
+	.success-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.success-icon {
+		background: linear-gradient(135deg, var(--accent-easy), #FFE4B5);
+		color: #8B4513;
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
+	}
+
+	.success-content h3 {
+		margin: 0;
+		color: var(--accent-normal);
+		font-size: 1.4rem;
+		font-weight: 600;
+	}
+
+	.success-content p {
+		margin: 0;
+		color: var(--text-light);
+		font-size: 1rem;
+	}
+
+	.close-success-button {
+		background: var(--accent-easy);
+		color: #8B4513;
+		border: none;
+		padding: 12px 30px;
+		border-radius: 10px;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		font-family: inherit;
+		box-shadow: 0 4px 15px rgba(255, 201, 120, 0.3);
+	}
+
+	.close-success-button:hover {
+		background: #FFD700;
+		transform: translateY(-2px);
+		box-shadow: 0 6px 20px rgba(255, 201, 120, 0.4);
+	}
+
+	@keyframes modalSlideIn {
+		from {
+			transform: scale(0.9) translateY(-50px);
+			opacity: 0;
+		}
+		to {
+			transform: scale(1) translateY(0);
+			opacity: 1;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.modal-content {
+			width: 95%;
+			margin: 20px;
+		}
+
+		.modal-header {
+			padding: 20px 25px;
+		}
+
+		.modal-header h2 {
+			font-size: 1.3rem;
+		}
+
+		.booking-form,
+		.success-message {
+			padding: 25px 20px;
+		}
+	}
 </style>
+
+<script is:inline>
+	// Функции для работы с модальным окном записи
+	function openBookingModal() {
+		const modal = document.getElementById('booking-modal');
+		const form = document.getElementById('booking-form');
+		const successMessage = document.getElementById('success-message');
+		
+		// Сброс формы и скрытие сообщения об успехе
+		form.style.display = 'block';
+		successMessage.style.display = 'none';
+		form.reset();
+		
+		modal.classList.add('active');
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeBookingModal() {
+		const modal = document.getElementById('booking-modal');
+		modal.classList.remove('active');
+		document.body.style.overflow = 'auto';
+	}
+
+	// Закрытие модального окна при клике на overlay
+	document.addEventListener('DOMContentLoaded', function() {
+		const modal = document.getElementById('booking-modal');
+		const modalContent = modal.querySelector('.modal-content');
+		
+		modal.addEventListener('click', function(e) {
+			if (e.target === modal) {
+				closeBookingModal();
+			}
+		});
+
+		// Закрытие по Escape
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape' && modal.classList.contains('active')) {
+				closeBookingModal();
+			}
+		});
+
+		// Обработка отправки формы
+		const form = document.getElementById('booking-form');
+		form.addEventListener('submit', function(e) {
+			e.preventDefault();
+			
+			// Скрыть форму и показать сообщение об успехе
+			form.style.display = 'none';
+			const successMessage = document.getElementById('success-message');
+			successMessage.style.display = 'block';
+		});
+	});
+</script>
