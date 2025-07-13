@@ -24,8 +24,9 @@ function getLink(path: string) {
 						<circle cx="200" cy="200" r="60" fill="url(#gradient)" opacity="0.3"/>
 						<defs>
 							<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-								<stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
-								<stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+								<stop offset="0%" style="stop-color:#FFC978;stop-opacity:1" />
+								<stop offset="50%" style="stop-color:#FF914D;stop-opacity:1" />
+								<stop offset="100%" style="stop-color:#D25F3E;stop-opacity:1" />
 							</linearGradient>
 						</defs>
 					</svg>
@@ -38,23 +39,44 @@ function getLink(path: string) {
 		<div class="container">
 			<h2 class="section-title">Почему выбирают меня?</h2>
 			<div class="features-grid">
-				<div class="feature-card">
-					<div class="feature-icon">🎯</div>
+				<div class="feature-card easy">
+					<div class="feature-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="12" cy="12" r="10"/>
+							<circle cx="12" cy="12" r="6"/>
+							<circle cx="12" cy="12" r="2"/>
+						</svg>
+					</div>
 					<h3>Индивидуальный подход</h3>
 					<p>Персональная программа, адаптированная под твои цели и образ жизни</p>
 				</div>
-				<div class="feature-card">
-					<div class="feature-icon">🍽️</div>
+				<div class="feature-card normal">
+					<div class="feature-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+							<circle cx="12" cy="7" r="4"/>
+						</svg>
+					</div>
 					<h3>Без голодовок</h3>
 					<p>Ешь много и вкусно, не отказывайся от любимых блюд</p>
 				</div>
-				<div class="feature-card">
-					<div class="feature-icon">📈</div>
+				<div class="feature-card hard">
+					<div class="feature-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+						</svg>
+					</div>
 					<h3>Гарантированный результат</h3>
 					<p>Научно обоснованные методы и постоянная поддержка</p>
 				</div>
-				<div class="feature-card">
-					<div class="feature-icon">🌍</div>
+				<div class="feature-card easy">
+					<div class="feature-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="12" cy="12" r="10"/>
+							<path d="M2 12h20"/>
+							<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+						</svg>
+					</div>
 					<h3>Онлайн из Испании</h3>
 					<p>Удобные консультации на русском и английском языках</p>
 				</div>
@@ -113,7 +135,7 @@ function getLink(path: string) {
 
 <style>
 	.hero {
-		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		background: linear-gradient(135deg, var(--accent-normal) 0%, var(--accent-hard) 100%);
 		color: white;
 		padding: 100px 0;
 		min-height: 600px;
@@ -149,8 +171,8 @@ function getLink(path: string) {
 
 	.cta-button {
 		display: inline-block;
-		background: #10b981;
-		color: white;
+		background: var(--accent-easy);
+		color: #8B4513;
 		padding: 15px 30px;
 		border-radius: 50px;
 		text-decoration: none;
@@ -158,12 +180,13 @@ function getLink(path: string) {
 		font-size: 1.1rem;
 		transition: all 0.3s ease;
 		animation: fadeInUp 1s ease-out 0.4s both;
+		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
 	}
 
 	.cta-button:hover {
-		background: #059669;
+		background: #FFD700;
 		transform: translateY(-2px);
-		box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+		box-shadow: 0 12px 30px rgba(255, 201, 120, 0.4);
 	}
 
 	.hero-image {
@@ -193,7 +216,7 @@ function getLink(path: string) {
 
 	.features {
 		padding: 80px 0;
-		background: var(--bg-light);
+		background: var(--bg-warm);
 	}
 
 	.features-grid {
@@ -216,8 +239,39 @@ function getLink(path: string) {
 	}
 
 	.feature-icon {
-		font-size: 3rem;
 		margin-bottom: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		margin: 0 auto 20px;
+		transition: all 0.3s ease;
+	}
+
+	/* Градация цветов для иконок Easy/Normal/Hard */
+	.feature-card.easy .feature-icon {
+		background: linear-gradient(135deg, var(--accent-easy), #FFE4B5);
+		color: #8B4513;
+		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
+	}
+
+	.feature-card.normal .feature-icon {
+		background: linear-gradient(135deg, var(--accent-normal), #FFB84D);
+		color: #8B2500;
+		box-shadow: 0 8px 25px rgba(255, 145, 77, 0.3);
+	}
+
+	.feature-card.hard .feature-icon {
+		background: linear-gradient(135deg, var(--accent-hard), var(--accent-hard-dark));
+		color: #FFFFFF;
+		box-shadow: 0 8px 25px rgba(210, 95, 62, 0.3);
+	}
+
+	.feature-card:hover .feature-icon {
+		transform: translateY(-3px) scale(1.05);
+		box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 	}
 
 	.feature-card h3 {
@@ -302,17 +356,23 @@ function getLink(path: string) {
 	}
 
 	.cta-button.primary {
-		background: var(--secondary-color);
+		background: var(--accent-easy);
+		color: #8B4513;
+	}
+
+	.cta-button.primary:hover {
+		background: #FFD700;
 	}
 
 	.cta-button.secondary {
 		background: transparent;
 		border: 2px solid white;
+		color: white;
 	}
 
 	.cta-button.secondary:hover {
 		background: white;
-		color: var(--primary-color);
+		color: var(--accent-hard);
 	}
 
 	@keyframes fadeInUp {

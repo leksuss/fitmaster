@@ -26,8 +26,9 @@ function getLink(path: string) {
 							<circle cx="150" cy="150" r="60" fill="url(#profileGradient)" opacity="0.3"/>
 							<defs>
 								<linearGradient id="profileGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-									<stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-									<stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+									<stop offset="0%" style="stop-color:#FFC978;stop-opacity:1" />
+									<stop offset="50%" style="stop-color:#FF914D;stop-opacity:1" />
+									<stop offset="100%" style="stop-color:#D25F3E;stop-opacity:1" />
 								</linearGradient>
 							</defs>
 						</svg>
@@ -71,7 +72,13 @@ function getLink(path: string) {
 	<section class="bonus-section">
 		<div class="container">
 			<div class="bonus-card">
-				<div class="bonus-icon">🇪🇸</div>
+				<div class="bonus-icon">
+					<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="12" cy="12" r="10"/>
+						<path d="M2 12h20"/>
+						<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+					</svg>
+				</div>
 				<h2>Дополнительный бонус</h2>
 				<p>Если ты мой клиент и окажешься в Испании, то мы проведем с тобой совместную тренировку в тренажерном зале, пообщаемся и я отвечу на любые твои вопросы.</p>
 			</div>
@@ -82,23 +89,46 @@ function getLink(path: string) {
 		<div class="container">
 			<h2 class="section-title">Мои принципы работы</h2>
 			<div class="values-grid">
-				<div class="value-card">
-					<div class="value-icon">🔬</div>
+				<div class="value-card easy">
+					<div class="value-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+							<line x1="3" y1="6" x2="21" y2="6"/>
+							<path d="m16 10-4 4-4-4"/>
+						</svg>
+					</div>
 					<h3>Научный подход</h3>
 					<p>Только проверенные методики, основанные на научных исследованиях</p>
 				</div>
-				<div class="value-card">
-					<div class="value-icon">🤝</div>
+				<div class="value-card normal">
+					<div class="value-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+							<circle cx="12" cy="7" r="4"/>
+						</svg>
+					</div>
 					<h3>Индивидуальность</h3>
 					<p>Каждый план создается персонально под твои цели и особенности</p>
 				</div>
-				<div class="value-card">
-					<div class="value-icon">💪</div>
+				<div class="value-card hard">
+					<div class="value-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+							<circle cx="9" cy="7" r="4"/>
+							<path d="m22 21-3-3m0 0a5 5 0 0 0-5-5v0a5 5 0 0 0 5 5"/>
+						</svg>
+					</div>
 					<h3>Поддержка</h3>
 					<p>Постоянная мотивация и помощь на каждом этапе пути</p>
 				</div>
-				<div class="value-card">
-					<div class="value-icon">🎯</div>
+				<div class="value-card easy">
+					<div class="value-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="12" cy="12" r="10"/>
+							<circle cx="12" cy="12" r="6"/>
+							<circle cx="12" cy="12" r="2"/>
+						</svg>
+					</div>
 					<h3>Результат</h3>
 					<p>Фокус на достижении устойчивого и долгосрочного результата</p>
 				</div>
@@ -119,7 +149,7 @@ function getLink(path: string) {
 
 <style>
 	.about-hero {
-		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		background: linear-gradient(135deg, var(--accent-normal) 0%, var(--accent-hard) 100%);
 		color: white;
 		padding: 100px 0;
 		min-height: 500px;
@@ -192,7 +222,7 @@ function getLink(path: string) {
 	}
 
 	.story-block h2 {
-		color: var(--primary-color);
+		color: var(--accent-normal);
 		font-size: 1.5rem;
 		font-weight: 600;
 		margin-bottom: 15px;
@@ -206,7 +236,7 @@ function getLink(path: string) {
 
 	.bonus-section {
 		padding: 80px 0;
-		background: var(--bg-light);
+		background: var(--bg-warm);
 	}
 
 	.bonus-card {
@@ -220,12 +250,27 @@ function getLink(path: string) {
 	}
 
 	.bonus-icon {
-		font-size: 4rem;
 		margin-bottom: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		margin: 0 auto 20px;
+		background: linear-gradient(135deg, var(--accent-normal), var(--accent-hard));
+		color: white;
+		box-shadow: 0 10px 30px rgba(255, 145, 77, 0.3);
+		transition: all 0.3s ease;
+	}
+
+	.bonus-card:hover .bonus-icon {
+		transform: translateY(-3px) scale(1.05);
+		box-shadow: 0 15px 40px rgba(255, 145, 77, 0.4);
 	}
 
 	.bonus-card h2 {
-		color: var(--primary-color);
+		color: var(--accent-normal);
 		font-size: 2rem;
 		font-weight: 700;
 		margin-bottom: 20px;
@@ -269,8 +314,39 @@ function getLink(path: string) {
 	}
 
 	.value-icon {
-		font-size: 3rem;
 		margin-bottom: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		margin: 0 auto 20px;
+		transition: all 0.3s ease;
+	}
+
+	/* Градация цветов для принципов Easy/Normal/Hard */
+	.value-card.easy .value-icon {
+		background: linear-gradient(135deg, var(--accent-easy), #FFE4B5);
+		color: #8B4513;
+		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
+	}
+
+	.value-card.normal .value-icon {
+		background: linear-gradient(135deg, var(--accent-normal), #FFB84D);
+		color: #8B2500;
+		box-shadow: 0 8px 25px rgba(255, 145, 77, 0.3);
+	}
+
+	.value-card.hard .value-icon {
+		background: linear-gradient(135deg, var(--accent-hard), var(--accent-hard-dark));
+		color: #FFFFFF;
+		box-shadow: 0 8px 25px rgba(210, 95, 62, 0.3);
+	}
+
+	.value-card:hover .value-icon {
+		transform: translateY(-3px) scale(1.05);
+		box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 	}
 
 	.value-card h3 {
@@ -286,7 +362,7 @@ function getLink(path: string) {
 	}
 
 	.cta-section {
-		background: var(--primary-color);
+		background: var(--accent-normal);
 		color: white;
 		padding: 80px 0;
 		text-align: center;
@@ -306,20 +382,21 @@ function getLink(path: string) {
 
 	.cta-button {
 		display: inline-block;
-		background: var(--secondary-color);
-		color: white;
+		background: var(--accent-easy);
+		color: #8B4513;
 		padding: 15px 30px;
 		border-radius: 50px;
 		text-decoration: none;
 		font-weight: 600;
 		font-size: 1.1rem;
 		transition: all 0.3s ease;
+		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
 	}
 
 	.cta-button:hover {
-		background: #059669;
+		background: #FFD700;
 		transform: translateY(-2px);
-		box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+		box-shadow: 0 12px 30px rgba(255, 201, 120, 0.4);
 	}
 
 	@keyframes fadeInUp {

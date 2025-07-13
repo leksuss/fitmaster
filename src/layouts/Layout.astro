@@ -18,12 +18,12 @@ function getLink(path: string) {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<nav class="navbar">
@@ -49,13 +49,30 @@ function getLink(path: string) {
 
 <style>
 	:root {
-		--primary-color: #2563eb;
-		--primary-dark: #1d4ed8;
-		--secondary-color: #10b981;
-		--text-color: #1f2937;
-		--text-light: #6b7280;
-		--bg-color: #ffffff;
-		--bg-light: #f9fafb;
+		/* Базовая палитра */
+		--bg-color: #FFFFFF;
+		--bg-light: #F9F9F9;
+		--bg-warm: #FAF7F3;
+		
+		/* Текст */
+		--text-color: #212121;
+		--text-light: #666666;
+		
+		/* Акценты тарифов (Easy/Normal/Hard) */
+		--accent-easy: #FFC978;
+		--accent-normal: #FF914D;
+		--accent-hard: #D25F3E;
+		--accent-hard-dark: #B84A2B;
+		
+		/* Альтернативная палитра */
+		--alt-easy: #C7E77B;
+		--alt-normal: #D8A138;
+		--alt-hard: #943838;
+		
+		/* Для совместимости с существующим кодом */
+		--primary-color: var(--accent-normal);
+		--primary-dark: var(--accent-hard);
+		--secondary-color: var(--accent-easy);
 		--border-color: #e5e7eb;
 	}
 
@@ -67,10 +84,14 @@ function getLink(path: string) {
 
 	html,
 	body {
-		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		font-family: 'JetBrains Mono', 'Roboto Mono', 'Monaco', 'Menlo', 'Courier New', monospace;
 		line-height: 1.6;
 		color: var(--text-color);
-		background-color: var(--bg-color);
+		background: var(--bg-color);
+		background-image: 
+			radial-gradient(circle at 25% 25%, rgba(255, 201, 120, 0.03) 0%, transparent 50%),
+			radial-gradient(circle at 75% 75%, rgba(255, 145, 77, 0.03) 0%, transparent 50%);
+		background-attachment: fixed;
 	}
 
 	.navbar {
@@ -144,7 +165,7 @@ function getLink(path: string) {
 	}
 
 	.footer {
-		background: var(--bg-light);
+		background: var(--bg-warm);
 		border-top: 1px solid var(--border-color);
 		padding: 30px 0;
 		margin-top: 50px;

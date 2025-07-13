@@ -190,33 +190,66 @@ function getLink(path: string) {
 				<div class="results-subtitle">Результаты, которые ты увидишь и почувствуешь</div>
 			</div>
 			<div class="results-grid">
-				<div class="result-card">
-					<div class="result-icon">📉</div>
+				<div class="result-card easy">
+					<div class="result-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+						</svg>
+					</div>
 					<h3>Снижение веса</h3>
 					<p>Снижение веса и его устойчивое удержание</p>
 				</div>
-				<div class="result-card">
-					<div class="result-icon">💪</div>
+				<div class="result-card normal">
+					<div class="result-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+							<line x1="3" y1="6" x2="21" y2="6"/>
+							<path d="m16 10-4 4-4-4"/>
+						</svg>
+					</div>
 					<h3>Уверенность</h3>
 					<p>Уверенность в себе и своих силах</p>
 				</div>
-				<div class="result-card">
-					<div class="result-icon">🎯</div>
+				<div class="result-card hard">
+					<div class="result-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="12" cy="12" r="10"/>
+							<circle cx="12" cy="12" r="6"/>
+							<circle cx="12" cy="12" r="2"/>
+						</svg>
+					</div>
 					<h3>Полезные навыки</h3>
 					<p>Необходимые навыки и полезные привычки в питании и в жизни, которые помогут надежно удержать результат</p>
 				</div>
-				<div class="result-card">
-					<div class="result-icon">🤝</div>
+				<div class="result-card easy">
+					<div class="result-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+							<circle cx="9" cy="7" r="4"/>
+							<path d="m22 21-3-3m0 0a5 5 0 0 0-5-5v0a5 5 0 0 0 5 5"/>
+						</svg>
+					</div>
 					<h3>Постоянная поддержка</h3>
 					<p>Постоянную поддержку и ни капли осуждения</p>
 				</div>
-				<div class="result-card">
-					<div class="result-icon">❤️</div>
+				<div class="result-card normal">
+					<div class="result-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/>
+						</svg>
+					</div>
 					<h3>Помощь близким</h3>
 					<p>Возможность помочь своим близким, потому что это работает!</p>
 				</div>
-				<div class="result-card">
-					<div class="result-icon">🧠</div>
+				<div class="result-card hard">
+					<div class="result-icon">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+							<path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+							<line x1="12" y1="19" x2="12" y2="22"/>
+							<line x1="8" y1="22" x2="16" y2="22"/>
+						</svg>
+					</div>
 					<h3>Новое мышление</h3>
 					<p>Здоровое отношение к еде и своему телу без стресса и самоограничений</p>
 				</div>
@@ -238,7 +271,7 @@ function getLink(path: string) {
 
 <style>
 	.services-hero {
-		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		background: linear-gradient(135deg, var(--accent-normal) 0%, var(--accent-hard) 100%);
 		color: white;
 		padding: 100px 0;
 		text-align: center;
@@ -279,7 +312,7 @@ function getLink(path: string) {
 	}
 
 	.training-section {
-		background: var(--bg-light);
+		background: var(--bg-warm);
 	}
 
 	.services-grid {
@@ -307,15 +340,18 @@ function getLink(path: string) {
 	}
 
 	.service-card.normal-mode {
-		border-color: var(--primary-color);
+		border-color: var(--accent-normal);
+		box-shadow: 0 10px 30px rgba(255, 145, 77, 0.15);
 	}
 
 	.service-card.hard-mode {
-		border-color: var(--secondary-color);
+		border-color: var(--accent-hard);
+		box-shadow: 0 10px 30px rgba(210, 95, 62, 0.15);
 	}
 
 	.service-card.easy-mode {
-		border-color: #fbbf24;
+		border-color: var(--accent-easy);
+		box-shadow: 0 10px 30px rgba(255, 201, 120, 0.15);
 	}
 
 	.easy-mode-center {
@@ -380,7 +416,7 @@ function getLink(path: string) {
 	.service-price .price {
 		font-size: 1.8rem;
 		font-weight: 700;
-		color: var(--primary-color);
+		color: var(--accent-normal);
 		display: block;
 	}
 
@@ -439,13 +475,14 @@ function getLink(path: string) {
 	}
 
 	.service-button.available {
-		background: var(--primary-color);
+		background: var(--accent-normal);
 		color: white;
 	}
 
 	.service-button.available:hover {
-		background: var(--primary-dark);
+		background: var(--accent-hard);
 		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(255, 145, 77, 0.3);
 	}
 
 	.service-button.closed {
@@ -455,12 +492,13 @@ function getLink(path: string) {
 	}
 
 	.service-button:not(.available):not(.closed) {
-		background: #fbbf24;
-		color: white;
+		background: var(--accent-easy);
+		color: #8B4513;
 	}
 
 	.service-button:not(.available):not(.closed):hover {
-		background: #f59e0b;
+		background: #FFD700;
+		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
 	}
 
 	.additional-grid {
@@ -486,11 +524,13 @@ function getLink(path: string) {
 	}
 
 	.additional-card.guide {
-		border-color: var(--primary-color);
+		border-color: var(--accent-normal);
+		box-shadow: 0 10px 30px rgba(255, 145, 77, 0.15);
 	}
 
 	.additional-card.consultation {
-		border-color: var(--secondary-color);
+		border-color: var(--accent-easy);
+		box-shadow: 0 10px 30px rgba(255, 201, 120, 0.15);
 	}
 
 	.additional-header h3 {
@@ -503,7 +543,7 @@ function getLink(path: string) {
 	.additional-price {
 		font-size: 1.5rem;
 		font-weight: 700;
-		color: var(--primary-color);
+		color: var(--accent-normal);
 		margin-bottom: 10px;
 	}
 
@@ -550,24 +590,26 @@ function getLink(path: string) {
 	.additional-button {
 		width: 100%;
 		padding: 15px;
-		background: var(--secondary-color);
-		color: white;
+		background: var(--accent-easy);
+		color: #8B4513;
 		border: none;
 		border-radius: 10px;
 		font-size: 1.1rem;
 		font-weight: 600;
 		cursor: pointer;
 		transition: all 0.3s ease;
+		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
 	}
 
 	.additional-button:hover {
-		background: #059669;
+		background: #FFD700;
 		transform: translateY(-2px);
+		box-shadow: 0 12px 30px rgba(255, 201, 120, 0.4);
 	}
 
 	.results-section {
 		padding: 80px 0;
-		background: var(--bg-light);
+		background: var(--bg-warm);
 	}
 
 	.results-header {
@@ -577,7 +619,7 @@ function getLink(path: string) {
 
 	.results-header .section-title {
 		margin-bottom: 20px;
-		background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+		background: linear-gradient(135deg, var(--accent-normal), var(--accent-hard));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
@@ -592,7 +634,7 @@ function getLink(path: string) {
 		transform: translateX(-50%);
 		width: 100px;
 		height: 4px;
-		background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+		background: linear-gradient(135deg, var(--accent-normal), var(--accent-hard));
 		border-radius: 2px;
 	}
 
@@ -600,7 +642,7 @@ function getLink(path: string) {
 		font-size: 1.4rem;
 		color: var(--text-light);
 		font-weight: 500;
-		background: var(--bg-light);
+		background: var(--bg-color);
 		padding: 15px 30px;
 		border-radius: 50px;
 		display: inline-block;
@@ -627,8 +669,39 @@ function getLink(path: string) {
 	}
 
 	.result-icon {
-		font-size: 3rem;
 		margin-bottom: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		margin: 0 auto 20px;
+		transition: all 0.3s ease;
+	}
+
+	/* Градация цветов для результатов Easy/Normal/Hard */
+	.result-card.easy .result-icon {
+		background: linear-gradient(135deg, var(--accent-easy), #FFE4B5);
+		color: #8B4513;
+		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
+	}
+
+	.result-card.normal .result-icon {
+		background: linear-gradient(135deg, var(--accent-normal), #FFB84D);
+		color: #8B2500;
+		box-shadow: 0 8px 25px rgba(255, 145, 77, 0.3);
+	}
+
+	.result-card.hard .result-icon {
+		background: linear-gradient(135deg, var(--accent-hard), var(--accent-hard-dark));
+		color: #FFFFFF;
+		box-shadow: 0 8px 25px rgba(210, 95, 62, 0.3);
+	}
+
+	.result-card:hover .result-icon {
+		transform: translateY(-3px) scale(1.05);
+		box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 	}
 
 	.result-card h3 {
@@ -644,7 +717,7 @@ function getLink(path: string) {
 	}
 
 	.cta-section {
-		background: var(--primary-color);
+		background: var(--accent-normal);
 		color: white;
 		padding: 80px 0;
 		text-align: center;
@@ -664,20 +737,21 @@ function getLink(path: string) {
 
 	.cta-button {
 		display: inline-block;
-		background: var(--secondary-color);
-		color: white;
+		background: var(--accent-easy);
+		color: #8B4513;
 		padding: 15px 30px;
 		border-radius: 50px;
 		text-decoration: none;
 		font-weight: 600;
 		font-size: 1.1rem;
 		transition: all 0.3s ease;
+		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
 	}
 
 	.cta-button:hover {
-		background: #059669;
+		background: #FFD700;
 		transform: translateY(-2px);
-		box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+		box-shadow: 0 12px 30px rgba(255, 201, 120, 0.4);
 	}
 
 
