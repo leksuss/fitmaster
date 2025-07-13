@@ -1,5 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import bonusIcon from '../assets/icons/dopbonus--Streamline-Freehand.svg?url';
+import scienceIcon from '../assets/icons/novoe-mishlenie-Head-Idea--Streamline-Freehand.svg?url';
+import individualIcon from '../assets/icons/individual-Square--Streamline-Freehand.svg?url';
+import supportIcon from '../assets/icons/podderzhka_Management_Teamwork_Hands_Action_2_Streamline_Freehand.svg?url';
+import goalsIcon from '../assets/icons/Goals-Target-Center--Streamline-Freehand.svg?url';
+
 const base = import.meta.env.BASE_URL;
 
 function getLink(path: string) {
@@ -73,11 +79,7 @@ function getLink(path: string) {
 		<div class="container">
 			<div class="bonus-card">
 				<div class="bonus-icon">
-					<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<circle cx="12" cy="12" r="10"/>
-						<path d="M2 12h20"/>
-						<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-					</svg>
+					<img src={bonusIcon} alt="Дополнительный бонус" width="64" height="64">
 				</div>
 				<h2>Дополнительный бонус</h2>
 				<p>Если ты мой клиент и окажешься в Испании, то мы проведем с тобой совместную тренировку в тренажерном зале, пообщаемся и я отвечу на любые твои вопросы.</p>
@@ -91,43 +93,28 @@ function getLink(path: string) {
 			<div class="values-grid">
 				<div class="value-card easy">
 					<div class="value-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-							<line x1="3" y1="6" x2="21" y2="6"/>
-							<path d="m16 10-4 4-4-4"/>
-						</svg>
+						<img src={scienceIcon} alt="Научный подход" width="48" height="48">
 					</div>
 					<h3>Научный подход</h3>
 					<p>Только проверенные методики, основанные на научных исследованиях</p>
 				</div>
 				<div class="value-card normal">
 					<div class="value-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-							<circle cx="12" cy="7" r="4"/>
-						</svg>
+						<img src={individualIcon} alt="Индивидуальность" width="48" height="48">
 					</div>
 					<h3>Индивидуальность</h3>
 					<p>Каждый план создается персонально под твои цели и особенности</p>
 				</div>
 				<div class="value-card hard">
 					<div class="value-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-							<circle cx="9" cy="7" r="4"/>
-							<path d="m22 21-3-3m0 0a5 5 0 0 0-5-5v0a5 5 0 0 0 5 5"/>
-						</svg>
+						<img src={supportIcon} alt="Поддержка" width="48" height="48">
 					</div>
 					<h3>Поддержка</h3>
 					<p>Постоянная мотивация и помощь на каждом этапе пути</p>
 				</div>
 				<div class="value-card easy">
 					<div class="value-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<circle cx="12" cy="12" r="10"/>
-							<circle cx="12" cy="12" r="6"/>
-							<circle cx="12" cy="12" r="2"/>
-						</svg>
+						<img src={goalsIcon} alt="Результат" width="48" height="48">
 					</div>
 					<h3>Результат</h3>
 					<p>Фокус на достижении устойчивого и долгосрочного результата</p>

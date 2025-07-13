@@ -1,5 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import dietIcon from '../assets/icons/Diet-Scale--Streamline-Freehand.svg?url';
+import confidenceIcon from '../assets/icons/yverennost--Streamline-Freehand.svg?url';
+import skillsIcon from '../assets/icons/novoe-mishlenie-Head-Idea--Streamline-Freehand.svg?url';
+import supportIcon from '../assets/icons/podderjka_Management_Teamwork_Hands_Action_2_Streamline_Freehand.svg?url';
+import helpIcon from '../assets/icons/Helps_relatives_Management_Teamwork_Clap_Streamline_Freehand.svg?url';
+import fitnessIcon from '../assets/icons/Fitness-Dumbells-Time--Streamline-Freehand.svg?url';
+import paymentIcon from '../assets/icons/Modern-Payment-Smartphone-Pay-Dollar-1--Streamline-Freehand.svg?url';
+
 const base = import.meta.env.BASE_URL;
 
 function getLink(path: string) {
@@ -47,6 +55,7 @@ function getLink(path: string) {
 						<div class="service-subtitle">Ведение без подсчета КБЖУ</div>
 					</div>
 					<div class="service-price">
+						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
 						<span class="price">550 евро/месяц</span>
 						<span class="duration">от 2-х месяцев</span>
 					</div>
@@ -64,6 +73,7 @@ function getLink(path: string) {
 						<div class="service-subtitle">Ведение с подсчетом КБЖУ</div>
 					</div>
 					<div class="service-price">
+						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
 						<span class="price">450 евро/месяц</span>
 						<span class="duration">от 2-х месяцев</span>
 					</div>
@@ -89,6 +99,7 @@ function getLink(path: string) {
 						<div class="service-status closed">Временно запись закрыта</div>
 					</div>
 					<div class="service-price">
+						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
 						<span class="price">150 евро/месяц</span>
 					</div>
 					<div class="service-content">
@@ -105,6 +116,7 @@ function getLink(path: string) {
 						<div class="service-status closed">Временно запись закрыта</div>
 					</div>
 					<div class="service-price">
+						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
 						<span class="price">650 евро/месяц</span>
 					</div>
 					<div class="service-content">
@@ -121,6 +133,7 @@ function getLink(path: string) {
 						<div class="service-status closed">Временно запись закрыта</div>
 					</div>
 					<div class="service-price">
+						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
 						<span class="price">550 евро/месяц</span>
 					</div>
 					<div class="service-content">
@@ -192,63 +205,42 @@ function getLink(path: string) {
 			<div class="results-grid">
 				<div class="result-card easy">
 					<div class="result-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
-						</svg>
+						<img src={dietIcon} alt="Снижение веса" width="48" height="48">
 					</div>
 					<h3>Снижение веса</h3>
 					<p>Снижение веса и его устойчивое удержание</p>
 				</div>
 				<div class="result-card normal">
 					<div class="result-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-							<line x1="3" y1="6" x2="21" y2="6"/>
-							<path d="m16 10-4 4-4-4"/>
-						</svg>
+						<img src={confidenceIcon} alt="Уверенность" width="48" height="48">
 					</div>
 					<h3>Уверенность</h3>
 					<p>Уверенность в себе и своих силах</p>
 				</div>
 				<div class="result-card hard">
 					<div class="result-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<circle cx="12" cy="12" r="10"/>
-							<circle cx="12" cy="12" r="6"/>
-							<circle cx="12" cy="12" r="2"/>
-						</svg>
+						<img src={skillsIcon} alt="Полезные навыки" width="48" height="48">
 					</div>
 					<h3>Полезные навыки</h3>
 					<p>Необходимые навыки и полезные привычки в питании и в жизни, которые помогут надежно удержать результат</p>
 				</div>
 				<div class="result-card easy">
 					<div class="result-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-							<circle cx="9" cy="7" r="4"/>
-							<path d="m22 21-3-3m0 0a5 5 0 0 0-5-5v0a5 5 0 0 0 5 5"/>
-						</svg>
+						<img src={supportIcon} alt="Постоянная поддержка" width="48" height="48">
 					</div>
 					<h3>Постоянная поддержка</h3>
 					<p>Постоянную поддержку и ни капли осуждения</p>
 				</div>
 				<div class="result-card normal">
 					<div class="result-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/>
-						</svg>
+						<img src={helpIcon} alt="Помощь близким" width="48" height="48">
 					</div>
 					<h3>Помощь близким</h3>
 					<p>Возможность помочь своим близким, потому что это работает!</p>
 				</div>
 				<div class="result-card hard">
 					<div class="result-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
-							<path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-							<line x1="12" y1="19" x2="12" y2="22"/>
-							<line x1="8" y1="22" x2="16" y2="22"/>
-						</svg>
+						<img src={fitnessIcon} alt="Новое мышление" width="48" height="48">
 					</div>
 					<h3>Новое мышление</h3>
 					<p>Здоровое отношение к еде и своему телу без стресса и самоограничений</p>
@@ -411,6 +403,20 @@ function getLink(path: string) {
 
 	.service-price {
 		margin-bottom: 20px;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.price-icon {
+		position: absolute;
+		top: -12px;
+		right: -12px;
+		background: white;
+		border-radius: 50%;
+		padding: 4px;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 	}
 
 	.service-price .price {

@@ -1,5 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import individualIcon from '../assets/icons/individual-Square--Streamline-Freehand.svg?url';
+import fastFoodIcon from '../assets/icons/Fast-Food-Sandwich--Streamline-Freehand.svg?url';
+import goalsIcon from '../assets/icons/Goals-Target-Center--Streamline-Freehand.svg?url';
+import onlineIcon from '../assets/icons/online-We-Favorite-Heart--Streamline-Freehand.svg?url';
+
 const base = import.meta.env.BASE_URL;
 
 function getLink(path: string) {
@@ -41,41 +46,28 @@ function getLink(path: string) {
 			<div class="features-grid">
 				<div class="feature-card easy">
 					<div class="feature-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<circle cx="12" cy="12" r="10"/>
-							<circle cx="12" cy="12" r="6"/>
-							<circle cx="12" cy="12" r="2"/>
-						</svg>
+						<img src={individualIcon} alt="Индивидуальный подход" width="48" height="48">
 					</div>
 					<h3>Индивидуальный подход</h3>
 					<p>Персональная программа, адаптированная под твои цели и образ жизни</p>
 				</div>
 				<div class="feature-card normal">
 					<div class="feature-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-							<circle cx="12" cy="7" r="4"/>
-						</svg>
+						<img src={fastFoodIcon} alt="Без голодовок" width="48" height="48">
 					</div>
 					<h3>Без голодовок</h3>
 					<p>Ешь много и вкусно, не отказывайся от любимых блюд</p>
 				</div>
 				<div class="feature-card hard">
 					<div class="feature-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
-						</svg>
+						<img src={goalsIcon} alt="Гарантированный результат" width="48" height="48">
 					</div>
 					<h3>Гарантированный результат</h3>
 					<p>Научно обоснованные методы и постоянная поддержка</p>
 				</div>
 				<div class="feature-card easy">
 					<div class="feature-icon">
-						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<circle cx="12" cy="12" r="10"/>
-							<path d="M2 12h20"/>
-							<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-						</svg>
+						<img src={onlineIcon} alt="Онлайн работа" width="48" height="48">
 					</div>
 					<h3>Онлайн из Испании</h3>
 					<p>Удобные консультации на русском и английском языках</p>
