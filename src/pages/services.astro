@@ -20,15 +20,13 @@ function getLink(path: string) {
 	<section class="services-hero">
 		<div class="container">
 			<div class="hero-content">
-				<h1>Выбери свой путь к здоровому телу: без марафонов, запретов и голодовок</h1>
-				<p class="hero-subtitle">Минимальный срок работы со мной — 2 месяца. Продление возможно помесячно.</p>
+				<h1>Выбери формат ведения, который подойдет именно тебе</h1>
 			</div>
 		</div>
 	</section>
 
 	<section class="coaching-section">
 		<div class="container">
-			<h2 class="section-title">Коучинг по питанию</h2>
 			<div class="services-grid">
 				
 				<div class="service-card easy-mode">
@@ -40,45 +38,140 @@ function getLink(path: string) {
 							<button class="service-button" onclick="toggleEasyMode()">Узнать больше</button>
 						</div>
 						<div id="easyModeContent" class="easy-mode-content" style="display: none;">
-							<p class="service-description">Я не верю в легкий путь без действий, но я обещаю, что мой подход будет максимально комфортным и эффективным! Запишись на консультацию, чтобы достичь своей цели!</p>
+							<p class="easy-intro">Я не верю в легкий путь без действий, но я сделаю так, чтобы твой путь к цели был максимально комфортным и эффективным!</p>
+							<div class="easy-mode-buttons">
+								<button class="mode-button normal-btn" onclick="scrollToMode('normal')">Режим: NORMAL</button>
+								<button class="mode-button hard-btn" onclick="scrollToMode('hard')">Режим: HARD</button>
+								<button class="mode-button legend-btn" onclick="scrollToMode('legend')">Режим: LEGEND</button>
+								<span class="legend-note">– очень дорого</span>
+							</div>
 							<div class="service-button-container">
-								<button class="service-button available" onclick="openBookingModal()">Записаться</button>
 								<button class="service-button-collapse" onclick="toggleEasyMode()">Свернуть</button>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="service-card normal-mode">
+				<div class="service-card normal-mode" id="normal-mode">
 					<div class="service-header">
 						<h3>Режим: NORMAL</h3>
-						<div class="service-subtitle">Ведение без подсчета КБЖУ</div>
+						<div class="service-subtitle">Ведение без подсчёта КБЖУ</div>
 					</div>
 					<div class="service-price">
-						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
 						<span class="price">550 евро/месяц</span>
 						<span class="duration">от 2-х месяцев</span>
 					</div>
 					<div class="service-content">
-						<p class="service-description">Твой гибкий путь к осознанному питанию. Ты научишься ориентироваться в питании с помощью метода ладони (кулак, ладонь, палец). Идеально для тех, кто хочет сбросить лишний вес и ищет комфортный подход, готовый довериться ощущениям и моим рекомендациям.</p>
+						<p class="service-description">Твой гибкий путь к осознанному питанию. Ты научишься ориентироваться в еде с помощью метода ладони (кулак, ладонь, палец), без весов и подсчёта калорий. Идеально для тех, кто хочет сбросить лишний вес, ищет комфортный подход и готов довериться ощущениям и моим рекомендациям.</p>
+						
+						<button class="details-toggle" onclick="toggleDetails('normal')">Что тебя ждёт:</button>
+						<div class="details-content" id="normal-details" style="display: none;">
+							<ul>
+								<li>Анкета для старта — ты отвечаешь на вопросы про себя: цели, вкусы, привычки, график, здоровье. Уже на этом этапе вырисовывается план.</li>
+								<li>Созвон — обсуждаем всё по анкете, фиксируем цель, сроки и конкретные точки, по которым будем мерить прогресс.</li>
+								<li>Онлайн-формат — работаем дистанционно: не важно, где ты живёшь, я рядом и всегда отвечу.</li>
+								<li>Прозрачный контроль прогресса — регулярные взвешивания, фото и замеры, чтобы видеть реальную картину и корректировать план.</li>
+								<li>Поддержка и мотивация — на связи на каждом этапе, отвечаю на вопросы, хвалю и помогаю пройти любые моменты.</li>
+								<li>Начинаем путь — я собираю тебе план, который поэтапно впишется в твой ритм жизни.</li>
+								<li>Метод ладони — вместо весов и цифр мы используем ладонь, кулак и палец, чтобы легко и быстро определять, сколько и чего тебе нужно в каждом приёме пищи.</li>
+								<li>Без голодовок и запретов — ешь много, вкусно и то, что любишь, просто в правильных пропорциях под твои цели.</li>
+								<li>Еженедельные апгрейды — каждую неделю даю тебе новую полезную информацию и задания. Мы закрепляем их на практике, и ты видишь, как меняются тело и привычки.</li>
+							</ul>
+							
+							<div class="important-note">
+								<strong>Важно:</strong><br>
+								Это не марафон и не волшебная таблетка. Результат будет, если ты честно работаешь и следуешь плану.
+							</div>
+							
+							<div class="conditions">
+								<strong>Условия:</strong>
+								<ul>
+									<li><strong>Минимум — 2 месяца</strong> — получаешь основу по питанию, сбрасываешь лишнее и начинаешь уверенно ориентироваться в порциях, но часть вопросов останется.</li>
+									<li><strong>Рекомендую — 4 месяца</strong> — скидка 50 € в месяц, выработанные привычки и полный набор знаний, которые откроют ответы на 99% твоих вопросов.</li>
+								</ul>
+							</div>
+						</div>
+						
 						<div class="service-button-container">
 							<button class="service-button available" onclick="openBookingModal()">Записаться</button>
 						</div>
 					</div>
 				</div>
 
-				<div class="service-card hard-mode">
+				<div class="service-card hard-mode" id="hard-mode">
 					<div class="service-header">
 						<h3>Режим: HARD</h3>
 						<div class="service-subtitle">Ведение с подсчетом КБЖУ</div>
 					</div>
 					<div class="service-price">
-						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
 						<span class="price">450 евро/месяц</span>
 						<span class="duration">от 2-х месяцев</span>
 					</div>
 					<div class="service-content">
 						<p class="service-description">Твой пошаговый план для максимального контроля и понимания процесса. Ты будешь детально отслеживать прогресс, а также считать и точно знать свои КБЖУ. Отлично подходит для тех, кто хочет стать очень сухим, любит системный подход и готов ежедневно взвешивать всю свою еду.</p>
+						
+						<button class="details-toggle" onclick="toggleDetails('hard')">Что тебя ждёт:</button>
+						<div class="details-content" id="hard-details" style="display: none;">
+							<ul>
+								<li>Анкета для старта — ты отвечаешь на вопросы про себя: цели, вкусы, привычки, график, здоровье. Уже на этом этапе вырисовывается план.</li>
+								<li>Созвон — обсуждаем всё по анкете, фиксируем цель, сроки и конкретные точки, по которым будем мерить прогресс.</li>
+								<li>Онлайн-формат — работаем дистанционно: не важно, где ты живёшь, я рядом и всегда отвечу.</li>
+								<li>Прозрачный контроль прогресса — регулярные взвешивания, фото и замеры, чтобы видеть реальную картину и корректировать план.</li>
+								<li>Поддержка и мотивация — на связи на каждом этапе, отвечаю на вопросы, хвалю и помогаю пройти любые моменты.</li>
+								<li>Начинаем путь — я собираю тебе план, который поэтапно впишется в твой ритм жизни.</li>
+								<li>Учёт без заморочек — ты научишься взвешивать еду и считать калории через FatSecret или Yazio, чтобы это стало привычкой, а не головной болью.</li>
+								<li>Без голодовок и запретов — ешь много, вкусно и то, что любишь, просто в правильных пропорциях под твои цели.</li>
+								<li>Еженедельные апгрейды — каждую неделю даю тебе новую полезную информацию и задания. Мы закрепляем их на практике, и ты видишь, как меняются тело и привычки.</li>
+							</ul>
+							
+							<div class="important-note">
+								<strong>Важно:</strong><br>
+								Это не марафон и не волшебная таблетка. Результат будет, если ты честно работаешь и следуешь плану.
+							</div>
+							
+							<div class="conditions">
+								<strong>Условия:</strong>
+								<ul>
+									<li><strong>Минимум — 2 месяца</strong> — получаешь основу по питанию, сбрасываешь лишнее и начинаешь уверенно ориентироваться в порциях, но часть вопросов останется.</li>
+									<li><strong>Рекомендую — 4 месяца</strong> — скидка 50 € в месяц, выработанные привычки и полный набор знаний, который даст ответы на 99% твоих вопросов.</li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="service-button-container">
+							<button class="service-button available" onclick="openBookingModal()">Записаться</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="service-card legend-mode" id="legend-mode">
+					<div class="service-header">
+						<h3>Режим: LEGEND</h3>
+					</div>
+					<div class="service-price">
+						<span class="price">От 88 000 € за 4 месяца</span>
+						<span class="duration">(перелёты и проживание включены)</span>
+					</div>
+					<div class="service-content">
+						<p class="service-description">На 4 месяца я становлюсь частью твоей жизни. Когда нужен не план, а человек, который живёт рядом с тобой и ведёт к результату. Максимально личный и глубокий формат работы. Включает всё то же, что и стандартное сопровождение, а способ контроля питания мы выбираем на месте.</p>
+						
+						<button class="details-toggle" onclick="toggleDetails('legend')">Что тебя ждёт:</button>
+						<div class="details-content" id="legend-details" style="display: none;">
+							<p><strong>Две недели каждого месяца я живу рядом с тобой и лично веду тебя:</strong></p>
+							<ul>
+								<li>ходим в магазины — показываю, какие продукты и бренды брать;</li>
+								<li>ходим в рестораны/кафе, где я научу тебя ориентироваться в меню с учётом твоих предпочтений и целей;</li>
+								<li>тренируемся вместе в твоём зале — я твой личный тренер на месте, контролирую, поддерживаю и делюсь секретами GYM-комьюнити;</li>
+								<li>сопровождаю тебя на вечерних прогулках, формируем привычки в реальной жизни;</li>
+								<li>разбираем и корректируем каждую мелочь, которая может мешать твоему результату;</li>
+								<li>в остальные две недели месяца — дистанционное сопровождение и контроль, чтобы ты не сбивался с ритма, а также созвон раз в неделю.</li>
+							</ul>
+							
+							<p class="legend-note-text">Это не просто коучинг — это прямое погружение в твой образ жизни с полной перезагрузкой пищевого поведения и тренировочных привычек.</p>
+							
+							<p class="additional-costs"><em>Расходы на еду, рестораны и зал — оплачиваются отдельно.</em></p>
+						</div>
+						
 						<div class="service-button-container">
 							<button class="service-button available" onclick="openBookingModal()">Записаться</button>
 						</div>
@@ -200,51 +293,54 @@ function getLink(path: string) {
 		<div class="container">
 			<div class="results-header">
 				<h2 class="section-title">Что ты получишь, обращаясь ко мне?</h2>
-				<div class="results-subtitle">Результаты, которые ты увидишь и почувствуешь</div>
 			</div>
 			<div class="results-grid">
 				<div class="result-card easy">
 					<div class="result-icon">
 						<img src={dietIcon} alt="Снижение веса" width="48" height="48">
 					</div>
-					<h3>Снижение веса</h3>
-					<p>Снижение веса и его устойчивое удержание</p>
+					<h3>1. Снижение веса</h3>
+					<p>Без изнурительных диет и выматывающих тренировок, в комфортном для тебя темпе.</p>
 				</div>
 				<div class="result-card normal">
 					<div class="result-icon">
 						<img src={confidenceIcon} alt="Уверенность" width="48" height="48">
 					</div>
-					<h3>Уверенность</h3>
-					<p>Уверенность в себе и своих силах</p>
-				</div>
-				<div class="result-card hard">
-					<div class="result-icon">
-						<img src={skillsIcon} alt="Полезные навыки" width="48" height="48">
-					</div>
-					<h3>Полезные навыки</h3>
-					<p>Необходимые навыки и полезные привычки в питании и в жизни, которые помогут надежно удержать результат</p>
-				</div>
-				<div class="result-card easy">
-					<div class="result-icon">
-						<img src={supportIcon} alt="Постоянная поддержка" width="48" height="48">
-					</div>
-					<h3>Постоянная поддержка</h3>
-					<p>Постоянную поддержку и ни капли осуждения</p>
-				</div>
-				<div class="result-card normal">
-					<div class="result-icon">
-						<img src={helpIcon} alt="Помощь близким" width="48" height="48">
-					</div>
-					<h3>Помощь близким</h3>
-					<p>Возможность помочь своим близким, потому что это работает!</p>
+					<h3>2. Уверенность</h3>
+					<p>Поверишь в себя и свои силы. Ты будешь чувствовать себя свободнее, легче и увереннее в повседневной жизни.</p>
 				</div>
 				<div class="result-card hard">
 					<div class="result-icon">
 						<img src={fitnessIcon} alt="Новое мышление" width="48" height="48">
 					</div>
-					<h3>Новое мышление</h3>
-					<p>Здоровое отношение к еде и своему телу без стресса и самоограничений</p>
+					<h3>3. Новое мышление</h3>
+					<p>Отношение к еде без чувства вины, запретов и стресса. Питание и активность станут естественной частью твоей жизни, а не наказанием.</p>
 				</div>
+				<div class="result-card easy">
+					<div class="result-icon">
+						<img src={skillsIcon} alt="Навыки на всю жизнь" width="48" height="48">
+					</div>
+					<h3>4. Навыки на всю жизнь</h3>
+					<p>Полезные привычки в питании и тренировках, которые помогут удерживать результат без «откатов».</p>
+				</div>
+				<div class="result-card normal">
+					<div class="result-icon">
+						<img src={supportIcon} alt="Поддержка без осуждения" width="48" height="48">
+					</div>
+					<h3>5. Поддержка без осуждения</h3>
+					<p>Я всегда на связи, чтобы скорректировать план, подбодрить и помочь пройти сложные моменты.</p>
+				</div>
+				<div class="result-card hard">
+					<div class="result-icon">
+						<img src={helpIcon} alt="Влияние на близких" width="48" height="48">
+					</div>
+					<h3>6. Влияние на близких</h3>
+					<p>Ты начнёшь менять не только себя, но и станешь примером для своих друзей и близких.</p>
+				</div>
+			</div>
+			<div class="results-cta">
+				<p class="results-motivation">Давай сделаем так, чтобы через пару месяцев ты гордился собой.</p>
+				<p class="results-action">Выбери подходящий тариф и начни своё преображение.</p>
 			</div>
 		</div>
 	</section>
@@ -252,9 +348,10 @@ function getLink(path: string) {
 	<section class="cta-section">
 		<div class="container">
 			<div class="cta-content">
-				<h2>Готов начать свое преображение?</h2>
-				<p>Выбери подходящий тариф и начни работу уже сегодня</p>
-				<a href={getLink('about')} class="cta-button">Узнать больше обо мне</a>
+				<div class="cta-buttons">
+					<a href="#coaching-section" class="cta-button primary">К услугам</a>
+					<a href={getLink('about')} class="cta-button secondary">Узнать больше обо мне</a>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -346,11 +443,83 @@ function getLink(path: string) {
 		box-shadow: 0 10px 30px rgba(255, 201, 120, 0.15);
 	}
 
+	.service-card.legend-mode {
+		border-color: #8B4513;
+		box-shadow: 0 10px 30px rgba(139, 69, 19, 0.15);
+		background: linear-gradient(135deg, #FFF8DC, #FFFAF0);
+	}
+
 	.easy-mode-center {
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		flex-grow: 1;
+		text-align: center;
+		gap: 25px;
+	}
+
+	.easy-intro {
+		font-size: 1.1rem;
+		line-height: 1.6;
+		color: var(--text-color);
+		margin: 0;
+	}
+
+	.easy-mode-buttons {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		width: 100%;
+		max-width: 300px;
+		margin: 30px 0;
+	}
+
+	.mode-button {
+		padding: 12px 20px;
+		border: none;
+		border-radius: 10px;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.normal-btn {
+		background: var(--accent-normal);
+		color: white;
+	}
+
+	.normal-btn:hover {
+		background: var(--accent-hard);
+		transform: translateY(-2px);
+	}
+
+	.hard-btn {
+		background: var(--accent-hard);
+		color: white;
+	}
+
+	.hard-btn:hover {
+		background: var(--accent-hard-dark);
+		transform: translateY(-2px);
+	}
+
+	.legend-btn {
+		background: linear-gradient(135deg, #8B4513, #654321);
+		color: #FFD700;
+	}
+
+	.legend-btn:hover {
+		background: linear-gradient(135deg, #654321, #4A2C17);
+		transform: translateY(-2px);
+	}
+
+	.legend-note {
+		font-size: 0.9rem;
+		color: var(--text-light);
+		font-style: italic;
+		margin-top: -5px;
 	}
 
 	.easy-mode-content {
@@ -505,6 +674,137 @@ function getLink(path: string) {
 	.service-button:not(.available):not(.closed):hover {
 		background: #FFD700;
 		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
+	}
+
+	.details-toggle {
+		background: var(--accent-easy);
+		color: #8B4513;
+		border: none;
+		padding: 12px 20px;
+		border-radius: 10px;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		margin: 20px 0 15px 0;
+		width: 100%;
+	}
+
+	.details-toggle:hover {
+		background: #FFD700;
+		transform: translateY(-2px);
+	}
+
+	.details-content {
+		animation: slideDown 0.3s ease-out;
+	}
+
+	.details-content ul {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 20px 0;
+	}
+
+	.details-content li {
+		padding: 10px 0;
+		border-bottom: 1px solid var(--border-color);
+		color: var(--text-color);
+		position: relative;
+		padding-left: 20px;
+	}
+
+	.details-content li:before {
+		content: "•";
+		color: var(--accent-normal);
+		font-weight: bold;
+		position: absolute;
+		left: 0;
+	}
+
+	.details-content li:last-child {
+		border-bottom: none;
+	}
+
+	.important-note {
+		background: var(--bg-warm);
+		padding: 15px;
+		border-radius: 10px;
+		border-left: 4px solid var(--accent-normal);
+		margin: 20px 0;
+		color: var(--text-color);
+	}
+
+	.conditions {
+		background: #f0f9ff;
+		padding: 15px;
+		border-radius: 10px;
+		border-left: 4px solid var(--accent-easy);
+		margin: 20px 0;
+		color: var(--text-color);
+	}
+
+	.conditions ul {
+		margin-top: 10px;
+	}
+
+	.legend-note-text {
+		font-style: italic;
+		color: var(--accent-hard);
+		font-weight: 600;
+		margin: 15px 0;
+	}
+
+	.additional-costs {
+		color: var(--text-light);
+		font-size: 0.9rem;
+		margin-top: 15px;
+	}
+
+	.results-cta {
+		text-align: center;
+		margin-top: 40px;
+		padding-top: 30px;
+		border-top: 2px solid var(--accent-easy);
+	}
+
+	.results-motivation {
+		font-size: 1.4rem;
+		font-weight: 600;
+		color: var(--text-color);
+		margin-bottom: 10px;
+	}
+
+	.results-action {
+		font-size: 1.1rem;
+		color: var(--text-light);
+		margin-bottom: 0;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.cta-button.primary {
+		background: var(--accent-normal);
+		color: white;
+	}
+
+	.cta-button.primary:hover {
+		background: var(--accent-hard);
+	}
+
+	.cta-button.secondary {
+		background: transparent;
+		border: 2px solid var(--accent-normal);
+		color: var(--accent-normal);
+	}
+
+	.cta-button.secondary:hover {
+		background: var(--accent-normal);
+		color: white;
 	}
 
 	.additional-grid {
@@ -818,6 +1118,16 @@ function getLink(path: string) {
 </style>
 
 <script is:inline>
+	function scrollToMode(mode) {
+		const element = document.getElementById(mode + '-mode');
+		if (element) {
+			element.scrollIntoView({ 
+				behavior: 'smooth',
+				block: 'center'
+			});
+		}
+	}
+
 	function toggleEasyMode() {
 		const content = document.getElementById('easyModeContent');
 		const buttonContainer = document.querySelector('.easy-mode-center');
@@ -830,4 +1140,25 @@ function getLink(path: string) {
 			buttonContainer.style.display = 'flex';
 		}
 	}
+
+	function toggleDetails(mode) {
+		const details = document.getElementById(mode + '-details');
+		const button = details.previousElementSibling;
+		
+		if (details.style.display === 'none' || details.style.display === '') {
+			details.style.display = 'block';
+			button.textContent = 'Свернуть';
+		} else {
+			details.style.display = 'none';
+			button.textContent = 'Что тебя ждёт:';
+		}
+	}
+
+	// Добавляем ID к секции для прокрутки
+	document.addEventListener('DOMContentLoaded', function() {
+		const coachingSection = document.querySelector('.coaching-section');
+		if (coachingSection) {
+			coachingSection.id = 'coaching-section';
+		}
+	});
 </script>
