@@ -42,8 +42,12 @@ function getLink(path: string) {
 							<div class="easy-mode-buttons">
 								<button class="mode-button normal-btn" onclick="scrollToMode('normal')">Режим: NORMAL</button>
 								<button class="mode-button hard-btn" onclick="scrollToMode('hard')">Режим: HARD</button>
-								<button class="mode-button legend-btn" onclick="scrollToMode('legend')">Режим: LEGEND</button>
-								<span class="legend-note">– очень дорого</span>
+								<div class="legend-button-container">
+									<button class="mode-button legend-btn" onclick="scrollToMode('legend')">Режим: LEGEND*</button>
+									<div class="footnote">
+										<small>* очень дорого</small>
+									</div>
+								</div>
 							</div>
 							<div class="service-button-container">
 								<button class="service-button-collapse" onclick="toggleEasyMode()">Свернуть</button>
@@ -406,9 +410,11 @@ function getLink(path: string) {
 
 	.services-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr 1fr;
 		gap: 30px;
 		margin-bottom: 50px;
+		align-items: stretch;
 	}
 
 	.service-card {
@@ -420,33 +426,43 @@ function getLink(path: string) {
 		border: 3px solid transparent;
 		display: flex;
 		flex-direction: column;
-		height: 100%;
+		position: relative;
+		z-index: 1;
 	}
 
 	.service-card:hover {
 		transform: translateY(-5px);
 		box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+		z-index: 2;
 	}
 
 	.service-card.normal-mode {
 		border-color: var(--accent-normal);
 		box-shadow: 0 10px 30px rgba(255, 145, 77, 0.15);
+		grid-column: 2;
+		grid-row: 1;
 	}
 
 	.service-card.hard-mode {
 		border-color: var(--accent-hard);
 		box-shadow: 0 10px 30px rgba(210, 95, 62, 0.15);
+		grid-column: 1;
+		grid-row: 2;
 	}
 
 	.service-card.easy-mode {
 		border-color: var(--accent-easy);
 		box-shadow: 0 10px 30px rgba(255, 201, 120, 0.15);
+		grid-column: 1;
+		grid-row: 1;
 	}
 
 	.service-card.legend-mode {
 		border-color: #8B4513;
 		box-shadow: 0 10px 30px rgba(139, 69, 19, 0.15);
 		background: linear-gradient(135deg, #FFF8DC, #FFFAF0);
+		grid-column: 2;
+		grid-row: 2;
 	}
 
 	.easy-mode-center {
@@ -472,7 +488,15 @@ function getLink(path: string) {
 		gap: 12px;
 		width: 100%;
 		max-width: 300px;
-		margin: 30px 0;
+		margin: 40px auto;
+		align-items: center;
+	}
+
+	.legend-button-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
 	}
 
 	.mode-button {
@@ -483,6 +507,8 @@ function getLink(path: string) {
 		font-weight: 600;
 		cursor: pointer;
 		transition: all 0.3s ease;
+		width: 100%;
+		min-width: 200px;
 	}
 
 	.normal-btn {
@@ -515,11 +541,15 @@ function getLink(path: string) {
 		transform: translateY(-2px);
 	}
 
-	.legend-note {
-		font-size: 0.9rem;
+	.footnote {
+		margin-top: 5px;
+		text-align: center;
+	}
+
+	.footnote small {
+		font-size: 0.8rem;
 		color: var(--text-light);
 		font-style: italic;
-		margin-top: -5px;
 	}
 
 	.easy-mode-content {
@@ -1090,6 +1120,7 @@ function getLink(path: string) {
 
 		.services-grid {
 			grid-template-columns: 1fr;
+			grid-template-rows: auto;
 		}
 
 		.additional-grid {
