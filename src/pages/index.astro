@@ -40,37 +40,60 @@ function getLink(path: string) {
 		</div>
 	</section>
 
+	<section class="about-you">
+		<div class="container">
+			<h2 class="section-title">Это про тебя, если…</h2>
+			<ul class="about-you-list">
+				<li>Пытаешься похудеть, но вес только растёт, а вместе с ним и стресс</li>
+				<li>Устал(а) от бесконечных диет и жёстких ограничений</li>
+				<li>Хочешь перестать стесняться своего тела и выходить из дома с уверенностью</li>
+				<li>Мечтаешь вернуть лёгкость в теле и сбросить лишнее без надрыва и срывов</li>
+				<li>Хочешь наконец разобраться в питании и уметь составлять рацион под себя</li>
+				<li>Хочешь есть вкусно, сытно и без постоянных ограничений</li>
+				<li>…и любая другая причина, по которой ты хочешь снова чувствовать себя в форме и кайфовать от жизни</li>
+			</ul>
+		</div>
+	</section>
+
 	<section class="features">
 		<div class="container">
-			<h2 class="section-title">Почему выбирают меня?</h2>
+			<h2 class="section-title">Почему мой подход подойдёт именно тебе</h2>
 			<div class="features-grid">
 				<div class="feature-card easy">
 					<div class="feature-icon">
-						<img src={individualIcon} alt="Индивидуальный подход" width="48" height="48">
+						<img src={individualIcon} alt="Удобно" width="48" height="48">
 					</div>
-					<h3>Индивидуальный подход</h3>
-					<p>Персональная программа, адаптированная под твои цели и образ жизни</p>
+					<h3>Удобно</h3>
+					<ul>
+						<li><strong>Индивидуальный подход</strong> — персональный план под твои цели, образ жизни и график.</li>
+						<li><strong>Ешь с удовольствием</strong> — любимые блюда остаются в рационе, еда даёт энергию и настроение, а не чувство вины.</li>
+						<li><strong>Онлайн-поддержка</strong> — всегда на связи в твоём часовом поясе, консультации на русском или английском.</li>
+						<li><strong>Гибкость</strong> — адаптация под поездки, смены, семейные дела, возможность заморозки.</li>
+					</ul>
 				</div>
 				<div class="feature-card normal">
 					<div class="feature-icon">
-						<img src={fastFoodIcon} alt="Без голодовок" width="48" height="48">
+						<img src={fastFoodIcon} alt="Безопасно" width="48" height="48">
 					</div>
-					<h3>Без голодовок</h3>
-					<p>Ешь много и вкусно, не отказывайся от любимых блюд</p>
+					<h3>Безопасно</h3>
+					<ul>
+						<li><strong>Без голодовок</strong> — рацион строится на добавлении приоритетных продуктов, а не жестких ограничениях. Ешь достаточно для насыщения и при этом двигаешься к цели.</li>
+						<li><strong>Здоровая потеря веса</strong> — минус 0,5–1% массы тела в неделю без вреда для здоровья.</li>
+						<li><strong>Качественный набор мышц</strong> — индивидуальный план тренировок с корректировкой техники под твой уровень.</li>
+						<li><strong>Поддержка здоровья</strong> — учёт особенностей ЖКТ, аллергий, противопоказаний и вкусовых предпочтений.</li>
+					</ul>
 				</div>
 				<div class="feature-card hard">
 					<div class="feature-icon">
-						<img src={goalsIcon} alt="Гарантированный результат" width="48" height="48">
+						<img src={goalsIcon} alt="Эффективно" width="48" height="48">
 					</div>
-					<h3>Гарантированный результат</h3>
-					<p>Научно обоснованные методы и постоянная поддержка</p>
-				</div>
-				<div class="feature-card easy">
-					<div class="feature-icon">
-						<img src={onlineIcon} alt="Онлайн работа" width="48" height="48">
-					</div>
-					<h3>Онлайн из Испании</h3>
-					<p>Удобные консультации на русском и английском языках</p>
+					<h3>Эффективно</h3>
+					<ul>
+						<li><strong>Реальные изменения</strong> — научно обоснованные методы, которые приносят результат.</li>
+						<li><strong>Постепенные привычки</strong> — поэтапное внедрение в жизнь в комфортном тебе темпе, без стресса и жёстких рамок.</li>
+						<li><strong>Прозрачный прогресс</strong> — регулярные замеры, фото и корректировки плана на основе данных.</li>
+						<li><strong>Настоящие кейсы</strong> — примеры клиентов, которые достигли результата в схожих условиях.</li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -206,6 +229,40 @@ function getLink(path: string) {
 		color: var(--text-color);
 	}
 
+	.about-you {
+		padding: 80px 0;
+		background: white;
+	}
+
+	.about-you-list {
+		max-width: 800px;
+		margin: 0 auto;
+		list-style: none;
+		padding: 0;
+	}
+
+	.about-you-list li {
+		display: flex;
+		align-items: flex-start;
+		margin-bottom: 20px;
+		padding: 20px;
+		background: var(--bg-warm);
+		border-radius: 10px;
+		font-size: 1.1rem;
+		line-height: 1.6;
+		color: var(--text-color);
+	}
+
+	.about-you-list li::before {
+		content: "•";
+		color: var(--accent-normal);
+		font-weight: bold;
+		font-size: 1.3rem;
+		margin-right: 15px;
+		flex-shrink: 0;
+		margin-top: 2px;
+	}
+
 	.features {
 		padding: 80px 0;
 		background: var(--bg-warm);
@@ -276,6 +333,35 @@ function getLink(path: string) {
 	.feature-card p {
 		color: var(--text-light);
 		line-height: 1.6;
+	}
+
+	.feature-card ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		text-align: left;
+	}
+
+	.feature-card ul li {
+		margin-bottom: 12px;
+		padding-left: 20px;
+		position: relative;
+		color: var(--text-light);
+		line-height: 1.6;
+	}
+
+	.feature-card ul li::before {
+		content: "•";
+		position: absolute;
+		left: 0;
+		color: var(--accent-normal);
+		font-weight: bold;
+	}
+
+	.feature-card ul li strong {
+		color: var(--text-color);
+		font-weight: 700;
+		font-size: 1.05em;
 	}
 
 	.testimonials {
