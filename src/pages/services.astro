@@ -253,16 +253,14 @@ function getLink(path: string) {
 					<p>Ты начнёшь менять не только себя, но и станешь примером для своих друзей и близких.</p>
 				</div>
 			</div>
-			<div class="results-cta">
-				<p class="results-motivation">Давай сделаем так, чтобы через пару месяцев ты гордился собой.</p>
-				<p class="results-action">Выбери подходящий тариф и начни своё преображение.</p>
-			</div>
 		</div>
 	</section>
 
 	<section class="cta-section">
 		<div class="container">
 			<div class="cta-content">
+				<p class="cta-motivation">Давай сделаем так, чтобы через пару месяцев ты гордился собой.</p>
+				<p class="cta-action">Выбери подходящий тариф и начни своё преображение.</p>
 				<div class="cta-buttons">
 					<a href="#coaching-section" class="cta-button primary">К услугам</a>
 					<a href={getLink('about')} class="cta-button secondary">Узнать больше обо мне</a>
@@ -292,7 +290,7 @@ function getLink(path: string) {
 	}
 
 	.container {
-		max-width: 1200px;
+		max-width: 1400px;
 		margin: 0 auto;
 		padding: 0 20px;
 	}
@@ -559,26 +557,6 @@ function getLink(path: string) {
 		flex-wrap: wrap;
 	}
 
-	.cta-button.primary {
-		background: var(--accent-normal);
-		color: white;
-	}
-
-	.cta-button.primary:hover {
-		background: var(--accent-hard);
-	}
-
-	.cta-button.secondary {
-		background: transparent;
-		border: 2px solid var(--accent-normal);
-		color: var(--accent-normal);
-	}
-
-	.cta-button.secondary:hover {
-		background: var(--accent-normal);
-		color: white;
-	}
-
 	.additional-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -807,8 +785,16 @@ function getLink(path: string) {
 		margin-bottom: 15px;
 	}
 
-	.cta-content p {
-		font-size: 1.2rem;
+	.cta-motivation {
+		font-size: 1.4rem;
+		font-weight: 600;
+		color: white;
+		margin-bottom: 10px;
+	}
+
+	.cta-action {
+		font-size: 1.1rem;
+		color: white;
 		margin-bottom: 30px;
 		opacity: 0.9;
 	}
