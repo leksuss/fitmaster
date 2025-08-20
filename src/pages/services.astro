@@ -33,25 +33,9 @@ function getLink(path: string) {
 					<div class="service-header">
 						<h3>Режим: EASY</h3>
 					</div>
-					<div class="service-content">
-						<div class="easy-mode-center">
-							<button class="service-button" onclick="toggleEasyMode()">Узнать больше</button>
-						</div>
-						<div id="easyModeContent" class="easy-mode-content" style="display: none;">
-							<p class="easy-intro">Я не верю в легкий путь без действий, но я сделаю так, чтобы твой путь к цели был максимально комфортным и эффективным!</p>
-							<div class="easy-mode-buttons">
-								<button class="mode-button normal-btn" onclick="scrollToMode('normal')">Режим: NORMAL</button>
-								<button class="mode-button hard-btn" onclick="scrollToMode('hard')">Режим: HARD</button>
-								<div class="legend-button-container">
-									<button class="mode-button legend-btn" onclick="scrollToMode('legend')">Режим: LEGEND*</button>
-									<div class="footnote">
-										<small>* очень дорого</small>
-									</div>
-								</div>
-							</div>
-							<div class="service-button-container">
-								<button class="service-button-collapse" onclick="toggleEasyMode()">Свернуть</button>
-							</div>
+					<div class="service-content easy-content">
+						<div class="service-button-container">
+							<button class="service-button available" onclick="openModal('easy')">Узнать больше</button>
 						</div>
 					</div>
 				</div>
@@ -68,36 +52,8 @@ function getLink(path: string) {
 					<div class="service-content">
 						<p class="service-description">Твой гибкий путь к осознанному питанию. Ты научишься ориентироваться в еде с помощью метода ладони (кулак, ладонь, палец), без весов и подсчёта калорий. Идеально для тех, кто хочет сбросить лишний вес, ищет комфортный подход и готов довериться ощущениям и моим рекомендациям.</p>
 						
-						<button class="details-toggle" onclick="toggleDetails('normal')">Что тебя ждёт:</button>
-						<div class="details-content" id="normal-details" style="display: none;">
-							<ul>
-								<li>Анкета для старта — ты отвечаешь на вопросы про себя: цели, вкусы, привычки, график, здоровье. Уже на этом этапе вырисовывается план.</li>
-								<li>Созвон — обсуждаем всё по анкете, фиксируем цель, сроки и конкретные точки, по которым будем мерить прогресс.</li>
-								<li>Онлайн-формат — работаем дистанционно: не важно, где ты живёшь, я рядом и всегда отвечу.</li>
-								<li>Прозрачный контроль прогресса — регулярные взвешивания, фото и замеры, чтобы видеть реальную картину и корректировать план.</li>
-								<li>Поддержка и мотивация — на связи на каждом этапе, отвечаю на вопросы, хвалю и помогаю пройти любые моменты.</li>
-								<li>Начинаем путь — я собираю тебе план, который поэтапно впишется в твой ритм жизни.</li>
-								<li>Метод ладони — вместо весов и цифр мы используем ладонь, кулак и палец, чтобы легко и быстро определять, сколько и чего тебе нужно в каждом приёме пищи.</li>
-								<li>Без голодовок и запретов — ешь много, вкусно и то, что любишь, просто в правильных пропорциях под твои цели.</li>
-								<li>Еженедельные апгрейды — каждую неделю даю тебе новую полезную информацию и задания. Мы закрепляем их на практике, и ты видишь, как меняются тело и привычки.</li>
-							</ul>
-							
-							<div class="important-note">
-								<strong>Важно:</strong><br>
-								Это не марафон и не волшебная таблетка. Результат будет, если ты честно работаешь и следуешь плану.
-							</div>
-							
-							<div class="conditions">
-								<strong>Условия:</strong>
-								<ul>
-									<li><strong>Минимум — 2 месяца</strong> — получаешь основу по питанию, сбрасываешь лишнее и начинаешь уверенно ориентироваться в порциях, но часть вопросов останется.</li>
-									<li><strong>Рекомендую — 4 месяца</strong> — скидка 50 € в месяц, выработанные привычки и полный набор знаний, которые откроют ответы на 99% твоих вопросов.</li>
-								</ul>
-							</div>
-						</div>
-						
 						<div class="service-button-container">
-							<button class="service-button available" onclick="openBookingModal()">Записаться</button>
+							<button class="service-button available" onclick="openModal('normal')">Что тебя ждёт</button>
 						</div>
 					</div>
 				</div>
@@ -114,36 +70,8 @@ function getLink(path: string) {
 					<div class="service-content">
 						<p class="service-description">Твой пошаговый план для максимального контроля и понимания процесса. Ты будешь детально отслеживать прогресс, а также считать и точно знать свои КБЖУ. Отлично подходит для тех, кто хочет стать очень сухим, любит системный подход и готов ежедневно взвешивать всю свою еду.</p>
 						
-						<button class="details-toggle" onclick="toggleDetails('hard')">Что тебя ждёт:</button>
-						<div class="details-content" id="hard-details" style="display: none;">
-							<ul>
-								<li>Анкета для старта — ты отвечаешь на вопросы про себя: цели, вкусы, привычки, график, здоровье. Уже на этом этапе вырисовывается план.</li>
-								<li>Созвон — обсуждаем всё по анкете, фиксируем цель, сроки и конкретные точки, по которым будем мерить прогресс.</li>
-								<li>Онлайн-формат — работаем дистанционно: не важно, где ты живёшь, я рядом и всегда отвечу.</li>
-								<li>Прозрачный контроль прогресса — регулярные взвешивания, фото и замеры, чтобы видеть реальную картину и корректировать план.</li>
-								<li>Поддержка и мотивация — на связи на каждом этапе, отвечаю на вопросы, хвалю и помогаю пройти любые моменты.</li>
-								<li>Начинаем путь — я собираю тебе план, который поэтапно впишется в твой ритм жизни.</li>
-								<li>Учёт без заморочек — ты научишься взвешивать еду и считать калории через FatSecret или Yazio, чтобы это стало привычкой, а не головной болью.</li>
-								<li>Без голодовок и запретов — ешь много, вкусно и то, что любишь, просто в правильных пропорциях под твои цели.</li>
-								<li>Еженедельные апгрейды — каждую неделю даю тебе новую полезную информацию и задания. Мы закрепляем их на практике, и ты видишь, как меняются тело и привычки.</li>
-							</ul>
-							
-							<div class="important-note">
-								<strong>Важно:</strong><br>
-								Это не марафон и не волшебная таблетка. Результат будет, если ты честно работаешь и следуешь плану.
-							</div>
-							
-							<div class="conditions">
-								<strong>Условия:</strong>
-								<ul>
-									<li><strong>Минимум — 2 месяца</strong> — получаешь основу по питанию, сбрасываешь лишнее и начинаешь уверенно ориентироваться в порциях, но часть вопросов останется.</li>
-									<li><strong>Рекомендую — 4 месяца</strong> — скидка 50 € в месяц, выработанные привычки и полный набор знаний, который даст ответы на 99% твоих вопросов.</li>
-								</ul>
-							</div>
-						</div>
-						
 						<div class="service-button-container">
-							<button class="service-button available" onclick="openBookingModal()">Записаться</button>
+							<button class="service-button available" onclick="openModal('hard')">Что тебя ждёт</button>
 						</div>
 					</div>
 				</div>
@@ -159,25 +87,8 @@ function getLink(path: string) {
 					<div class="service-content">
 						<p class="service-description">На 4 месяца я становлюсь частью твоей жизни. Когда нужен не план, а человек, который живёт рядом с тобой и ведёт к результату. Максимально личный и глубокий формат работы. Включает всё то же, что и стандартное сопровождение, а способ контроля питания мы выбираем на месте.</p>
 						
-						<button class="details-toggle" onclick="toggleDetails('legend')">Что тебя ждёт:</button>
-						<div class="details-content" id="legend-details" style="display: none;">
-							<p><strong>Две недели каждого месяца я живу рядом с тобой и лично веду тебя:</strong></p>
-							<ul>
-								<li>ходим в магазины — показываю, какие продукты и бренды брать;</li>
-								<li>ходим в рестораны/кафе, где я научу тебя ориентироваться в меню с учётом твоих предпочтений и целей;</li>
-								<li>тренируемся вместе в твоём зале — я твой личный тренер на месте, контролирую, поддерживаю и делюсь секретами GYM-комьюнити;</li>
-								<li>сопровождаю тебя на вечерних прогулках, формируем привычки в реальной жизни;</li>
-								<li>разбираем и корректируем каждую мелочь, которая может мешать твоему результату;</li>
-								<li>в остальные две недели месяца — дистанционное сопровождение и контроль, чтобы ты не сбивался с ритма, а также созвон раз в неделю.</li>
-							</ul>
-							
-							<p class="legend-note-text">Это не просто коучинг — это прямое погружение в твой образ жизни с полной перезагрузкой пищевого поведения и тренировочных привычек.</p>
-							
-							<p class="additional-costs"><em>Расходы на еду, рестораны и зал — оплачиваются отдельно.</em></p>
-						</div>
-						
 						<div class="service-button-container">
-							<button class="service-button available" onclick="openBookingModal()">Записаться</button>
+							<button class="service-button available" onclick="openModal('legend')">Что тебя ждёт</button>
 						</div>
 					</div>
 				</div>
@@ -188,7 +99,7 @@ function getLink(path: string) {
 	<section class="training-section">
 		<div class="container">
 			<h2 class="section-title">Коучинг по тренировкам</h2>
-			<div class="services-grid">
+			<div class="training-grid">
 				
 				<div class="service-card training-only">
 					<div class="service-header">
@@ -360,6 +271,16 @@ function getLink(path: string) {
 		</div>
 	</section>
 
+	<!-- Modal Overlay -->
+	<div id="modal-overlay" class="modal-overlay" onclick="closeModal()">
+		<div class="modal-container" onclick="event.stopPropagation()">
+			<button class="modal-close" onclick="closeModal()">&times;</button>
+			<div id="modal-content" class="modal-content">
+				<!-- Dynamic content will be inserted here -->
+			</div>
+		</div>
+	</div>
+
 </Layout>
 
 <style>
@@ -410,8 +331,27 @@ function getLink(path: string) {
 
 	.services-grid {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr 1fr;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 30px;
+		margin-bottom: 50px;
+		align-items: stretch;
+	}
+
+	@media (min-width: 768px) and (max-width: 1200px) {
+		.services-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.services-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	.training-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 		gap: 30px;
 		margin-bottom: 50px;
 		align-items: stretch;
@@ -439,134 +379,36 @@ function getLink(path: string) {
 	.service-card.normal-mode {
 		border-color: var(--accent-normal);
 		box-shadow: 0 10px 30px rgba(255, 145, 77, 0.15);
-		grid-column: 2;
-		grid-row: 1;
 	}
 
 	.service-card.hard-mode {
 		border-color: var(--accent-hard);
 		box-shadow: 0 10px 30px rgba(210, 95, 62, 0.15);
-		grid-column: 1;
-		grid-row: 2;
 	}
 
 	.service-card.easy-mode {
 		border-color: var(--accent-easy);
 		box-shadow: 0 10px 30px rgba(255, 201, 120, 0.15);
-		grid-column: 1;
-		grid-row: 1;
+	}
+
+	.service-card.easy-mode .service-content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-grow: 1;
+		text-align: center;
+	}
+
+	.service-card.easy-mode .service-button-container {
+		margin-top: 0;
 	}
 
 	.service-card.legend-mode {
 		border-color: #8B4513;
 		box-shadow: 0 10px 30px rgba(139, 69, 19, 0.15);
 		background: linear-gradient(135deg, #FFF8DC, #FFFAF0);
-		grid-column: 2;
-		grid-row: 2;
 	}
 
-	.easy-mode-center {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex-grow: 1;
-		text-align: center;
-		gap: 25px;
-	}
-
-	.easy-intro {
-		font-size: 1.1rem;
-		line-height: 1.6;
-		color: var(--text-color);
-		margin: 0;
-	}
-
-	.easy-mode-buttons {
-		display: flex;
-		flex-direction: column;
-		gap: 12px;
-		width: 100%;
-		max-width: 300px;
-		margin: 40px auto;
-		align-items: center;
-	}
-
-	.legend-button-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: 100%;
-	}
-
-	.mode-button {
-		padding: 12px 20px;
-		border: none;
-		border-radius: 10px;
-		font-size: 1rem;
-		font-weight: 600;
-		cursor: pointer;
-		transition: all 0.3s ease;
-		width: 100%;
-		min-width: 200px;
-	}
-
-	.normal-btn {
-		background: var(--accent-normal);
-		color: white;
-	}
-
-	.normal-btn:hover {
-		background: var(--accent-hard);
-		transform: translateY(-2px);
-	}
-
-	.hard-btn {
-		background: var(--accent-hard);
-		color: white;
-	}
-
-	.hard-btn:hover {
-		background: var(--accent-hard-dark);
-		transform: translateY(-2px);
-	}
-
-	.legend-btn {
-		background: linear-gradient(135deg, #8B4513, #654321);
-		color: #FFD700;
-	}
-
-	.legend-btn:hover {
-		background: linear-gradient(135deg, #654321, #4A2C17);
-		transform: translateY(-2px);
-	}
-
-	.footnote {
-		margin-top: 5px;
-		text-align: center;
-	}
-
-	.footnote small {
-		font-size: 0.8rem;
-		color: var(--text-light);
-		font-style: italic;
-	}
-
-	.easy-mode-content {
-		margin-top: 20px;
-		animation: slideDown 0.3s ease-out;
-	}
-
-	@keyframes slideDown {
-		from {
-			opacity: 0;
-			transform: translateY(-10px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
 
 	.service-header h3 {
 		font-size: 1.5rem;
@@ -644,23 +486,6 @@ function getLink(path: string) {
 		gap: 10px;
 	}
 
-	.service-button-collapse {
-		width: 100%;
-		padding: 10px;
-		border: 1px solid var(--border-color);
-		border-radius: 10px;
-		background: transparent;
-		color: var(--text-light);
-		font-size: 0.9rem;
-		font-weight: 500;
-		cursor: pointer;
-		transition: all 0.3s ease;
-	}
-
-	.service-button-collapse:hover {
-		background: var(--bg-light);
-		color: var(--text-color);
-	}
 
 	.service-description {
 		line-height: 1.6;
@@ -706,89 +531,6 @@ function getLink(path: string) {
 		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
 	}
 
-	.details-toggle {
-		background: var(--accent-easy);
-		color: #8B4513;
-		border: none;
-		padding: 12px 20px;
-		border-radius: 10px;
-		font-size: 1rem;
-		font-weight: 600;
-		cursor: pointer;
-		transition: all 0.3s ease;
-		margin: 20px 0 15px 0;
-		width: 100%;
-	}
-
-	.details-toggle:hover {
-		background: #FFD700;
-		transform: translateY(-2px);
-	}
-
-	.details-content {
-		animation: slideDown 0.3s ease-out;
-	}
-
-	.details-content ul {
-		list-style: none;
-		padding: 0;
-		margin: 0 0 20px 0;
-	}
-
-	.details-content li {
-		padding: 10px 0;
-		border-bottom: 1px solid var(--border-color);
-		color: var(--text-color);
-		position: relative;
-		padding-left: 20px;
-	}
-
-	.details-content li:before {
-		content: "•";
-		color: var(--accent-normal);
-		font-weight: bold;
-		position: absolute;
-		left: 0;
-	}
-
-	.details-content li:last-child {
-		border-bottom: none;
-	}
-
-	.important-note {
-		background: var(--bg-warm);
-		padding: 15px;
-		border-radius: 10px;
-		border-left: 4px solid var(--accent-normal);
-		margin: 20px 0;
-		color: var(--text-color);
-	}
-
-	.conditions {
-		background: #f0f9ff;
-		padding: 15px;
-		border-radius: 10px;
-		border-left: 4px solid var(--accent-easy);
-		margin: 20px 0;
-		color: var(--text-color);
-	}
-
-	.conditions ul {
-		margin-top: 10px;
-	}
-
-	.legend-note-text {
-		font-style: italic;
-		color: var(--accent-hard);
-		font-weight: 600;
-		margin: 15px 0;
-	}
-
-	.additional-costs {
-		color: var(--text-light);
-		font-size: 0.9rem;
-		margin-top: 15px;
-	}
 
 	.results-cta {
 		text-align: center;
@@ -1102,6 +844,193 @@ function getLink(path: string) {
 		}
 	}
 
+	/* Modal Styles */
+	.modal-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.8);
+		display: none;
+		justify-content: center;
+		align-items: center;
+		z-index: 1000;
+		backdrop-filter: blur(5px);
+		animation: fadeIn 0.3s ease-out;
+	}
+
+	.modal-overlay.active {
+		display: flex;
+	}
+
+	.modal-container {
+		background: white;
+		border-radius: 20px;
+		max-width: 800px;
+		width: 90%;
+		max-height: 85vh;
+		overflow-y: auto;
+		position: relative;
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+		animation: modalSlideIn 0.4s ease-out;
+	}
+
+	.modal-close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		background: none;
+		border: none;
+		font-size: 2rem;
+		cursor: pointer;
+		color: var(--text-light);
+		z-index: 10;
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		transition: all 0.3s ease;
+	}
+
+	.modal-close:hover {
+		background: var(--bg-warm);
+		color: var(--text-color);
+		transform: scale(1.1);
+	}
+
+	.modal-content {
+		padding: 40px;
+	}
+
+	.modal-header {
+		text-align: center;
+		margin-bottom: 30px;
+		padding-bottom: 20px;
+		border-bottom: 2px solid var(--accent-easy);
+	}
+
+	.modal-header h2 {
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 10px;
+		color: var(--text-color);
+	}
+
+	.modal-header .price {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--accent-normal);
+		margin-bottom: 5px;
+	}
+
+	.modal-header .duration {
+		color: var(--text-light);
+		font-size: 1rem;
+	}
+
+	.modal-body {
+		margin-bottom: 30px;
+	}
+
+	.modal-body p {
+		line-height: 1.6;
+		color: var(--text-color);
+		margin-bottom: 20px;
+	}
+
+	.modal-body ul {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 20px 0;
+	}
+
+	.modal-body li {
+		padding: 12px 0;
+		border-bottom: 1px solid var(--border-color);
+		color: var(--text-color);
+		position: relative;
+		padding-left: 25px;
+	}
+
+	.modal-body li:before {
+		content: "•";
+		color: var(--accent-normal);
+		font-weight: bold;
+		position: absolute;
+		left: 0;
+	}
+
+	.modal-body li:last-child {
+		border-bottom: none;
+	}
+
+	.modal-footer {
+		display: flex;
+		gap: 15px;
+		justify-content: center;
+		padding-top: 20px;
+		border-top: 1px solid var(--border-color);
+		flex-wrap: wrap;
+	}
+
+	.modal-button {
+		padding: 15px 30px !important;
+		border: none !important;
+		border-radius: 10px !important;
+		font-size: 1.1rem !important;
+		font-weight: 600 !important;
+		cursor: pointer !important;
+		transition: all 0.3s ease !important;
+		text-decoration: none !important;
+		display: inline-block !important;
+		text-align: center !important;
+		min-width: 150px !important;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+	}
+
+	.modal-button.primary {
+		background: var(--accent-normal) !important;
+		color: white !important;
+		box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2) !important;
+	}
+
+	.modal-button.primary:hover {
+		background: var(--accent-hard) !important;
+		transform: translateY(-2px) !important;
+		box-shadow: 0 8px 25px rgba(255, 145, 77, 0.4) !important;
+	}
+
+	.modal-button.secondary {
+		background: var(--accent-easy) !important;
+		color: #8B4513 !important;
+		box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2) !important;
+	}
+
+	.modal-button.secondary:hover {
+		background: #FFD700 !important;
+		transform: translateY(-2px) !important;
+		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.4) !important;
+	}
+
+	@keyframes fadeIn {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+
+	@keyframes modalSlideIn {
+		from {
+			opacity: 0;
+			transform: translateY(-50px) scale(0.9);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+	}
+
 
 	@media (max-width: 1024px) {
 		.results-grid {
@@ -1120,7 +1049,10 @@ function getLink(path: string) {
 
 		.services-grid {
 			grid-template-columns: 1fr;
-			grid-template-rows: auto;
+		}
+
+		.training-grid {
+			grid-template-columns: 1fr;
 		}
 
 		.additional-grid {
@@ -1145,45 +1077,198 @@ function getLink(path: string) {
 			width: 60px;
 		}
 
+		/* Mobile Modal Styles */
+		.modal-container {
+			width: 95%;
+			max-height: 95vh;
+			margin: 10px;
+		}
+
+		.modal-content {
+			padding: 30px 20px;
+		}
+
+		.modal-header h2 {
+			font-size: 1.5rem;
+		}
+
+		.modal-header .price {
+			font-size: 1.3rem;
+		}
+
+		.modal-footer {
+			flex-direction: column;
+		}
+
+		.modal-button {
+			width: 100%;
+			min-width: auto;
+		}
 	}
 </style>
 
 <script is:inline>
-	function scrollToMode(mode) {
-		const element = document.getElementById(mode + '-mode');
-		if (element) {
-			element.scrollIntoView({ 
-				behavior: 'smooth',
-				block: 'center'
-			});
-		}
+	// Modal functionality
+	function openModal(mode) {
+		const overlay = document.getElementById('modal-overlay');
+		const content = document.getElementById('modal-content');
+		
+		// Get modal content based on mode
+		const modalData = getModalData(mode);
+		content.innerHTML = modalData;
+		
+		overlay.classList.add('active');
+		document.body.style.overflow = 'hidden';
 	}
 
-	function toggleEasyMode() {
-		const content = document.getElementById('easyModeContent');
-		const buttonContainer = document.querySelector('.easy-mode-center');
-		
-		if (content.style.display === 'none' || content.style.display === '') {
-			content.style.display = 'block';
-			buttonContainer.style.display = 'none';
-		} else {
-			content.style.display = 'none';
-			buttonContainer.style.display = 'flex';
-		}
+	function closeModal() {
+		const overlay = document.getElementById('modal-overlay');
+		overlay.classList.remove('active');
+		document.body.style.overflow = '';
 	}
 
-	function toggleDetails(mode) {
-		const details = document.getElementById(mode + '-details');
-		const button = details.previousElementSibling;
+	function getModalData(mode) {
+		const modalContent = {
+			easy: `
+				<div class="modal-header">
+					<h2>Режим: EASY</h2>
+					<p>Я не верю в легкий путь без действий, но я сделаю так, чтобы твой путь к цели был максимально комфортным и эффективным!</p>
+				</div>
+				<div class="modal-body">
+					<h3>Выберите подходящий режим:</h3>
+					<div class="easy-mode-buttons" style="display: flex; flex-direction: column; gap: 15px; margin: 30px auto; align-items: center; max-width: 300px;">
+						<button onclick="openModal('normal')" style="width: 100%; padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2);">Режим: NORMAL</button>
+						<button onclick="openModal('hard')" style="width: 100%; padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #d25f3e; color: white; box-shadow: 0 4px 15px rgba(210, 95, 62, 0.2);">Режим: HARD</button>
+						<button onclick="openModal('legend')" style="width: 100%; padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2);">Режим: LEGEND*</button>
+						<small style="color: #6b7280; font-style: italic; margin-top: 5px;">* очень дорого</small>
+					</div>
+				</div>
+			`,
+			normal: `
+				<div class="modal-header">
+					<h2>Режим: NORMAL</h2>
+					<div class="price">550 евро/месяц</div>
+					<div class="duration">от 2-х месяцев</div>
+				</div>
+				<div class="modal-body">
+					<p><strong>Ведение без подсчёта КБЖУ</strong></p>
+					<p>Твой гибкий путь к осознанному питанию. Ты научишься ориентироваться в еде с помощью метода ладони (кулак, ладонь, палец), без весов и подсчёта калорий.</p>
+					
+					<h3>Что тебя ждёт:</h3>
+					<ul>
+						<li>Анкета для старта — ты отвечаешь на вопросы про себя: цели, вкусы, привычки, график, здоровье. Уже на этом этапе вырисовывается план.</li>
+						<li>Созвон — обсуждаем всё по анкете, фиксируем цель, сроки и конкретные точки, по которым будем мерить прогресс.</li>
+						<li>Онлайн-формат — работаем дистанционно: не важно, где ты живёшь, я рядом и всегда отвечу.</li>
+						<li>Прозрачный контроль прогресса — регулярные взвешивания, фото и замеры, чтобы видеть реальную картину и корректировать план.</li>
+						<li>Поддержка и мотивация — на связи на каждом этапе, отвечаю на вопросы, хвалю и помогаю пройти любые моменты.</li>
+						<li>Начинаем путь — я собираю тебе план, который поэтапно впишется в твой ритм жизни.</li>
+						<li>Метод ладони — вместо весов и цифр мы используем ладонь, кулак и палец, чтобы легко и быстро определять, сколько и чего тебе нужно в каждом приёме пищи.</li>
+						<li>Без голодовок и запретов — ешь много, вкусно и то, что любишь, просто в правильных пропорциях под твои цели.</li>
+						<li>Еженедельные апгрейды — каждую неделю даю тебе новую полезную информацию и задания. Мы закрепляем их на практике, и ты видишь, как меняются тело и привычки.</li>
+					</ul>
+					
+					<div style="background: var(--bg-warm); padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent-normal); margin: 20px 0;">
+						<strong>Важно:</strong><br>
+						Это не марафон и не волшебная таблетка. Результат будет, если ты честно работаешь и следуешь плану.
+					</div>
+					
+					<div style="background: #f0f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent-easy); margin: 20px 0;">
+						<strong>Условия:</strong>
+						<ul style="margin-top: 10px;">
+							<li><strong>Минимум — 2 месяца</strong> — получаешь основу по питанию, сбрасываешь лишнее и начинаешь уверенно ориентироваться в порциях, но часть вопросов останется.</li>
+							<li><strong>Рекомендую — 4 месяца</strong> — скидка 50 € в месяц, выработанные привычки и полный набор знаний, которые откроют ответы на 99% твоих вопросов.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button onclick="openBookingModal()" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px;">Записаться</button>
+					<button onclick="openModal('hard')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с HARD</button>
+					<button onclick="openModal('legend')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с LEGEND</button>
+				</div>
+			`,
+			hard: `
+				<div class="modal-header">
+					<h2>Режим: HARD</h2>
+					<div class="price">450 евро/месяц</div>
+					<div class="duration">от 2-х месяцев</div>
+				</div>
+				<div class="modal-body">
+					<p><strong>Ведение с подсчетом КБЖУ</strong></p>
+					<p>Твой пошаговый план для максимального контроля и понимания процесса. Ты будешь детально отслеживать прогресс, а также считать и точно знать свои КБЖУ.</p>
+					
+					<h3>Что тебя ждёт:</h3>
+					<ul>
+						<li>Анкета для старта — ты отвечаешь на вопросы про себя: цели, вкусы, привычки, график, здоровье. Уже на этом этапе вырисовывается план.</li>
+						<li>Созвон — обсуждаем всё по анкете, фиксируем цель, сроки и конкретные точки, по которым будем мерить прогресс.</li>
+						<li>Онлайн-формат — работаем дистанционно: не важно, где ты живёшь, я рядом и всегда отвечу.</li>
+						<li>Прозрачный контроль прогресса — регулярные взвешивания, фото и замеры, чтобы видеть реальную картину и корректировать план.</li>
+						<li>Поддержка и мотивация — на связи на каждом этапе, отвечаю на вопросы, хвалю и помогаю пройти любые моменты.</li>
+						<li>Начинаем путь — я собираю тебе план, который поэтапно впишется в твой ритм жизни.</li>
+						<li>Учёт без заморочек — ты научишься взвешивать еду и считать калории через FatSecret или Yazio, чтобы это стало привычкой, а не головной болью.</li>
+						<li>Без голодовок и запретов — ешь много, вкусно и то, что любишь, просто в правильных пропорциях под твои цели.</li>
+						<li>Еженедельные апгрейды — каждую неделю даю тебе новую полезную информацию и задания. Мы закрепляем их на практике, и ты видишь, как меняются тело и привычки.</li>
+					</ul>
+					
+					<div style="background: var(--bg-warm); padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent-normal); margin: 20px 0;">
+						<strong>Важно:</strong><br>
+						Это не марафон и не волшебная таблетка. Результат будет, если ты честно работаешь и следуешь плану.
+					</div>
+					
+					<div style="background: #f0f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent-easy); margin: 20px 0;">
+						<strong>Условия:</strong>
+						<ul style="margin-top: 10px;">
+							<li><strong>Минимум — 2 месяца</strong> — получаешь основу по питанию, сбрасываешь лишнее и начинаешь уверенно ориентироваться в порциях, но часть вопросов останется.</li>
+							<li><strong>Рекомендую — 4 месяца</strong> — скидка 50 € в месяц, выработанные привычки и полный набор знаний, который даст ответы на 99% твоих вопросов.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button onclick="openBookingModal()" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px;">Записаться</button>
+					<button onclick="openModal('normal')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с NORMAL</button>
+					<button onclick="openModal('legend')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с LEGEND</button>
+				</div>
+			`,
+			legend: `
+				<div class="modal-header">
+					<h2>Режим: LEGEND</h2>
+					<div class="price">От 88 000 € за 4 месяца</div>
+					<div class="duration">(перелёты и проживание включены)</div>
+				</div>
+				<div class="modal-body">
+					<p>На 4 месяца я становлюсь частью твоей жизни. Когда нужен не план, а человек, который живёт рядом с тобой и ведёт к результату. Максимально личный и глубокий формат работы.</p>
+					
+					<h3>Что тебя ждёт:</h3>
+					<p><strong>Две недели каждого месяца я живу рядом с тобой и лично веду тебя:</strong></p>
+					<ul>
+						<li>ходим в магазины — показываю, какие продукты и бренды брать;</li>
+						<li>ходим в рестораны/кафе, где я научу тебя ориентироваться в меню с учётом твоих предпочтений и целей;</li>
+						<li>тренируемся вместе в твоём зале — я твой личный тренер на месте, контролирую, поддерживаю и делюсь секретами GYM-комьюнити;</li>
+						<li>сопровождаю тебя на вечерних прогулках, формируем привычки в реальной жизни;</li>
+						<li>разбираем и корректируем каждую мелочь, которая может мешать твоему результату;</li>
+						<li>в остальные две недели месяца — дистанционное сопровождение и контроль, чтобы ты не сбивался с ритма, а также созвон раз в неделю.</li>
+					</ul>
+					
+					<p style="font-style: italic; color: var(--accent-hard); font-weight: 600; margin: 15px 0;">Это не просто коучинг — это прямое погружение в твой образ жизни с полной перезагрузкой пищевого поведения и тренировочных привычек.</p>
+					
+					<p style="color: var(--text-light); font-size: 0.9rem;"><em>Расходы на еду, рестораны и зал — оплачиваются отдельно.</em></p>
+				</div>
+				<div class="modal-footer">
+					<button onclick="openBookingModal()" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px;">Записаться</button>
+					<button onclick="openModal('normal')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с NORMAL</button>
+					<button onclick="openModal('hard')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с HARD</button>
+				</div>
+			`
+		};
 		
-		if (details.style.display === 'none' || details.style.display === '') {
-			details.style.display = 'block';
-			button.textContent = 'Свернуть';
-		} else {
-			details.style.display = 'none';
-			button.textContent = 'Что тебя ждёт:';
-		}
+		return modalContent[mode] || '';
 	}
+
+	// Close modal on Escape key
+	document.addEventListener('keydown', function(e) {
+		if (e.key === 'Escape') {
+			closeModal();
+		}
+	});
 
 	// Добавляем ID к секции для прокрутки
 	document.addEventListener('DOMContentLoaded', function() {
