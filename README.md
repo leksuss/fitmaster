@@ -1,3 +1,3 @@
-# Fito Master
+# Fito Master Plus Max
 
 
