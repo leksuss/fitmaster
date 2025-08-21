@@ -800,60 +800,113 @@ function getLink(path: string) {
 	document.addEventListener('DOMContentLoaded', function() {
 		const carousel = document.getElementById('testimonials-carousel');
 		const track = document.getElementById('carousel-track');
-		const slides = track.querySelectorAll('.testimonial-slide');
+		const originalSlides = track.querySelectorAll('.testimonial-slide');
 		const prevBtn = document.getElementById('prev-btn');
 		const nextBtn = document.getElementById('next-btn');
 		const indicatorsContainer = document.getElementById('carousel-indicators');
 		
-		let currentSlide = 0;
+		let currentIndex = 0;
 		let isAutoPlaying = true;
 		let autoPlayInterval;
-		const slideCount = slides.length;
+		let isTransitioning = false;
+		const originalSlideCount = originalSlides.length;
 		
-		// Создаем индикаторы
+		// Создаем клоны для бесконечной прокрутки
+		function createInfiniteLoop() {
+			// Клонируем первый и последний слайды
+			const firstClone = originalSlides[0].cloneNode(true);
+			const lastClone = originalSlides[originalSlideCount - 1].cloneNode(true);
+			
+			// Добавляем clone классы для идентификации
+			firstClone.classList.add('clone');
+			lastClone.classList.add('clone');
+			
+			// Добавляем клоны
+			track.appendChild(firstClone); // Клон первого слайда в конец
+			track.insertBefore(lastClone, originalSlides[0]); // Клон последнего слайда в начало
+			
+			// Устанавливаем начальную позицию на первый реальный слайд
+			currentIndex = 1;
+			updateCarouselPosition();
+		}
+		
+		// Создаем индикаторы (только для оригинальных слайдов)
 		function createIndicators() {
-			for (let i = 0; i < slideCount; i++) {
+			for (let i = 0; i < originalSlideCount; i++) {
 				const indicator = document.createElement('div');
 				indicator.classList.add('indicator');
 				if (i === 0) indicator.classList.add('active');
-				indicator.addEventListener('click', () => goToSlide(i));
+				indicator.addEventListener('click', () => goToSlide(i + 1)); // +1 из-за клона в начале
 				indicatorsContainer.appendChild(indicator);
 			}
 		}
 		
-		// Переход к слайду
-		function goToSlide(index) {
-			currentSlide = index;
-			const offset = -currentSlide * 100;
+		// Обновление позиции карусели
+		function updateCarouselPosition(withTransition = true) {
+			if (withTransition) {
+				track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+			} else {
+				track.style.transition = 'none';
+			}
+			
+			const offset = -currentIndex * 100;
 			track.style.transform = `translateX(${offset}%)`;
-			
-			// Обновляем индикаторы
+		}
+		
+		// Обновление индикаторов
+		function updateIndicators() {
 			const indicators = indicatorsContainer.querySelectorAll('.indicator');
-			indicators.forEach((indicator, i) => {
-				indicator.classList.toggle('active', i === currentSlide);
-			});
+			let activeIndex = currentIndex - 1; // -1 из-за клона в начале
 			
-			// Обновляем кнопки
-			prevBtn.disabled = currentSlide === 0;
-			nextBtn.disabled = currentSlide === slideCount - 1;
+			// Обработка краевых случаев
+			if (currentIndex === 0) activeIndex = originalSlideCount - 1;
+			if (currentIndex === originalSlideCount + 1) activeIndex = 0;
+			
+			indicators.forEach((indicator, i) => {
+				indicator.classList.toggle('active', i === activeIndex);
+			});
+		}
+		
+		// Переход к слайду
+		function goToSlide(index, withTransition = true) {
+			if (isTransitioning) return;
+			
+			currentIndex = index;
+			updateCarouselPosition(withTransition);
+			updateIndicators();
+			
+			if (withTransition) {
+				isTransitioning = true;
+				setTimeout(() => {
+					handleInfiniteLoop();
+					isTransitioning = false;
+				}, 500);
+			}
+		}
+		
+		// Обработка бесконечного цикла
+		function handleInfiniteLoop() {
+			if (currentIndex === 0) {
+				// Если дошли до клона последнего слайда, переходим к реальному последнему
+				currentIndex = originalSlideCount;
+				updateCarouselPosition(false);
+			} else if (currentIndex === originalSlideCount + 1) {
+				// Если дошли до клона первого слайда, переходим к реальному первому
+				currentIndex = 1;
+				updateCarouselPosition(false);
+			}
 		}
 		
 		// Следующий слайд
 		function nextSlide() {
-			if (currentSlide < slideCount - 1) {
-				goToSlide(currentSlide + 1);
-			} else {
-				goToSlide(0); // Возвращаемся к началу
-			}
+			if (isTransitioning) return;
+			goToSlide(currentIndex + 1);
 		}
 		
 		// Предыдущий слайд
 		function prevSlide() {
-			if (currentSlide > 0) {
-				goToSlide(currentSlide - 1);
-			} else {
-				goToSlide(slideCount - 1); // Переходим к последнему слайду
-			}
+			if (isTransitioning) return;
+			goToSlide(currentIndex - 1);
 		}
 		
 		// Автопрокрутка
@@ -885,7 +938,6 @@ function getLink(path: string) {
 		carousel.addEventListener('mouseleave', () => {
 			if (isAutoPlaying) startAutoPlay();
 		});
-		
 		
 		// Поддержка клавиатуры
 		document.addEventListener('keydown', (e) => {
@@ -931,8 +983,9 @@ function getLink(path: string) {
 		}
 		
 		// Инициализация
+		createInfiniteLoop();
 		createIndicators();
-		goToSlide(0);
+		updateIndicators();
 		startAutoPlay();
 	});
 </script>
