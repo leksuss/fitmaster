@@ -388,7 +388,10 @@ const faqData = {
 		<div class="container">
 			{Object.entries(faqData).map(([category, questions]) => (
 				<div class="faq-category">
-					<h2 class="category-title">{category}</h2>
+					<button class="category-title" type="button">
+						<span class="category-text">{category}</span>
+						<span class="category-toggle-icon">+</span>
+					</button>
 					<div class="questions-list">
 						{questions.map((item, index) => (
 							<div class="faq-item" key={index}>
@@ -461,19 +464,60 @@ const faqData = {
 	}
 
 	.category-title {
+		width: 100%;
 		font-size: 2rem;
 		font-weight: 700;
 		color: var(--accent-hard);
 		margin-bottom: 30px;
-		padding-bottom: 10px;
-		border-bottom: 3px solid var(--accent-easy);
-		display: inline-block;
+		padding: 20px 25px;
+		background: white;
+		border: 2px solid var(--accent-easy);
+		border-radius: 10px;
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		transition: all 0.3s ease;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	}
+
+	.category-title:hover {
+		background: var(--bg-warm);
+		border-color: var(--accent-normal);
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	}
+
+	.category-text {
+		flex: 1;
+		text-align: left;
+	}
+
+	.category-toggle-icon {
+		font-size: 1.8rem;
+		font-weight: bold;
+		color: var(--accent-normal);
+		transition: transform 0.3s ease;
+		flex-shrink: 0;
+		margin-left: 20px;
+	}
+
+	.faq-category.active .category-toggle-icon {
+		transform: rotate(45deg);
 	}
 
 	.questions-list {
 		display: flex;
 		flex-direction: column;
 		gap: 15px;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.4s ease, padding 0.4s ease;
+		padding: 0;
+	}
+
+	.faq-category.active .questions-list {
+		max-height: 2000px;
+		padding-top: 20px;
 	}
 
 	.faq-item {
@@ -611,6 +655,16 @@ const faqData = {
 
 		.category-title {
 			font-size: 1.6rem;
+			padding: 15px 20px;
+		}
+
+		.category-text {
+			margin-right: 15px;
+		}
+
+		.category-toggle-icon {
+			font-size: 1.6rem;
+			margin-left: 15px;
 		}
 
 		.faq-question {
@@ -646,6 +700,18 @@ const faqData = {
 
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
+		// FAQ Categories functionality
+		const faqCategories = document.querySelectorAll('.faq-category');
+		
+		faqCategories.forEach(category => {
+			const categoryTitle = category.querySelector('.category-title');
+			
+			categoryTitle.addEventListener('click', () => {
+				category.classList.toggle('active');
+			});
+		});
+
+		// FAQ Items functionality
 		const faqItems = document.querySelectorAll('.faq-item');
 		
 		faqItems.forEach(item => {
@@ -655,8 +721,11 @@ const faqData = {
 			question.addEventListener('click', () => {
 				const isActive = item.classList.contains('active');
 				
-				// Закрываем все остальные FAQ
-				faqItems.forEach(otherItem => {
+				// Закрываем все остальные FAQ внутри той же категории
+				const parentCategory = item.closest('.faq-category');
+				const siblingItems = parentCategory.querySelectorAll('.faq-item');
+				
+				siblingItems.forEach(otherItem => {
 					if (otherItem !== item) {
 						otherItem.classList.remove('active');
 					}
