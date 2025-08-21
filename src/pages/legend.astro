@@ -1,0 +1,405 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+
+function getLink(path: string) {
+  if (path === '') return base;
+  return base.endsWith('/') ? `${base}${path}/` : `${base}/${path}/`;
+}
+---
+
+<Layout title="Режим LEGEND - Влад Хелс-коуч">
+	<section class="legend-hero">
+		<div class="container">
+			<div class="back-navigation">
+				<a href={getLink('services')} class="back-button">
+					<span class="back-icon">←</span>
+					<span>Назад к услугам</span>
+				</a>
+			</div>
+			<div class="legend-header">
+				<h1>Режим: LEGEND</h1>
+				<div class="price-info">
+					<div class="price">88 000 € за 4 месяца</div>
+					<div class="duration">(перелёты и проживание включены)</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="legend-content">
+		<div class="container">
+			<div class="content-wrapper">
+				<div class="main-description">
+					<p class="intro-text">На 4 месяца я становлюсь частью твоей жизни. Когда нужен не план, а человек, который живёт рядом с тобой и ведёт к результату. Максимально личный и глубокий формат работы.</p>
+					<p class="additional-info">Включает всё то же, что и стандартное сопровождение, а способ контроля питания мы выбираем на месте.</p>
+				</div>
+
+				<div class="what-awaits">
+					<h2>Что тебя ждёт:</h2>
+					
+					<div class="highlight-section">
+						<h3>Две недели каждого месяца я живу рядом с тобой и лично веду тебя:</h3>
+					</div>
+					
+					<div class="benefits-list">
+						<div class="benefit-item">
+							<div class="benefit-icon">🛒</div>
+							<p>ходим в магазины — показываю, какие продукты и бренды брать;</p>
+						</div>
+						
+						<div class="benefit-item">
+							<div class="benefit-icon">🍽️</div>
+							<p>ходим в рестораны/кафе, где я научу тебя ориентироваться в меню с учётом твоих предпочтений и целей;</p>
+						</div>
+						
+						<div class="benefit-item">
+							<div class="benefit-icon">🏋️</div>
+							<p>тренируемся вместе в твоём зале — я твой личный тренер на месте, контролирую, поддерживаю и делюсь секретами GYM-комьюнити;</p>
+						</div>
+						
+						<div class="benefit-item">
+							<div class="benefit-icon">🚶</div>
+							<p>сопровождаю тебя на вечерних прогулках, формируем привычки в реальной жизни;</p>
+						</div>
+						
+						<div class="benefit-item">
+							<div class="benefit-icon">🔧</div>
+							<p>разбираем и корректируем каждую мелочь, которая может мешать твоему результату;</p>
+						</div>
+						
+						<div class="benefit-item">
+							<div class="benefit-icon">📱</div>
+							<p>в остальные две недели месяца — дистанционное сопровождение и контроль, чтобы ты не сбивался с ритма, а также созвон раз в неделю.</p>
+						</div>
+					</div>
+					
+					<div class="special-note">
+						<p>Это не просто коучинг — это прямое погружение в твой образ жизни с полной перезагрузкой пищевого поведения и тренировочных привычек.</p>
+					</div>
+					
+					<div class="additional-costs">
+						<p><em>Расходы на еду, рестораны и зал — оплачиваются отдельно.</em></p>
+					</div>
+				</div>
+
+				<div class="action-section">
+					<div class="cta-buttons">
+						<button onclick="openBookingModal()" class="cta-button primary">Записаться</button>
+						<a href={getLink('services')} class="cta-button secondary">Сравнить с другими режимами</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.legend-hero {
+		background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+		color: white;
+		padding: 80px 0 60px;
+		position: relative;
+	}
+
+	.container {
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.back-navigation {
+		margin-bottom: 30px;
+	}
+
+	.back-button {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		color: white;
+		text-decoration: none;
+		font-size: 1.1rem;
+		font-weight: 500;
+		padding: 10px 20px;
+		border: 2px solid rgba(255, 255, 255, 0.3);
+		border-radius: 25px;
+		transition: all 0.3s ease;
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+	}
+
+	.back-button:hover {
+		background: rgba(255, 255, 255, 0.2);
+		border-color: rgba(255, 255, 255, 0.5);
+		transform: translateX(-5px);
+	}
+
+	.back-icon {
+		font-size: 1.3rem;
+		transition: transform 0.3s ease;
+	}
+
+	.back-button:hover .back-icon {
+		transform: translateX(-3px);
+	}
+
+	.legend-header {
+		text-align: center;
+	}
+
+	.legend-header h1 {
+		font-size: 3rem;
+		font-weight: 700;
+		margin-bottom: 20px;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	}
+
+	.price-info {
+		margin-bottom: 20px;
+	}
+
+	.price {
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 5px;
+		color: #FFC978;
+	}
+
+	.duration {
+		font-size: 1.1rem;
+		opacity: 0.9;
+	}
+
+	.legend-content {
+		padding: 80px 0;
+		background: white;
+	}
+
+	.content-wrapper {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.main-description {
+		margin-bottom: 50px;
+	}
+
+	.intro-text {
+		font-size: 1.3rem;
+		line-height: 1.7;
+		color: var(--text-color);
+		text-align: center;
+		padding: 30px;
+		background: var(--bg-warm);
+		border-radius: 15px;
+		border-left: 5px solid #8B4513;
+		margin-bottom: 20px;
+	}
+
+	.additional-info {
+		font-size: 1.1rem;
+		line-height: 1.6;
+		color: var(--text-light);
+		text-align: center;
+		font-style: italic;
+		margin: 0;
+	}
+
+	.what-awaits h2 {
+		font-size: 2.2rem;
+		font-weight: 700;
+		color: #8B4513;
+		margin-bottom: 30px;
+		text-align: center;
+	}
+
+	.highlight-section {
+		background: linear-gradient(135deg, #FFF8DC, #FFFAF0);
+		padding: 25px;
+		border-radius: 15px;
+		margin-bottom: 40px;
+		border: 2px solid #8B4513;
+	}
+
+	.highlight-section h3 {
+		font-size: 1.4rem;
+		font-weight: 600;
+		color: #8B4513;
+		margin: 0;
+		text-align: center;
+	}
+
+	.benefits-list {
+		margin-bottom: 40px;
+	}
+
+	.benefit-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 20px;
+		padding: 20px;
+		margin-bottom: 15px;
+		background: white;
+		border-radius: 10px;
+		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+		border-left: 4px solid var(--accent-easy);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.benefit-item:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+	}
+
+	.benefit-icon {
+		font-size: 1.8rem;
+		flex-shrink: 0;
+		width: 40px;
+		text-align: center;
+	}
+
+	.benefit-item p {
+		margin: 0;
+		line-height: 1.6;
+		color: var(--text-color);
+		font-size: 1.1rem;
+	}
+
+	.special-note {
+		background: linear-gradient(135deg, #8B4513, #A0522D);
+		color: white;
+		padding: 25px;
+		border-radius: 15px;
+		margin-bottom: 30px;
+		text-align: center;
+	}
+
+	.special-note p {
+		margin: 0;
+		font-size: 1.2rem;
+		font-weight: 600;
+		font-style: italic;
+		line-height: 1.6;
+	}
+
+	.additional-costs {
+		text-align: center;
+		margin-bottom: 50px;
+	}
+
+	.additional-costs p {
+		color: var(--text-light);
+		font-size: 0.95rem;
+		margin: 0;
+	}
+
+	.action-section {
+		text-align: center;
+		padding-top: 30px;
+		border-top: 2px solid var(--bg-warm);
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.cta-button {
+		padding: 15px 30px;
+		border: none;
+		border-radius: 10px;
+		font-size: 1.1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		text-decoration: none;
+		display: inline-block;
+		text-align: center;
+		min-width: 180px;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	}
+
+	.cta-button.primary {
+		background: #8B4513;
+		color: white;
+		box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+	}
+
+	.cta-button.primary:hover {
+		background: #A0522D;
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+	}
+
+	.cta-button.secondary {
+		background: var(--accent-easy);
+		color: #8B4513;
+		box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2);
+	}
+
+	.cta-button.secondary:hover {
+		background: #FFD700;
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.4);
+	}
+
+	@media (max-width: 768px) {
+		.legend-hero {
+			padding: 60px 0 40px;
+		}
+
+		.legend-header h1 {
+			font-size: 2.2rem;
+		}
+
+		.price {
+			font-size: 1.6rem;
+		}
+
+		.duration {
+			font-size: 1rem;
+		}
+
+		.intro-text {
+			font-size: 1.1rem;
+			padding: 20px;
+		}
+
+		.what-awaits h2 {
+			font-size: 1.8rem;
+		}
+
+		.benefit-item {
+			flex-direction: column;
+			gap: 10px;
+			text-align: center;
+		}
+
+		.benefit-icon {
+			align-self: center;
+		}
+
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.cta-button {
+			width: 100%;
+			max-width: 300px;
+		}
+
+		.back-button {
+			font-size: 1rem;
+			padding: 8px 16px;
+		}
+	}
+</style>
+
+<script is:inline>
+	// Booking modal function is already defined in Layout.astro
+	// function openBookingModal() is available globally
+</script>

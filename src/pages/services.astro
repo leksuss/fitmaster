@@ -81,14 +81,14 @@ function getLink(path: string) {
 						<h3>Режим: LEGEND</h3>
 					</div>
 					<div class="service-price">
-						<span class="price">От 88 000 € за 4 месяца</span>
+						<span class="price">88 000 € за 4 месяца</span>
 						<span class="duration">(перелёты и проживание включены)</span>
 					</div>
 					<div class="service-content">
-						<p class="service-description">На 4 месяца я становлюсь частью твоей жизни. Когда нужен не план, а человек, который живёт рядом с тобой и ведёт к результату. Максимально личный и глубокий формат работы. Включает всё то же, что и стандартное сопровождение, а способ контроля питания мы выбираем на месте.</p>
+						<p class="service-description">На 4 месяца я становлюсь частью твоей жизни. Когда нужен не план, а человек, который живёт рядом с тобой и ведёт к результату. Максимально личный и глубокий формат работы.</p>
 						
 						<div class="service-button-container">
-							<button class="service-button available" onclick="openModal('legend')">Что тебя ждёт</button>
+							<a href={getLink('legend')} class="service-button available">Что тебя ждёт</a>
 						</div>
 					</div>
 				</div>
@@ -500,6 +500,10 @@ function getLink(path: string) {
 		font-weight: 600;
 		cursor: pointer;
 		transition: all 0.3s ease;
+		display: block;
+		text-align: center;
+		text-decoration: none;
+		box-sizing: border-box;
 	}
 
 	.service-button.available {
@@ -1099,6 +1103,11 @@ function getLink(path: string) {
 		const overlay = document.getElementById('modal-overlay');
 		const content = document.getElementById('modal-content');
 		
+		if (!overlay || !content) {
+			console.error('Modal elements not found');
+			return;
+		}
+		
 		// Get modal content based on mode
 		const modalData = getModalData(mode);
 		content.innerHTML = modalData;
@@ -1123,9 +1132,9 @@ function getLink(path: string) {
 				<div class="modal-body">
 					<h3>Выберите подходящий режим:</h3>
 					<div class="easy-mode-buttons" style="display: flex; flex-direction: column; gap: 15px; margin: 30px auto; align-items: center; max-width: 300px;">
-						<button onclick="openModal('normal')" style="width: 100%; padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2);">Режим: NORMAL</button>
-						<button onclick="openModal('hard')" style="width: 100%; padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #d25f3e; color: white; box-shadow: 0 4px 15px rgba(210, 95, 62, 0.2);">Режим: HARD</button>
-						<button onclick="openModal('legend')" style="width: 100%; padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2);">Режим: LEGEND*</button>
+						<button onclick="openModal('normal')" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2);">Режим: NORMAL</button>
+						<button onclick="openModal('hard')" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2);">Режим: HARD</button>
+						<a href="../../legend/" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #d25f3e; color: white; box-shadow: 0 4px 15px rgba(210, 95, 62, 0.2); text-decoration: none; display: block; text-align: center; box-sizing: border-box;">Режим: LEGEND*</a>
 						<small style="color: #6b7280; font-style: italic; margin-top: 5px;">* очень дорого</small>
 					</div>
 				</div>
@@ -1169,7 +1178,7 @@ function getLink(path: string) {
 				<div class="modal-footer">
 					<button onclick="openBookingModal()" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px;">Записаться</button>
 					<button onclick="openModal('hard')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с HARD</button>
-					<button onclick="openModal('legend')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с LEGEND</button>
+					<a href="../legend/" target="_blank" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px; text-decoration: none; display: inline-block; text-align: center;">Посмотреть LEGEND</a>
 				</div>
 			`,
 			hard: `
@@ -1211,43 +1220,16 @@ function getLink(path: string) {
 				<div class="modal-footer">
 					<button onclick="openBookingModal()" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px;">Записаться</button>
 					<button onclick="openModal('normal')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с NORMAL</button>
-					<button onclick="openModal('legend')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с LEGEND</button>
+					<a href="../legend/" target="_blank" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px; text-decoration: none; display: inline-block; text-align: center;">Посмотреть LEGEND</a>
 				</div>
 			`,
-			legend: `
-				<div class="modal-header">
-					<h2>Режим: LEGEND</h2>
-					<div class="price">От 88 000 € за 4 месяца</div>
-					<div class="duration">(перелёты и проживание включены)</div>
-				</div>
-				<div class="modal-body">
-					<p>На 4 месяца я становлюсь частью твоей жизни. Когда нужен не план, а человек, который живёт рядом с тобой и ведёт к результату. Максимально личный и глубокий формат работы.</p>
-					
-					<h3>Что тебя ждёт:</h3>
-					<p><strong>Две недели каждого месяца я живу рядом с тобой и лично веду тебя:</strong></p>
-					<ul>
-						<li>ходим в магазины — показываю, какие продукты и бренды брать;</li>
-						<li>ходим в рестораны/кафе, где я научу тебя ориентироваться в меню с учётом твоих предпочтений и целей;</li>
-						<li>тренируемся вместе в твоём зале — я твой личный тренер на месте, контролирую, поддерживаю и делюсь секретами GYM-комьюнити;</li>
-						<li>сопровождаю тебя на вечерних прогулках, формируем привычки в реальной жизни;</li>
-						<li>разбираем и корректируем каждую мелочь, которая может мешать твоему результату;</li>
-						<li>в остальные две недели месяца — дистанционное сопровождение и контроль, чтобы ты не сбивался с ритма, а также созвон раз в неделю.</li>
-					</ul>
-					
-					<p style="font-style: italic; color: var(--accent-hard); font-weight: 600; margin: 15px 0;">Это не просто коучинг — это прямое погружение в твой образ жизни с полной перезагрузкой пищевого поведения и тренировочных привычек.</p>
-					
-					<p style="color: var(--text-light); font-size: 0.9rem;"><em>Расходы на еду, рестораны и зал — оплачиваются отдельно.</em></p>
-				</div>
-				<div class="modal-footer">
-					<button onclick="openBookingModal()" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px;">Записаться</button>
-					<button onclick="openModal('normal')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с NORMAL</button>
-					<button onclick="openModal('hard')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с HARD</button>
-				</div>
-			`
 		};
 		
 		return modalContent[mode] || '';
 	}
+
+	// Booking modal - функция уже определена в Layout.astro
+	// function openBookingModal() уже доступна глобально
 
 	// Close modal on Escape key
 	document.addEventListener('keydown', function(e) {
