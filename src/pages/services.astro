@@ -80,13 +80,7 @@ function getLink(path: string) {
 					<div class="service-header">
 						<h3>Режим: LEGEND</h3>
 					</div>
-					<div class="service-price">
-						<span class="price">88 000 € за 4 месяца</span>
-						<span class="duration">(перелёты и проживание включены)</span>
-					</div>
 					<div class="service-content">
-						<p class="service-description">На 4 месяца я становлюсь частью твоей жизни. Когда нужен не план, а человек, который живёт рядом с тобой и ведёт к результату. Максимально личный и глубокий формат работы.</p>
-						
 						<div class="service-button-container">
 							<a href={getLink('legend')} class="service-button available">Что тебя ждёт</a>
 						</div>
@@ -405,6 +399,18 @@ function getLink(path: string) {
 		border-color: #8B4513;
 		box-shadow: 0 10px 30px rgba(139, 69, 19, 0.15);
 		background: linear-gradient(135deg, #FFF8DC, #FFFAF0);
+	}
+
+	.service-card.legend-mode .service-content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-grow: 1;
+		text-align: center;
+	}
+
+	.service-card.legend-mode .service-button-container {
+		margin-top: 0;
 	}
 
 
