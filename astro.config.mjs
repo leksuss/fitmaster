@@ -10,6 +10,8 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone'
   }),
-  site: 'https://leksuss.github.io',
-  base: '/fitmaster',
+  site: process.env.NODE_ENV === 'production' 
+    ? 'https://fitmaster-r0d24sg6f-leksus-projects.vercel.app' 
+    : 'https://leksuss.github.io',
+  base: process.env.NODE_ENV === 'production' ? '' : '/fitmaster',
 });
