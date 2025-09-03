@@ -2,27 +2,9 @@ import { ActionError, defineAction } from 'astro:actions';
 import { z } from 'zod';
 import nodemailer from 'nodemailer';
 
-// Функция для получения переменной окружения с fallback
+// Функция для получения переменной окружения
 function getEnvVar(name: string, defaultValue?: string): string {
-  // Сначала пытаемся получить из переменных окружения
-  let value = process.env[name];
-  
-  // Если не нашли в переменных окружения, используем захардкоженные значения
-  if (!value) {
-    const hardcoded: Record<string, string> = {
-      'SMTP_HOST': 'smtp.yandex.ru',
-      'SMTP_PORT': '587',
-      'SMTP_SECURE': 'false',
-      'SMTP_USER': 'learnhard@leksus.info',
-      'SMTP_PASS': 'DNY38V8I',
-      'RECIPIENT_EMAIL': 'leksus@leksus.info'
-    };
-    value = hardcoded[name];
-  }
-  
-  // Если всё ещё не нашли, используем defaultValue
-  value = value || defaultValue;
-  
+  const value = process.env[name] || defaultValue;
   if (!value) {
     throw new Error(`Environment variable ${name} is not set`);
   }
