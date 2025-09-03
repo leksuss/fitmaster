@@ -53,7 +53,7 @@ function getLink(path: string) {
 					<h2>Записаться на консультацию</h2>
 					<button class="modal-close" onclick="closeBookingModal()">&times;</button>
 				</div>
-				<form id="booking-form" class="booking-form">
+				<form id="booking-form" class="booking-form" method="POST" action="/_actions/sendEmail">
 					<div class="form-group">
 						<label for="name">Имя *</label>
 						<input type="text" id="name" name="name" required>
@@ -347,6 +347,13 @@ function getLink(path: string) {
 		box-shadow: 0 8px 25px rgba(255, 145, 77, 0.3);
 	}
 
+	.submit-button:disabled {
+		background: #ccc;
+		cursor: not-allowed;
+		transform: none;
+		box-shadow: none;
+	}
+
 	.success-message {
 		padding: 40px 30px;
 		text-align: center;
@@ -478,13 +485,40 @@ function getLink(path: string) {
 
 		// Обработка отправки формы
 		const form = document.getElementById('booking-form');
-		form.addEventListener('submit', function(e) {
+		form.addEventListener('submit', async function(e) {
 			e.preventDefault();
 			
-			// Скрыть форму и показать сообщение об успехе
-			form.style.display = 'none';
-			const successMessage = document.getElementById('success-message');
-			successMessage.style.display = 'block';
+			const submitButton = form.querySelector('.submit-button');
+			const originalText = submitButton.textContent;
+			submitButton.textContent = 'Отправляю...';
+			submitButton.disabled = true;
+			
+			try {
+				const formData = new FormData(form);
+				const response = await fetch('/_actions/sendEmail', {
+					method: 'POST',
+					body: formData
+				});
+				
+				if (response.ok) {
+					// Если статус ответа 200, значит всё прошло успешно
+					form.style.display = 'none';
+					const successMessage = document.getElementById('success-message');
+					successMessage.style.display = 'block';
+				} else {
+					// Если статус не 200, пытаемся получить детали ошибки
+					const result = await response.json();
+					const errorMessage = result?.error?.message || 'Произошла ошибка при отправке';
+					alert(errorMessage);
+					submitButton.textContent = originalText;
+					submitButton.disabled = false;
+				}
+			} catch (error) {
+				console.error('Error:', error);
+				alert('Произошла ошибка при отправке заявки. Попробуйте снова.');
+				submitButton.textContent = originalText;
+				submitButton.disabled = false;
+			}
 		});
 	});
 </script>
