@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/node": "^9.4.3",
+    "@astrojs/vercel": "^8.1.0",
     "@astrojs/vue": "^5.1.0",
     "@types/nodemailer": "^7.0.1",
     "astro": "^5.11.0",
