@@ -262,8 +262,9 @@ function getLink(path: string) {
 		<div class="container">
 			<div class="cta-content">
 				<h2>Готов начать свое преображение?</h2>
-				<p>Запишись на консультацию или изучи мои услуги</p>
+				<p>Запишись на пробный разбор или изучи мои услуги</p>
 				<div class="cta-buttons">
+					<button class="cta-button primary" onclick="openBookingModal('Хочу пробный разбор')">Хочу пробный разбор</button>
 					<a href={getLink('services')} class="cta-button secondary">Мои услуги</a>
 					<a href={getLink('about')} class="cta-button secondary">Обо мне</a>
 				</div>
@@ -555,7 +556,7 @@ function getLink(path: string) {
 	}
 
 	.carousel-container {
-		overflow: visible;
+		overflow: hidden;
 		position: relative;
 		padding: 20px 0;
 		margin: -20px 0;
