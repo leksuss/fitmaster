@@ -497,10 +497,11 @@ function getLink(path: string) {
 
 	.testimonials-carousel {
 		position: relative;
-		max-width: 800px;
+		max-width: 1200px;
 		margin: 0 auto;
+		padding: 0 80px;
 	}
-	
+
 	.testimonials-carousel .carousel-btn {
 		position: absolute;
 		top: 50%;
@@ -511,26 +512,27 @@ function getLink(path: string) {
 		border: 2px solid var(--accent-normal);
 		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 	}
-	
+
 	.testimonials-carousel .carousel-btn:hover {
 		background: var(--accent-normal);
 		color: white;
 		transform: translateY(-50%) scale(1.05);
 		box-shadow: 0 6px 20px rgba(255, 145, 77, 0.3);
 	}
-	
+
 	.testimonials-carousel .carousel-btn.prev {
-		left: -25px;
+		left: 10px;
 	}
-	
+
 	.testimonials-carousel .carousel-btn.next {
-		right: -25px;
+		right: 10px;
 	}
 
 	.carousel-container {
-		overflow: hidden;
-		border-radius: 20px;
-		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+		overflow: visible;
+		position: relative;
+		padding: 20px 0;
+		margin: -20px 0;
 	}
 
 	.carousel-track {
@@ -540,16 +542,25 @@ function getLink(path: string) {
 	}
 
 	.testimonial-slide {
-		min-width: 100%;
-		flex: 0 0 100%;
+		min-width: calc(60% - 30px);
+		flex: 0 0 calc(60% - 30px);
+		margin: 0 15px;
+		opacity: 0.3;
+		transform: scale(0.85);
+		transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.testimonial-slide.active {
+		opacity: 1;
+		transform: scale(1);
 	}
 
 	.testimonial-card {
 		background: white;
 		padding: 40px;
 		margin: 0;
-		border-radius: 0;
-		box-shadow: none;
+		border-radius: 20px;
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 		min-height: 400px;
 		display: flex;
 		flex-direction: column;
@@ -758,12 +769,41 @@ function getLink(path: string) {
 
 		.testimonials-carousel {
 			max-width: 100%;
-			margin: 0 10px;
+			padding: 0 50px;
+		}
+
+		.carousel-container {
+			overflow: hidden;
+			padding: 0;
+			margin: 0;
+		}
+
+		.testimonial-slide {
+			min-width: 100%;
+			flex: 0 0 100%;
+			margin: 0;
+			opacity: 1;
+			transform: scale(1);
+			padding: 15px 0;
 		}
 
 		.testimonial-card {
 			padding: 30px 25px;
-			min-height: 350px;
+			min-height: auto;
+			/* iOS Safari: box-shadow + overflow clipping может давать длинные артефакты.
+			   Заменяем на drop-shadow и жёстко обрезаем края по радиусу. */
+			box-shadow: none;
+			filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.08));
+			background-clip: padding-box;
+			clip-path: inset(0 round 20px);
+		}
+
+		.testimonials-carousel .carousel-btn.prev {
+			left: 5px;
+		}
+
+		.testimonials-carousel .carousel-btn.next {
+			right: 5px;
 		}
 
 		.testimonial-header strong {
@@ -807,195 +847,158 @@ function getLink(path: string) {
 </style>
 
 <script>
-	document.addEventListener('DOMContentLoaded', function() {
-		const carousel = document.getElementById('testimonials-carousel');
-		const track = document.getElementById('carousel-track');
-		const originalSlides = track.querySelectorAll('.testimonial-slide');
-		const prevBtn = document.getElementById('prev-btn');
-		const nextBtn = document.getElementById('next-btn');
-		const indicatorsContainer = document.getElementById('carousel-indicators');
-		
-		let currentIndex = 0;
-		let isAutoPlaying = true;
-		let autoPlayInterval;
-		let isTransitioning = false;
-		const originalSlideCount = originalSlides.length;
-		
-		// Создаем клоны для бесконечной прокрутки
-		function createInfiniteLoop() {
-			// Клонируем первый и последний слайды
-			const firstClone = originalSlides[0].cloneNode(true);
-			const lastClone = originalSlides[originalSlideCount - 1].cloneNode(true);
-			
-			// Добавляем clone классы для идентификации
-			firstClone.classList.add('clone');
-			lastClone.classList.add('clone');
-			
-			// Добавляем клоны
-			track.appendChild(firstClone); // Клон первого слайда в конец
-			track.insertBefore(lastClone, originalSlides[0]); // Клон последнего слайда в начало
-			
-			// Устанавливаем начальную позицию на первый реальный слайд
-			currentIndex = 1;
-			updateCarouselPosition();
-		}
-		
-		// Создаем индикаторы (только для оригинальных слайдов)
-		function createIndicators() {
-			for (let i = 0; i < originalSlideCount; i++) {
-				const indicator = document.createElement('div');
-				indicator.classList.add('indicator');
-				if (i === 0) indicator.classList.add('active');
-				indicator.addEventListener('click', () => goToSlide(i + 1)); // +1 из-за клона в начале
-				indicatorsContainer.appendChild(indicator);
+	document.addEventListener('DOMContentLoaded', () => {
+		class TestimonialsCarousel {
+			private root: HTMLElement;
+			private container: HTMLElement | null;
+			private track: HTMLElement;
+			private prevBtn: HTMLButtonElement;
+			private nextBtn: HTMLButtonElement;
+			private indicatorsContainer: HTMLElement;
+			private originalSlides: NodeListOf<HTMLElement>;
+			private originalSlideCount: number;
+			private currentIndex = 0;
+			private isAutoPlaying = true;
+			private isTransitioning = false;
+			private autoPlayInterval?: ReturnType<typeof setInterval>;
+			private resizeDebounce?: ReturnType<typeof setTimeout>;
+			private resizeObserver?: ResizeObserver;
+
+			constructor(root: HTMLElement) {
+				this.root = root;
+				this.track = document.getElementById('carousel-track') as HTMLElement;
+				this.container = this.root.querySelector('.carousel-container');
+				this.prevBtn = document.getElementById('prev-btn') as HTMLButtonElement;
+				this.nextBtn = document.getElementById('next-btn') as HTMLButtonElement;
+				this.indicatorsContainer = document.getElementById('carousel-indicators') as HTMLElement;
+				this.originalSlides = this.track.querySelectorAll('.testimonial-slide') as NodeListOf<HTMLElement>;
+				this.originalSlideCount = this.originalSlides.length;
 			}
-		}
-		
-		// Обновление позиции карусели
-		function updateCarouselPosition(withTransition = true) {
-			if (withTransition) {
-				track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-			} else {
-				track.style.transition = 'none';
+
+			init() {
+				this.createInfiniteLoop();
+				this.createIndicators();
+				this.updateIndicators();
+				this.updatePosition(false);
+				this.updateContainerHeight();
+				this.bindEvents();
+				this.startAutoPlay();
 			}
-			
-			const offset = -currentIndex * 100;
-			track.style.transform = `translateX(${offset}%)`;
-		}
-		
-		// Обновление индикаторов
-		function updateIndicators() {
-			const indicators = indicatorsContainer.querySelectorAll('.indicator');
-			let activeIndex = currentIndex - 1; // -1 из-за клона в начале
-			
-			// Обработка краевых случаев
-			if (currentIndex === 0) activeIndex = originalSlideCount - 1;
-			if (currentIndex === originalSlideCount + 1) activeIndex = 0;
-			
-			indicators.forEach((indicator, i) => {
-				indicator.classList.toggle('active', i === activeIndex);
-			});
-		}
-		
-		// Переход к слайду
-		function goToSlide(index, withTransition = true) {
-			if (isTransitioning) return;
-			
-			currentIndex = index;
-			updateCarouselPosition(withTransition);
-			updateIndicators();
-			
-			if (withTransition) {
-				isTransitioning = true;
-				setTimeout(() => {
-					handleInfiniteLoop();
-					isTransitioning = false;
-				}, 500);
+
+			private createInfiniteLoop() {
+				const firstClone = this.originalSlides[0].cloneNode(true) as HTMLElement;
+				const lastClone = this.originalSlides[this.originalSlideCount - 1].cloneNode(true) as HTMLElement;
+				firstClone.classList.add('clone');
+				lastClone.classList.add('clone');
+				this.track.appendChild(firstClone);
+				this.track.insertBefore(lastClone, this.originalSlides[0]);
+				this.currentIndex = 1;
 			}
-		}
-		
-		// Обработка бесконечного цикла
-		function handleInfiniteLoop() {
-			if (currentIndex === 0) {
-				// Если дошли до клона последнего слайда, переходим к реальному последнему
-				currentIndex = originalSlideCount;
-				updateCarouselPosition(false);
-			} else if (currentIndex === originalSlideCount + 1) {
-				// Если дошли до клона первого слайда, переходим к реальному первому
-				currentIndex = 1;
-				updateCarouselPosition(false);
-			}
-		}
-		
-		// Следующий слайд
-		function nextSlide() {
-			if (isTransitioning) return;
-			goToSlide(currentIndex + 1);
-		}
-		
-		// Предыдущий слайд
-		function prevSlide() {
-			if (isTransitioning) return;
-			goToSlide(currentIndex - 1);
-		}
-		
-		// Автопрокрутка
-		function startAutoPlay() {
-			if (isAutoPlaying) {
-				autoPlayInterval = setInterval(nextSlide, 5000); // Каждые 5 секунд
-			}
-		}
-		
-		function stopAutoPlay() {
-			clearInterval(autoPlayInterval);
-		}
-		
-		// Обработчики событий для кнопок
-		prevBtn.addEventListener('click', () => {
-			prevSlide();
-			stopAutoPlay();
-			isAutoPlaying = false;
-		});
-		
-		nextBtn.addEventListener('click', () => {
-			nextSlide();
-			stopAutoPlay();
-			isAutoPlaying = false;
-		});
-		
-		// Остановка автопрокрутки при наведении
-		carousel.addEventListener('mouseenter', stopAutoPlay);
-		carousel.addEventListener('mouseleave', () => {
-			if (isAutoPlaying) startAutoPlay();
-		});
-		
-		// Поддержка клавиатуры
-		document.addEventListener('keydown', (e) => {
-			if (e.key === 'ArrowLeft') {
-				prevSlide();
-				stopAutoPlay();
-				isAutoPlaying = false;
-			} else if (e.key === 'ArrowRight') {
-				nextSlide();
-				stopAutoPlay();
-				isAutoPlaying = false;
-			}
-		});
-		
-		// Поддержка swipe для мобильных устройств
-		let startX = 0;
-		let endX = 0;
-		
-		carousel.addEventListener('touchstart', (e) => {
-			startX = e.touches[0].clientX;
-		});
-		
-		carousel.addEventListener('touchend', (e) => {
-			endX = e.changedTouches[0].clientX;
-			handleSwipe();
-		});
-		
-		function handleSwipe() {
-			const threshold = 50; // минимальное расстояние для swipe
-			const diff = startX - endX;
-			
-			if (Math.abs(diff) > threshold) {
-				if (diff > 0) {
-					// Swipe влево - следующий слайд
-					nextSlide();
-				} else {
-					// Swipe вправо - предыдущий слайд
-					prevSlide();
+
+			private createIndicators() {
+				for (let i = 0; i < this.originalSlideCount; i++) {
+					const indicator = document.createElement('div');
+					indicator.classList.add('indicator');
+					if (i === 0) indicator.classList.add('active');
+					indicator.addEventListener('click', () => this.goTo(i + 1));
+					this.indicatorsContainer.appendChild(indicator);
 				}
-				stopAutoPlay();
-				isAutoPlaying = false;
+			}
+
+			private updateContainerHeight() {
+				const isMobile = window.innerWidth <= 768;
+				if (!isMobile) { if (this.container) this.container.style.height = 'auto'; return; }
+				if (!this.container) return;
+				const activeSlide = this.track.querySelector('.testimonial-slide.active') as HTMLElement | null;
+				if (!activeSlide) return;
+				this.container.style.height = `${activeSlide.offsetHeight}px`;
+			}
+
+			private updatePosition(withTransition = true) {
+				this.track.style.transition = withTransition ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' : 'none';
+				const isMobile = window.innerWidth <= 768;
+				const offset = isMobile ? -this.currentIndex * 100 : -this.currentIndex * 60 + 20;
+				this.track.style.transform = `translateX(${offset}%)`;
+				const allSlides = this.track.querySelectorAll('.testimonial-slide') as NodeListOf<HTMLElement>;
+				allSlides.forEach((slide, index) => slide.classList.toggle('active', index === this.currentIndex));
+				this.updateContainerHeight();
+			}
+
+			private updateIndicators() {
+				const indicators = this.indicatorsContainer.querySelectorAll('.indicator');
+				let activeIndex = this.currentIndex - 1;
+				if (this.currentIndex === 0) activeIndex = this.originalSlideCount - 1;
+				if (this.currentIndex === this.originalSlideCount + 1) activeIndex = 0;
+				indicators.forEach((indicator, i) => indicator.classList.toggle('active', i === activeIndex));
+			}
+
+			private goTo(index: number, withTransition = true) {
+				if (this.isTransitioning) return;
+				this.currentIndex = index;
+				if (withTransition) {
+					this.isTransitioning = true;
+					const onEnd = () => {
+						this.track.removeEventListener('transitionend', onEnd);
+						this.handleInfiniteLoop();
+						this.isTransitioning = false;
+					};
+					this.track.addEventListener('transitionend', onEnd, { once: true });
+				}
+				this.updatePosition(withTransition);
+				this.updateIndicators();
+			}
+
+			private next = () => this.goTo(this.currentIndex + 1);
+			private prev = () => this.goTo(this.currentIndex - 1);
+
+			private handleInfiniteLoop() {
+				if (this.currentIndex === 0) {
+					this.currentIndex = this.originalSlideCount;
+					this.updatePosition(false);
+				} else if (this.currentIndex === this.originalSlideCount + 1) {
+					this.currentIndex = 1;
+					this.updatePosition(false);
+				}
+			}
+
+			private startAutoPlay() {
+				if (this.isAutoPlaying) {
+					this.autoPlayInterval = setInterval(this.next, 5000);
+				}
+			}
+
+			private stopAutoPlay = () => { if (this.autoPlayInterval) clearInterval(this.autoPlayInterval); };
+
+			private bindEvents() {
+				this.prevBtn.addEventListener('click', () => { this.prev(); this.stopAutoPlay(); this.isAutoPlaying = false; });
+				this.nextBtn.addEventListener('click', () => { this.next(); this.stopAutoPlay(); this.isAutoPlaying = false; });
+				this.root.addEventListener('mouseenter', this.stopAutoPlay);
+				this.root.addEventListener('mouseleave', () => { if (this.isAutoPlaying) this.startAutoPlay(); });
+				document.addEventListener('keydown', (e: KeyboardEvent) => {
+					if (e.key === 'ArrowLeft') { this.prev(); this.stopAutoPlay(); this.isAutoPlaying = false; }
+					if (e.key === 'ArrowRight') { this.next(); this.stopAutoPlay(); this.isAutoPlaying = false; }
+				});
+				let startX = 0;
+				let endX = 0;
+				this.root.addEventListener('touchstart', (e: TouchEvent) => { startX = e.touches[0].clientX; }, { passive: true });
+				this.root.addEventListener('touchend', (e: TouchEvent) => {
+					endX = e.changedTouches[0].clientX;
+					const diff = startX - endX;
+					if (Math.abs(diff) > 50) { diff > 0 ? this.next() : this.prev(); this.stopAutoPlay(); this.isAutoPlaying = false; }
+				}, { passive: true });
+				window.addEventListener('resize', () => {
+					clearTimeout(this.resizeDebounce);
+					this.resizeDebounce = setTimeout(() => { this.updatePosition(false); this.updateContainerHeight(); }, 100);
+				});
+				if ('ResizeObserver' in window && this.container) {
+					this.resizeObserver = new ResizeObserver(() => this.updateContainerHeight());
+					this.resizeObserver.observe(this.container);
+				}
 			}
 		}
-		
-		// Инициализация
-		createInfiniteLoop();
-		createIndicators();
-		updateIndicators();
-		startAutoPlay();
+
+		const root = document.getElementById('testimonials-carousel') as HTMLElement | null;
+		if (!root) return;
+		new TestimonialsCarousel(root).init();
 	});
 </script>
