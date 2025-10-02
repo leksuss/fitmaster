@@ -17,8 +17,14 @@ function getLink(path: string) {
 	<section class="hero">
 		<div class="hero-content">
 			<div class="hero-text">
-				<h1 class="hero-title">Влад – твой хелс-коуч: Худей без запретов и голодовок!</h1>
-				<p class="hero-subtitle">Открой путь к стройному телу с поддержкой и гарантированным результатом, наслаждаясь любимой едой. Я научу тебя есть много и вкусно, создавая устойчивые здоровые привычки.</p>
+				<h1 class="hero-title">
+					Влад – твой хелс-коуч:<br>
+					Открой путь к стройному телу<br>
+					с поддержкой и гарантированным результатом,<br>
+					наслаждаясь любимой едой.<br>
+					Я научу тебя есть много и вкусно,<br>
+					создавая устойчивые здоровые привычки.
+				</h1>
 				<a href={getLink('services')} class="cta-button">Начни свой путь к идеальному телу</a>
 			</div>
 			<div class="hero-image">
@@ -44,13 +50,14 @@ function getLink(path: string) {
 		<div class="container">
 			<h2 class="section-title">Это про тебя, если…</h2>
 			<ul class="about-you-list">
-				<li>Пытаешься похудеть, но вес только растёт, а вместе с ним и стресс</li>
+				<li>Пытаешься похудеть, но растёт только вес и стресс</li>
 				<li>Устал(а) от бесконечных диет и жёстких ограничений</li>
-				<li>Хочешь перестать стесняться своего тела и выходить из дома с уверенностью</li>
-				<li>Мечтаешь вернуть лёгкость в теле и сбросить лишнее без надрыва и срывов</li>
-				<li>Хочешь наконец разобраться в питании и уметь составлять рацион под себя</li>
-				<li>Хочешь есть вкусно, сытно и без постоянных ограничений</li>
-				<li>…и любая другая причина, по которой ты хочешь снова чувствовать себя в форме и кайфовать от жизни</li>
+				<li>Надоело стесняться своего тела</li>
+				<li>Мечтаешь вернуть лёгкость и энергию в теле</li>
+				<li>Сбросить лишние килограммы без стресса и срывов</li>
+				<li>Хочешь разобраться в питании и уметь составлять рацион</li>
+				<li>Хочешь есть вкусно, сытно и без постоянных ограничений…</li>
+				<li>…и сотни других причин, которые привели тебя сюда.</li>
 			</ul>
 		</div>
 	</section>
@@ -273,26 +280,23 @@ function getLink(path: string) {
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 0 20px;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 60px;
+		display: flex;
+		flex-direction: column;
 		align-items: center;
+		text-align: center;
+	}
+
+	.hero-text {
+		max-width: 1100px;
+		width: 100%;
 	}
 
 	.hero-title {
-		font-size: 3rem;
+		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
 		font-weight: 700;
-		line-height: 1.2;
-		margin-bottom: 20px;
-		animation: fadeInUp 1s ease-out;
-	}
-
-	.hero-subtitle {
-		font-size: 1.2rem;
-		line-height: 1.6;
+		line-height: 1.4;
 		margin-bottom: 30px;
-		opacity: 0.9;
-		animation: fadeInUp 1s ease-out 0.2s both;
+		animation: fadeInUp 1s ease-out;
 	}
 
 	.cta-button {
@@ -316,14 +320,7 @@ function getLink(path: string) {
 	}
 
 	.hero-image {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		animation: fadeIn 1s ease-out 0.6s both;
-	}
-
-	.hero-placeholder {
-		animation: pulse 2s infinite;
+		display: none;
 	}
 
 	.container {
@@ -372,6 +369,24 @@ function getLink(path: string) {
 		margin-right: 15px;
 		flex-shrink: 0;
 		margin-top: 2px;
+	}
+
+	@media (max-width: 768px) {
+		.about-you {
+			padding: 40px 0;
+		}
+
+		.about-you-list li {
+			margin-bottom: 12px;
+			padding: 14px 16px;
+			font-size: 0.95rem;
+			line-height: 1.4;
+		}
+
+		.about-you-list li::before {
+			font-size: 1.1rem;
+			margin-right: 12px;
+		}
 	}
 
 	.features {
@@ -728,18 +743,13 @@ function getLink(path: string) {
 	}
 
 	@media (max-width: 768px) {
-		.hero-content {
-			grid-template-columns: 1fr;
-			gap: 40px;
-			text-align: center;
+		.hero-text {
+			max-width: 100%;
 		}
 
 		.hero-title {
-			font-size: 2.2rem;
-		}
-
-		.hero-subtitle {
-			font-size: 1.1rem;
+			font-size: clamp(1.3rem, 5vw, 1.75rem);
+			line-height: 1.5;
 		}
 
 		.section-title {
