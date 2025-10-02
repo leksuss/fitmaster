@@ -54,6 +54,7 @@ function getLink(path: string) {
 					<button class="modal-close" onclick="closeBookingModal()">&times;</button>
 				</div>
 				<form id="booking-form" class="booking-form" method="POST" action="/_actions/sendEmail">
+					<input type="hidden" id="request-type" name="requestType" value="Записаться на консультацию">
 					<div class="form-group">
 						<label for="name">Имя *</label>
 						<input type="text" id="name" name="name" required>
@@ -445,16 +446,29 @@ function getLink(path: string) {
 
 <script is:inline>
 	// Функции для работы с модальным окном записи
-	function openBookingModal() {
+	function openBookingModal(title) {
 		const modal = document.getElementById('booking-modal');
 		const form = document.getElementById('booking-form');
 		const successMessage = document.getElementById('success-message');
-		
+		const modalTitle = modal.querySelector('.modal-header h2');
+		const requestTypeInput = document.getElementById('request-type');
+
+		// Установка заголовка
+		const finalTitle = title || 'Записаться на консультацию';
+		modalTitle.textContent = finalTitle;
+		if (requestTypeInput) {
+			requestTypeInput.value = finalTitle;
+		}
+
 		// Сброс формы и скрытие сообщения об успехе
 		form.style.display = 'block';
 		successMessage.style.display = 'none';
 		form.reset();
-		
+		// После reset нужно снова установить requestType
+		if (requestTypeInput) {
+			requestTypeInput.value = finalTitle;
+		}
+
 		modal.classList.add('active');
 		document.body.style.overflow = 'hidden';
 	}
