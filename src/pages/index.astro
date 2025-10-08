@@ -25,7 +25,27 @@ function getLink(path: string) {
 					Я научу тебя есть много и вкусно,<br>
 					создавая устойчивые здоровые привычки.
 				</h1>
-				<a href={getLink('services')} class="cta-button">Начни свой путь к идеальному телу</a>
+				<div class="hero-services-grid">
+					<div class="hero-service-card easy-mode">
+						<h3>Режим: EASY</h3>
+						<div class="hero-service-subtitle">Пробный разбор</div>
+						<p class="hero-service-description">Я не верю в легкий путь без действий и помогу тебе начать.</p>
+						<div class="hero-service-price">0 евро/20 мин</div>
+						<button class="hero-service-button" onclick="openBookingModal('Режим: EASY - Пробный разбор')">Записаться</button>
+					</div>
+					<div class="hero-service-card normal-mode">
+						<h3>Режим: NORMAL</h3>
+						<div class="hero-service-subtitle">Ведение без подсчёта КБЖУ</div>
+						<div class="hero-service-price">550 евро/месяц</div>
+						<button class="hero-service-button" onclick="openBookingModal('Режим: NORMAL - Онлайн-ведение без подсчёта КБЖУ')">Записаться</button>
+					</div>
+					<div class="hero-service-card hard-mode">
+						<h3>Режим: HARD</h3>
+						<div class="hero-service-subtitle">Ведение с подсчетом КБЖУ</div>
+						<div class="hero-service-price">450 евро/месяц</div>
+						<button class="hero-service-button" onclick="openBookingModal('Режим: HARD - Онлайн-ведение с подсчетом КБЖУ')">Записаться</button>
+					</div>
+				</div>
 			</div>
 			<div class="hero-image">
 				<div class="hero-placeholder">
@@ -302,8 +322,99 @@ function getLink(path: string) {
 		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
 		font-weight: 700;
 		line-height: 1.4;
-		margin-bottom: 30px;
+		margin-bottom: 40px;
 		animation: fadeInUp 1s ease-out;
+	}
+
+	.hero-services-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+		animation: fadeInUp 1s ease-out 0.4s both;
+	}
+
+	.hero-service-card {
+		background: white;
+		padding: 25px 20px;
+		border-radius: 15px;
+		text-align: center;
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		border: 3px solid transparent;
+		display: flex;
+		flex-direction: column;
+		min-height: 280px;
+	}
+
+	.hero-service-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+	}
+
+	.hero-service-card.easy-mode {
+		border-color: var(--accent-easy);
+	}
+
+	.hero-service-card.normal-mode {
+		border-color: var(--accent-normal);
+	}
+
+	.hero-service-card.hard-mode {
+		border-color: var(--accent-hard);
+	}
+
+	.hero-service-card h3 {
+		font-size: 1.3rem;
+		font-weight: 700;
+		color: var(--text-color);
+		margin-bottom: 8px;
+	}
+
+	.hero-service-subtitle {
+		font-size: 0.9rem;
+		color: var(--text-light);
+		margin-bottom: 12px;
+	}
+
+	.hero-service-description {
+		font-size: 0.95rem;
+		color: var(--text-color);
+		line-height: 1.5;
+		margin-bottom: 15px;
+		flex-grow: 1;
+		min-height: 60px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.hero-service-price {
+		font-size: 1.4rem;
+		font-weight: 700;
+		color: var(--accent-normal);
+		margin-bottom: 15px;
+		margin-top: auto;
+	}
+
+	.hero-service-button {
+		width: 100%;
+		padding: 12px 20px;
+		background: var(--accent-normal);
+		color: white;
+		border: none;
+		border-radius: 10px;
+		font-size: 1.05rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		font-family: inherit;
+		margin-top: auto;
+	}
+
+	.hero-service-button:hover {
+		background: var(--accent-hard);
+		transform: translateY(-2px);
+		box-shadow: 0 8px 20px rgba(255, 145, 77, 0.3);
 	}
 
 	.cta-button {
@@ -788,6 +899,37 @@ function getLink(path: string) {
 		.hero-title {
 			font-size: clamp(1.3rem, 5vw, 1.75rem);
 			line-height: 1.5;
+			margin-bottom: 30px;
+		}
+
+		.hero-services-grid {
+			grid-template-columns: 1fr;
+			gap: 15px;
+		}
+
+		.hero-service-card {
+			padding: 20px 15px;
+		}
+
+		.hero-service-card h3 {
+			font-size: 1.2rem;
+		}
+
+		.hero-service-subtitle {
+			font-size: 0.85rem;
+		}
+
+		.hero-service-description {
+			font-size: 0.9rem;
+		}
+
+		.hero-service-price {
+			font-size: 1.2rem;
+		}
+
+		.hero-service-button {
+			padding: 10px 15px;
+			font-size: 1rem;
 		}
 
 		.section-title {

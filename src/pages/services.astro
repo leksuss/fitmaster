@@ -562,8 +562,15 @@ function getLink(path: string) {
 
 	.additional-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
 		gap: 30px;
+	}
+
+	@media (max-width: 1000px) {
+		.additional-grid {
+			grid-template-columns: 1fr;
+			gap: 25px;
+		}
 	}
 
 	.additional-card {
@@ -574,7 +581,6 @@ function getLink(path: string) {
 		transition: transform 0.3s ease;
 		display: flex;
 		flex-direction: column;
-		height: 100%;
 		border: 3px solid transparent;
 	}
 
@@ -1047,6 +1053,11 @@ function getLink(path: string) {
 
 		.additional-grid {
 			grid-template-columns: 1fr;
+			gap: 20px;
+		}
+
+		.additional-card {
+			padding: 30px 20px;
 		}
 
 		.cta-content h2 {
