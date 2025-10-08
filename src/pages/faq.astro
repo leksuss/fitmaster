@@ -410,13 +410,20 @@ const faqData = {
 		</div>
 	</section>
 
-	<section class="faq-cta">
+	<section class="faq-question-cta">
 		<div class="container">
 			<div class="cta-content">
 				<h2>Не нашёл ответ на свой вопрос?</h2>
-				<p>Свяжись со мной напрямую</p>
+				<button class="cta-button primary" onclick="openQuestionModal()">Задать вопрос</button>
+			</div>
+		</div>
+	</section>
+
+	<section class="faq-cta">
+		<div class="container">
+			<div class="cta-content">
 				<div class="cta-buttons">
-					<a href={getLink('')} class="cta-button secondary">Главная</a>
+					<a href={getLink('')} class="cta-button secondary">Вернуться на главную</a>
 					<a href={getLink('services')} class="cta-button secondary">Мои услуги</a>
 					<a href={getLink('about')} class="cta-button secondary">Обо мне</a>
 				</div>
@@ -451,7 +458,7 @@ const faqData = {
 	}
 
 	.faq-content {
-		padding: 80px 0;
+		padding: 80px 0 0;
 		background: white;
 	}
 
@@ -585,23 +592,23 @@ const faqData = {
 		line-height: 1.6;
 	}
 
+	.faq-question-cta {
+		background: white;
+		padding: 40px 0 60px;
+		text-align: center;
+	}
+
+	.faq-question-cta .cta-content h2 {
+		font-size: 2rem;
+		font-weight: 700;
+		color: var(--text-color);
+		margin-bottom: 25px;
+	}
+
 	.faq-cta {
 		background: var(--bg-warm);
 		padding: 60px 0;
 		text-align: center;
-	}
-
-	.cta-content h2 {
-		font-size: 2rem;
-		font-weight: 700;
-		color: var(--text-color);
-		margin-bottom: 15px;
-	}
-
-	.cta-content p {
-		font-size: 1.1rem;
-		color: var(--text-light);
-		margin-bottom: 30px;
 	}
 
 	.cta-buttons {
@@ -625,6 +632,9 @@ const faqData = {
 		background: var(--accent-normal);
 		color: white;
 		box-shadow: 0 5px 15px rgba(255, 145, 77, 0.3);
+		border: none;
+		cursor: pointer;
+		font-family: inherit;
 	}
 
 	.cta-button.primary:hover {
@@ -681,7 +691,7 @@ const faqData = {
 			font-size: 0.95rem;
 		}
 
-		.cta-content h2 {
+		.faq-question-cta .cta-content h2 {
 			font-size: 1.6rem;
 		}
 
@@ -698,7 +708,7 @@ const faqData = {
 	}
 </style>
 
-<script>
+<script is:inline>
 	document.addEventListener('DOMContentLoaded', function() {
 		// FAQ Categories functionality
 		const faqCategories = document.querySelectorAll('.faq-category');
@@ -740,4 +750,7 @@ const faqData = {
 			});
 		});
 	});
+
+	// Функция уже определена в Layout.astro, здесь только вызов
+	// openQuestionModal() доступна глобально
 </script>

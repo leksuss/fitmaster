@@ -80,6 +80,45 @@ function getLink(path: string) {
 				</div>
 			</div>
 		</div>
+
+		<!-- Модальное окно для вопросов -->
+		<div id="question-modal" class="modal-overlay">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2>Задать вопрос</h2>
+					<button class="modal-close" onclick="closeQuestionModal()">&times;</button>
+				</div>
+				<form id="question-form" class="booking-form" method="POST" action="/_actions/sendEmail">
+					<input type="hidden" id="question-request-type" name="requestType" value="Задать вопрос">
+					<div class="form-group">
+						<label for="question-name">Имя *</label>
+						<input type="text" id="question-name" name="name" required>
+					</div>
+					<div class="form-group">
+						<label for="question-contact">Контакт *</label>
+						<input type="text" id="question-contact" name="contact" placeholder="телефон, емейл, телеграм" required>
+					</div>
+					<div class="form-group">
+						<label for="question-text">Вопрос *</label>
+						<textarea id="question-text" name="question" rows="5" required></textarea>
+					</div>
+					<button type="submit" class="submit-button">Отправить</button>
+				</form>
+				<div id="question-success-message" class="success-message" style="display: none;">
+					<div class="success-content">
+						<div class="success-icon">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M9 12l2 2 4-4"/>
+								<circle cx="12" cy="12" r="10"/>
+							</svg>
+						</div>
+						<h3>Спасибо за вопрос!</h3>
+						<p>Я отвечу тебе в течение 24 часов</p>
+						<button onclick="closeQuestionModal()" class="close-success-button">Закрыть</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
 
@@ -312,7 +351,8 @@ function getLink(path: string) {
 		color: var(--text-color);
 	}
 
-	.form-group input {
+	.form-group input,
+	.form-group textarea {
 		width: 100%;
 		padding: 12px 16px;
 		border: 2px solid #e5e7eb;
@@ -322,7 +362,13 @@ function getLink(path: string) {
 		font-family: inherit;
 	}
 
-	.form-group input:focus {
+	.form-group textarea {
+		resize: vertical;
+		min-height: 120px;
+	}
+
+	.form-group input:focus,
+	.form-group textarea:focus {
 		outline: none;
 		border-color: var(--accent-normal);
 		box-shadow: 0 0 0 3px rgba(255, 145, 77, 0.1);
@@ -534,5 +580,81 @@ function getLink(path: string) {
 				submitButton.disabled = false;
 			}
 		});
+
+		// Обработка модального окна для вопросов
+		const questionModal = document.getElementById('question-modal');
+		const questionModalContent = questionModal.querySelector('.modal-content');
+
+		questionModal.addEventListener('click', function(e) {
+			if (e.target === questionModal) {
+				closeQuestionModal();
+			}
+		});
+
+		// Закрытие по Escape
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape' && questionModal.classList.contains('active')) {
+				closeQuestionModal();
+			}
+		});
+
+		// Обработка отправки формы вопросов
+		const questionForm = document.getElementById('question-form');
+		questionForm.addEventListener('submit', async function(e) {
+			e.preventDefault();
+
+			const submitButton = questionForm.querySelector('.submit-button');
+			const originalText = submitButton.textContent;
+			submitButton.textContent = 'Отправляю...';
+			submitButton.disabled = true;
+
+			try {
+				const formData = new FormData(questionForm);
+				const response = await fetch('/_actions/sendEmail', {
+					method: 'POST',
+					body: formData
+				});
+
+				if (response.ok) {
+					// Если статус ответа 200, значит всё прошло успешно
+					questionForm.style.display = 'none';
+					const successMessage = document.getElementById('question-success-message');
+					successMessage.style.display = 'block';
+				} else {
+					// Если статус не 200, пытаемся получить детали ошибки
+					const result = await response.json();
+					const errorMessage = result?.error?.message || 'Произошла ошибка при отправке';
+					alert(errorMessage);
+					submitButton.textContent = originalText;
+					submitButton.disabled = false;
+				}
+			} catch (error) {
+				console.error('Error:', error);
+				alert('Произошла ошибка при отправке вопроса. Попробуйте снова.');
+				submitButton.textContent = originalText;
+				submitButton.disabled = false;
+			}
+		});
 	});
+
+	// Функции для работы с модальным окном вопросов
+	function openQuestionModal() {
+		const modal = document.getElementById('question-modal');
+		const form = document.getElementById('question-form');
+		const successMessage = document.getElementById('question-success-message');
+
+		// Сброс формы и скрытие сообщения об успехе
+		form.style.display = 'block';
+		successMessage.style.display = 'none';
+		form.reset();
+
+		modal.classList.add('active');
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeQuestionModal() {
+		const modal = document.getElementById('question-modal');
+		modal.classList.remove('active');
+		document.body.style.overflow = 'auto';
+	}
 </script>
