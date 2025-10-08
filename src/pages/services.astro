@@ -963,6 +963,7 @@ function getLink(path: string) {
 		padding-top: 20px;
 		border-top: 1px solid var(--border-color);
 		flex-wrap: wrap;
+		align-items: center;
 	}
 
 	.modal-button {
@@ -1147,7 +1148,7 @@ function getLink(path: string) {
 				<div class="modal-body">
 					<p><strong>Ведение без подсчёта КБЖУ</strong></p>
 					<p>Твой гибкий путь к осознанному питанию. Ты научишься ориентироваться в еде с помощью метода ладони (кулак, ладонь, палец), без весов и подсчёта калорий.</p>
-					
+
 					<h3>Что тебя ждёт:</h3>
 					<ul>
 						<li>Анкета для старта — ты отвечаешь на вопросы про себя: цели, вкусы, привычки, график, здоровье. Уже на этом этапе вырисовывается план.</li>
@@ -1160,12 +1161,12 @@ function getLink(path: string) {
 						<li>Без голодовок и запретов — ешь много, вкусно и то, что любишь, просто в правильных пропорциях под твои цели.</li>
 						<li>Еженедельные апгрейды — каждую неделю даю тебе новую полезную информацию и задания. Мы закрепляем их на практике, и ты видишь, как меняются тело и привычки.</li>
 					</ul>
-					
+
 					<div style="background: var(--bg-warm); padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent-normal); margin: 20px 0;">
 						<strong>Важно:</strong><br>
 						Это не марафон и не волшебная таблетка. Результат будет, если ты честно работаешь и следуешь плану.
 					</div>
-					
+
 					<div style="background: #f0f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent-easy); margin: 20px 0;">
 						<strong>Условия:</strong>
 						<ul style="margin-top: 10px;">
@@ -1175,9 +1176,7 @@ function getLink(path: string) {
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button onclick="openBookingModal()" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px;">Записаться</button>
-					<button onclick="openModal('hard')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с HARD</button>
-					<a href="../legend/" target="_blank" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px; text-decoration: none; display: inline-block; text-align: center;">Посмотреть LEGEND</a>
+					<button onclick="openBookingModal()" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px; margin: 0 auto; display: block; font-family: inherit;">Записаться</button>
 				</div>
 			`,
 			hard: `
@@ -1189,7 +1188,7 @@ function getLink(path: string) {
 				<div class="modal-body">
 					<p><strong>Ведение с подсчетом КБЖУ</strong></p>
 					<p>Твой пошаговый план для максимального контроля и понимания процесса. Ты будешь детально отслеживать прогресс, а также считать и точно знать свои КБЖУ.</p>
-					
+
 					<h3>Что тебя ждёт:</h3>
 					<ul>
 						<li>Анкета для старта — ты отвечаешь на вопросы про себя: цели, вкусы, привычки, график, здоровье. Уже на этом этапе вырисовывается план.</li>
@@ -1202,12 +1201,12 @@ function getLink(path: string) {
 						<li>Без голодовок и запретов — ешь много, вкусно и то, что любишь, просто в правильных пропорциях под твои цели.</li>
 						<li>Еженедельные апгрейды — каждую неделю даю тебе новую полезную информацию и задания. Мы закрепляем их на практике, и ты видишь, как меняются тело и привычки.</li>
 					</ul>
-					
+
 					<div style="background: var(--bg-warm); padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent-normal); margin: 20px 0;">
 						<strong>Важно:</strong><br>
 						Это не марафон и не волшебная таблетка. Результат будет, если ты честно работаешь и следуешь плану.
 					</div>
-					
+
 					<div style="background: #f0f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent-easy); margin: 20px 0;">
 						<strong>Условия:</strong>
 						<ul style="margin-top: 10px;">
@@ -1217,9 +1216,7 @@ function getLink(path: string) {
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button onclick="openBookingModal()" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px;">Записаться</button>
-					<button onclick="openModal('normal')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px;">Сравнить с NORMAL</button>
-					<a href="../legend/" target="_blank" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2); min-width: 150px; text-decoration: none; display: inline-block; text-align: center;">Посмотреть LEGEND</a>
+					<button onclick="openBookingModal()" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px; margin: 0 auto; display: block; font-family: inherit;">Записаться</button>
 				</div>
 			`,
 		};
