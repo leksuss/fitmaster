@@ -32,10 +32,17 @@ function getLink(path: string) {
 				<div class="service-card easy-mode">
 					<div class="service-header">
 						<h3>Режим: EASY</h3>
+						<div class="service-subtitle">Пробный разбор</div>
 					</div>
-					<div class="service-content easy-content">
+					<div class="service-price">
+						<span class="price">0 евро / 20 минут</span>
+					</div>
+					<div class="service-content">
+						<p class="service-description">Я не верю в легкий путь без действий. Но помогу сделать твой путь к цели максимально комфортным и эффективным.</p>
+						<p class="service-description">Запишись на бесплатную консультацию — получи разбор и три простых правила, которые помогут тебе начать уже сегодня!</p>
+
 						<div class="service-button-container">
-							<button class="service-button available" onclick="openModal('easy')">Узнать больше</button>
+							<button class="service-button available" onclick="openBookingModal('Записаться на консультацию')">Записаться</button>
 						</div>
 					</div>
 				</div>
@@ -43,7 +50,7 @@ function getLink(path: string) {
 				<div class="service-card normal-mode" id="normal-mode">
 					<div class="service-header">
 						<h3>Режим: NORMAL</h3>
-						<div class="service-subtitle">Ведение без подсчёта КБЖУ</div>
+						<div class="service-subtitle">Онлайн-ведение без подсчёта КБЖУ</div>
 					</div>
 					<div class="service-price">
 						<span class="price">550 евро/месяц</span>
@@ -51,9 +58,10 @@ function getLink(path: string) {
 					</div>
 					<div class="service-content">
 						<p class="service-description">Твой гибкий путь к осознанному питанию. Ты научишься ориентироваться в еде с помощью метода ладони (кулак, ладонь, палец), без весов и подсчёта калорий. Идеально для тех, кто хочет сбросить лишний вес, ищет комфортный подход и готов довериться ощущениям и моим рекомендациям.</p>
-						
+
 						<div class="service-button-container">
 							<button class="service-button available" onclick="openModal('normal')">Что тебя ждёт</button>
+							<button class="service-button available" onclick="openBookingModal('Записаться на консультацию')">Записаться</button>
 						</div>
 					</div>
 				</div>
@@ -61,7 +69,7 @@ function getLink(path: string) {
 				<div class="service-card hard-mode" id="hard-mode">
 					<div class="service-header">
 						<h3>Режим: HARD</h3>
-						<div class="service-subtitle">Ведение с подсчетом КБЖУ</div>
+						<div class="service-subtitle">Онлайн-ведение с подсчетом КБЖУ</div>
 					</div>
 					<div class="service-price">
 						<span class="price">450 евро/месяц</span>
@@ -69,9 +77,10 @@ function getLink(path: string) {
 					</div>
 					<div class="service-content">
 						<p class="service-description">Твой пошаговый план для максимального контроля и понимания процесса. Ты будешь детально отслеживать прогресс, а также считать и точно знать свои КБЖУ. Отлично подходит для тех, кто хочет стать очень сухим, любит системный подход и готов ежедневно взвешивать всю свою еду.</p>
-						
+
 						<div class="service-button-container">
 							<button class="service-button available" onclick="openModal('hard')">Что тебя ждёт</button>
+							<button class="service-button available" onclick="openBookingModal('Записаться на консультацию')">Записаться</button>
 						</div>
 					</div>
 				</div>
@@ -79,10 +88,18 @@ function getLink(path: string) {
 				<div class="service-card legend-mode" id="legend-mode">
 					<div class="service-header">
 						<h3>Режим: LEGEND</h3>
+						<div class="service-subtitle">Личное сопровождение</div>
+					</div>
+					<div class="service-price">
+						<span class="price">18 000 евро/месяц</span>
+						<span class="duration">от 4-х месяцев</span>
 					</div>
 					<div class="service-content">
+						<p class="service-description">На 4 месяца я становлюсь частью твоей жизни. Когда нужен не план, а человек, который живёт рядом с тобой и ведёт к результату. Максимально личный и глубокий формат работы.</p>
+
 						<div class="service-button-container">
 							<a href={getLink('legend')} class="service-button available">Что тебя ждёт</a>
+							<button class="service-button available" onclick="openBookingModal('Записаться на консультацию')">Записаться</button>
 						</div>
 					</div>
 				</div>
@@ -187,10 +204,10 @@ function getLink(path: string) {
 							<li>Разбор твоей проблемы и постановка реалистичных целей</li>
 							<li>За 50 минут мы сопоставим шаги вокруг подробного гайда, и я сообщу, как действовать, опираясь на него</li>
 							<li><strong>Важно:</strong> Волшебной таблетки не обещаю — работа без сопровождения требует больше дисциплины и твоей ответственности</li>
-							<li><strong>Бонус:</strong> Покупая личную консультацию, ты получаешь 10% скидку на любое из моих ведений в течение первых двух месяцев</li>
+							<li><strong>Бонус:</strong> Покупая личную консультацию, ты получаешь 10% скидку на первый месяц любого моего онлайн-ведения.</li>
 						</ul>
 						<div class="additional-button-container">
-							<button class="additional-button" onclick="openBookingModal()">Записаться на консультацию</button>
+							<button class="additional-button" onclick="openBookingModal()">Записаться</button>
 						</div>
 					</div>
 				</div>
@@ -383,34 +400,10 @@ function getLink(path: string) {
 		box-shadow: 0 10px 30px rgba(255, 201, 120, 0.15);
 	}
 
-	.service-card.easy-mode .service-content {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-grow: 1;
-		text-align: center;
-	}
-
-	.service-card.easy-mode .service-button-container {
-		margin-top: 0;
-	}
-
 	.service-card.legend-mode {
 		border-color: #8B4513;
 		box-shadow: 0 10px 30px rgba(139, 69, 19, 0.15);
 		background: linear-gradient(135deg, #FFF8DC, #FFFAF0);
-	}
-
-	.service-card.legend-mode .service-content {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-grow: 1;
-		text-align: center;
-	}
-
-	.service-card.legend-mode .service-button-container {
-		margin-top: 0;
 	}
 
 
