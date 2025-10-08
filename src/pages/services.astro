@@ -42,7 +42,7 @@ function getLink(path: string) {
 						<p class="service-description">Запишись на бесплатную консультацию — получи разбор и три простых правила, которые помогут тебе начать уже сегодня!</p>
 
 						<div class="service-button-container">
-							<button class="service-button available" onclick="openBookingModal('Записаться на консультацию')">Записаться</button>
+							<button class="service-button available" onclick="openBookingModal('Режим: EASY - Пробный разбор')">Записаться</button>
 						</div>
 					</div>
 				</div>
@@ -61,7 +61,7 @@ function getLink(path: string) {
 
 						<div class="service-button-container">
 							<button class="service-button available" onclick="openModal('normal')">Что тебя ждёт</button>
-							<button class="service-button available" onclick="openBookingModal('Записаться на консультацию')">Записаться</button>
+							<button class="service-button available" onclick="openBookingModal('Режим: NORMAL - Онлайн-ведение без подсчёта КБЖУ')">Записаться</button>
 						</div>
 					</div>
 				</div>
@@ -80,7 +80,7 @@ function getLink(path: string) {
 
 						<div class="service-button-container">
 							<button class="service-button available" onclick="openModal('hard')">Что тебя ждёт</button>
-							<button class="service-button available" onclick="openBookingModal('Записаться на консультацию')">Записаться</button>
+							<button class="service-button available" onclick="openBookingModal('Режим: HARD - Онлайн-ведение с подсчетом КБЖУ')">Записаться</button>
 						</div>
 					</div>
 				</div>
@@ -99,7 +99,7 @@ function getLink(path: string) {
 
 						<div class="service-button-container">
 							<a href={getLink('legend')} class="service-button available">Что тебя ждёт</a>
-							<button class="service-button available" onclick="openBookingModal('Записаться на консультацию')">Записаться</button>
+							<button class="service-button available" onclick="openBookingModal('Режим: LEGEND - Личное сопровождение')">Записаться</button>
 						</div>
 					</div>
 				</div>
@@ -186,7 +186,7 @@ function getLink(path: string) {
 							<li>Научный подход к снижению веса</li>
 						</ul>
 						<div class="additional-button-container">
-							<button class="additional-button" onclick="openBookingModal()">Купить гайд</button>
+							<button class="additional-button" onclick="openBookingModal('Гайд «Как похудеть?»')">Купить гайд</button>
 						</div>
 					</div>
 				</div>
@@ -207,7 +207,7 @@ function getLink(path: string) {
 							<li><strong>Бонус:</strong> Покупая личную консультацию, ты получаешь 10% скидку на первый месяц любого моего онлайн-ведения.</li>
 						</ul>
 						<div class="additional-button-container">
-							<button class="additional-button" onclick="openBookingModal()">Записаться</button>
+							<button class="additional-button" onclick="openBookingModal('Личная консультация')">Записаться</button>
 						</div>
 					</div>
 				</div>
@@ -1176,7 +1176,7 @@ function getLink(path: string) {
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button onclick="openBookingModal()" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px; margin: 0 auto; display: block; font-family: inherit;">Записаться</button>
+					<button onclick="openBookingModal('Режим: NORMAL - Онлайн-ведение без подсчёта КБЖУ')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px; margin: 0 auto; display: block; font-family: inherit;">Записаться</button>
 				</div>
 			`,
 			hard: `
@@ -1216,7 +1216,7 @@ function getLink(path: string) {
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button onclick="openBookingModal()" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px; margin: 0 auto; display: block; font-family: inherit;">Записаться</button>
+					<button onclick="openBookingModal('Режим: HARD - Онлайн-ведение с подсчетом КБЖУ')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px; margin: 0 auto; display: block; font-family: inherit;">Записаться</button>
 				</div>
 			`,
 		};

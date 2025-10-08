@@ -21,9 +21,9 @@ function getLink(path: string) {
 		<div class="container">
 			<div class="about-content">
 				<div class="about-text">
-					<h1>Кто я и почему тебе стоит мне доверять?</h1>
+					<h1>Кто я?<br>И почему мне доверяют?</h1>
 					<div class="intro-text">
-						<p>Привет! Меня зовут Влад, мне 38 лет, и я твой хелс-коуч. Живу в Испании и провожу онлайн-консультации на русском и английском языках.</p>
+						<p>Привет! Меня зовут Влад, мне 38 лет<br>и я твой хелс-коуч.<br>Живу в Испании, но работаю с людьми по всему миру.</p>
 					</div>
 				</div>
 				<div class="about-image">
@@ -149,8 +149,11 @@ function getLink(path: string) {
 		<div class="container">
 			<div class="cta-content">
 				<h2>Готов начать работу со мной?</h2>
-				<p>Изучи мои услуги и выбери подходящий вариант сопровождения</p>
-				<a href={getLink('services')} class="cta-button">Мои услуги</a>
+				<p>Запишись на пробный разбор или ознакомься с моими услугами.</p>
+				<div class="cta-buttons">
+					<button class="cta-button primary" onclick="openBookingModal('Хочу пробный разбор')">Записаться на пробный разбор</button>
+					<a href={getLink('services')} class="cta-button secondary">Мои услуги</a>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -394,23 +397,47 @@ function getLink(path: string) {
 		opacity: 0.9;
 	}
 
+	.cta-buttons {
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
 	.cta-button {
 		display: inline-block;
-		background: var(--accent-easy);
-		color: #8B4513;
 		padding: 15px 30px;
 		border-radius: 50px;
 		text-decoration: none;
 		font-weight: 600;
 		font-size: 1.1rem;
 		transition: all 0.3s ease;
+		border: none;
+		cursor: pointer;
+		font-family: inherit;
+	}
+
+	.cta-button.primary {
+		background: var(--accent-easy);
+		color: #8B4513;
 		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
 	}
 
-	.cta-button:hover {
+	.cta-button.primary:hover {
 		background: #FFD700;
 		transform: translateY(-2px);
 		box-shadow: 0 12px 30px rgba(255, 201, 120, 0.4);
+	}
+
+	.cta-button.secondary {
+		background: transparent;
+		border: 2px solid white;
+		color: white;
+	}
+
+	.cta-button.secondary:hover {
+		background: white;
+		color: var(--accent-hard);
 	}
 
 	@keyframes fadeInUp {
@@ -479,6 +506,16 @@ function getLink(path: string) {
 
 		.story-block p {
 			font-size: 1rem;
+		}
+
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.cta-button {
+			width: 100%;
+			max-width: 300px;
 		}
 	}
 </style>
