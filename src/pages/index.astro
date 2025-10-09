@@ -938,22 +938,57 @@ function getLink(path: string) {
 
 		.testimonials-carousel {
 			max-width: 100%;
-			padding: 0 50px;
+			padding: 0 20px;
+		}
+
+		/* Скрываем стрелки на мобильных */
+		.testimonials-carousel .carousel-btn.prev,
+		.testimonials-carousel .carousel-btn.next {
+			display: none;
 		}
 
 		.carousel-container {
-			overflow: hidden;
+			overflow-x: auto;
+			overflow-y: hidden;
+			-webkit-overflow-scrolling: touch;
+			scroll-snap-type: x mandatory;
+			scroll-behavior: smooth;
 			padding: 0;
 			margin: 0;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+		}
+
+		.carousel-container::-webkit-scrollbar {
+			display: none;
+		}
+
+		.carousel-track {
+			transition: none;
+			transform: none !important;
+			padding: 0;
+			gap: 15px;
 		}
 
 		.testimonial-slide {
-			min-width: 100%;
-			flex: 0 0 100%;
+			min-width: 70%;
+			flex: 0 0 70%;
 			margin: 0;
+			padding: 15px 0;
 			opacity: 1;
 			transform: scale(1);
-			padding: 15px 0;
+			scroll-snap-align: center;
+			scroll-snap-stop: always;
+		}
+
+		/* Первый слайд: добавляем отступ слева для центрирования */
+		.testimonial-slide:first-child {
+			padding-left: 15%;
+		}
+
+		/* Последний слайд: добавляем отступ справа для центрирования */
+		.testimonial-slide:last-child {
+			padding-right: 15%;
 		}
 
 		.testimonial-card {
@@ -965,14 +1000,6 @@ function getLink(path: string) {
 			filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.08));
 			background-clip: padding-box;
 			clip-path: inset(0 round 20px);
-		}
-
-		.testimonials-carousel .carousel-btn.prev {
-			left: 5px;
-		}
-
-		.testimonials-carousel .carousel-btn.next {
-			right: 5px;
 		}
 
 		.testimonial-header strong {
@@ -989,8 +1016,23 @@ function getLink(path: string) {
 		}
 
 		.carousel-controls {
-			margin-top: 20px;
+			margin-top: 25px;
 			gap: 15px;
+		}
+
+		/* Увеличиваем размер индикаторов на мобильных для лучшей видимости */
+		.carousel-indicators {
+			gap: 12px;
+		}
+
+		.indicator {
+			width: 8px;
+			height: 8px;
+		}
+
+		.indicator.active {
+			width: 24px;
+			border-radius: 4px;
 		}
 
 		.carousel-btn {
@@ -1050,8 +1092,18 @@ function getLink(path: string) {
 				this.updateIndicators();
 				this.updatePosition(false);
 				this.updateContainerHeight();
+				this.initMobileScroll();
 				this.bindEvents();
 				this.startAutoPlay();
+			}
+
+			private initMobileScroll() {
+				const isMobile = window.innerWidth <= 768;
+				if (isMobile && this.container) {
+					// Устанавливаем начальную позицию скролла на первый оригинальный слайд
+					const slideWidth = this.container.scrollWidth / (this.originalSlideCount + 2);
+					this.container.scrollLeft = slideWidth;
+				}
 			}
 
 			private createInfiniteLoop() {
@@ -1121,12 +1173,17 @@ function getLink(path: string) {
 			private prev = () => this.goTo(this.currentIndex - 1);
 
 			private handleInfiniteLoop() {
-				if (this.currentIndex === 0) {
-					this.currentIndex = this.originalSlideCount;
-					this.updatePosition(false);
-				} else if (this.currentIndex === this.originalSlideCount + 1) {
+				// Переход с последнего клона (индекс originalSlideCount + 1) на первый оригинальный слайд (индекс 1)
+				if (this.currentIndex === this.originalSlideCount + 1) {
 					this.currentIndex = 1;
 					this.updatePosition(false);
+					this.updateIndicators();
+				}
+				// Переход с первого клона (индекс 0) на последний оригинальный слайд (индекс originalSlideCount)
+				else if (this.currentIndex === 0) {
+					this.currentIndex = this.originalSlideCount;
+					this.updatePosition(false);
+					this.updateIndicators();
 				}
 			}
 
@@ -1155,6 +1212,45 @@ function getLink(path: string) {
 					const diff = startX - endX;
 					if (Math.abs(diff) > 50) { diff > 0 ? this.next() : this.prev(); this.stopAutoPlay(); this.isAutoPlaying = false; }
 				}, { passive: true });
+
+				// Infinite scroll для мобильных устройств
+				if (this.container) {
+					let isScrolling = false;
+					this.container.addEventListener('scroll', () => {
+						if (isScrolling) return;
+						const isMobile = window.innerWidth <= 768;
+						if (!isMobile || !this.container) return;
+
+						const scrollLeft = this.container.scrollLeft;
+						const slideWidth = this.container.scrollWidth / (this.originalSlideCount + 2);
+						const currentSlide = Math.round(scrollLeft / slideWidth);
+
+						// Проверяем, достигли ли мы клона в конце
+						if (currentSlide >= this.originalSlideCount + 1) {
+							isScrolling = true;
+							this.container.style.scrollBehavior = 'auto';
+							this.container.scrollLeft = slideWidth;
+							setTimeout(() => {
+								if (this.container) this.container.style.scrollBehavior = 'smooth';
+								isScrolling = false;
+							}, 50);
+						}
+						// Проверяем, достигли ли мы клона в начале
+						else if (currentSlide <= 0) {
+							isScrolling = true;
+							this.container.style.scrollBehavior = 'auto';
+							this.container.scrollLeft = slideWidth * this.originalSlideCount;
+							setTimeout(() => {
+								if (this.container) this.container.style.scrollBehavior = 'smooth';
+								isScrolling = false;
+							}, 50);
+						}
+
+						// Обновляем индикаторы
+						this.updateMobileIndicators(currentSlide);
+					}, { passive: true });
+				}
+
 				window.addEventListener('resize', () => {
 					clearTimeout(this.resizeDebounce);
 					this.resizeDebounce = setTimeout(() => { this.updatePosition(false); this.updateContainerHeight(); }, 100);
@@ -1163,6 +1259,14 @@ function getLink(path: string) {
 					this.resizeObserver = new ResizeObserver(() => this.updateContainerHeight());
 					this.resizeObserver.observe(this.container);
 				}
+			}
+
+			private updateMobileIndicators(currentSlide: number) {
+				const indicators = this.indicatorsContainer.querySelectorAll('.indicator');
+				let activeIndex = currentSlide - 1;
+				if (currentSlide === 0) activeIndex = this.originalSlideCount - 1;
+				if (currentSlide === this.originalSlideCount + 1) activeIndex = 0;
+				indicators.forEach((indicator, i) => indicator.classList.toggle('active', i === activeIndex));
 			}
 		}
 
