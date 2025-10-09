@@ -27,21 +27,8 @@ function getLink(path: string) {
 					</div>
 				</div>
 				<div class="about-image">
-					<div class="image-placeholder">
-						<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<circle cx="150" cy="150" r="140" fill="url(#profileGradient)" opacity="0.1"/>
-							<circle cx="150" cy="150" r="100" fill="url(#profileGradient)" opacity="0.2"/>
-							<circle cx="150" cy="150" r="60" fill="url(#profileGradient)" opacity="0.3"/>
-							<defs>
-								<linearGradient id="profileGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-									<stop offset="0%" style="stop-color:#FFC978;stop-opacity:1" />
-									<stop offset="50%" style="stop-color:#FF914D;stop-opacity:1" />
-									<stop offset="100%" style="stop-color:#D25F3E;stop-opacity:1" />
-								</linearGradient>
-							</defs>
-						</svg>
-					</div>
-				</div>
+				<img src={`${base}${base.endsWith('/') ? '' : '/'}photos/kto_ya_i_pochemu_mne_doveryayut.png`} alt="Влад - хелс-коуч" class="profile-photo" />
+			</div>
 			</div>
 		</div>
 	</section>
@@ -163,10 +150,12 @@ function getLink(path: string) {
 	.about-hero {
 		background: linear-gradient(135deg, var(--accent-normal) 0%, var(--accent-hard) 100%);
 		color: white;
-		padding: 100px 0;
+		padding: 0;
 		min-height: 500px;
 		display: flex;
 		align-items: center;
+		position: relative;
+		overflow: hidden;
 	}
 
 	.container {
@@ -176,10 +165,19 @@ function getLink(path: string) {
 	}
 
 	.about-content {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		gap: 60px;
-		align-items: center;
+		display: flex;
+		position: relative;
+		min-height: 620px;
+		/* Промежуточный резерв справа: текст слегка заходит на фото */
+		padding-right: clamp(320px, 33vw, 600px);
+	}
+
+	.about-text {
+		position: relative;
+		z-index: 2;
+		max-width: 700px;
+		/* Опускаем текстовый блок ниже */
+		margin-top: clamp(40px, 11vh, 140px);
 	}
 
 	.about-text h1 {
@@ -201,14 +199,21 @@ function getLink(path: string) {
 	}
 
 	.about-image {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		position: absolute;
+		bottom: -18px; /* слегка опускаем, чтобы «камень» естественно касался низа */
+		right: calc(clamp(6px, 1.9vw, 34px) - 20px);
+		width: clamp(470px, 38vw, 792px);
+		z-index: 1;
+		pointer-events: none;
 		animation: fadeIn 1s ease-out 0.4s both;
 	}
 
-	.image-placeholder {
-		animation: pulse 2s infinite;
+	.profile-photo {
+		width: 100%;
+		height: auto;
+		display: block;
+		object-fit: cover;
+		animation: fadeIn 1s ease-out;
 	}
 
 	.story-section {
@@ -471,9 +476,15 @@ function getLink(path: string) {
 
 	@media (max-width: 768px) {
 		.about-content {
-			grid-template-columns: 1fr;
-			gap: 40px;
+			gap: 0;
 			text-align: center;
+			flex-direction: column;
+			align-items: center;
+			padding-right: 0;
+		}
+
+		.about-text {
+			margin-top: 24px;
 		}
 
 		.about-text h1 {
@@ -516,6 +527,28 @@ function getLink(path: string) {
 		.cta-button {
 			width: 100%;
 			max-width: 300px;
+		}
+
+		.about-image {
+			position: relative;
+			z-index: 1;
+			width: 100%;
+			max-width: 520px;
+			margin: -160px auto 0;
+			pointer-events: none;
+		}
+	}
+
+	@media (min-width: 769px) and (max-width: 1024px) {
+		/* Точное положение на планшетах */
+		.about-image {
+			bottom: -12px;
+			right: calc(clamp(4px, 2vw, 32px) - 20px);
+			width: clamp(414px, 43vw, 666px);
+		}
+
+		.about-content {
+			padding-right: clamp(260px, 36vw, 480px);
 		}
 	}
 </style>
