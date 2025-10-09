@@ -28,40 +28,29 @@ function getLink(path: string) {
 				<div class="hero-services-grid">
 					<div class="hero-service-card easy-mode">
 						<h3>Режим: EASY</h3>
-						<div class="hero-service-subtitle">Пробный разбор</div>
+						<div class="hero-service-subtitle">Бесплатная консультация</div>
 						<p class="hero-service-description">Я не верю в легкий путь без действий и помогу тебе начать.</p>
-						<div class="hero-service-price">0 евро/20 мин</div>
-						<button class="hero-service-button" onclick="openBookingModal('Режим: EASY - Пробный разбор')">Записаться</button>
+						<div class="hero-service-price">0 €/20 мин</div>
+						<button class="hero-service-button" onclick="openBookingModal('Режим: EASY - Бесплатная консультация')">Записаться</button>
 					</div>
 					<div class="hero-service-card normal-mode">
 						<h3>Режим: NORMAL</h3>
 						<div class="hero-service-subtitle">Ведение без подсчёта КБЖУ</div>
-						<div class="hero-service-price">550 евро/месяц</div>
+						<p class="hero-service-description">Гибкий подход к осознанному питанию без подсчёта калорий по методу ладони.</p>
+						<div class="hero-service-price">550 €/месяц</div>
 						<button class="hero-service-button" onclick="openBookingModal('Режим: NORMAL - Онлайн-ведение без подсчёта КБЖУ')">Записаться</button>
 					</div>
 					<div class="hero-service-card hard-mode">
 						<h3>Режим: HARD</h3>
 						<div class="hero-service-subtitle">Ведение с подсчетом КБЖУ</div>
-						<div class="hero-service-price">450 евро/месяц</div>
+						<p class="hero-service-description">Системный подход для максимального результата с подсчётом и взвешиванием.</p>
+						<div class="hero-service-price">450 €/месяц</div>
 						<button class="hero-service-button" onclick="openBookingModal('Режим: HARD - Онлайн-ведение с подсчетом КБЖУ')">Записаться</button>
 					</div>
 				</div>
 			</div>
 			<div class="hero-image">
-				<div class="hero-placeholder">
-					<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<circle cx="200" cy="200" r="180" fill="url(#gradient)" opacity="0.1"/>
-						<circle cx="200" cy="200" r="120" fill="url(#gradient)" opacity="0.2"/>
-						<circle cx="200" cy="200" r="60" fill="url(#gradient)" opacity="0.3"/>
-						<defs>
-							<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-								<stop offset="0%" style="stop-color:#FFC978;stop-opacity:1" />
-								<stop offset="50%" style="stop-color:#FF914D;stop-opacity:1" />
-								<stop offset="100%" style="stop-color:#D25F3E;stop-opacity:1" />
-							</linearGradient>
-						</defs>
-					</svg>
-				</div>
+				<img src={`${base.endsWith('/') ? base : base + '/'}photos/main.png`} alt="Влад - Хелс-коуч" class="hero-photo" />
 			</div>
 		</div>
 	</section>
@@ -297,33 +286,34 @@ function getLink(path: string) {
 	.hero {
 		background: linear-gradient(135deg, var(--accent-normal) 0%, var(--accent-hard) 100%);
 		color: white;
-		padding: 100px 0;
+		padding: 50px 0 100px;
 		min-height: 600px;
 		display: flex;
 		align-items: center;
 	}
 
 	.hero-content {
-		max-width: 1200px;
+		max-width: 1400px;
 		margin: 0 auto;
 		padding: 0 20px;
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		align-items: center;
-		text-align: center;
+		gap: 60px;
 	}
 
 	.hero-text {
-		max-width: 1100px;
-		width: 100%;
+		flex: 1;
+		text-align: left;
 	}
 
 	.hero-title {
-		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-size: clamp(1.5rem, 2.8vw, 2rem);
 		font-weight: 700;
 		line-height: 1.4;
 		margin-bottom: 40px;
 		animation: fadeInUp 1s ease-out;
+		text-align: left;
 	}
 
 	.hero-services-grid {
@@ -438,7 +428,18 @@ function getLink(path: string) {
 	}
 
 	.hero-image {
-		display: none;
+		flex: 0 0 clamp(150px, 15vw, 200px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 clamp(20px, 10vw, 150px);
+	}
+
+	.hero-photo {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		border-radius: 20px;
 	}
 
 	.container {
@@ -892,14 +893,24 @@ function getLink(path: string) {
 	}
 
 	@media (max-width: 768px) {
+		.hero-content {
+			flex-direction: column;
+			gap: 30px;
+		}
+
 		.hero-text {
-			max-width: 100%;
+			text-align: center;
 		}
 
 		.hero-title {
 			font-size: clamp(1.3rem, 5vw, 1.75rem);
 			line-height: 1.5;
 			margin-bottom: 30px;
+			text-align: center;
+		}
+
+		.hero-image {
+			display: none;
 		}
 
 		.hero-services-grid {

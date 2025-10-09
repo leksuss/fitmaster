@@ -27,7 +27,7 @@ function getLink(path: string) {
 					</div>
 				</div>
 				<div class="about-image">
-				<img src={`${base}${base.endsWith('/') ? '' : '/'}photos/kto_ya_i_pochemu_mne_doveryayut.png`} alt="Влад - хелс-коуч" class="profile-photo" />
+				<img src={`${base.endsWith('/') ? base : base + '/'}photos/about.png`} alt="Влад - хелс-коуч" class="profile-photo" />
 			</div>
 			</div>
 		</div>
@@ -169,7 +169,7 @@ function getLink(path: string) {
 		position: relative;
 		min-height: 620px;
 		/* Промежуточный резерв справа: текст слегка заходит на фото */
-		padding-right: clamp(320px, 33vw, 600px);
+		padding-right: clamp(180px, 11.3vw, 216px);
 	}
 
 	.about-text {
@@ -200,9 +200,9 @@ function getLink(path: string) {
 
 	.about-image {
 		position: absolute;
-		bottom: -18px; /* слегка опускаем, чтобы «камень» естественно касался низа */
+		bottom: -10px;
 		right: calc(clamp(6px, 1.9vw, 34px) - 20px);
-		width: clamp(470px, 38vw, 792px);
+		width: clamp(240px, 13.8vw, 265px);
 		z-index: 1;
 		pointer-events: none;
 		animation: fadeIn 1s ease-out 0.4s both;
@@ -533,8 +533,8 @@ function getLink(path: string) {
 			position: relative;
 			z-index: 1;
 			width: 100%;
-			max-width: 520px;
-			margin: -160px auto 0;
+			max-width: 239px;
+			margin: 30px auto 0;
 			pointer-events: none;
 		}
 	}
@@ -544,11 +544,11 @@ function getLink(path: string) {
 		.about-image {
 			bottom: -12px;
 			right: calc(clamp(4px, 2vw, 32px) - 20px);
-			width: clamp(414px, 43vw, 666px);
+			width: clamp(220px, 14vw, 239px);
 		}
 
 		.about-content {
-			padding-right: clamp(260px, 36vw, 480px);
+			padding-right: clamp(155px, 10vw, 173px);
 		}
 	}
 </style>
