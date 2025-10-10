@@ -20,7 +20,12 @@ function getLink(path: string) {
 	<section class="services-hero">
 		<div class="container">
 			<div class="hero-content">
-				<h1>Выбери формат ведения, который подойдет именно тебе</h1>
+				<div class="hero-image">
+					<img src={`${base.endsWith('/') ? base : base + '/'}photos/services.png`} alt="Услуги коучинга" class="hero-photo" />
+				</div>
+				<div class="hero-text">
+					<h1>Выбери формат ведения, который подойдет именно тебе</h1>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -296,8 +301,7 @@ function getLink(path: string) {
 	.services-hero {
 		background: linear-gradient(135deg, var(--accent-normal) 0%, var(--accent-hard) 100%);
 		color: white;
-		padding: 100px 0;
-		text-align: center;
+		padding: 20px 0;
 	}
 
 	.container {
@@ -306,12 +310,40 @@ function getLink(path: string) {
 		padding: 0 20px;
 	}
 
+	.hero-content {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 60px;
+		justify-content: space-between;
+	}
+
+	.hero-text {
+		flex: 1;
+		text-align: left;
+	}
+
 	.hero-content h1 {
 		font-size: 2.5rem;
 		font-weight: 700;
 		line-height: 1.2;
 		margin-bottom: 20px;
 		animation: fadeInUp 1s ease-out;
+	}
+
+	.hero-image {
+		flex: 0 0 clamp(207px, 20.7vw, 288px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-left: clamp(20px, 15vw, 200px);
+	}
+
+	.hero-photo {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		border-radius: 20px;
 	}
 
 	.hero-subtitle {
@@ -1035,8 +1067,32 @@ function getLink(path: string) {
 	}
 
 	@media (max-width: 768px) {
+		.hero-content {
+			flex-direction: row;
+			gap: 15px;
+			position: relative;
+		}
+
+		.hero-text {
+			text-align: left;
+			position: relative;
+			z-index: 2;
+			flex: 1;
+		}
+
 		.hero-content h1 {
-			font-size: 2rem;
+			font-size: 1.5rem;
+		}
+
+		.hero-image {
+			flex: 0 0 clamp(80px, 23vw, 115px);
+			padding-left: 15px;
+			z-index: 1;
+		}
+
+		.hero-photo {
+			width: 100%;
+			height: auto;
 		}
 
 		.section-title {
