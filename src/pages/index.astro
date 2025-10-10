@@ -896,21 +896,38 @@ function getLink(path: string) {
 		.hero-content {
 			flex-direction: column;
 			gap: 30px;
+			position: relative;
 		}
 
 		.hero-text {
-			text-align: center;
+			text-align: left;
+			position: relative;
+			z-index: 2;
+			padding-left: 0;
 		}
 
 		.hero-title {
-			font-size: clamp(1.3rem, 5vw, 1.75rem);
+			font-size: clamp(1.1rem, 4.4vw, 1.5rem);
 			line-height: 1.5;
-			margin-bottom: 30px;
-			text-align: center;
+			margin-top: 20px;
+			margin-bottom: 40px;
+			text-align: left;
+			position: relative;
 		}
 
 		.hero-image {
-			display: none;
+			position: absolute;
+			right: 15px;
+			top: -20px;
+			width: clamp(57px, 17vw, 85px);
+			opacity: 1;
+			z-index: 1;
+			padding: 0;
+		}
+
+		.hero-photo {
+			width: 100%;
+			height: auto;
 		}
 
 		.hero-services-grid {
