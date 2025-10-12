@@ -1,0 +1,242 @@
+---
+// Калькулятор БЖУ по методу ладони
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Калькулятор нормы БЖУ по методу ладони</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app" class="wrap">
+    <h1>Калькулятор нормы БЖУ по методу ладони</h1>
+
+    <div class="card">
+      <label for="w">вес (кг):</label>
+      <input id="w" type="number" min="30" max="250" step="0.5">
+
+      <label for="h">рост (см):</label>
+      <input id="h" type="number" min="120" max="230" step="1">
+
+      <label for="a">возраст (лет):</label>
+      <input id="a" type="number" min="14" max="90" step="1">
+
+      <label for="sex">пол:</label>
+      <select id="sex">
+        <option value="m">мужской</option>
+        <option value="f">женский</option>
+      </select>
+
+      <label for="act">активность:</label>
+      <select id="act">
+        <option value="low">низкая</option>
+        <option value="mid">средняя</option>
+        <option value="high">высокая</option>
+      </select>
+
+      <div class="hint" id="act-hint">
+        Сидячая работа, меньше 6&nbsp;000 шагов, тренировок нет или редко.
+      </div>
+
+      <label for="goal">цель:</label>
+      <select id="goal">
+        <option value="loss">похудение</option>
+        <option value="maint">поддержка</option>
+        <option value="gain">набор</option>
+      </select>
+
+      <div class="note" id="goal-note" style="display: none;"></div>
+
+      <hr>
+
+      <div id="results" style="display: none;">
+        <div class="result-line">
+          <b>Норма белков (в ладонях)</b>
+          <span class="v" id="protein-result">-</span>
+        </div>
+        <div class="result-line">
+          <b>Норма жиров (в пальцах)</b>
+          <span class="v" id="fat-result">-</span>
+        </div>
+        <div class="result-line">
+          <b>Норма углеводов (в горстях)</b>
+          <span class="v" id="carbs-result">-</span>
+        </div>
+      </div>
+      <div class="hint" id="placeholder">Заполни поля выше — результаты появятся здесь.</div>
+    </div>
+  </div>
+</body>
+</html>
+
+<style>
+  :root{
+    --mint-bg:#E9FBF5;
+    --mint:#CFF7EC;
+    --accent:#10B981;
+    --ink:#0f172a;
+    --muted:#5b6b79;
+    --line:#cfe9df;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;background:var(--mint-bg);color:var(--ink);
+    font-family:"Share Tech Mono", monospace;letter-spacing:.15px;line-height:1.5;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:24px 16px 40px}
+  h1{margin:0 0 14px;font-size:24px;color:var(--accent)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 24px rgba(15,23,42,.06);padding:16px}
+  label{display:block;margin:8px 0 6px;font-weight:700;color:var(--accent)}
+  input[type="number"], select{
+    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;
+    background:#fff;color:var(--ink);font-family:inherit;font-size:16px;
+  }
+  input[type="number"]:focus, select:focus{
+    outline:none;border-color:var(--accent);box-shadow:0 0 0 .2rem rgba(16,185,129,.18);
+  }
+  .hint{color:var(--muted);font-size:13px;margin:6px 2px 0}
+  .note{background:#dff8ef;border:1px solid var(--line);color:#0e7a59;border-radius:12px;padding:10px 12px;margin-top:10px;font-weight:700}
+  hr{border:none;height:1px;background:var(--line);margin:16px 0}
+  .result-line{background:var(--mint);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+  .result-line b{color:var(--muted)}
+  .result-line .v{color:var(--accent);font-weight:900;font-size:22px}
+</style>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  const state = {
+    w: null,
+    h: null,
+    a: null,
+    sex: 'm',
+    act: 'low',
+    goal: 'loss',
+    gPerPalm: 25,
+    gPerThumb: 10,
+    gPerHandCarb: 25
+  };
+
+  const elements = {
+    w: document.getElementById('w'),
+    h: document.getElementById('h'),
+    a: document.getElementById('a'),
+    sex: document.getElementById('sex'),
+    act: document.getElementById('act'),
+    goal: document.getElementById('goal'),
+    actHint: document.getElementById('act-hint'),
+    goalNote: document.getElementById('goal-note'),
+    results: document.getElementById('results'),
+    placeholder: document.getElementById('placeholder'),
+    proteinResult: document.getElementById('protein-result'),
+    fatResult: document.getElementById('fat-result'),
+    carbsResult: document.getElementById('carbs-result')
+  };
+
+  const activityHints = {
+    low: 'Сидячая работа, меньше 6&nbsp;000 шагов, тренировок нет или редко.',
+    mid: 'Ходьба по делам, около 6&nbsp;000–10&nbsp;000 шагов, до 2 трен/нед.',
+    high: 'Активная работа, не меньше 10&nbsp;000–14&nbsp;000 шагов, 3–5 трен/нед.'
+  };
+
+  const goalNotes = {
+    loss: 'Расчёт сделан с учётом 20% дефицита калорий → для снижения веса',
+    gain: 'Расчёт сделан с учётом 10% профицита калорий → для набора массы'
+  };
+
+  function calculate() {
+    const w = parseFloat(elements.w.value);
+    const h = parseFloat(elements.h.value);
+    const a = parseFloat(elements.a.value);
+
+    if (!w || !h || !a || w <= 0 || h <= 0 || a <= 0) {
+      elements.results.style.display = 'none';
+      elements.placeholder.style.display = 'block';
+      return;
+    }
+
+    state.w = w;
+    state.h = h;
+    state.a = a;
+
+    // BMR (Mifflin–St Jeor)
+    const base = 10 * w + 6.25 * h - 5 * a;
+    const bmr = Math.round(state.sex === 'm' ? base + 5 : base - 161);
+
+    // TDEE
+    const actMult = state.act === 'low' ? 1.2 : (state.act === 'mid' ? 1.55 : 1.725);
+    const tdee = Math.round(bmr * actMult);
+
+    // Целевая калорийность
+    let kcalTarget;
+    if (state.goal === 'loss') kcalTarget = Math.round(tdee * 0.80);
+    else if (state.goal === 'gain') kcalTarget = Math.round(tdee * 1.10);
+    else kcalTarget = tdee;
+
+    // Белок
+    const pPerKg = state.goal === 'loss' ? 1.7 : (state.goal === 'maint' ? 1.6 : 1.8);
+    const pGram = Math.round(w * pPerKg);
+
+    // Жир
+    const fPerKg = state.goal === 'loss' ? 0.7 : (state.goal === 'maint' ? 0.8 : 0.9);
+    const fGram = Math.round(w * fPerKg);
+
+    // Углеводы
+    const kcalAfterPF = kcalTarget - (pGram * 4 + fGram * 9);
+    const cGramCenter = kcalAfterPF <= 0 ? 0 : Math.round(kcalAfterPF / 4);
+    const cGramMin = Math.max(0, Math.round(cGramCenter * 0.85));
+    const cGramMax = Math.max(0, Math.round(cGramCenter * 1.15));
+
+    // Перевод в ладони/пальцы/горсти
+    const proteinPalms = Math.max(1, Math.round(pGram / state.gPerPalm));
+    const fatThumbs = Math.max(1, Math.round(fGram / state.gPerThumb));
+    const carbsHandsMin = Math.max(0, Math.round(cGramMin / state.gPerHandCarb));
+    const carbsHandsMax = Math.max(0, Math.round(cGramMax / state.gPerHandCarb));
+
+    // Отображение результатов
+    elements.proteinResult.textContent = proteinPalms;
+    elements.fatResult.textContent = fatThumbs;
+    elements.carbsResult.textContent = `${carbsHandsMin} – ${carbsHandsMax}`;
+
+    elements.results.style.display = 'block';
+    elements.placeholder.style.display = 'none';
+  }
+
+  function updateActivityHint() {
+    state.act = elements.act.value;
+    elements.actHint.innerHTML = activityHints[state.act];
+    calculate();
+  }
+
+  function updateGoalNote() {
+    state.goal = elements.goal.value;
+    if (state.goal === 'loss' || state.goal === 'gain') {
+      elements.goalNote.textContent = goalNotes[state.goal];
+      elements.goalNote.style.display = 'block';
+    } else {
+      elements.goalNote.style.display = 'none';
+    }
+    calculate();
+  }
+
+  // Event listeners
+  elements.w.addEventListener('input', calculate);
+  elements.h.addEventListener('input', calculate);
+  elements.a.addEventListener('input', calculate);
+  elements.sex.addEventListener('change', () => {
+    state.sex = elements.sex.value;
+    calculate();
+  });
+  elements.act.addEventListener('change', updateActivityHint);
+  elements.goal.addEventListener('change', updateGoalNote);
+
+  // Инициализация
+  updateActivityHint();
+  updateGoalNote();
+});
+</script>
