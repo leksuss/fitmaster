@@ -123,31 +123,30 @@ function getLink(path: string) {
 
 <style>
 	:root {
-		/* Базовая палитра */
-		--bg-color: #FFFFFF;
-		--bg-light: #F9F9F9;
-		--bg-warm: #FAF7F3;
-		
+		/* Новая премиальная палитра */
+		--bg-color: #F5F0E8;
+		--bg-light: #FFFFFF;
+		--bg-warm: #FFFFFF;
+		--bg-secondary: #D4C5B0;
+
 		/* Текст */
-		--text-color: #212121;
-		--text-light: #666666;
-		
-		/* Акценты тарифов (Easy/Normal/Hard) */
-		--accent-easy: #FFC978;
-		--accent-normal: #FF914D;
-		--accent-hard: #D25F3E;
-		--accent-hard-dark: #B84A2B;
-		
-		/* Альтернативная палитра */
-		--alt-easy: #C7E77B;
-		--alt-normal: #D8A138;
-		--alt-hard: #943838;
-		
+		--text-color: #2C2C2C;
+		--text-light: #5A5A5A;
+
+		/* Акценты (медный как основной) */
+		--accent-copper: #A67C52;
+		--accent-easy: #A67C52;
+		--accent-normal: #A67C52;
+		--accent-hard: #2C2C2C;
+		--accent-hard-dark: #2C2C2C;
+
+		/* Рамки */
+		--border-color: #C5C0B8;
+
 		/* Для совместимости с существующим кодом */
-		--primary-color: var(--accent-normal);
-		--primary-dark: var(--accent-hard);
-		--secondary-color: var(--accent-easy);
-		--border-color: #e5e7eb;
+		--primary-color: #2C2C2C;
+		--primary-dark: #2C2C2C;
+		--secondary-color: #A67C52;
 	}
 
 	* {
@@ -158,25 +157,22 @@ function getLink(path: string) {
 
 	html,
 	body {
-		font-family: 'JetBrains Mono', 'Roboto Mono', 'Monaco', 'Menlo', 'Courier New', monospace;
+		font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
 		line-height: 1.6;
+		font-weight: 300;
 		color: var(--text-color);
 		background: var(--bg-color);
-		background-image: 
-			radial-gradient(circle at 25% 25%, rgba(255, 201, 120, 0.03) 0%, transparent 50%),
-			radial-gradient(circle at 75% 75%, rgba(255, 145, 77, 0.03) 0%, transparent 50%);
-		background-attachment: fixed;
+		letter-spacing: -0.01em;
 	}
 
 	.navbar {
 		background: var(--bg-color);
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		border-bottom: 1px solid var(--border-color);
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		z-index: 1000;
-		backdrop-filter: blur(10px);
 	}
 
 	.nav-container {
@@ -209,28 +205,15 @@ function getLink(path: string) {
 	.nav-links a {
 		color: var(--text-color);
 		text-decoration: none;
-		font-weight: 500;
+		font-weight: 400;
 		transition: color 0.3s ease;
 		position: relative;
+		font-size: 13px;
+		letter-spacing: 0.5px;
 	}
 
 	.nav-links a:hover {
-		color: var(--primary-color);
-	}
-
-	.nav-links a::after {
-		content: '';
-		position: absolute;
-		bottom: -5px;
-		left: 0;
-		width: 0;
-		height: 2px;
-		background: var(--primary-color);
-		transition: width 0.3s ease;
-	}
-
-	.nav-links a:hover::after {
-		width: 100%;
+		color: var(--accent-copper);
 	}
 
 	main {
@@ -289,36 +272,38 @@ function getLink(path: string) {
 
 	.modal-content {
 		background: white;
-		border-radius: 20px;
+		border-radius: 2px;
 		padding: 0;
 		max-width: 500px;
 		width: 90%;
 		max-height: 90vh;
 		overflow: hidden;
-		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+		border: 1px solid var(--border-color);
 		transform: scale(0.9);
 		animation: modalSlideIn 0.3s ease-out forwards;
 	}
 
 	.modal-header {
-		background: linear-gradient(135deg, var(--accent-normal), var(--accent-hard));
-		color: white;
+		background: var(--text-color);
+		color: var(--bg-color);
 		padding: 25px 30px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		border-bottom: 1px solid var(--border-color);
 	}
 
 	.modal-header h2 {
 		margin: 0;
 		font-size: 1.5rem;
-		font-weight: 600;
+		font-weight: 300;
+		letter-spacing: -0.5px;
 	}
 
 	.modal-close {
 		background: none;
 		border: none;
-		color: white;
+		color: var(--bg-color);
 		font-size: 2rem;
 		cursor: pointer;
 		padding: 0;
@@ -327,12 +312,11 @@ function getLink(path: string) {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border-radius: 50%;
-		transition: background 0.3s ease;
+		transition: opacity 0.3s ease;
 	}
 
 	.modal-close:hover {
-		background: rgba(255, 255, 255, 0.2);
+		opacity: 0.7;
 	}
 
 	.booking-form {
@@ -354,11 +338,12 @@ function getLink(path: string) {
 	.form-group textarea {
 		width: 100%;
 		padding: 12px 16px;
-		border: 2px solid #e5e7eb;
-		border-radius: 10px;
+		border: 1px solid var(--border-color);
+		border-radius: 2px;
 		font-size: 1rem;
 		transition: border-color 0.3s ease;
 		font-family: inherit;
+		font-weight: 300;
 	}
 
 	.form-group textarea {
@@ -369,28 +354,27 @@ function getLink(path: string) {
 	.form-group input:focus,
 	.form-group textarea:focus {
 		outline: none;
-		border-color: var(--accent-normal);
-		box-shadow: 0 0 0 3px rgba(255, 145, 77, 0.1);
+		border-color: var(--accent-copper);
 	}
 
 	.submit-button {
 		width: 100%;
-		background: var(--accent-normal);
-		color: white;
+		background: var(--text-color);
+		color: var(--bg-color);
 		border: none;
 		padding: 15px;
-		border-radius: 10px;
-		font-size: 1.1rem;
-		font-weight: 600;
+		border-radius: 2px;
+		font-size: 13px;
+		font-weight: 500;
 		cursor: pointer;
-		transition: all 0.3s ease;
+		transition: opacity 0.3s ease;
 		font-family: inherit;
+		letter-spacing: 1px;
+		text-transform: uppercase;
 	}
 
 	.submit-button:hover {
-		background: var(--accent-hard);
-		transform: translateY(-2px);
-		box-shadow: 0 8px 25px rgba(255, 145, 77, 0.3);
+		opacity: 0.85;
 	}
 
 	.submit-button:disabled {
@@ -413,22 +397,23 @@ function getLink(path: string) {
 	}
 
 	.success-icon {
-		background: linear-gradient(135deg, var(--accent-easy), #FFE4B5);
-		color: #8B4513;
+		background: var(--bg-color);
+		color: var(--accent-copper);
 		width: 80px;
 		height: 80px;
-		border-radius: 50%;
+		border-radius: 2px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
+		border: 1px solid var(--border-color);
 	}
 
 	.success-content h3 {
 		margin: 0;
-		color: var(--accent-normal);
+		color: var(--text-color);
 		font-size: 1.4rem;
-		font-weight: 600;
+		font-weight: 300;
+		letter-spacing: -0.5px;
 	}
 
 	.success-content p {
@@ -438,23 +423,22 @@ function getLink(path: string) {
 	}
 
 	.close-success-button {
-		background: var(--accent-easy);
-		color: #8B4513;
+		background: var(--text-color);
+		color: var(--bg-color);
 		border: none;
 		padding: 12px 30px;
-		border-radius: 10px;
-		font-size: 1rem;
-		font-weight: 600;
+		border-radius: 2px;
+		font-size: 13px;
+		font-weight: 500;
 		cursor: pointer;
-		transition: all 0.3s ease;
+		transition: opacity 0.3s ease;
 		font-family: inherit;
-		box-shadow: 0 4px 15px rgba(255, 201, 120, 0.3);
+		letter-spacing: 1px;
+		text-transform: uppercase;
 	}
 
 	.close-success-button:hover {
-		background: #FFD700;
-		transform: translateY(-2px);
-		box-shadow: 0 6px 20px rgba(255, 201, 120, 0.4);
+		opacity: 0.85;
 	}
 
 	@keyframes modalSlideIn {

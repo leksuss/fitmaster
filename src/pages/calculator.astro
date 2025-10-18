@@ -75,12 +75,12 @@
 
 <style>
   :root{
-    --mint-bg:#E9FBF5;
-    --mint:#CFF7EC;
-    --accent:#10B981;
-    --ink:#0f172a;
-    --muted:#5b6b79;
-    --line:#cfe9df;
+    --mint-bg:#F5F0E8;
+    --mint:#FFFFFF;
+    --accent:#A67C52;
+    --ink:#2C2C2C;
+    --muted:#5A5A5A;
+    --line:#C5C0B8;
     --card:#ffffff;
   }
   *{box-sizing:border-box}
@@ -90,22 +90,22 @@
     font-family:"Share Tech Mono", monospace;letter-spacing:.15px;line-height:1.5;
   }
   .wrap{max-width:760px;margin:0 auto;padding:24px 16px 40px}
-  h1{margin:0 0 14px;font-size:24px;color:var(--accent)}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 24px rgba(15,23,42,.06);padding:16px}
-  label{display:block;margin:8px 0 6px;font-weight:700;color:var(--accent)}
+  h1{margin:0 0 14px;font-size:24px;color:var(--accent);font-weight:300}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:16px}
+  label{display:block;margin:8px 0 6px;font-weight:400;color:var(--accent)}
   input[type="number"], select{
-    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;
+    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:2px;
     background:#fff;color:var(--ink);font-family:inherit;font-size:16px;
   }
   input[type="number"]:focus, select:focus{
-    outline:none;border-color:var(--accent);box-shadow:0 0 0 .2rem rgba(16,185,129,.18);
+    outline:none;border-color:var(--accent);box-shadow:0 0 0 .2rem rgba(166,124,82,.18);
   }
   .hint{color:var(--muted);font-size:13px;margin:6px 2px 0}
-  .note{background:#dff8ef;border:1px solid var(--line);color:#0e7a59;border-radius:12px;padding:10px 12px;margin-top:10px;font-weight:700}
+  .note{background:var(--mint-bg);border:1px solid var(--line);color:var(--accent);border-radius:2px;padding:10px 12px;margin-top:10px;font-weight:400}
   hr{border:none;height:1px;background:var(--line);margin:16px 0}
-  .result-line{background:var(--mint);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
-  .result-line b{color:var(--muted)}
-  .result-line .v{color:var(--accent);font-weight:900;font-size:22px}
+  .result-line{background:var(--mint);border:1px solid var(--line);border-radius:2px;padding:10px 12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+  .result-line b{color:var(--muted);font-weight:400}
+  .result-line .v{color:var(--accent);font-weight:500;font-size:22px}
 </style>
 
 <script is:inline>

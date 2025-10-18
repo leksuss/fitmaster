@@ -1,9 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import individualIcon from '../assets/icons/individual-Square--Streamline-Freehand.svg?url';
-import fastFoodIcon from '../assets/icons/Fast-Food-Sandwich--Streamline-Freehand.svg?url';
-import goalsIcon from '../assets/icons/Goals-Target-Center--Streamline-Freehand.svg?url';
-import onlineIcon from '../assets/icons/online-We-Favorite-Heart--Streamline-Freehand.svg?url';
+import udobnoIcon from '../assets/icons/удобно.svg?url';
+import bezopasnoIcon from '../assets/icons/безопасно.svg?url';
+import effectivnoIcon from '../assets/icons/эффективно.svg?url';
 
 const base = import.meta.env.BASE_URL;
 
@@ -75,9 +74,9 @@ function getLink(path: string) {
 		<div class="container">
 			<h2 class="section-title">Почему мой подход подойдёт именно тебе</h2>
 			<div class="features-grid">
-				<div class="feature-card easy">
+				<div class="feature-card">
 					<div class="feature-icon">
-						<img src={individualIcon} alt="Удобно" width="48" height="48">
+						<img src={udobnoIcon} alt="Удобно" width="32" height="32">
 					</div>
 					<h3>Удобно</h3>
 					<ul>
@@ -87,9 +86,9 @@ function getLink(path: string) {
 						<li><strong>Гибкость</strong> — адаптация под поездки, смены, семейные дела, возможность заморозки.</li>
 					</ul>
 				</div>
-				<div class="feature-card normal">
+				<div class="feature-card">
 					<div class="feature-icon">
-						<img src={fastFoodIcon} alt="Безопасно" width="48" height="48">
+						<img src={bezopasnoIcon} alt="Безопасно" width="32" height="32">
 					</div>
 					<h3>Безопасно</h3>
 					<ul>
@@ -99,9 +98,9 @@ function getLink(path: string) {
 						<li><strong>Поддержка здоровья</strong> — учёт особенностей ЖКТ, аллергий, противопоказаний и вкусовых предпочтений.</li>
 					</ul>
 				</div>
-				<div class="feature-card hard">
+				<div class="feature-card">
 					<div class="feature-icon">
-						<img src={goalsIcon} alt="Эффективно" width="48" height="48">
+						<img src={effectivnoIcon} alt="Эффективно" width="32" height="32">
 					</div>
 					<h3>Эффективно</h3>
 					<ul>
@@ -284,12 +283,13 @@ function getLink(path: string) {
 
 <style>
 	.hero {
-		background: linear-gradient(135deg, var(--accent-normal) 0%, var(--accent-hard) 100%);
-		color: white;
-		padding: 50px 0 25px;
+		background: var(--bg-color);
+		color: var(--text-color);
+		padding: 60px 0 80px;
 		min-height: 600px;
 		display: flex;
 		align-items: center;
+		border-bottom: 1px solid var(--border-color);
 	}
 
 	.hero-content {
@@ -308,12 +308,14 @@ function getLink(path: string) {
 	}
 
 	.hero-title {
-		font-size: clamp(1.5rem, 2.8vw, 2rem);
-		font-weight: 700;
-		line-height: 1.4;
-		margin-bottom: 40px;
+		font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+		font-weight: 300;
+		line-height: 1.1;
+		margin-bottom: 32px;
+		letter-spacing: -2px;
 		animation: fadeInUp 1s ease-out;
 		text-align: left;
+		max-width: 900px;
 	}
 
 	.hero-services-grid {
@@ -325,51 +327,44 @@ function getLink(path: string) {
 
 	.hero-service-card {
 		background: white;
-		padding: 25px 20px;
-		border-radius: 15px;
+		padding: 56px 40px;
+		border-radius: 2px;
 		text-align: center;
-		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-		border: 3px solid transparent;
+		border: 1px solid var(--border-color);
+		transition: background 0.4s ease;
 		display: flex;
 		flex-direction: column;
 		min-height: 280px;
+		cursor: pointer;
 	}
 
 	.hero-service-card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-	}
-
-	.hero-service-card.easy-mode {
-		border-color: var(--accent-easy);
-	}
-
-	.hero-service-card.normal-mode {
-		border-color: var(--accent-normal);
-	}
-
-	.hero-service-card.hard-mode {
-		border-color: var(--accent-hard);
+		background: var(--bg-color);
 	}
 
 	.hero-service-card h3 {
-		font-size: 1.3rem;
-		font-weight: 700;
+		font-size: 2rem;
+		font-weight: 300;
 		color: var(--text-color);
-		margin-bottom: 8px;
+		margin-bottom: 16px;
+		letter-spacing: -1px;
 	}
 
 	.hero-service-subtitle {
-		font-size: 0.9rem;
+		font-size: 11px;
+		font-weight: 500;
 		color: var(--text-light);
-		margin-bottom: 12px;
+		margin-bottom: 8px;
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
 	}
 
 	.hero-service-description {
-		font-size: 0.95rem;
-		color: var(--text-color);
-		line-height: 1.5;
+		font-size: 15px;
+		font-weight: 300;
+		color: var(--text-light);
+		line-height: 1.6;
+		letter-spacing: -0.2px;
 		margin-bottom: 15px;
 		flex-grow: 1;
 		min-height: 60px;
@@ -380,51 +375,50 @@ function getLink(path: string) {
 
 	.hero-service-price {
 		font-size: 1.4rem;
-		font-weight: 700;
-		color: var(--accent-normal);
+		font-weight: 300;
+		color: var(--accent-copper);
 		margin-bottom: 15px;
 		margin-top: auto;
 	}
 
 	.hero-service-button {
 		width: 100%;
-		padding: 12px 20px;
-		background: var(--accent-normal);
-		color: white;
+		padding: 20px 48px;
+		background: var(--text-color);
+		color: var(--bg-color);
 		border: none;
-		border-radius: 10px;
-		font-size: 1.05rem;
-		font-weight: 600;
+		border-radius: 2px;
+		font-size: 13px;
+		font-weight: 500;
 		cursor: pointer;
-		transition: all 0.3s ease;
+		transition: opacity 0.3s ease;
 		font-family: inherit;
 		margin-top: auto;
+		letter-spacing: 1px;
+		text-transform: uppercase;
 	}
 
 	.hero-service-button:hover {
-		background: var(--accent-hard);
-		transform: translateY(-2px);
-		box-shadow: 0 8px 20px rgba(255, 145, 77, 0.3);
+		opacity: 0.85;
 	}
 
 	.cta-button {
 		display: inline-block;
-		background: var(--accent-easy);
-		color: #8B4513;
-		padding: 15px 30px;
-		border-radius: 50px;
+		background: var(--text-color);
+		color: var(--bg-color);
+		padding: 20px 48px;
+		border-radius: 2px;
 		text-decoration: none;
-		font-weight: 600;
-		font-size: 1.1rem;
-		transition: all 0.3s ease;
+		font-weight: 500;
+		font-size: 13px;
+		transition: opacity 0.3s ease;
 		animation: fadeInUp 1s ease-out 0.4s both;
-		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
+		letter-spacing: 1px;
+		text-transform: uppercase;
 	}
 
 	.cta-button:hover {
-		background: #FFD700;
-		transform: translateY(-2px);
-		box-shadow: 0 12px 30px rgba(255, 201, 120, 0.4);
+		opacity: 0.85;
 	}
 
 	.hero-image {
@@ -449,11 +443,13 @@ function getLink(path: string) {
 	}
 
 	.section-title {
-		font-size: 2.5rem;
-		font-weight: 700;
+		font-size: 3rem;
+		font-weight: 300;
 		text-align: center;
 		margin-bottom: 50px;
 		color: var(--text-color);
+		letter-spacing: -1.5px;
+		line-height: 1.2;
 	}
 
 	.about-you {
@@ -471,23 +467,25 @@ function getLink(path: string) {
 	.about-you-list li {
 		display: flex;
 		align-items: flex-start;
-		margin-bottom: 20px;
-		padding: 20px;
-		background: var(--bg-warm);
-		border-radius: 10px;
-		font-size: 1.1rem;
+		margin-bottom: 0;
+		padding: 24px 16px;
+		background: transparent;
+		border-bottom: 1px solid var(--border-color);
+		font-size: 15px;
+		font-weight: 300;
 		line-height: 1.6;
 		color: var(--text-color);
+		letter-spacing: -0.2px;
 	}
 
 	.about-you-list li::before {
-		content: "•";
-		color: var(--accent-normal);
-		font-weight: bold;
-		font-size: 1.3rem;
-		margin-right: 15px;
+		content: "";
+		width: 32px;
+		height: 1px;
+		background-color: var(--accent-copper);
+		margin-right: 16px;
+		margin-top: 12px;
 		flex-shrink: 0;
-		margin-top: 2px;
 	}
 
 	@media (max-width: 768px) {
@@ -541,58 +539,31 @@ function getLink(path: string) {
 
 	.feature-card {
 		background: white;
-		padding: 40px 30px;
-		border-radius: 15px;
+		padding: 56px 40px;
+		border-radius: 2px;
 		text-align: center;
-		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-		transition: transform 0.3s ease;
+		border: 1px solid var(--border-color);
+		transition: background 0.4s ease;
+		cursor: pointer;
 	}
 
 	.feature-card:hover {
-		transform: translateY(-5px);
+		background: var(--bg-color);
 	}
 
 	.feature-icon {
-		margin-bottom: 20px;
+		margin-bottom: 32px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 80px;
-		height: 80px;
-		border-radius: 50%;
-		margin: 0 auto 20px;
-		transition: all 0.3s ease;
-	}
-
-	/* Градация цветов для иконок Easy/Normal/Hard */
-	.feature-card.easy .feature-icon {
-		background: linear-gradient(135deg, var(--accent-easy), #FFE4B5);
-		color: #8B4513;
-		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
-	}
-
-	.feature-card.normal .feature-icon {
-		background: linear-gradient(135deg, var(--accent-normal), #FFB84D);
-		color: #8B2500;
-		box-shadow: 0 8px 25px rgba(255, 145, 77, 0.3);
-	}
-
-	.feature-card.hard .feature-icon {
-		background: linear-gradient(135deg, var(--accent-hard), var(--accent-hard-dark));
-		color: #FFFFFF;
-		box-shadow: 0 8px 25px rgba(210, 95, 62, 0.3);
-	}
-
-	.feature-card:hover .feature-icon {
-		transform: translateY(-3px) scale(1.05);
-		box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 	}
 
 	.feature-card h3 {
-		font-size: 1.3rem;
-		font-weight: 600;
-		margin-bottom: 15px;
+		font-size: 2rem;
+		font-weight: 300;
+		margin-bottom: 16px;
 		color: var(--text-color);
+		letter-spacing: -1px;
 	}
 
 	.feature-card p {
@@ -609,24 +580,19 @@ function getLink(path: string) {
 
 	.feature-card ul li {
 		margin-bottom: 12px;
-		padding-left: 20px;
+		padding-left: 0;
 		position: relative;
 		color: var(--text-light);
 		line-height: 1.6;
-	}
-
-	.feature-card ul li::before {
-		content: "•";
-		position: absolute;
-		left: 0;
-		color: var(--accent-normal);
-		font-weight: bold;
+		font-size: 15px;
+		font-weight: 300;
+		letter-spacing: -0.2px;
 	}
 
 	.feature-card ul li strong {
 		color: var(--text-color);
-		font-weight: 700;
-		font-size: 1.05em;
+		font-weight: 400;
+		font-size: 1em;
 	}
 
 	.testimonials {
@@ -647,16 +613,14 @@ function getLink(path: string) {
 		transform: translateY(-50%);
 		z-index: 10;
 		background: white;
-		color: var(--accent-normal);
-		border: 2px solid var(--accent-normal);
-		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+		color: var(--text-color);
+		border: 1px solid var(--border-color);
 	}
 
 	.testimonials-carousel .carousel-btn:hover {
-		background: var(--accent-normal);
-		color: white;
-		transform: translateY(-50%) scale(1.05);
-		box-shadow: 0 6px 20px rgba(255, 145, 77, 0.3);
+		background: var(--bg-color);
+		color: var(--accent-copper);
+		transform: translateY(-50%);
 	}
 
 	.testimonials-carousel .carousel-btn.prev {
@@ -698,8 +662,8 @@ function getLink(path: string) {
 		background: white;
 		padding: 40px;
 		margin: 0;
-		border-radius: 20px;
-		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+		border-radius: 2px;
+		border: 1px solid var(--border-color);
 		min-height: 400px;
 		display: flex;
 		flex-direction: column;
@@ -709,7 +673,7 @@ function getLink(path: string) {
 	.testimonial-header {
 		margin-bottom: 20px;
 		padding-bottom: 15px;
-		border-bottom: 2px solid var(--accent-easy);
+		border-bottom: 1px solid var(--border-color);
 	}
 
 	.testimonial-header strong {
@@ -717,7 +681,7 @@ function getLink(path: string) {
 		font-size: 1.3rem;
 		color: var(--text-color);
 		margin-bottom: 8px;
-		font-weight: 700;
+		font-weight: 400;
 	}
 
 	.result {
@@ -760,26 +724,24 @@ function getLink(path: string) {
 	}
 
 	.carousel-btn {
-		background: var(--accent-normal);
-		color: white;
-		border: none;
+		background: white;
+		color: var(--text-color);
+		border: 1px solid var(--border-color);
 		width: 50px;
 		height: 50px;
-		border-radius: 50%;
+		border-radius: 2px;
 		font-size: 24px;
-		font-weight: bold;
+		font-weight: 300;
 		cursor: pointer;
 		transition: all 0.3s ease;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		box-shadow: 0 5px 15px rgba(255, 145, 77, 0.3);
 	}
 
 	.carousel-btn:hover {
-		background: var(--accent-hard);
-		transform: translateY(-2px);
-		box-shadow: 0 8px 25px rgba(210, 95, 62, 0.4);
+		background: var(--bg-color);
+		color: var(--accent-copper);
 	}
 
 	.carousel-btn:disabled {
@@ -796,38 +758,36 @@ function getLink(path: string) {
 	}
 
 	.indicator {
-		width: 12px;
-		height: 12px;
-		border-radius: 50%;
-		background: #ddd;
+		width: 8px;
+		height: 8px;
+		border-radius: 2px;
+		background: var(--border-color);
 		cursor: pointer;
 		transition: all 0.3s ease;
-		border: 2px solid transparent;
 	}
 
 	.indicator.active {
-		background: var(--accent-normal);
-		transform: scale(1.2);
-		border-color: var(--accent-easy);
-		box-shadow: 0 0 10px rgba(255, 145, 77, 0.5);
+		background: var(--accent-copper);
+		width: 24px;
 	}
 
 	.indicator:hover {
-		background: var(--accent-easy);
-		transform: scale(1.1);
+		background: var(--accent-copper);
+		opacity: 0.7;
 	}
 
 	.cta-section {
-		background: var(--primary-color);
-		color: white;
+		background: var(--text-color);
+		color: var(--bg-color);
 		padding: 80px 0;
 		text-align: center;
 	}
 
 	.cta-content h2 {
-		font-size: 2.5rem;
-		font-weight: 700;
+		font-size: 3rem;
+		font-weight: 300;
 		margin-bottom: 15px;
+		letter-spacing: -1.5px;
 	}
 
 	.cta-content p {
@@ -844,23 +804,23 @@ function getLink(path: string) {
 	}
 
 	.cta-button.primary {
-		background: var(--accent-easy);
-		color: #8B4513;
+		background: var(--bg-color);
+		color: var(--text-color);
 	}
 
 	.cta-button.primary:hover {
-		background: #FFD700;
+		opacity: 0.85;
 	}
 
 	.cta-button.secondary {
 		background: transparent;
-		border: 2px solid white;
-		color: white;
+		border: 1px solid var(--border-color);
+		color: var(--bg-color);
 	}
 
 	.cta-button.secondary:hover {
-		background: white;
-		color: var(--accent-hard);
+		background: var(--bg-color);
+		color: var(--text-color);
 	}
 
 	@keyframes fadeInUp {
@@ -913,6 +873,7 @@ function getLink(path: string) {
 			margin-bottom: 40px;
 			text-align: left;
 			position: relative;
+			letter-spacing: 0;
 		}
 
 		.hero-image {

@@ -226,44 +226,44 @@ function getLink(path: string) {
 				<h2 class="section-title">Что ты получишь, обращаясь ко мне?</h2>
 			</div>
 			<div class="results-grid">
-				<div class="result-card easy">
+				<div class="result-card">
 					<div class="result-icon">
-						<img src={dietIcon} alt="Снижение веса" width="48" height="48">
+						<img src={dietIcon} alt="Снижение веса" width="32" height="32">
 					</div>
 					<h3>1. Снижение веса</h3>
 					<p>Без изнурительных диет и выматывающих тренировок, в комфортном для тебя темпе.</p>
 				</div>
-				<div class="result-card normal">
+				<div class="result-card">
 					<div class="result-icon">
-						<img src={confidenceIcon} alt="Уверенность" width="48" height="48">
+						<img src={confidenceIcon} alt="Уверенность" width="32" height="32">
 					</div>
 					<h3>2. Уверенность</h3>
 					<p>Поверишь в себя и свои силы. Ты будешь чувствовать себя свободнее, легче и увереннее в повседневной жизни.</p>
 				</div>
-				<div class="result-card hard">
+				<div class="result-card">
 					<div class="result-icon">
-						<img src={fitnessIcon} alt="Новое мышление" width="48" height="48">
+						<img src={fitnessIcon} alt="Новое мышление" width="32" height="32">
 					</div>
 					<h3>3. Новое мышление</h3>
 					<p>Отношение к еде без чувства вины, запретов и стресса. Питание и активность станут естественной частью твоей жизни, а не наказанием.</p>
 				</div>
-				<div class="result-card easy">
+				<div class="result-card">
 					<div class="result-icon">
-						<img src={skillsIcon} alt="Навыки на всю жизнь" width="48" height="48">
+						<img src={skillsIcon} alt="Навыки на всю жизнь" width="32" height="32">
 					</div>
 					<h3>4. Навыки на всю жизнь</h3>
 					<p>Полезные привычки в питании и тренировках, которые помогут удерживать результат без «откатов».</p>
 				</div>
-				<div class="result-card normal">
+				<div class="result-card">
 					<div class="result-icon">
-						<img src={supportIcon} alt="Поддержка без осуждения" width="48" height="48">
+						<img src={supportIcon} alt="Поддержка без осуждения" width="32" height="32">
 					</div>
 					<h3>5. Поддержка без осуждения</h3>
 					<p>Я всегда на связи, чтобы скорректировать план, подбодрить и помочь пройти сложные моменты.</p>
 				</div>
-				<div class="result-card hard">
+				<div class="result-card">
 					<div class="result-icon">
-						<img src={helpIcon} alt="Влияние на близких" width="48" height="48">
+						<img src={helpIcon} alt="Влияние на близких" width="32" height="32">
 					</div>
 					<h3>6. Влияние на близких</h3>
 					<p>Ты начнёшь менять не только себя, но и станешь примером для своих друзей и близких.</p>
@@ -299,9 +299,9 @@ function getLink(path: string) {
 
 <style>
 	.services-hero {
-		background: linear-gradient(135deg, var(--accent-normal) 0%, var(--accent-hard) 100%);
+		background: var(--text-color);
 		color: white;
-		padding: 20px 0;
+		padding: 60px 0 20px;
 	}
 
 	.container {
@@ -325,7 +325,7 @@ function getLink(path: string) {
 
 	.hero-content h1 {
 		font-size: 2.5rem;
-		font-weight: 700;
+		font-weight: 300;
 		line-height: 1.2;
 		margin-bottom: 20px;
 		animation: fadeInUp 1s ease-out;
@@ -343,7 +343,7 @@ function getLink(path: string) {
 		width: 100%;
 		height: auto;
 		object-fit: cover;
-		border-radius: 20px;
+		border-radius: 2px;
 	}
 
 	.hero-subtitle {
@@ -354,7 +354,7 @@ function getLink(path: string) {
 
 	.section-title {
 		font-size: 2.5rem;
-		font-weight: 700;
+		font-weight: 300;
 		text-align: center;
 		margin-bottom: 50px;
 		color: var(--text-color);
@@ -400,11 +400,10 @@ function getLink(path: string) {
 
 	.service-card {
 		background: white;
-		border-radius: 20px;
+		border-radius: 2px;
 		padding: 30px;
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-		border: 3px solid transparent;
+		transition: opacity 0.3s ease;
+		border: 1px solid var(--border-color);
 		display: flex;
 		flex-direction: column;
 		position: relative;
@@ -412,36 +411,31 @@ function getLink(path: string) {
 	}
 
 	.service-card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+		opacity: 0.95;
 		z-index: 2;
 	}
 
 	.service-card.normal-mode {
-		border-color: var(--accent-normal);
-		box-shadow: 0 10px 30px rgba(255, 145, 77, 0.15);
+		border-color: var(--accent-copper);
 	}
 
 	.service-card.hard-mode {
-		border-color: var(--accent-hard);
-		box-shadow: 0 10px 30px rgba(210, 95, 62, 0.15);
+		border-color: var(--accent-copper);
 	}
 
 	.service-card.easy-mode {
-		border-color: var(--accent-easy);
-		box-shadow: 0 10px 30px rgba(255, 201, 120, 0.15);
+		border-color: var(--accent-copper);
 	}
 
 	.service-card.legend-mode {
-		border-color: #8B4513;
-		box-shadow: 0 10px 30px rgba(139, 69, 19, 0.15);
-		background: linear-gradient(135deg, #FFF8DC, #FFFAF0);
+		border-color: var(--accent-copper);
+		background: white;
 	}
 
 
 	.service-header h3 {
 		font-size: 1.5rem;
-		font-weight: 700;
+		font-weight: 400;
 		margin-bottom: 10px;
 		color: var(--text-color);
 	}
@@ -455,9 +449,9 @@ function getLink(path: string) {
 	.service-status {
 		display: inline-block;
 		padding: 5px 15px;
-		border-radius: 20px;
+		border-radius: 2px;
 		font-size: 0.8rem;
-		font-weight: 600;
+		font-weight: 500;
 		margin-bottom: 15px;
 	}
 
@@ -491,8 +485,8 @@ function getLink(path: string) {
 
 	.service-price .price {
 		font-size: 1.8rem;
-		font-weight: 700;
-		color: var(--accent-normal);
+		font-weight: 400;
+		color: var(--accent-copper);
 		display: block;
 	}
 
@@ -525,12 +519,14 @@ function getLink(path: string) {
 	.service-button {
 		width: 100%;
 		padding: 15px;
-		border: none;
-		border-radius: 10px;
+		border: 1px solid var(--text-color);
+		border-radius: 2px;
 		font-size: 1.1rem;
-		font-weight: 600;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 1px;
 		cursor: pointer;
-		transition: all 0.3s ease;
+		transition: opacity 0.3s ease;
 		display: block;
 		text-align: center;
 		text-decoration: none;
@@ -538,14 +534,13 @@ function getLink(path: string) {
 	}
 
 	.service-button.available {
-		background: var(--accent-normal);
+		background: var(--text-color);
 		color: white;
+		border: 1px solid var(--text-color);
 	}
 
 	.service-button.available:hover {
-		background: var(--accent-hard);
-		transform: translateY(-2px);
-		box-shadow: 0 8px 25px rgba(255, 145, 77, 0.3);
+		opacity: 0.9;
 	}
 
 	.service-button.closed {
@@ -555,13 +550,13 @@ function getLink(path: string) {
 	}
 
 	.service-button:not(.available):not(.closed) {
-		background: var(--accent-easy);
-		color: #8B4513;
+		background: var(--accent-copper);
+		color: white;
+		border: 1px solid var(--accent-copper);
 	}
 
 	.service-button:not(.available):not(.closed):hover {
-		background: #FFD700;
-		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
+		opacity: 0.9;
 	}
 
 
@@ -607,40 +602,37 @@ function getLink(path: string) {
 
 	.additional-card {
 		background: white;
-		border-radius: 20px;
+		border-radius: 2px;
 		padding: 40px;
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-		transition: transform 0.3s ease;
+		transition: opacity 0.3s ease;
 		display: flex;
 		flex-direction: column;
-		border: 3px solid transparent;
+		border: 1px solid var(--border-color);
 	}
 
 	.additional-card:hover {
-		transform: translateY(-5px);
+		opacity: 0.95;
 	}
 
 	.additional-card.guide {
-		border-color: var(--accent-normal);
-		box-shadow: 0 10px 30px rgba(255, 145, 77, 0.15);
+		border-color: var(--accent-copper);
 	}
 
 	.additional-card.consultation {
-		border-color: var(--accent-easy);
-		box-shadow: 0 10px 30px rgba(255, 201, 120, 0.15);
+		border-color: var(--accent-copper);
 	}
 
 	.additional-header h3 {
 		font-size: 1.4rem;
-		font-weight: 700;
+		font-weight: 400;
 		margin-bottom: 15px;
 		color: var(--text-color);
 	}
 
 	.additional-price {
 		font-size: 1.5rem;
-		font-weight: 700;
-		color: var(--accent-normal);
+		font-weight: 400;
+		color: var(--accent-copper);
 		margin-bottom: 10px;
 	}
 
@@ -652,7 +644,7 @@ function getLink(path: string) {
 
 	.additional-content h4 {
 		font-size: 1.1rem;
-		font-weight: 600;
+		font-weight: 400;
 		margin-bottom: 15px;
 		color: var(--text-color);
 	}
@@ -687,21 +679,20 @@ function getLink(path: string) {
 	.additional-button {
 		width: 100%;
 		padding: 15px;
-		background: var(--accent-easy);
-		color: #8B4513;
-		border: none;
-		border-radius: 10px;
+		background: var(--text-color);
+		color: white;
+		border: 1px solid var(--text-color);
+		border-radius: 2px;
 		font-size: 1.1rem;
-		font-weight: 600;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 1px;
 		cursor: pointer;
-		transition: all 0.3s ease;
-		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
+		transition: opacity 0.3s ease;
 	}
 
 	.additional-button:hover {
-		background: #FFD700;
-		transform: translateY(-2px);
-		box-shadow: 0 12px 30px rgba(255, 201, 120, 0.4);
+		opacity: 0.9;
 	}
 
 	.results-section {
@@ -716,10 +707,7 @@ function getLink(path: string) {
 
 	.results-header .section-title {
 		margin-bottom: 20px;
-		background: linear-gradient(135deg, var(--accent-normal), var(--accent-hard));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		color: var(--text-color);
 		position: relative;
 	}
 
@@ -730,8 +718,8 @@ function getLink(path: string) {
 		left: 50%;
 		transform: translateX(-50%);
 		width: 100px;
-		height: 4px;
-		background: linear-gradient(135deg, var(--accent-normal), var(--accent-hard));
+		height: 2px;
+		background: var(--accent-copper);
 		border-radius: 2px;
 	}
 
@@ -755,14 +743,14 @@ function getLink(path: string) {
 	.result-card {
 		background: white;
 		padding: 30px;
-		border-radius: 15px;
+		border-radius: 2px;
 		text-align: center;
-		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-		transition: transform 0.3s ease;
+		border: 1px solid var(--border-color);
+		transition: opacity 0.3s ease;
 	}
 
 	.result-card:hover {
-		transform: translateY(-5px);
+		opacity: 0.95;
 	}
 
 	.result-icon {
@@ -770,40 +758,14 @@ function getLink(path: string) {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 80px;
-		height: 80px;
-		border-radius: 50%;
+		width: 32px;
+		height: 32px;
 		margin: 0 auto 20px;
-		transition: all 0.3s ease;
-	}
-
-	/* Градация цветов для результатов Easy/Normal/Hard */
-	.result-card.easy .result-icon {
-		background: linear-gradient(135deg, var(--accent-easy), #FFE4B5);
-		color: #8B4513;
-		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
-	}
-
-	.result-card.normal .result-icon {
-		background: linear-gradient(135deg, var(--accent-normal), #FFB84D);
-		color: #8B2500;
-		box-shadow: 0 8px 25px rgba(255, 145, 77, 0.3);
-	}
-
-	.result-card.hard .result-icon {
-		background: linear-gradient(135deg, var(--accent-hard), var(--accent-hard-dark));
-		color: #FFFFFF;
-		box-shadow: 0 8px 25px rgba(210, 95, 62, 0.3);
-	}
-
-	.result-card:hover .result-icon {
-		transform: translateY(-3px) scale(1.05);
-		box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 	}
 
 	.result-card h3 {
 		font-size: 1.3rem;
-		font-weight: 600;
+		font-weight: 400;
 		margin-bottom: 15px;
 		color: var(--text-color);
 	}
@@ -814,7 +776,7 @@ function getLink(path: string) {
 	}
 
 	.cta-section {
-		background: var(--accent-normal);
+		background: var(--text-color);
 		color: white;
 		padding: 80px 0;
 		text-align: center;
@@ -822,13 +784,13 @@ function getLink(path: string) {
 
 	.cta-content h2 {
 		font-size: 2.5rem;
-		font-weight: 700;
+		font-weight: 300;
 		margin-bottom: 15px;
 	}
 
 	.cta-motivation {
 		font-size: 1.4rem;
-		font-weight: 600;
+		font-weight: 400;
 		color: white;
 		margin-bottom: 10px;
 	}
@@ -842,21 +804,31 @@ function getLink(path: string) {
 
 	.cta-button {
 		display: inline-block;
-		background: var(--accent-easy);
-		color: #8B4513;
+		background: white;
+		color: var(--text-color);
 		padding: 15px 30px;
-		border-radius: 50px;
+		border-radius: 2px;
 		text-decoration: none;
-		font-weight: 600;
+		font-weight: 500;
 		font-size: 1.1rem;
-		transition: all 0.3s ease;
-		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.3);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		transition: opacity 0.3s ease;
+		border: 1px solid white;
 	}
 
 	.cta-button:hover {
-		background: #FFD700;
-		transform: translateY(-2px);
-		box-shadow: 0 12px 30px rgba(255, 201, 120, 0.4);
+		opacity: 0.9;
+	}
+
+	.cta-button.secondary {
+		background: transparent;
+		color: white;
+		border: 1px solid white;
+	}
+
+	.cta-button.secondary:hover {
+		opacity: 0.8;
 	}
 
 
@@ -893,13 +865,13 @@ function getLink(path: string) {
 
 	.modal-container {
 		background: white;
-		border-radius: 20px;
+		border-radius: 2px;
 		max-width: 800px;
 		width: 90%;
 		max-height: 85vh;
 		overflow-y: auto;
 		position: relative;
-		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+		border: 1px solid var(--border-color);
 		animation: modalSlideIn 0.4s ease-out;
 	}
 
@@ -936,20 +908,20 @@ function getLink(path: string) {
 		text-align: center;
 		margin-bottom: 30px;
 		padding-bottom: 20px;
-		border-bottom: 2px solid var(--accent-easy);
+		border-bottom: 1px solid var(--border-color);
 	}
 
 	.modal-header h2 {
 		font-size: 2rem;
-		font-weight: 700;
+		font-weight: 300;
 		margin-bottom: 10px;
 		color: var(--text-color);
 	}
 
 	.modal-header .price {
 		font-size: 1.5rem;
-		font-weight: 700;
-		color: var(--accent-normal);
+		font-weight: 400;
+		color: var(--accent-copper);
 		margin-bottom: 5px;
 	}
 
@@ -1006,41 +978,38 @@ function getLink(path: string) {
 
 	.modal-button {
 		padding: 15px 30px !important;
-		border: none !important;
-		border-radius: 10px !important;
+		border: 1px solid var(--text-color) !important;
+		border-radius: 2px !important;
 		font-size: 1.1rem !important;
-		font-weight: 600 !important;
+		font-weight: 500 !important;
+		text-transform: uppercase !important;
+		letter-spacing: 1px !important;
 		cursor: pointer !important;
-		transition: all 0.3s ease !important;
+		transition: opacity 0.3s ease !important;
 		text-decoration: none !important;
 		display: inline-block !important;
 		text-align: center !important;
 		min-width: 150px !important;
-		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
 	}
 
 	.modal-button.primary {
-		background: var(--accent-normal) !important;
+		background: var(--text-color) !important;
 		color: white !important;
-		box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2) !important;
+		border: 1px solid var(--text-color) !important;
 	}
 
 	.modal-button.primary:hover {
-		background: var(--accent-hard) !important;
-		transform: translateY(-2px) !important;
-		box-shadow: 0 8px 25px rgba(255, 145, 77, 0.4) !important;
+		opacity: 0.9 !important;
 	}
 
 	.modal-button.secondary {
-		background: var(--accent-easy) !important;
-		color: #8B4513 !important;
-		box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2) !important;
+		background: transparent !important;
+		color: var(--text-color) !important;
+		border: 1px solid var(--text-color) !important;
 	}
 
 	.modal-button.secondary:hover {
-		background: #FFD700 !important;
-		transform: translateY(-2px) !important;
-		box-shadow: 0 8px 25px rgba(255, 201, 120, 0.4) !important;
+		opacity: 0.9 !important;
 	}
 
 	@keyframes fadeIn {
@@ -1082,6 +1051,7 @@ function getLink(path: string) {
 
 		.hero-content h1 {
 			font-size: 1.5rem;
+			letter-spacing: 0;
 		}
 
 		.hero-image {
