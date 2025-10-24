@@ -1,5 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import foodIcon from '../../icons/питаниеипохудение.svg?url';
+import restaurantIcon from '../../icons/безлишнегостресса.svg?url';
+import gymIcon from '../../icons/тренировкиактивность.svg?url';
+import walkIcon from '../../icons/здоровьеипривычки.svg?url';
+import settingsIcon from '../../icons/постоянноеразвитие.svg?url';
+import phoneIcon from '../../icons/удобно.svg?url';
 
 const base = import.meta.env.BASE_URL;
 
@@ -9,7 +15,7 @@ function getLink(path: string) {
 }
 ---
 
-<Layout title="Режим LEGEND - Влад Хелс-коуч">
+<Layout title="EVOLVE - Влад Хелс-коуч">
 	<section class="legend-hero">
 		<div class="container">
 			<div class="back-navigation">
@@ -19,7 +25,7 @@ function getLink(path: string) {
 				</a>
 			</div>
 			<div class="legend-header">
-				<h1>Режим: LEGEND</h1>
+				<h1>EVOLVE</h1>
 				<div class="price-info">
 					<div class="price">72 000 € за 4 месяца</div>
 					<div class="duration">(перелёты и проживание включены)</div>
@@ -45,32 +51,44 @@ function getLink(path: string) {
 					
 					<div class="benefits-list">
 						<div class="benefit-item">
-							<div class="benefit-icon">🛒</div>
+							<div class="benefit-icon">
+								<img src={foodIcon} alt="Магазины" width="32" height="32">
+							</div>
 							<p>ходим в магазины — показываю, какие продукты и бренды брать;</p>
 						</div>
-						
+
 						<div class="benefit-item">
-							<div class="benefit-icon">🍽️</div>
+							<div class="benefit-icon">
+								<img src={restaurantIcon} alt="Рестораны" width="32" height="32">
+							</div>
 							<p>ходим в рестораны/кафе, где я научу тебя ориентироваться в меню с учётом твоих предпочтений и целей;</p>
 						</div>
-						
+
 						<div class="benefit-item">
-							<div class="benefit-icon">🏋️</div>
+							<div class="benefit-icon">
+								<img src={gymIcon} alt="Тренировки" width="32" height="32">
+							</div>
 							<p>тренируемся вместе в твоём зале — я твой личный тренер на месте, контролирую, поддерживаю и делюсь секретами GYM-комьюнити;</p>
 						</div>
-						
+
 						<div class="benefit-item">
-							<div class="benefit-icon">🚶</div>
+							<div class="benefit-icon">
+								<img src={walkIcon} alt="Прогулки" width="32" height="32">
+							</div>
 							<p>сопровождаю тебя на вечерних прогулках, формируем привычки в реальной жизни;</p>
 						</div>
-						
+
 						<div class="benefit-item">
-							<div class="benefit-icon">🔧</div>
+							<div class="benefit-icon">
+								<img src={settingsIcon} alt="Корректировки" width="32" height="32">
+							</div>
 							<p>разбираем и корректируем каждую мелочь, которая может мешать твоему результату;</p>
 						</div>
-						
+
 						<div class="benefit-item">
-							<div class="benefit-icon">📱</div>
+							<div class="benefit-icon">
+								<img src={phoneIcon} alt="Дистанционное сопровождение" width="32" height="32">
+							</div>
 							<p>в остальные две недели месяца — дистанционное сопровождение и контроль, чтобы ты не сбивался с ритма, а также созвон раз в неделю.</p>
 						</div>
 					</div>
@@ -226,7 +244,7 @@ function getLink(path: string) {
 
 	.benefit-item {
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		gap: 20px;
 		padding: 20px;
 		margin-bottom: 15px;
@@ -242,10 +260,16 @@ function getLink(path: string) {
 	}
 
 	.benefit-icon {
-		font-size: 1.8rem;
 		flex-shrink: 0;
 		width: 40px;
-		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.benefit-icon img {
+		width: 32px;
+		height: 32px;
 	}
 
 	.benefit-item p {
@@ -305,7 +329,7 @@ function getLink(path: string) {
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		cursor: pointer;
-		transition: opacity 0.3s ease;
+		transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 		text-decoration: none;
 		display: inline-block;
 		text-align: center;
@@ -319,7 +343,8 @@ function getLink(path: string) {
 	}
 
 	.cta-button.primary:hover {
-		opacity: 0.9;
+		background: var(--accent-copper);
+		border-color: var(--accent-copper);
 	}
 
 	.cta-button.secondary {
@@ -329,7 +354,9 @@ function getLink(path: string) {
 	}
 
 	.cta-button.secondary:hover {
-		opacity: 0.9;
+		background: var(--accent-copper);
+		color: white;
+		border-color: var(--accent-copper);
 	}
 
 	@media (max-width: 768px) {

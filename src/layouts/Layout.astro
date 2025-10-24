@@ -284,8 +284,8 @@ function getLink(path: string) {
 	}
 
 	.modal-header {
-		background: var(--text-color);
-		color: var(--bg-color);
+		background: var(--bg-color);
+		color: var(--text-color);
 		padding: 25px 30px;
 		display: flex;
 		justify-content: space-between;
@@ -303,7 +303,7 @@ function getLink(path: string) {
 	.modal-close {
 		background: none;
 		border: none;
-		color: var(--bg-color);
+		color: var(--text-color);
 		font-size: 2rem;
 		cursor: pointer;
 		padding: 0;
@@ -367,14 +367,15 @@ function getLink(path: string) {
 		font-size: 13px;
 		font-weight: 500;
 		cursor: pointer;
-		transition: opacity 0.3s ease;
+		transition: background-color 0.3s ease;
 		font-family: inherit;
 		letter-spacing: 1px;
 		text-transform: uppercase;
 	}
 
 	.submit-button:hover {
-		opacity: 0.85;
+		background: var(--accent-copper);
+		color: white;
 	}
 
 	.submit-button:disabled {

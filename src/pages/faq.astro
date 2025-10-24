@@ -519,6 +519,7 @@ const faqData = {
 	.category-text {
 		flex: 1;
 		text-align: left;
+		color: var(--text-color);
 	}
 
 	.category-toggle-icon {
@@ -629,7 +630,7 @@ const faqData = {
 	}
 
 	.faq-cta {
-		background: var(--bg-warm);
+		background: var(--text-color);
 		padding: 60px 0;
 		text-align: center;
 	}
@@ -647,32 +648,36 @@ const faqData = {
 		border-radius: 2px;
 		text-decoration: none;
 		font-weight: 500;
-		font-size: 1rem;
+		font-size: 1.1rem;
 		text-transform: uppercase;
 		letter-spacing: 1px;
-		transition: opacity 0.3s ease;
+		transition: background-color 0.3s ease, color 0.3s ease;
 	}
 
 	.cta-button.primary {
-		background: var(--text-color);
-		color: white;
-		border: 1px solid var(--text-color);
+		background: var(--bg-color);
+		color: var(--text-color);
+		border: 1px solid var(--bg-color);
 		cursor: pointer;
 		font-family: inherit;
 	}
 
 	.cta-button.primary:hover {
-		opacity: 0.9;
+		background: var(--accent-copper);
+		color: white;
+		border-color: var(--accent-copper);
 	}
 
 	.cta-button.secondary {
 		background: transparent;
-		color: var(--text-color);
-		border: 1px solid var(--text-color);
+		color: var(--bg-color);
+		border: 1px solid var(--border-color);
 	}
 
 	.cta-button.secondary:hover {
-		opacity: 0.9;
+		background: var(--accent-copper);
+		color: white;
+		border-color: var(--accent-copper);
 	}
 
 	@media (max-width: 768px) {

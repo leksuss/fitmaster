@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import dietIcon from '../assets/icons/Diet-Scale--Streamline-Freehand.svg?url';
-import confidenceIcon from '../assets/icons/yverennost--Streamline-Freehand.svg?url';
-import skillsIcon from '../assets/icons/novoe-mishlenie-Head-Idea--Streamline-Freehand.svg?url';
-import supportIcon from '../assets/icons/podderjka_Management_Teamwork_Hands_Action_2_Streamline_Freehand.svg?url';
-import helpIcon from '../assets/icons/Helps_relatives_Management_Teamwork_Clap_Streamline_Freehand.svg?url';
-import fitnessIcon from '../assets/icons/Fitness-Dumbells-Time--Streamline-Freehand.svg?url';
-import paymentIcon from '../assets/icons/Modern-Payment-Smartphone-Pay-Dollar-1--Streamline-Freehand.svg?url';
+import dietIcon from '../../icons/питаниеипохудение.svg?url';
+import confidenceIcon from '../../icons/уверенность.svg?url';
+import skillsIcon from '../../icons/навыкинавсюжизнь.svg?url';
+import supportIcon from '../../icons/честностьиподдержка.svg?url';
+import helpIcon from '../../icons/влияниенаблизких.svg?url';
+import fitnessIcon from '../../icons/новоемышление.svg?url';
+import paymentIcon from '../../icons/оплатауслуг.svg?url';
 
 const base = import.meta.env.BASE_URL;
 
@@ -36,7 +36,7 @@ function getLink(path: string) {
 				
 				<div class="service-card easy-mode">
 					<div class="service-header">
-						<h3>Режим: EASY</h3>
+						<h3>INTRO</h3>
 						<div class="service-subtitle">Пробный разбор</div>
 					</div>
 					<div class="service-price">
@@ -47,14 +47,14 @@ function getLink(path: string) {
 						<p class="service-description">Запишись на бесплатную консультацию — получи разбор и два простых правила, которые помогут тебе начать уже сегодня!</p>
 
 						<div class="service-button-container">
-							<button class="service-button available" onclick="openBookingModal('Режим: EASY - Пробный разбор')">Записаться</button>
+							<button class="service-button available" onclick="openBookingModal('INTRO - Пробный разбор')">Записаться</button>
 						</div>
 					</div>
 				</div>
 
 				<div class="service-card normal-mode" id="normal-mode">
 					<div class="service-header">
-						<h3>Режим: NORMAL</h3>
+						<h3>BALANCE</h3>
 						<div class="service-subtitle">Онлайн-ведение без подсчёта КБЖУ</div>
 					</div>
 					<div class="service-price">
@@ -66,14 +66,14 @@ function getLink(path: string) {
 
 						<div class="service-button-container">
 							<button class="service-button available" onclick="openModal('normal')">Что тебя ждёт</button>
-							<button class="service-button available" onclick="openBookingModal('Режим: NORMAL - Онлайн-ведение без подсчёта КБЖУ')">Записаться</button>
+							<button class="service-button available" onclick="openBookingModal('BALANCE - Онлайн-ведение без подсчёта КБЖУ')">Записаться</button>
 						</div>
 					</div>
 				</div>
 
 				<div class="service-card hard-mode" id="hard-mode">
 					<div class="service-header">
-						<h3>Режим: HARD</h3>
+						<h3>DISCIPLINE</h3>
 						<div class="service-subtitle">Онлайн-ведение с подсчетом КБЖУ</div>
 					</div>
 					<div class="service-price">
@@ -85,14 +85,14 @@ function getLink(path: string) {
 
 						<div class="service-button-container">
 							<button class="service-button available" onclick="openModal('hard')">Что тебя ждёт</button>
-							<button class="service-button available" onclick="openBookingModal('Режим: HARD - Онлайн-ведение с подсчетом КБЖУ')">Записаться</button>
+							<button class="service-button available" onclick="openBookingModal('DISCIPLINE - Онлайн-ведение с подсчетом КБЖУ')">Записаться</button>
 						</div>
 					</div>
 				</div>
 
 				<div class="service-card legend-mode" id="legend-mode">
 					<div class="service-header">
-						<h3>Режим: LEGEND</h3>
+						<h3>EVOLVE</h3>
 						<div class="service-subtitle">Личное сопровождение</div>
 					</div>
 					<div class="service-price">
@@ -103,8 +103,8 @@ function getLink(path: string) {
 						<p class="service-description">На 4 месяца я становлюсь частью твоей жизни. Когда нужен не план, а человек, который живёт рядом с тобой и ведёт к результату. Максимально личный и глубокий формат работы.</p>
 
 						<div class="service-button-container">
-							<a href={getLink('legend')} class="service-button available">Что тебя ждёт</a>
-							<button class="service-button available" onclick="openBookingModal('Режим: LEGEND - Личное сопровождение')">Записаться</button>
+							<a href={getLink('evolve')} class="service-button available">Что тебя ждёт</a>
+							<button class="service-button available" onclick="openBookingModal('EVOLVE - Личное сопровождение')">Записаться</button>
 						</div>
 					</div>
 				</div>
@@ -275,8 +275,8 @@ function getLink(path: string) {
 	<section class="cta-section">
 		<div class="container">
 			<div class="cta-content">
-				<p class="cta-motivation">Давай сделаем так, чтобы через пару месяцев ты гордился собой.</p>
-				<p class="cta-action">Выбери подходящий тариф и начни своё преображение.</p>
+				<p class="cta-motivation">Давай сделаем так, чтобы через пару месяцев ты гордился собой!</p>
+				<p class="cta-action">Выбери подходящий тариф и начни своё преображение</p>
 				<div class="cta-buttons">
 					<a href="#coaching-section" class="cta-button primary">К услугам</a>
 					<a href={getLink('about')} class="cta-button secondary">Узнать больше обо мне</a>
@@ -401,7 +401,7 @@ function getLink(path: string) {
 	.service-card {
 		background: white;
 		border-radius: 2px;
-		padding: 30px;
+		padding: 15px 30px 30px 30px;
 		transition: opacity 0.3s ease;
 		border: 1px solid var(--border-color);
 		display: flex;
@@ -432,6 +432,9 @@ function getLink(path: string) {
 		background: white;
 	}
 
+	.service-header {
+		text-align: center;
+	}
 
 	.service-header h3 {
 		font-size: 1.5rem;
@@ -444,6 +447,7 @@ function getLink(path: string) {
 		color: var(--text-light);
 		font-size: 0.9rem;
 		margin-bottom: 15px;
+		text-align: center;
 	}
 
 	.service-status {
@@ -526,11 +530,13 @@ function getLink(path: string) {
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		cursor: pointer;
-		transition: opacity 0.3s ease;
+		transition: background-color 0.3s ease, border-color 0.3s ease;
 		display: block;
 		text-align: center;
 		text-decoration: none;
 		box-sizing: border-box;
+		font-family: inherit;
+		line-height: 1.2;
 	}
 
 	.service-button.available {
@@ -540,7 +546,8 @@ function getLink(path: string) {
 	}
 
 	.service-button.available:hover {
-		opacity: 0.9;
+		background: var(--accent-copper);
+		border-color: var(--accent-copper);
 	}
 
 	.service-button.closed {
@@ -688,11 +695,12 @@ function getLink(path: string) {
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		cursor: pointer;
-		transition: opacity 0.3s ease;
+		transition: background-color 0.3s ease, border-color 0.3s ease;
 	}
 
 	.additional-button:hover {
-		opacity: 0.9;
+		background: var(--accent-copper);
+		border-color: var(--accent-copper);
 	}
 
 	.results-section {
@@ -976,6 +984,29 @@ function getLink(path: string) {
 		align-items: center;
 	}
 
+	.modal-booking-button {
+		padding: 15px 30px !important;
+		background: #2C2C2C !important;
+		color: white !important;
+		border: 1px solid #2C2C2C !important;
+		border-radius: 2px !important;
+		font-size: 1.1rem !important;
+		font-weight: 500 !important;
+		text-transform: uppercase !important;
+		letter-spacing: 1px !important;
+		cursor: pointer !important;
+		transition: background-color 0.3s ease, border-color 0.3s ease !important;
+		min-width: 150px !important;
+		display: block !important;
+		margin: 0 auto !important;
+		font-family: inherit !important;
+	}
+
+	.modal-booking-button:hover {
+		background: var(--accent-copper) !important;
+		border-color: var(--accent-copper) !important;
+	}
+
 	.modal-button {
 		padding: 15px 30px !important;
 		border: 1px solid var(--text-color) !important;
@@ -1163,22 +1194,22 @@ function getLink(path: string) {
 		const modalContent = {
 			easy: `
 				<div class="modal-header">
-					<h2>Режим: EASY</h2>
+					<h2>INTRO</h2>
 					<p>Я не верю в легкий путь без действий, но я сделаю так, чтобы твой путь к цели был максимально комфортным и эффективным!</p>
 				</div>
 				<div class="modal-body">
 					<h3>Выберите подходящий режим:</h3>
 					<div class="easy-mode-buttons" style="display: flex; flex-direction: column; gap: 15px; margin: 30px auto; align-items: center; max-width: 300px;">
-						<button onclick="openModal('normal')" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2);">Режим: NORMAL</button>
-						<button onclick="openModal('hard')" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2);">Режим: HARD</button>
-						<a href="../legend/" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #d25f3e; color: white; box-shadow: 0 4px 15px rgba(210, 95, 62, 0.2); text-decoration: none; display: block; text-align: center; box-sizing: border-box;">Режим: LEGEND*</a>
+						<button onclick="openModal('normal')" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2);">BALANCE</button>
+						<button onclick="openModal('hard')" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2);">DISCIPLINE</button>
+						<a href="../evolve/" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #d25f3e; color: white; box-shadow: 0 4px 15px rgba(210, 95, 62, 0.2); text-decoration: none; display: block; text-align: center; box-sizing: border-box;">EVOLVE*</a>
 						<small style="color: #6b7280; font-style: italic; margin-top: 5px;">* очень дорого</small>
 					</div>
 				</div>
 			`,
 			normal: `
 				<div class="modal-header">
-					<h2>Режим: NORMAL</h2>
+					<h2>BALANCE</h2>
 					<div class="price">550 €/месяц</div>
 					<div class="duration">от 2-х месяцев</div>
 				</div>
@@ -1199,12 +1230,12 @@ function getLink(path: string) {
 						<li>Еженедельные апгрейды — каждую неделю даю тебе новую полезную информацию и задания. Мы закрепляем их на практике, и ты видишь, как меняются тело и привычки.</li>
 					</ul>
 
-					<div style="background: var(--bg-warm); padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent-normal); margin: 20px 0;">
+					<div style="background: var(--bg-warm); padding: 15px; border-radius: 0; border-left: 4px solid var(--accent-normal); margin: 20px 0;">
 						<strong>Важно:</strong><br>
 						Это не марафон и не волшебная таблетка. Результат будет, если ты честно работаешь и следуешь плану.
 					</div>
 
-					<div style="background: #f0f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent-easy); margin: 20px 0;">
+					<div style="background: #f0f9ff; padding: 15px; border-radius: 0; border-left: 4px solid var(--accent-easy); margin: 20px 0;">
 						<strong>Условия:</strong>
 						<ul style="margin-top: 10px;">
 							<li><strong>Минимум — 2 месяца</strong> — получаешь основу по питанию, сбрасываешь лишнее и начинаешь уверенно ориентироваться в порциях, но часть вопросов останется.</li>
@@ -1213,12 +1244,12 @@ function getLink(path: string) {
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button onclick="openBookingModal('Режим: NORMAL - Онлайн-ведение без подсчёта КБЖУ')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px; margin: 0 auto; display: block; font-family: inherit;">Записаться</button>
+					<button onclick="openBookingModal('BALANCE - Онлайн-ведение без подсчёта КБЖУ')" onmouseover="this.style.background='#A67C52'; this.style.borderColor='#A67C52';" onmouseout="this.style.background='#2C2C2C'; this.style.borderColor='#2C2C2C';" style="padding: 15px 30px; background: #2C2C2C; color: white; border: 1px solid #2C2C2C; border-radius: 2px; font-size: 1.1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; min-width: 150px; display: block; margin: 0 auto; font-family: inherit;">Записаться</button>
 				</div>
 			`,
 			hard: `
 				<div class="modal-header">
-					<h2>Режим: HARD</h2>
+					<h2>DISCIPLINE</h2>
 					<div class="price">450 €/месяц</div>
 					<div class="duration">от 2-х месяцев</div>
 				</div>
@@ -1239,12 +1270,12 @@ function getLink(path: string) {
 						<li>Еженедельные апгрейды — каждую неделю даю тебе новую полезную информацию и задания. Мы закрепляем их на практике, и ты видишь, как меняются тело и привычки.</li>
 					</ul>
 
-					<div style="background: var(--bg-warm); padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent-normal); margin: 20px 0;">
+					<div style="background: var(--bg-warm); padding: 15px; border-radius: 0; border-left: 4px solid var(--accent-normal); margin: 20px 0;">
 						<strong>Важно:</strong><br>
 						Это не марафон и не волшебная таблетка. Результат будет, если ты честно работаешь и следуешь плану.
 					</div>
 
-					<div style="background: #f0f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent-easy); margin: 20px 0;">
+					<div style="background: #f0f9ff; padding: 15px; border-radius: 0; border-left: 4px solid var(--accent-easy); margin: 20px 0;">
 						<strong>Условия:</strong>
 						<ul style="margin-top: 10px;">
 							<li><strong>Минимум — 2 месяца</strong> — получаешь основу по питанию, сбрасываешь лишнее и начинаешь уверенно ориентироваться в порциях, но часть вопросов останется.</li>
@@ -1253,7 +1284,7 @@ function getLink(path: string) {
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button onclick="openBookingModal('Режим: HARD - Онлайн-ведение с подсчетом КБЖУ')" style="padding: 15px 30px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2); min-width: 150px; margin: 0 auto; display: block; font-family: inherit;">Записаться</button>
+					<button onclick="openBookingModal('DISCIPLINE - Онлайн-ведение с подсчетом КБЖУ')" onmouseover="this.style.background='#A67C52'; this.style.borderColor='#A67C52';" onmouseout="this.style.background='#2C2C2C'; this.style.borderColor='#2C2C2C';" style="padding: 15px 30px; background: #2C2C2C; color: white; border: 1px solid #2C2C2C; border-radius: 2px; font-size: 1.1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; min-width: 150px; display: block; margin: 0 auto; font-family: inherit;">Записаться</button>
 				</div>
 			`,
 		};

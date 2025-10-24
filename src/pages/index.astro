@@ -16,35 +16,29 @@ function getLink(path: string) {
 	<section class="hero">
 		<div class="hero-content">
 			<div class="hero-text">
-				<h1 class="hero-title">
-					Влад – твой хелс-коуч:<br>
-					Открой путь к стройному телу<br>
-					с поддержкой и гарантированным результатом,<br>
-					наслаждаясь любимой едой.<br>
-					Я научу тебя есть много и вкусно,<br>
-					создавая устойчивые здоровые привычки.
-				</h1>
+				<h1 class="hero-title">Влад — твой хелс-коуч</h1>
+				<p class="hero-subtitle">Открой путь к стройному телу с поддержкой и гарантированным результатом, наслаждаясь любимой едой</p>
 				<div class="hero-services-grid">
 					<div class="hero-service-card easy-mode">
-						<h3>Режим: EASY</h3>
+						<h3>INTRO</h3>
 						<div class="hero-service-subtitle">Бесплатная консультация</div>
 						<p class="hero-service-description">Я не верю в легкий путь без действий и помогу тебе начать.</p>
 						<div class="hero-service-price">0 €/20 мин</div>
-						<button class="hero-service-button" onclick="openBookingModal('Режим: EASY - Бесплатная консультация')">Записаться</button>
+						<button class="hero-service-button" onclick="openBookingModal('INTRO - Бесплатная консультация')">Записаться</button>
 					</div>
 					<div class="hero-service-card normal-mode">
-						<h3>Режим: NORMAL</h3>
+						<h3>BALANCE</h3>
 						<div class="hero-service-subtitle">Ведение без подсчёта КБЖУ</div>
 						<p class="hero-service-description">Гибкий подход к осознанному питанию без подсчёта калорий по методу ладони.</p>
 						<div class="hero-service-price">550 €/месяц</div>
-						<button class="hero-service-button" onclick="openBookingModal('Режим: NORMAL - Онлайн-ведение без подсчёта КБЖУ')">Записаться</button>
+						<button class="hero-service-button" onclick="openBookingModal('BALANCE - Онлайн-ведение без подсчёта КБЖУ')">Записаться</button>
 					</div>
 					<div class="hero-service-card hard-mode">
-						<h3>Режим: HARD</h3>
+						<h3>DISCIPLINE</h3>
 						<div class="hero-service-subtitle">Ведение с подсчетом КБЖУ</div>
 						<p class="hero-service-description">Системный подход для максимального результата с подсчётом и взвешиванием.</p>
 						<div class="hero-service-price">450 €/месяц</div>
-						<button class="hero-service-button" onclick="openBookingModal('Режим: HARD - Онлайн-ведение с подсчетом КБЖУ')">Записаться</button>
+						<button class="hero-service-button" onclick="openBookingModal('DISCIPLINE - Онлайн-ведение с подсчетом КБЖУ')">Записаться</button>
 					</div>
 				</div>
 			</div>
@@ -270,7 +264,6 @@ function getLink(path: string) {
 		<div class="container">
 			<div class="cta-content">
 				<h2>Готов начать свое преображение?</h2>
-				<p>Запишись на пробный разбор или изучи мои услуги</p>
 				<div class="cta-buttons">
 					<button class="cta-button primary" onclick="openBookingModal('Хочу пробный разбор')">Хочу пробный разбор</button>
 					<a href={getLink('services')} class="cta-button secondary">Мои услуги</a>
@@ -285,7 +278,7 @@ function getLink(path: string) {
 	.hero {
 		background: var(--bg-color);
 		color: var(--text-color);
-		padding: 60px 0 80px;
+		padding: 10px 0 80px;
 		min-height: 600px;
 		display: flex;
 		align-items: center;
@@ -308,12 +301,23 @@ function getLink(path: string) {
 	}
 
 	.hero-title {
-		font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+		font-size: clamp(1.75rem, 3.15vw, 3.15rem);
 		font-weight: 300;
 		line-height: 1.1;
-		margin-bottom: 32px;
+		margin-bottom: 20px;
 		letter-spacing: -2px;
 		animation: fadeInUp 1s ease-out;
+		text-align: left;
+		max-width: 900px;
+	}
+
+	.hero-subtitle {
+		font-size: clamp(1rem, 1.8vw, 1.8rem);
+		font-weight: 300;
+		line-height: 1.4;
+		margin-bottom: 62px;
+		color: var(--text-light);
+		animation: fadeInUp 1s ease-out 0.2s both;
 		text-align: left;
 		max-width: 900px;
 	}
@@ -327,7 +331,7 @@ function getLink(path: string) {
 
 	.hero-service-card {
 		background: white;
-		padding: 56px 40px;
+		padding: 28px 20px;
 		border-radius: 2px;
 		text-align: center;
 		border: 1px solid var(--border-color);
@@ -346,6 +350,7 @@ function getLink(path: string) {
 		font-size: 2rem;
 		font-weight: 300;
 		color: var(--text-color);
+		margin-top: 5px;
 		margin-bottom: 16px;
 		letter-spacing: -1px;
 	}
@@ -391,7 +396,7 @@ function getLink(path: string) {
 		font-size: 13px;
 		font-weight: 500;
 		cursor: pointer;
-		transition: opacity 0.3s ease;
+		transition: background-color 0.3s ease;
 		font-family: inherit;
 		margin-top: auto;
 		letter-spacing: 1px;
@@ -399,7 +404,8 @@ function getLink(path: string) {
 	}
 
 	.hero-service-button:hover {
-		opacity: 0.85;
+		background: var(--accent-copper);
+		color: white;
 	}
 
 	.cta-button {
@@ -422,7 +428,7 @@ function getLink(path: string) {
 	}
 
 	.hero-image {
-		flex: 0 0 clamp(149px, 14.85vw, 198px);
+		flex: 0 0 clamp(127px, 12.62vw, 168px);
 		display: flex;
 		align-items: flex-end;
 		justify-content: center;
@@ -526,20 +532,21 @@ function getLink(path: string) {
 	.cta-button.primary {
 		background: var(--accent-normal);
 		color: white;
-		font-size: 1.2rem;
+		font-size: 1.1rem;
 		padding: 18px 40px;
 		border: none;
 		cursor: pointer;
 		font-family: inherit;
+		transition: background-color 0.3s ease;
 	}
 
 	.cta-button.primary:hover {
-		background: var(--accent-hard);
+		background: var(--accent-copper);
 	}
 
 	.feature-card {
 		background: white;
-		padding: 56px 40px;
+		padding: 30px 25px;
 		border-radius: 2px;
 		text-align: center;
 		border: 1px solid var(--border-color);
@@ -552,7 +559,7 @@ function getLink(path: string) {
 	}
 
 	.feature-icon {
-		margin-bottom: 32px;
+		margin-bottom: 16px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -561,7 +568,7 @@ function getLink(path: string) {
 	.feature-card h3 {
 		font-size: 2rem;
 		font-weight: 300;
-		margin-bottom: 16px;
+		margin-bottom: 12px;
 		color: var(--text-color);
 		letter-spacing: -1px;
 	}
@@ -579,7 +586,7 @@ function getLink(path: string) {
 	}
 
 	.feature-card ul li {
-		margin-bottom: 12px;
+		margin-bottom: 10px;
 		padding-left: 0;
 		position: relative;
 		color: var(--text-light);
@@ -803,24 +810,30 @@ function getLink(path: string) {
 		flex-wrap: wrap;
 	}
 
-	.cta-button.primary {
+	.cta-section .cta-button.primary {
 		background: var(--bg-color);
 		color: var(--text-color);
+		transition: background-color 0.3s ease;
+		font-size: 1rem;
 	}
 
-	.cta-button.primary:hover {
-		opacity: 0.85;
+	.cta-section .cta-button.primary:hover {
+		background: var(--accent-copper);
+		color: white;
 	}
 
-	.cta-button.secondary {
+	.cta-section .cta-button.secondary {
 		background: transparent;
 		border: 1px solid var(--border-color);
 		color: var(--bg-color);
+		transition: background-color 0.3s ease, color 0.3s ease;
+		font-size: 1rem;
 	}
 
-	.cta-button.secondary:hover {
-		background: var(--bg-color);
-		color: var(--text-color);
+	.cta-section .cta-button.secondary:hover {
+		background: var(--accent-copper);
+		color: white;
+		border-color: var(--accent-copper);
 	}
 
 	@keyframes fadeInUp {
@@ -853,6 +866,10 @@ function getLink(path: string) {
 	}
 
 	@media (max-width: 768px) {
+		.hero {
+			padding: 30px 0 100px;
+		}
+
 		.hero-content {
 			flex-direction: column;
 			gap: 30px;
@@ -867,20 +884,27 @@ function getLink(path: string) {
 		}
 
 		.hero-title {
-			font-size: clamp(1.1rem, 4.4vw, 1.5rem);
-			line-height: 1.5;
+			font-size: clamp(1.65rem, 6.61vw, 2.25rem);
+			line-height: 1.9;
 			margin-top: 20px;
-			margin-bottom: 40px;
+			margin-bottom: 15px;
 			text-align: left;
 			position: relative;
 			letter-spacing: 0;
 		}
 
+		.hero-subtitle {
+			font-size: clamp(0.84rem, 3.36vw, 1.14rem);
+			line-height: 1.5;
+			margin-bottom: 40px;
+			max-width: 60%;
+		}
+
 		.hero-image {
 			position: absolute;
-			right: 15px;
-			top: -20px;
-			width: clamp(57px, 17vw, 85px);
+			right: 20px;
+			top: -10px;
+			width: clamp(43px, 11.78vw, 65px);
 			opacity: 1;
 			z-index: 1;
 			padding: 0;
@@ -897,11 +921,12 @@ function getLink(path: string) {
 		}
 
 		.hero-service-card {
-			padding: 20px 15px;
+			padding: 10px 7.5px;
 		}
 
 		.hero-service-card h3 {
 			font-size: 1.2rem;
+			margin-top: 5px;
 		}
 
 		.hero-service-subtitle {
@@ -927,13 +952,29 @@ function getLink(path: string) {
 
 		.testimonials-carousel {
 			max-width: 100%;
-			padding: 0 20px;
+			padding: 0;
 		}
 
-		/* Скрываем стрелки на мобильных */
+		/* Показываем стрелки на мобильных поверх контента */
 		.testimonials-carousel .carousel-btn.prev,
 		.testimonials-carousel .carousel-btn.next {
-			display: none;
+			display: flex;
+			width: 60px;
+			height: 120px;
+			background: transparent;
+			border: none;
+			font-size: 7rem;
+			z-index: 10;
+			box-shadow: none;
+			color: rgba(0, 0, 0, 0.4);
+		}
+
+		.testimonials-carousel .carousel-btn.prev {
+			left: -30px;
+		}
+
+		.testimonials-carousel .carousel-btn.next {
+			right: -30px;
 		}
 
 		.carousel-container {
@@ -960,8 +1001,8 @@ function getLink(path: string) {
 		}
 
 		.testimonial-slide {
-			min-width: 70%;
-			flex: 0 0 70%;
+			min-width: 100%;
+			flex: 0 0 100%;
 			margin: 0;
 			padding: 15px 0;
 			opacity: 1;
@@ -970,19 +1011,10 @@ function getLink(path: string) {
 			scroll-snap-stop: always;
 		}
 
-		/* Первый слайд: добавляем отступ слева для центрирования */
-		.testimonial-slide:first-child {
-			padding-left: 15%;
-		}
-
-		/* Последний слайд: добавляем отступ справа для центрирования */
-		.testimonial-slide:last-child {
-			padding-right: 15%;
-		}
-
 		.testimonial-card {
 			padding: 30px 25px;
 			min-height: auto;
+			background: #FAFAF8;
 			/* iOS Safari: box-shadow + overflow clipping может давать длинные артефакты.
 			   Заменяем на drop-shadow и жёстко обрезаем края по радиусу. */
 			box-shadow: none;
@@ -1158,8 +1190,31 @@ function getLink(path: string) {
 				this.updateIndicators();
 			}
 
-			private next = () => this.goTo(this.currentIndex + 1);
-			private prev = () => this.goTo(this.currentIndex - 1);
+			private isMobileView(): boolean { return window.innerWidth <= 768; }
+
+			private next = () => {
+				if (this.isMobileView() && this.container) {
+					const slideWidth = this.container.scrollWidth / (this.originalSlideCount + 2);
+					const currentSlide = Math.round(this.container.scrollLeft / slideWidth);
+					const target = currentSlide + 1;
+					this.container.scrollTo({ left: target * slideWidth, behavior: 'smooth' });
+					this.updateMobileIndicators(target);
+					return;
+				}
+				this.goTo(this.currentIndex + 1);
+			};
+
+			private prev = () => {
+				if (this.isMobileView() && this.container) {
+					const slideWidth = this.container.scrollWidth / (this.originalSlideCount + 2);
+					const currentSlide = Math.round(this.container.scrollLeft / slideWidth);
+					const target = currentSlide - 1;
+					this.container.scrollTo({ left: target * slideWidth, behavior: 'smooth' });
+					this.updateMobileIndicators(target);
+					return;
+				}
+				this.goTo(this.currentIndex - 1);
+			};
 
 			private handleInfiniteLoop() {
 				// Переход с последнего клона (индекс originalSlideCount + 1) на первый оригинальный слайд (индекс 1)

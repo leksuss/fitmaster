@@ -136,7 +136,6 @@ function getLink(path: string) {
 		<div class="container">
 			<div class="cta-content">
 				<h2>Готов начать работу со мной?</h2>
-				<p>Запишись на пробный разбор или ознакомься с моими услугами.</p>
 				<div class="cta-buttons">
 					<button class="cta-button primary" onclick="openBookingModal('Хочу пробный разбор')">Записаться на пробный разбор</button>
 					<a href={getLink('services')} class="cta-button secondary">Мои услуги</a>
@@ -387,7 +386,7 @@ function getLink(path: string) {
 		font-size: 1.1rem;
 		text-transform: uppercase;
 		letter-spacing: 1px;
-		transition: opacity 0.3s ease;
+		transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 		border: 1px solid white;
 		cursor: pointer;
 		font-family: inherit;
@@ -400,7 +399,9 @@ function getLink(path: string) {
 	}
 
 	.cta-button.primary:hover {
-		opacity: 0.9;
+		background: var(--accent-copper);
+		color: white;
+		border-color: var(--accent-copper);
 	}
 
 	.cta-button.secondary {
