@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import nutritionIcon from '../assets/icons/питаниеипохудение.svg?url';
-import trainingIcon from '../assets/icons/тренировкиактивность.svg?url';
-import healthIcon from '../assets/icons/здоровьеипривычки.svg?url';
-import termsIcon from '../assets/icons/условияигранатии.svg?url';
+import nutritionIcon from '../assets/icons/pitanie_i_pohudenie.svg?url';
+import trainingIcon from '../assets/icons/trenirovki_aktivnost.svg?url';
+import healthIcon from '../assets/icons/zdorove_i_privychki.svg?url';
+import termsIcon from '../assets/icons/usloviya_i_garantii.svg?url';
 
 const base = import.meta.env.BASE_URL;
 
@@ -11,13 +11,6 @@ function getLink(path: string) {
   if (path === '') return base;
   return base.endsWith('/') ? `${base}${path}/` : `${base}/${path}/`;
 }
-
-const categoryIcons = {
-  'Питание и похудение': nutritionIcon,
-  'Тренировки и активность': trainingIcon,
-  'Здоровье и привычки': healthIcon,
-  'Условия и гарантии': termsIcon
-};
 
 const faqData = {
   'Питание и похудение': [
@@ -385,6 +378,15 @@ const faqData = {
     }
   ]
 };
+
+const categoryIcons: Record<keyof typeof faqData, string> = {
+  'Питание и похудение': nutritionIcon,
+  'Тренировки и активность': trainingIcon,
+  'Здоровье и привычки': healthIcon,
+  'Условия и гарантии': termsIcon
+};
+
+const faqEntries = Object.entries(faqData) as [keyof typeof faqData, (typeof faqData)[keyof typeof faqData]][];
 ---
 
 <Layout title="FAQ - Часто задаваемые вопросы | Влад Хелс-коуч">
@@ -397,7 +399,7 @@ const faqData = {
 
 	<section class="faq-content">
 		<div class="container">
-			{Object.entries(faqData).map(([category, questions]) => (
+			{faqEntries.map(([category, questions]) => (
 				<div class="faq-category">
 					<button class="category-title" type="button">
 						<div class="category-header">
@@ -407,8 +409,8 @@ const faqData = {
 						<span class="category-toggle-icon">+</span>
 					</button>
 					<div class="questions-list">
-						{questions.map((item, index) => (
-							<div class="faq-item" key={index}>
+					{questions.map((item) => (
+						<div class="faq-item">
 								<button class="faq-question" type="button">
 									<span class="question-text">{item.q}</span>
 									<span class="toggle-icon">+</span>

@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import udobnoIcon from '../assets/icons/удобно.svg?url';
-import bezopasnoIcon from '../assets/icons/безопасно.svg?url';
-import effectivnoIcon from '../assets/icons/эффективно.svg?url';
+import udobnoIcon from '../assets/icons/udobno.svg?url';
+import bezopasnoIcon from '../assets/icons/bezopasno.svg?url';
+import effectivnoIcon from '../assets/icons/effektivno.svg?url';
 
 const base = import.meta.env.BASE_URL;
 
@@ -542,6 +542,18 @@ function getLink(path: string) {
 
 	.cta-button.primary:hover {
 		background: var(--accent-copper);
+	}
+
+	/* Приводим кнопку в секции features-cta-section к стандартному стилю, как у других */
+	.features-cta-section .cta-button.primary {
+		background: var(--text-color);
+		color: var(--bg-color);
+		border: none;
+	}
+
+	.features-cta-section .cta-button.primary:hover {
+		background: var(--accent-copper);
+		color: white;
 	}
 
 	.feature-card {
