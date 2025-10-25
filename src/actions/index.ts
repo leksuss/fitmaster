@@ -1,10 +1,11 @@
 import { ActionError, defineAction } from 'astro:actions';
+import { getSecret } from 'astro:env/server';
 import { z } from 'zod';
 import nodemailer from 'nodemailer';
 
-// Функция для получения переменной окружения
-function getEnvVar(name: string, defaultValue?: string): string {
-  const value = process.env[name] || defaultValue;
+// Переменные окружения читаем через getSecret (серверные секреты)
+function requireSecret(name: string, defaultValue?: string): string {
+  const value = getSecret(name) ?? defaultValue;
   if (!value) {
     throw new Error(`Environment variable ${name} is not set`);
   }
@@ -16,38 +17,46 @@ export const server = {
     accept: 'form',
     input: z.object({
       name: z.string().min(2, 'Имя должно содержать минимум 2 символа'),
-      contact: z.string().min(3, 'Укажите способ связи (телефон, email, Telegram)')
+      contact: z.string().min(3, 'Укажите способ связи (телефон, email, Telegram)'),
+      requestType: z.string().min(1),
+      question: z.string().optional().default(''),
     }),
-    handler: async ({ name, contact }) => {
+    handler: async ({ name, contact, requestType, question }) => {
       try {
 
         // Создаем транспорт для отправки email
         const transporter = nodemailer.createTransport({
-          host: getEnvVar('SMTP_HOST'),
-          port: parseInt(getEnvVar('SMTP_PORT', '587')),
-          secure: getEnvVar('SMTP_SECURE', 'false') === 'true',
+          host: requireSecret('SMTP_HOST'),
+          port: parseInt(requireSecret('SMTP_PORT', '587')),
+          secure: requireSecret('SMTP_SECURE', 'false') === 'true',
           auth: {
-            user: getEnvVar('SMTP_USER'),
-            pass: getEnvVar('SMTP_PASS')
-          }
+            user: requireSecret('SMTP_USER'),
+            pass: requireSecret('SMTP_PASS'),
+          },
         });
 
         // Формируем содержимое письма
-        const emailContent = `
-Новая заявка на консультацию с сайта
+        const lines: string[] = [];
+        lines.push(`Заявка: ${requestType}`);
+        lines.push('');
+        lines.push(`Имя: ${name}`);
+        lines.push(`Контакт: ${contact}`);
+        if (question && question.trim().length > 0) {
+          lines.push('');
+          lines.push('Вопрос:');
+          lines.push(question.trim());
+        }
+        lines.push('');
+        lines.push('---');
+        lines.push(`Отправлено: ${new Date().toLocaleString('ru-RU')}`);
 
-Имя: ${name}
-Контакт: ${contact}
-
----
-Отправлено: ${new Date().toLocaleString('ru-RU')}
-        `.trim();
+        const emailContent = lines.join('\n');
 
         // Отправляем email
         await transporter.sendMail({
-          from: `"Сайт Влад - Хелс-коуч" <${getEnvVar('SMTP_USER')}>`,
-          to: getEnvVar('RECIPIENT_EMAIL'),
-          subject: `Новое сообщение от ${name}`,
+          from: `"Сайт Влад - Хелс-коуч" <${requireSecret('SMTP_USER')}>`,
+          to: requireSecret('RECIPIENT_EMAIL'),
+          subject: `Заявка: ${requestType} — от ${name}`,
           text: emailContent,
           html: emailContent.replace(/\n/g, '<br>')
         });

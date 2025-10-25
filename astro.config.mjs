@@ -1,6 +1,6 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel/serverless';
+import { defineConfig, envField } from 'astro/config';
+import vercel from '@astrojs/vercel';
 import vue from '@astrojs/vue';
 
 // https://astro.build/config
@@ -15,4 +15,14 @@ export default defineConfig({
     ? 'https://fitmaster-r0d24sg6f-leksus-projects.vercel.app' 
     : 'https://leksuss.github.io',
   base: isVercel ? '' : '/fitmaster',
+  env: {
+    schema: {
+      SMTP_HOST: envField.string({ context: 'server', access: 'secret' }),
+      SMTP_PORT: envField.string({ context: 'server', access: 'secret', default: '587' }),
+      SMTP_SECURE: envField.string({ context: 'server', access: 'secret', default: 'false' }),
+      SMTP_USER: envField.string({ context: 'server', access: 'secret' }),
+      SMTP_PASS: envField.string({ context: 'server', access: 'secret' }),
+      RECIPIENT_EMAIL: envField.string({ context: 'server', access: 'secret' }),
+    },
+  },
 });
