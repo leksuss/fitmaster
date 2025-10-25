@@ -450,10 +450,11 @@ const faqEntries = Object.entries(faqData) as [keyof typeof faqData, (typeof faq
 
 <style>
 	.faq-hero {
-		background: var(--text-color);
-		color: white;
+		background: rgb(244, 240, 233);
+		color: var(--text-color);
 		padding: 60px 0 60px;
 		text-align: center;
+		border-bottom: 1px solid var(--border-color);
 	}
 
 	.faq-hero h1 {
@@ -628,19 +629,22 @@ const faqEntries = Object.entries(faqData) as [keyof typeof faqData, (typeof faq
 		font-size: 2rem;
 		font-weight: 300;
 		color: var(--text-color);
-		margin-bottom: 25px;
+		margin-top: 0;
+		margin-bottom: 30px;
 	}
 
 	.faq-cta {
-		background: var(--text-color);
-		padding: 60px 0;
+		background: rgb(244, 240, 233);
+		padding: 80px 0;
 		text-align: center;
+		border-top: 1px solid var(--border-color);
 	}
 
 	.cta-buttons {
 		display: flex;
 		gap: 20px;
 		justify-content: center;
+		align-items: center;
 		flex-wrap: wrap;
 	}
 
@@ -657,9 +661,9 @@ const faqEntries = Object.entries(faqData) as [keyof typeof faqData, (typeof faq
 	}
 
 	.cta-button.primary {
-		background: var(--bg-color);
-		color: var(--text-color);
-		border: 1px solid var(--bg-color);
+		background: var(--text-color);
+		color: white;
+		border: 1px solid var(--text-color);
 		cursor: pointer;
 		font-family: inherit;
 	}
@@ -672,8 +676,8 @@ const faqEntries = Object.entries(faqData) as [keyof typeof faqData, (typeof faq
 
 	.cta-button.secondary {
 		background: transparent;
-		color: var(--bg-color);
-		border: 1px solid var(--border-color);
+		color: var(--text-color);
+		border: 1px solid var(--text-color);
 	}
 
 	.cta-button.secondary:hover {

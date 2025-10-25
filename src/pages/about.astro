@@ -147,14 +147,15 @@ function getLink(path: string) {
 
 <style>
 	.about-hero {
-		background: var(--text-color);
-		color: white;
+		background: white;
+		color: var(--text-color);
 		padding: 40px 0 0;
 		min-height: 500px;
 		display: flex;
 		align-items: center;
 		position: relative;
 		overflow: hidden;
+		border-bottom: 1px solid var(--border-color);
 	}
 
 	.container {
@@ -167,14 +168,14 @@ function getLink(path: string) {
 		display: flex;
 		position: relative;
 		min-height: 620px;
-		/* Промежуточный резерв справа: текст слегка заходит на фото */
-		padding-right: clamp(180px, 11.3vw, 216px);
+		/* Резерв справа для фотографии */
+		padding-right: clamp(260px, 18vw, 340px);
 	}
 
 	.about-text {
 		position: relative;
 		z-index: 2;
-		max-width: 700px;
+		max-width: 600px;
 		/* Опускаем текстовый блок ниже */
 		margin-top: clamp(40px, 11vh, 140px);
 	}
@@ -200,8 +201,8 @@ function getLink(path: string) {
 	.about-image {
 		position: absolute;
 		bottom: -10px;
-		right: calc(clamp(6px, 1.9vw, 34px) - 20px);
-		width: clamp(240px, 13.8vw, 265px);
+		right: 0;
+		width: clamp(240px, 16vw, 300px);
 		z-index: 1;
 		pointer-events: none;
 		animation: fadeIn 1s ease-out 0.4s both;
@@ -352,16 +353,18 @@ function getLink(path: string) {
 	}
 
 	.cta-section {
-		background: var(--text-color);
-		color: white;
+		background: rgb(244, 240, 233);
+		color: var(--text-color);
 		padding: 80px 0;
 		text-align: center;
+		border-top: 1px solid var(--border-color);
 	}
 
 	.cta-content h2 {
 		font-size: 2.5rem;
 		font-weight: 300;
-		margin-bottom: 15px;
+		margin-top: 0;
+		margin-bottom: 30px;
 	}
 
 	.cta-content p {
@@ -387,15 +390,24 @@ function getLink(path: string) {
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-		border: 1px solid white;
+		border: 1px solid var(--text-color);
 		cursor: pointer;
 		font-family: inherit;
+		background: transparent;
+		color: var(--text-color);
+		line-height: 1.2;
+	}
+
+	.cta-button:hover {
+		background: var(--accent-copper);
+		color: white;
+		border-color: var(--accent-copper);
 	}
 
 	.cta-button.primary {
-		background: white;
+		background: transparent;
 		color: var(--text-color);
-		border: 1px solid white;
+		border: 1px solid var(--text-color);
 	}
 
 	.cta-button.primary:hover {
@@ -406,12 +418,14 @@ function getLink(path: string) {
 
 	.cta-button.secondary {
 		background: transparent;
-		border: 1px solid white;
-		color: white;
+		border: 1px solid var(--text-color);
+		color: var(--text-color);
 	}
 
 	.cta-button.secondary:hover {
-		opacity: 0.8;
+		background: var(--accent-copper);
+		color: white;
+		border-color: var(--accent-copper);
 	}
 
 	@keyframes fadeInUp {
@@ -492,11 +506,14 @@ function getLink(path: string) {
 		.cta-buttons {
 			flex-direction: column;
 			align-items: center;
+			gap: 15px;
 		}
 
 		.cta-button {
-			width: 100%;
-			max-width: 300px;
+			width: 280px;
+			max-width: 90%;
+			box-sizing: border-box;
+			text-align: center;
 		}
 
 		.about-image {
