@@ -54,38 +54,38 @@ function getLink(path: string) {
 
 				<div class="service-card normal-mode" id="normal-mode">
 					<div class="service-header">
-						<h3>BALANCE</h3>
-						<div class="service-subtitle">Онлайн-ведение без подсчёта КБЖУ</div>
+						<h3>DISCIPLINE</h3>
+						<div class="service-subtitle">Ведение: на связи раз в неделю</div>
 					</div>
 					<div class="service-price">
-						<span class="price">550 €/месяц</span>
+						<span class="price">199 €/месяц</span>
 						<span class="duration">от 2-х месяцев</span>
 					</div>
 					<div class="service-content">
-						<p class="service-description">Твой гибкий путь к осознанному питанию. Ты научишься ориентироваться в еде с помощью метода ладони (кулак, ладонь, палец), без весов и подсчёта калорий. Идеально для тех, кто хочет сбросить лишний вес, ищет комфортный подход и готов довериться ощущениям и моим рекомендациям.</p>
+						<p class="service-description">Твой пошаговый план для максимального контроля и понимания процесса с подсчетом КБЖУ. Отлично подходит для тех, кто любит системный подход и умеет работать самостоятельно.</p>
 
 						<div class="service-button-container">
 							<button class="service-button available" onclick="openModal('normal')">Что тебя ждёт</button>
-							<button class="service-button available" onclick="openBookingModal('BALANCE - Онлайн-ведение без подсчёта КБЖУ')">Записаться</button>
+							<button class="service-button available" onclick="openBookingModal('DISCIPLINE - Онлайн-ведение без подсчёта КБЖУ')">Записаться</button>
 						</div>
 					</div>
 				</div>
 
 				<div class="service-card hard-mode" id="hard-mode">
 					<div class="service-header">
-						<h3>DISCIPLINE</h3>
-						<div class="service-subtitle">Онлайн-ведение с подсчетом КБЖУ</div>
+						<h3>MENTOR</h3>
+						<div class="service-subtitle">Ведение: на связи каждый день</div>
 					</div>
 					<div class="service-price">
-						<span class="price">450 €/месяц</span>
+						<span class="price">399 €/месяц</span>
 						<span class="duration">от 2-х месяцев</span>
 					</div>
 					<div class="service-content">
-						<p class="service-description">Твой пошаговый план для максимального контроля и понимания процесса. Ты будешь детально отслеживать прогресс, а также считать и точно знать свои КБЖУ. Отлично подходит для тех, кто хочет стать очень сухим, любит системный подход и готов ежедневно взвешивать всю свою еду.</p>
+						<p class="service-description">Моё пошаговое сопровождение, где я выстраиваю систему питания под твой образ жизни, психологию и цели. Ты научишься управлять этой системой так, чтобы результат работал на тебя.</p>
 
 						<div class="service-button-container">
 							<button class="service-button available" onclick="openModal('hard')">Что тебя ждёт</button>
-							<button class="service-button available" onclick="openBookingModal('DISCIPLINE - Онлайн-ведение с подсчетом КБЖУ')">Записаться</button>
+							<button class="service-button available" onclick="openBookingModal('MENTOR - Онлайн-ведение с подсчетом КБЖУ')">Записаться</button>
 						</div>
 					</div>
 				</div>
@@ -1235,8 +1235,8 @@ function getLink(path: string) {
 				<div class="modal-body">
 					<h3>Выберите подходящий режим:</h3>
 					<div class="easy-mode-buttons" style="display: flex; flex-direction: column; gap: 15px; margin: 30px auto; align-items: center; max-width: 300px;">
-						<button onclick="openModal('normal')" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2);">BALANCE</button>
-						<button onclick="openModal('hard')" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2);">DISCIPLINE</button>
+						<button onclick="openModal('normal')" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ffc978; color: #8B4513; box-shadow: 0 4px 15px rgba(255, 201, 120, 0.2);">DISCIPLINE</button>
+						<button onclick="openModal('hard')" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #ff914d; color: white; box-shadow: 0 4px 15px rgba(255, 145, 77, 0.2);">MENTOR</button>
 						<a href="../evolve/" style="width: 100%; padding: 15px 20px; border: none; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #d25f3e; color: white; box-shadow: 0 4px 15px rgba(210, 95, 62, 0.2); text-decoration: none; display: block; text-align: center; box-sizing: border-box;">EVOLVE*</a>
 						<small style="color: #6b7280; font-style: italic; margin-top: 5px;">* очень дорого</small>
 					</div>
@@ -1244,13 +1244,13 @@ function getLink(path: string) {
 			`,
 			normal: `
 				<div class="modal-header">
-					<h2>BALANCE</h2>
-					<div class="price">550 €/месяц</div>
+					<h2>DISCIPLINE</h2>
+					<div class="price">199 €/месяц</div>
 					<div class="duration">от 2-х месяцев</div>
 				</div>
 				<div class="modal-body">
-					<p><strong>Ведение без подсчёта КБЖУ</strong></p>
-					<p>Твой гибкий путь к осознанному питанию. Ты научишься ориентироваться в еде с помощью метода ладони (кулак, ладонь, палец), без весов и подсчёта калорий.</p>
+					<p><strong>Ведение: на связи раз в неделю</strong></p>
+					<p>Система питания под твой образ жизни, психологию и цели, где ты учишься управлять ей самостоятельно под моим присмотром.</p>
 
 					<h3>Что тебя ждёт:</h3>
 					<ul>
@@ -1279,29 +1279,33 @@ function getLink(path: string) {
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button onclick="openBookingModal('BALANCE - Онлайн-ведение без подсчёта КБЖУ')" onmouseover="this.style.background='#A67C52'; this.style.borderColor='#A67C52';" onmouseout="this.style.background='#2C2C2C'; this.style.borderColor='#2C2C2C';" style="padding: 15px 30px; background: #2C2C2C; color: white; border: 1px solid #2C2C2C; border-radius: 2px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; min-width: 150px; display: block; margin: 0 auto; font-family: inherit;">Записаться</button>
+					<button onclick="openBookingModal('DISCIPLINE - Онлайн-ведение без подсчёта КБЖУ')" onmouseover="this.style.background='#A67C52'; this.style.borderColor='#A67C52';" onmouseout="this.style.background='#2C2C2C'; this.style.borderColor='#2C2C2C';" style="padding: 15px 30px; background: #2C2C2C; color: white; border: 1px solid #2C2C2C; border-radius: 2px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; min-width: 150px; display: block; margin: 0 auto; font-family: inherit;">Записаться</button>
 				</div>
 			`,
 			hard: `
 				<div class="modal-header">
-					<h2>DISCIPLINE</h2>
-					<div class="price">450 €/месяц</div>
+					<h2>MENTOR</h2>
+					<div class="price">399 €/месяц</div>
 					<div class="duration">от 2-х месяцев</div>
 				</div>
 				<div class="modal-body">
-					<p><strong>Ведение с подсчетом КБЖУ</strong></p>
-					<p>Твой пошаговый план для максимального контроля и понимания процесса. Ты будешь детально отслеживать прогресс, а также считать и точно знать свои КБЖУ.</p>
+					<p><strong>Ведение: на связи каждый день</strong></p>
+					<p>Пошаговое сопровождение, где я выстраиваю систему питания под твой образ жизни, психологию и цели.</p>
 
 					<h3>Что тебя ждёт:</h3>
 					<ul>
 						<li>Анкета для старта — ты отвечаешь на вопросы про себя: цели, вкусы, привычки, график, здоровье. Уже на этом этапе вырисовывается план.</li>
 						<li>Созвон — обсуждаем всё по анкете, фиксируем цель, сроки и конкретные точки, по которым будем мерить прогресс.</li>
-						<li>Онлайн-формат — работаем дистанционно: не важно, где ты живёшь, я рядом и всегда отвечу.</li>
-						<li>Прозрачный контроль прогресса — регулярные взвешивания, фото и замеры, чтобы видеть реальную картину и корректировать план.</li>
-						<li>Поддержка и мотивация — на связи на каждом этапе, отвечаю на вопросы, хвалю и помогаю пройти любые моменты.</li>
-						<li>Начинаем путь — я собираю тебе план, который поэтапно впишется в твой ритм жизни.</li>
-						<li>Учёт без заморочек — ты научишься взвешивать еду и считать калории через FatSecret или Yazio, чтобы это стало привычкой, а не головной болью.</li>
-						<li>Без голодовок и запретов — ешь много, вкусно и то, что любишь, просто в правильных пропорциях под твои цели.</li>
+						<li>Твой персональный план — я собираю систему, которая поэтапно впишется в твой ритм жизни.</li>
+						<li>Без голодовок и запретов: ты ешь много и вкусно то, что любишь, просто в правильных пропорциях под свои цели.</li>
+						<li>Выбор твоего инструмента — в зависимости от твоего ритма жизни и психологии, я подбираю один из двух методов работы:
+							<ul style="margin-top: 10px; margin-bottom: 10px;">
+								<li style="padding-left: 15px;">Метод ладони: вместо весов и цифр используем ладонь, кулак и палец, чтобы легко и быстро определять порции в любой ситуации.</li>
+								<li style="padding-left: 15px;">Учёт без заморочек: учимся взвешивать еду и считать калории через приложения, чтобы это стало простой привычкой, а не головной болью.</li>
+							</ul>
+						</li>
+						<li>Ежедневная поддержка и мотивация — я на связи и поддерживаю тебя каждый день. Отвечаю на вопросы, хвалю и помогаю пройти любые сложные моменты прямо в моменте.</li>
+						<li>Прозрачный контроль прогресса — регулярные взвешивания, фото и замеры, чтобы видеть реальную картину и вовремя корректировать план.</li>
 						<li>Еженедельные апгрейды — каждую неделю даю тебе новую полезную информацию и задания. Мы закрепляем их на практике, и ты видишь, как меняются тело и привычки.</li>
 					</ul>
 
@@ -1319,11 +1323,11 @@ function getLink(path: string) {
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button onclick="openBookingModal('DISCIPLINE - Онлайн-ведение с подсчетом КБЖУ')" onmouseover="this.style.background='#A67C52'; this.style.borderColor='#A67C52';" onmouseout="this.style.background='#2C2C2C'; this.style.borderColor='#2C2C2C';" style="padding: 15px 30px; background: #2C2C2C; color: white; border: 1px solid #2C2C2C; border-radius: 2px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; min-width: 150px; display: block; margin: 0 auto; font-family: inherit;">Записаться</button>
+					<button onclick="openBookingModal('MENTOR - Онлайн-ведение с подсчетом КБЖУ')" onmouseover="this.style.background='#A67C52'; this.style.borderColor='#A67C52';" onmouseout="this.style.background='#2C2C2C'; this.style.borderColor='#2C2C2C';" style="padding: 15px 30px; background: #2C2C2C; color: white; border: 1px solid #2C2C2C; border-radius: 2px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; min-width: 150px; display: block; margin: 0 auto; font-family: inherit;">Записаться</button>
 				</div>
 			`,
 		};
-		
+
 		return modalContent[mode] || '';
 	}
 
