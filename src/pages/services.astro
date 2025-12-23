@@ -119,51 +119,51 @@ function getLink(path: string) {
 				
 				<div class="service-card training-only">
 					<div class="service-header">
-						<h3>Только тренировки</h3>
-						<div class="service-status closed">Временно запись закрыта</div>
+						<h3>FIT</h3>
 					</div>
 					<div class="service-price">
 						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
-						<span class="price">150 €/месяц</span>
+						<span class="price">199 €/месяц</span>
 					</div>
 					<div class="service-content">
-						<p class="service-description">Индивидуальные программы тренировок, разработанные специально для твоих целей и образа жизни.</p>
+						<p class="service-description">Индивидуальные программы тренировок, разработанные специально под твои цели образ жизни.</p>
 						<div class="service-button-container">
-							<button class="service-button closed" disabled>Недоступно</button>
+							<button class="service-button available" onclick="openModal('fit')">Что тебя ждёт</button>
+							<button class="service-button available" onclick="openBookingModal('FIT - Индивидуальные тренировки')">Записаться</button>
 						</div>
 					</div>
 				</div>
 
 				<div class="service-card normal-training">
 					<div class="service-header">
-						<h3>NORMAL + Тренировки</h3>
-						<div class="service-status closed">Временно запись закрыта</div>
+						<h3>DISCIPLINE FIT</h3>
 					</div>
 					<div class="service-price">
 						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
-						<span class="price">650 €/месяц</span>
+						<span class="price">399 €/месяц</span>
 					</div>
 					<div class="service-content">
-						<p class="service-description">Комплексный подход: питание без подсчета КБЖУ + индивидуальные тренировки.</p>
+						<p class="service-description">Сопровождение по питанию. Плюс индивидуальные программы тренировок, разработанные специально для твоих целей и образа жизни.</p>
 						<div class="service-button-container">
-							<button class="service-button closed" disabled>Недоступно</button>
+							<button class="service-button available" onclick="openModal('discipline-fit')">Что тебя ждёт</button>
+							<button class="service-button available" onclick="openBookingModal('DISCIPLINE FIT - Питание + тренировки')">Записаться</button>
 						</div>
 					</div>
 				</div>
 
 				<div class="service-card hard-training">
 					<div class="service-header">
-						<h3>HARD + Тренировки</h3>
-						<div class="service-status closed">Временно запись закрыта</div>
+						<h3>MENTOR FIT</h3>
 					</div>
 					<div class="service-price">
 						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
-						<span class="price">550 €/месяц</span>
+						<span class="price">499 €/месяц</span>
 					</div>
 					<div class="service-content">
-						<p class="service-description">Максимальный контроль: питание с подсчетом КБЖУ + индивидуальные тренировки.</p>
+						<p class="service-description">Сопровождение по питанию. Плюс индивидуальные программы тренировок, разработанные специально для твоих целей и образа жизни.</p>
 						<div class="service-button-container">
-							<button class="service-button closed" disabled>Недоступно</button>
+							<button class="service-button available" onclick="openModal('mentor-fit')">Что тебя ждёт</button>
+							<button class="service-button available" onclick="openBookingModal('MENTOR FIT - Питание + тренировки')">Записаться</button>
 						</div>
 					</div>
 				</div>
@@ -173,46 +173,57 @@ function getLink(path: string) {
 
 	<section class="additional-services">
 		<div class="container">
-			<h2 class="section-title">Дополнительные услуги</h2>
+			<h2 class="section-title">Инструменты и гайды</h2>
 			<div class="additional-grid">
-				
+
 				<div class="additional-card guide">
 					<div class="additional-header">
-						<h3>Гайд: «Как похудеть? 8 четких правил»</h3>
-						<div class="additional-price">30 €</div>
+						<h3>Чек-лист: Почему я не худею?</h3>
+						<div class="additional-price">Бесплатно</div>
 					</div>
 					<div class="additional-content">
-						<p>Твой практический гид по основам снижения веса без жестких ограничений. Получи 8 простых и действенных правил, которые можно начать применять прямо сейчас для старта твоего преображения.</p>
-						<h4>Что ты получишь:</h4>
-						<ul>
-							<li>8 четких и понятных правил для похудения</li>
-							<li>Практические советы без строгих ограничений</li>
-							<li>Готовый план действий на каждый день</li>
-							<li>Научный подход к снижению веса</li>
-						</ul>
+						<p>Практический чек-лист, который поможет выявить причины, по которым вес не снижается. Разбери ключевые факторы, влияющие на результат.</p>
 						<div class="additional-button-container">
-							<button class="additional-button" onclick="openBookingModal('Гайд «Как похудеть?»')">Купить гайд</button>
+							<a href="https://disk.yandex.ru/i/G9iRXQfH9zEwvQ" target="_blank" class="additional-button">Скачать</a>
 						</div>
 					</div>
 				</div>
 
-				<div class="additional-card consultation">
+				<div class="additional-card guide">
 					<div class="additional-header">
-						<h3>Личная консультация</h3>
-						<div class="additional-price">10 000 руб. / 100 €</div>
-						<div class="additional-duration">50 минут</div>
+						<h3>Гайд: Как подготовиться к похудению</h3>
+						<div class="additional-price">19 €</div>
 					</div>
 					<div class="additional-content">
-						<h4>Что входит:</h4>
-						<ul>
-							<li>Расширенная версия гайда «Как похудеть?» с пошаговыми пояснениями</li>
-							<li>Разбор твоей проблемы и постановка реалистичных целей</li>
-							<li>За 50 минут мы сопоставим шаги вокруг подробного гайда, и я сообщу, как действовать, опираясь на него</li>
-							<li><strong>Важно:</strong> Волшебной таблетки не обещаю — работа без сопровождения требует больше дисциплины и твоей ответственности</li>
-							<li><strong>Бонус:</strong> Покупая личную консультацию, ты получаешь 10% скидку на первый месяц любого моего онлайн-ведения.</li>
-						</ul>
+						<p>Полный гайд по подготовке к успешному похудению. Узнай, что нужно сделать ДО того, как начать менять питание.</p>
 						<div class="additional-button-container">
-							<button class="additional-button" onclick="openBookingModal('Личная консультация')">Записаться</button>
+							<button class="additional-button" onclick="openBookingModal('Гайд: Как подготовиться к похудению')">Купить гайд</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="additional-card guide">
+					<div class="additional-header">
+						<h3>Гайд: 5 правил стабильного похудения</h3>
+						<div class="additional-price">Бесплатно</div>
+					</div>
+					<div class="additional-content">
+						<p>5 проверенных правил, которые помогут тебе снижать вес стабильно и удерживать результат долгосрочно без откатов.</p>
+						<div class="additional-button-container">
+							<a href="https://disk.yandex.ru/i/uC8atoP7iU3Pkw" target="_blank" class="additional-button">Скачать</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="additional-card guide">
+					<div class="additional-header">
+						<h3>Гайд: Как понять свою цель</h3>
+						<div class="additional-price">Бесплатно</div>
+					</div>
+					<div class="additional-content">
+						<p>Практический гайд для постановки реалистичной и мотивирующей цели. Научись определять свои настоящие цели.</p>
+						<div class="additional-button-container">
+							<a href="https://disk.yandex.ru/i/bue0sLRU-8_n3Q" target="_blank" class="additional-button">Скачать</a>
 						</div>
 					</div>
 				</div>
@@ -697,6 +708,10 @@ function getLink(path: string) {
 		letter-spacing: 1px;
 		cursor: pointer;
 		transition: background-color 0.3s ease, border-color 0.3s ease;
+		display: block;
+		text-align: center;
+		text-decoration: none;
+		box-sizing: border-box;
 	}
 
 	.additional-button:hover {
@@ -1324,6 +1339,69 @@ function getLink(path: string) {
 				</div>
 				<div class="modal-footer">
 					<button onclick="openBookingModal('MENTOR - Онлайн-ведение с подсчетом КБЖУ')" onmouseover="this.style.background='#A67C52'; this.style.borderColor='#A67C52';" onmouseout="this.style.background='#2C2C2C'; this.style.borderColor='#2C2C2C';" style="padding: 15px 30px; background: #2C2C2C; color: white; border: 1px solid #2C2C2C; border-radius: 2px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; min-width: 150px; display: block; margin: 0 auto; font-family: inherit;">Записаться</button>
+				</div>
+			`,
+			fit: `
+				<div class="modal-header">
+					<h2>FIT</h2>
+					<div class="price">199 €/месяц</div>
+				</div>
+				<div class="modal-body">
+					<p>Выстраиваю тренировочный процесс под твой образ жизни, психологию и цели.</p>
+
+					<h3>Что тебя ждёт:</h3>
+					<ul>
+						<li><strong>Индивидуальный план.</strong> Программа под твой график и уровень. Есть конкретный запрос — делаем акцент на него. Если нет — составлю программу исходя из твоих ответов.</li>
+						<li><strong>Установочный этап.</strong> Получаешь доступ к программе с видео-инструкциями. На первой неделе плавно подбираем рабочие веса.</li>
+						<li><strong>Видео-контроль.</strong> Ты присылаешь видео последних подходов — я разбираю твою технику и даю обратную связь.</li>
+						<li><strong>Полноценный цикл (8–12 недель).</strong> Проходим путь от настройки весов (1–2 недели) до мощной рабочей фазы (8–10 недель) и обязательной разгрузки для восстановления.</li>
+						<li><strong>Ежедневный мониторинг.</strong> Я на связи между тренировками: анализирую отчеты, корректирую объем и нагрузку в реальном времени. Ты прогрессируешь без травм и перегорания.</li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button onclick="openBookingModal('FIT - Индивидуальные тренировки')" onmouseover="this.style.background='#A67C52'; this.style.borderColor='#A67C52';" onmouseout="this.style.background='#2C2C2C'; this.style.borderColor='#2C2C2C';" style="padding: 15px 30px; background: #2C2C2C; color: white; border: 1px solid #2C2C2C; border-radius: 2px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; min-width: 150px; display: block; margin: 0 auto; font-family: inherit;">Записаться</button>
+				</div>
+			`,
+			'discipline-fit': `
+				<div class="modal-header">
+					<h2>DISCIPLINE FIT</h2>
+					<div class="price">399 €/месяц</div>
+				</div>
+				<div class="modal-body">
+					<p>Выстраиваю тренировочный процесс под твой образ жизни, психологию и цели.</p>
+
+					<h3>Что тебя ждёт:</h3>
+					<ul>
+						<li><strong>Индивидуальный план.</strong> Программа под твой график и уровень. Есть конкретный запрос — делаем акцент на него. Если нет — составлю программу исходя из твоих ответов.</li>
+						<li><strong>Установочный этап.</strong> Получаешь доступ к программе с видео-инструкциями. На первой неделе плавно подбираем рабочие веса.</li>
+						<li><strong>Видео-контроль.</strong> Ты присылаешь видео последних подходов — я разбираю твою технику и даю обратную связь.</li>
+						<li><strong>Полноценный цикл (8–12 недель).</strong> Проходим путь от настройки весов (1–2 недели) до мощной рабочей фазы (8–10 недель) и обязательной разгрузки для восстановления.</li>
+						<li><strong>Ежедневный мониторинг.</strong> Я на связи между тренировками: анализирую отчеты, корректирую объем и нагрузку в реальном времени. Ты прогрессируешь без травм и перегорания.</li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button onclick="openBookingModal('DISCIPLINE FIT - Питание + тренировки')" onmouseover="this.style.background='#A67C52'; this.style.borderColor='#A67C52';" onmouseout="this.style.background='#2C2C2C'; this.style.borderColor='#2C2C2C';" style="padding: 15px 30px; background: #2C2C2C; color: white; border: 1px solid #2C2C2C; border-radius: 2px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; min-width: 150px; display: block; margin: 0 auto; font-family: inherit;">Записаться</button>
+				</div>
+			`,
+			'mentor-fit': `
+				<div class="modal-header">
+					<h2>MENTOR FIT</h2>
+					<div class="price">499 €/месяц</div>
+				</div>
+				<div class="modal-body">
+					<p>Выстраиваю тренировочный процесс под твой образ жизни, психологию и цели.</p>
+
+					<h3>Что тебя ждёт:</h3>
+					<ul>
+						<li><strong>Индивидуальный план.</strong> Программа под твой график и уровень. Есть конкретный запрос — делаем акцент на него. Если нет — составлю программу исходя из твоих ответов.</li>
+						<li><strong>Установочный этап.</strong> Получаешь доступ к программе с видео-инструкциями. На первой неделе плавно подбираем рабочие веса.</li>
+						<li><strong>Видео-контроль.</strong> Ты присылаешь видео последних подходов — я разбираю твою технику и даю обратную связь.</li>
+						<li><strong>Полноценный цикл (8–12 недель).</strong> Проходим путь от настройки весов (1–2 недели) до мощной рабочей фазы (8–10 недель) и обязательной разгрузки для восстановления.</li>
+						<li><strong>Ежедневный мониторинг.</strong> Я на связи между тренировками: анализирую отчеты, корректирую объем и нагрузку в реальном времени. Ты прогрессируешь без травм и перегорания.</li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button onclick="openBookingModal('MENTOR FIT - Питание + тренировки')" onmouseover="this.style.background='#A67C52'; this.style.borderColor='#A67C52';" onmouseout="this.style.background='#2C2C2C'; this.style.borderColor='#2C2C2C';" style="padding: 15px 30px; background: #2C2C2C; color: white; border: 1px solid #2C2C2C; border-radius: 2px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; min-width: 150px; display: block; margin: 0 auto; font-family: inherit;">Записаться</button>
 				</div>
 			`,
 		};
