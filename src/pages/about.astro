@@ -1,12 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import bonusIcon from '../assets/icons/bonus.svg?url';
-import heartIcon from '../assets/icons/no-stress.svg?url';
-import confidenceIcon from '../assets/icons/confidence.svg?url';
-import dietIcon from '../assets/icons/healthy-mind.svg?url';
-import goalsIcon from '../assets/icons/lifelong-skills.svg?url';
-import supportIcon from '../assets/icons/honesty-support.svg?url';
-import scienceIcon from '../assets/icons/constant-development.svg?url';
 
 const base = import.meta.env.BASE_URL;
 
@@ -27,7 +20,7 @@ function getLink(path: string) {
 					</div>
 				</div>
 				<div class="about-image">
-				<img src={`${base.endsWith('/') ? base : base + '/'}photos/about.png`} alt="Влад - хелс-коуч" class="profile-photo" />
+				<img src={`${base.endsWith('/') ? base : base + '/'}photos/vlad-life.jpg`} alt="Влад - хелс-коуч" class="profile-photo" />
 			</div>
 			</div>
 		</div>
@@ -35,104 +28,73 @@ function getLink(path: string) {
 
 	<section class="story-section">
 		<div class="container">
-			<div class="story-content">
-				<div class="story-block">
-					<h2>Мой путь к здоровому телу</h2>
-					<p>Мой путь к здоровому телу начался с личного опыта. Когда-то я выглядел как недокормленный воробушек. На самую первую тренировку мы пришли с братом — он решил оплатить нам личного тренера, чтобы прогресс не заставил себя ждать. Тренер попался действительно толковый (а в то время это была редкость), первым делом мы начали с замеров тела. Когда дошли до измерения бицепса, тренер сказал: «Напряги бицепс», а я в ответ: «Так я напряг». Первый и не последний неловкий момент в тот день.</p>
-					<p>Затем мы приступили к тренировке, и одним из первых упражнений был жим лёжа. Тренер показал, на пустом грифе весом в 20кг, как правильно жать, затем я лёг на скамью и, к его удивлению, смог пожать гриф только 3 раза — очень криво, косо и пыхтя. На тот момент я весил 55 кг и мне было 19 лет. Тот день навсегда отпечатался в моей жизни.</p>
+			<div class="story-wrapper">
+				<div class="story-left">
+					<div class="story-block">
+						<h2>Мой путь к здоровому телу</h2>
+						<p><strong>Моя первая тренировка была в 19 лет.</strong> Тогда я весил 55 кг и выглядел как «<strong>недокормленный воробушек</strong>». <strong>Занятие с тренером началось с замеров: на просьбу напрячь бицепс я ответил, что уже это сделал.</strong> А на жиме штанги <strong>пустой 20-килограммовый гриф едва не придавил меня на третьем повторе.</strong> <strong>Этот день я не забуду никогда.</strong></p>
+					</div>
+
+					<div class="story-block">
+						<h2>Первые ошибки</h2>
+						<p>В те годы я не был последовательным, поэтому отзанимался с тренером 1 месяц и дальше ходил в зал с друзьями, тренируясь по классическим схемам, гулявшим тогда по интернету. А так как мои знания в питании были равны нулю, я за один год отожрался до 74 кг, что было совсем не лучшей формой. Увлекшись ещё больше бездумным обжорством и тренировками, я набрал ещё 10 кг за несколько лет.</p>
+					</div>
+
+					<div class="story-block">
+						<h2>Точка невозврата</h2>
+						<p>Я понял, что пора что-то менять, когда осознал: человек, который тренируется, почему-то выглядит как боров и совершенно не понимает, почему у него нет пресса! Это стало моей точкой невозврата. Я начал искать информацию, шерстить форумы, смотреть видео экспертов и постепенно впитывал знания как губка. Почти всё, что я находил, я так или иначе пробовал на себе.</p>
+					</div>
+
+					<div class="story-block">
+						<h2>Путь к экспертизе</h2>
+						<p>Я прошёл огромное количество марафонов и курсов, отбирая самую лучшую и полезную информацию, чтобы привести себя в форму мечты. Фитнес и питание стали для меня не просто хобби, а настоящей страстью. Я понял, что меняюсь, когда стал периодически замечать взгляды проходящих мимо девушек — раньше этих взглядов не было вообще. И особенно меня вдохновляло, когда я помогал друзьям и знакомым менять их облик, сбрасывать лишний вес и приводить себя в форму. Именно поэтому я решил полностью посвятить себя помощи другим в построении здорового тела, формировании полезных привычек и развенчивании мифов о питании.</p>
+					</div>
 				</div>
 
-				<div class="story-block">
-					<h2>Первые ошибки</h2>
-					<p>В те годы я не был последовательным, поэтому отзанимался с тренером 1 месяц и дальше ходил в зал с друзьями, тренируясь по классическим схемам, гулявшим тогда по интернету. А так как мои знания в питании были равны нулю, я за один год отожрался до 74 кг, что было совсем не лучшей формой. Увлекшись ещё больше бездумным обжорством и тренировками, я набрал ещё 10 кг за несколько лет.</p>
-				</div>
+				<div class="story-divider"></div>
 
-				<div class="story-block">
-					<h2>Точка невозврата</h2>
-					<p>Я понял, что пора что-то менять, когда осознал: человек, который тренируется, почему-то выглядит как боров и совершенно не понимает, почему у него нет пресса! Это стало моей точкой невозврата. Я начал искать информацию, шерстить форумы, смотреть видео экспертов и постепенно впитывал знания как губка. Почти всё, что я находил, я так или иначе пробовал на себе.</p>
-				</div>
+				<div class="story-right">
+					<div class="motivation-block">
+						<h2>Что мною движет</h2>
+						<p>Я искренне заряжаюсь, когда вижу, как люди меняют свои привычки и становятся лучше благодаря нашей совместной работе. Это мой главный двигатель. Я хочу помочь как можно большему количеству людей стать красивыми, здоровыми и, главное, любящими себя личностями.</p>
 
-				<div class="story-block">
-					<h2>Путь к экспертизе</h2>
-					<p>Я прошёл огромное количество марафонов и курсов, отбирая самую лучшую и полезную информацию, чтобы привести себя в форму мечты. Фитнес и питание стали для меня не просто хобби, а настоящей страстью. Я понял, что меняюсь, когда стал периодически замечать взгляды проходящих мимо девушек — раньше этих взглядов не было вообще. И особенно меня вдохновляло, когда я помогал друзьям и знакомым менять их облик, сбрасывать лишний вес и приводить себя в форму. Именно поэтому я решил полностью посвятить себя помощи другим в построении здорового тела, формировании полезных привычек и развенчивании мифов о питании.</p>
-				</div>
+						<div class="stats-grid">
+							<div class="stat-item">
+								<div class="stat-value">55 кг → 73 кг</div>
+								<div class="stat-label">Трансформировал свое тело из «воробушка» в атлетичную форму</div>
+							</div>
 
-				<div class="story-block">
-					<h2>Моя миссия</h2>
-					<p>Я знаю, как важно чувствовать себя уверенно в своём теле, не бояться осуждения за внешний вид и радоваться отражению в зеркале. Моя цель — помочь тебе в этом, а также избавиться от стресса в питании, улучшить отношение к самому себе и показать, что здоровый образ жизни может быть по-настоящему вкусным и приятным. Да, кушать придется и правда много! Не удивляйся!</p>
-				</div>
+							<div class="stat-item">
+								<div class="stat-value">250+ кг</div>
+								<div class="stat-label">суммарно сбросили мои подопечные</div>
+							</div>
 
-				<div class="story-block">
-					<h2>Постоянное развитие</h2>
-					<p>Я ежедневно углубляюсь в изучение фитнеса и питания: смотрю обзоры исследований о влиянии тренировок, читаю зарубежных научных авторов о питании и его связи с долголетием. Всё, что я узнаю и чем интересуюсь, я структурирую и делюсь с теми, кто готов менять себя и свои привычки, а также готов взять ответственность за своё здоровье.</p>
+							<div class="stat-item">
+								<div class="stat-value">30+</div>
+								<div class="stat-label">довольных клиентов получили результат, которым гордятся</div>
+							</div>
+
+							<div class="stat-item">
+								<div class="stat-value">Главный куратор проекта по питанию на 55 человек одновременно</div>
+								<div class="stat-label"></div>
+							</div>
+
+							<div class="stat-item">
+								<div class="stat-value">Постоянное обучение</div>
+								<div class="stat-label">Прямо сейчас прошел квалификацию в Physical Education — это топы индустрии</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="motivation-photo">
+						<img src={`${base.endsWith('/') ? base : base + '/'}photos/vlad-life.jpg`} alt="Влад в процессе трансформации" class="motivation-image" />
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="bonus-section">
-		<div class="container">
-			<div class="bonus-card">
-				<div class="bonus-icon">
-					<img src={bonusIcon} alt="Дополнительный бонус" width="48" height="48">
-				</div>
-				<h2>Приятный бонус</h2>
-				<p>Если ты мой клиент и окажешься в Испании, то мы проведем с тобой совместную тренировку в тренажерном зале, пообщаемся и я отвечу на любые твои вопросы.</p>
-			</div>
-		</div>
-	</section>
-
-	<section class="values-section">
-		<div class="container">
-			<h2 class="section-title">Мои принципы работы</h2>
-			<div class="values-grid">
-				<div class="value-card">
-					<div class="value-icon">
-						<img src={heartIcon} alt="Без лишнего стресса" width="32" height="32">
-					</div>
-					<h3>Без лишнего стресса</h3>
-					<p>Никаких изнурительных диет и убийственных тренировок. Работаем в комфортном для тебя темпе.</p>
-				</div>
-				<div class="value-card">
-					<div class="value-icon">
-						<img src={confidenceIcon} alt="Уверенность через результат" width="32" height="32">
-					</div>
-					<h3>Уверенность через результат</h3>
-					<p>Я помогаю не просто менять тело, а чувствовать себя свободнее и увереннее каждый день.</p>
-				</div>
-				<div class="value-card">
-					<div class="value-icon">
-						<img src={dietIcon} alt="Здоровая голова — здоровое тело" width="32" height="32">
-					</div>
-					<h3>Здоровая голова — здоровое тело</h3>
-					<p>Формируем отношение к еде без чувства вины, запретов и стресса.</p>
-				</div>
-				<div class="value-card">
-					<div class="value-icon">
-						<img src={goalsIcon} alt="Навыки на всю жизнь" width="32" height="32">
-					</div>
-					<h3>Навыки на всю жизнь</h3>
-					<p>Даю инструменты и привычки, которые работают долгие годы, а не «до конца марафона».</p>
-				</div>
-				<div class="value-card">
-					<div class="value-icon">
-						<img src={supportIcon} alt="Честность и поддержка" width="32" height="32">
-					</div>
-					<h3>Честность и поддержка</h3>
-					<p>Я всегда на связи, без осуждения и пустых обещаний. Моя задача — чтобы ты понимал, что и зачем мы делаем.</p>
-				</div>
-				<div class="value-card">
-					<div class="value-icon">
-						<img src={scienceIcon} alt="Постоянное развитие" width="32" height="32">
-					</div>
-					<h3>Постоянное развитие</h3>
-					<p>Я каждый день учусь сам — изучаю исследования, проверяю методы на практике и отбираю только рабочее, чтобы делиться с тобой.</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="cta-section">
+<section class="cta-section">
 		<div class="container">
 			<div class="cta-content">
 				<h2>Готов начать работу со мной?</h2>
@@ -168,14 +130,14 @@ function getLink(path: string) {
 		display: flex;
 		position: relative;
 		min-height: 620px;
-		/* Резерв справа для фотографии */
-		padding-right: clamp(260px, 18vw, 340px);
+		/* Промежуточный резерв справа: текст слегка заходит на фото */
+		padding-right: clamp(180px, 11.3vw, 216px);
 	}
 
 	.about-text {
 		position: relative;
 		z-index: 2;
-		max-width: 600px;
+		max-width: 700px;
 		/* Опускаем текстовый блок ниже */
 		margin-top: clamp(40px, 11vh, 140px);
 	}
@@ -201,8 +163,8 @@ function getLink(path: string) {
 	.about-image {
 		position: absolute;
 		bottom: -10px;
-		right: 0;
-		width: clamp(240px, 16vw, 300px);
+		right: calc(clamp(6px, 1.9vw, 34px) - 20px);
+		width: clamp(240px, 13.8vw, 265px);
 		z-index: 1;
 		pointer-events: none;
 		animation: fadeIn 1s ease-out 0.4s both;
@@ -220,17 +182,94 @@ function getLink(path: string) {
 		padding: 80px 0;
 	}
 
-	.story-content {
-		max-width: 800px;
+	.story-wrapper {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		gap: 60px;
+		align-items: start;
+		max-width: 1200px;
 		margin: 0 auto;
+	}
+
+	.story-left {
+		max-width: 500px;
+	}
+
+	.story-divider {
+		width: 1px;
+		background: var(--border-color);
+		min-height: 600px;
+	}
+
+	.story-right {
+		max-width: 400px;
+	}
+
+	.motivation-block {
+		margin-bottom: 40px;
+	}
+
+	.motivation-block h2 {
+		color: var(--accent-copper);
+		font-size: 1.8rem;
+		font-weight: 400;
+		margin-bottom: 20px;
+		line-height: 1.2;
+	}
+
+	.motivation-block > p {
+		color: var(--text-color);
+		line-height: 1.6;
+		font-size: 1rem;
+		margin-bottom: 30px;
+	}
+
+	.stats-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.stat-item {
+		padding: 15px 0;
+		border-bottom: 1px solid var(--border-color);
+	}
+
+	.stat-item:last-child {
+		border-bottom: none;
+	}
+
+	.stat-value {
+		font-weight: 600;
+		font-size: 1.1rem;
+		color: var(--text-color);
+		margin-bottom: 5px;
+	}
+
+	.stat-label {
+		font-size: 0.95rem;
+		color: var(--text-light);
+		line-height: 1.5;
+	}
+
+	.motivation-photo {
+		position: relative;
+		overflow: hidden;
+		border-radius: 2px;
+	}
+
+	.motivation-image {
+		width: 100%;
+		height: auto;
+		display: block;
+		object-fit: cover;
 	}
 
 	.story-block {
 		margin-bottom: 40px;
 		padding: 30px;
-		background: white;
+		background: transparent;
 		border-radius: 2px;
-		border: 1px solid var(--border-color);
 		transition: opacity 0.3s ease;
 	}
 
@@ -256,115 +295,17 @@ function getLink(path: string) {
 		margin-bottom: 0;
 	}
 
-	.bonus-section {
-		padding: 80px 0;
-		background: var(--bg-warm);
-	}
-
-	.bonus-card {
-		background: white;
-		padding: 50px;
-		border-radius: 2px;
-		text-align: center;
-		border: 1px solid var(--border-color);
-		max-width: 600px;
-		margin: 0 auto;
-		transition: opacity 0.3s ease;
-	}
-
-	.bonus-card:hover {
-		opacity: 0.95;
-	}
-
-	.bonus-icon {
-		margin-bottom: 20px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 48px;
-		height: 48px;
-		margin: 0 auto 20px;
-	}
-
-	.bonus-card h2 {
-		color: var(--accent-copper);
-		font-size: 2rem;
-		font-weight: 400;
-		margin-bottom: 20px;
-	}
-
-	.bonus-card p {
-		color: var(--text-color);
-		line-height: 1.7;
-		font-size: 1.1rem;
-	}
-
-	.values-section {
-		padding: 80px 0;
-	}
-
-	.section-title {
-		font-size: 2.5rem;
-		font-weight: 300;
-		text-align: center;
-		margin-bottom: 50px;
-		color: var(--text-color);
-	}
-
-	.values-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 30px;
-	}
-
-	.value-card {
-		background: white;
-		padding: 40px 30px;
-		border-radius: 2px;
-		text-align: center;
-		border: 1px solid var(--border-color);
-		transition: opacity 0.3s ease;
-	}
-
-	.value-card:hover {
-		opacity: 0.9;
-	}
-
-	.value-icon {
-		margin-bottom: 20px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 32px;
-		height: 32px;
-		margin: 0 auto 20px;
-	}
-
-	.value-card h3 {
-		font-size: 1.3rem;
-		font-weight: 400;
-		margin-bottom: 15px;
-		color: var(--text-color);
-	}
-
-	.value-card p {
-		color: var(--text-light);
-		line-height: 1.6;
-	}
-
-	.cta-section {
-		background: rgb(244, 240, 233);
-		color: var(--text-color);
+.cta-section {
+		background: var(--text-color);
+		color: white;
 		padding: 80px 0;
 		text-align: center;
-		border-top: 1px solid var(--border-color);
 	}
 
 	.cta-content h2 {
 		font-size: 2.5rem;
 		font-weight: 300;
-		margin-top: 0;
-		margin-bottom: 30px;
+		margin-bottom: 15px;
 	}
 
 	.cta-content p {
@@ -386,28 +327,19 @@ function getLink(path: string) {
 		border-radius: 2px;
 		text-decoration: none;
 		font-weight: 500;
-		font-size: 13px;
+		font-size: 1.1rem;
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-		border: 1px solid var(--text-color);
+		border: 1px solid white;
 		cursor: pointer;
 		font-family: inherit;
-		background: transparent;
-		color: var(--text-color);
-		line-height: 1.2;
-	}
-
-	.cta-button:hover {
-		background: var(--accent-copper);
-		color: white;
-		border-color: var(--accent-copper);
 	}
 
 	.cta-button.primary {
-		background: transparent;
+		background: white;
 		color: var(--text-color);
-		border: 1px solid var(--text-color);
+		border: 1px solid white;
 	}
 
 	.cta-button.primary:hover {
@@ -418,14 +350,12 @@ function getLink(path: string) {
 
 	.cta-button.secondary {
 		background: transparent;
-		border: 1px solid var(--text-color);
-		color: var(--text-color);
+		border: 1px solid white;
+		color: white;
 	}
 
 	.cta-button.secondary:hover {
-		background: var(--accent-copper);
-		color: white;
-		border-color: var(--accent-copper);
+		opacity: 0.8;
 	}
 
 	@keyframes fadeInUp {
@@ -479,16 +409,29 @@ function getLink(path: string) {
 			font-size: 1.1rem;
 		}
 
-		.section-title {
-			font-size: 2rem;
+		.story-wrapper {
+			grid-template-columns: 1fr;
+			gap: 30px;
+		}
+
+		.story-left {
+			max-width: 100%;
+		}
+
+		.story-right {
+			max-width: 100%;
+		}
+
+		.story-divider {
+			display: none;
+		}
+
+		.motivation-block h2 {
+			font-size: 1.5rem;
 		}
 
 		.cta-content h2 {
 			font-size: 2rem;
-		}
-
-		.bonus-card {
-			padding: 30px;
 		}
 
 		.story-block {
@@ -506,14 +449,11 @@ function getLink(path: string) {
 		.cta-buttons {
 			flex-direction: column;
 			align-items: center;
-			gap: 15px;
 		}
 
 		.cta-button {
-			width: 280px;
-			max-width: 90%;
-			box-sizing: border-box;
-			text-align: center;
+			width: 100%;
+			max-width: 300px;
 		}
 
 		.about-image {
