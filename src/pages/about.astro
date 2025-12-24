@@ -14,14 +14,14 @@ function getLink(path: string) {
 		<div class="container">
 			<div class="about-content">
 				<div class="about-text">
-					<h1>Кто я?<br>И почему мне доверяют?</h1>
+					<h1>Влад — твой хелс-коуч</h1>
 					<div class="intro-text">
-						<p>Привет! Меня зовут Влад, мне 38 лет<br>и я твой хелс-коуч.<br>Живу в Испании, но работаю с людьми по всему миру.</p>
+						<p>Привет! Меня зовут Влад, мне 38 лет, я тренер и нутрициолог. Живу в Испании и работаю с людьми по всему миру. Моя задача — помочь создать тебе тело, в котором ты почувствуешь себя настоящим собой.</p>
 					</div>
 				</div>
-				<div class="about-image">
-				<img src={`${base.endsWith('/') ? base : base + '/'}photos/vlad-life.jpg`} alt="Влад - хелс-коуч" class="profile-photo" />
 			</div>
+			<div class="about-image">
+				<img src={`${base.endsWith('/') ? base : base + '/'}photos/vlad-life.jpg`} alt="Влад - хелс-коуч" class="profile-photo" />
 			</div>
 		</div>
 	</section>
@@ -47,7 +47,12 @@ function getLink(path: string) {
 
 					<div class="story-block">
 						<h2>Путь к экспертизе</h2>
-						<p>Я прошёл огромное количество марафонов и курсов, отбирая самую лучшую и полезную информацию, чтобы привести себя в форму мечты. Фитнес и питание стали для меня не просто хобби, а настоящей страстью. Я понял, что меняюсь, когда стал периодически замечать взгляды проходящих мимо девушек — раньше этих взглядов не было вообще. И особенно меня вдохновляло, когда я помогал друзьям и знакомым менять их облик, сбрасывать лишний вес и приводить себя в форму. Именно поэтому я решил полностью посвятить себя помощи другим в построении здорового тела, формировании полезных привычек и развенчивании мифов о питании.</p>
+						<p>Я прошёл огромное количество марафонов и курсов, отбирая самую лучшую и полезную информацию, чтобы привести себя в форму мечты. Фитнес и питание стали для меня не просто хобби, а настоящей страстью. И особенно меня вдохновляло, когда я помогал друзьям и знакомым менять их облик, сбрасывать лишний вес и приводить себя в форму.</p>
+					</div>
+
+					<div class="story-block">
+						<h2>Что мною движет</h2>
+						<p>Я искренне заряжаюсь, когда вижу, как люди меняют свои привычки и становятся лучше благодаря нашей совместной работе. Это мой главный двигатель. Я хочу помочь как можно большему количеству людей стать красивыми, здоровыми и, главное, любящими себя личностями.</p>
 					</div>
 				</div>
 
@@ -55,13 +60,13 @@ function getLink(path: string) {
 
 				<div class="story-right">
 					<div class="motivation-block">
-						<h2>Что мною движет</h2>
-						<p>Я искренне заряжаюсь, когда вижу, как люди меняют свои привычки и становятся лучше благодаря нашей совместной работе. Это мой главный двигатель. Я хочу помочь как можно большему количеству людей стать красивыми, здоровыми и, главное, любящими себя личностями.</p>
+						<h2>Опыт и цифры</h2>
+						<div class="experience-subtitle">Личный кейс</div>
 
 						<div class="stats-grid">
 							<div class="stat-item">
 								<div class="stat-value">55 кг → 73 кг</div>
-								<div class="stat-label">Трансформировал свое тело из «воробушка» в атлетичную форму</div>
+								<div class="stat-label">Трансформировал свое тело из дрища в атлета</div>
 							</div>
 
 							<div class="stat-item">
@@ -70,18 +75,18 @@ function getLink(path: string) {
 							</div>
 
 							<div class="stat-item">
-								<div class="stat-value">30+</div>
-								<div class="stat-label">довольных клиентов получили результат, которым гордятся</div>
+								<div class="stat-value">30+ довольных клиентов</div>
+								<div class="stat-label">получили результат, которым гордятся</div>
 							</div>
 
 							<div class="stat-item">
-								<div class="stat-value">Главный куратор проекта по питанию на 55 человек одновременно</div>
-								<div class="stat-label"></div>
+								<div class="stat-value">Главный куратор</div>
+								<div class="stat-label">проекта по питанию на 55 человек одновременно</div>
 							</div>
 
 							<div class="stat-item">
-								<div class="stat-value">Постоянное обучение</div>
-								<div class="stat-label">Прямо сейчас прошел квалификацию в Physical Education — это топы индустрии</div>
+								<div class="stat-value">Постоянное<br>обучение</div>
+								<div class="stat-label">Прямо сейчас повышаю квалификацию в Physical Education — топы индустрии</div>
 							</div>
 						</div>
 					</div>
@@ -111,8 +116,7 @@ function getLink(path: string) {
 	.about-hero {
 		background: white;
 		color: var(--text-color);
-		padding: 40px 0 0;
-		min-height: 500px;
+		padding: 30px 0 0 0;
 		display: flex;
 		align-items: center;
 		position: relative;
@@ -128,25 +132,23 @@ function getLink(path: string) {
 
 	.about-content {
 		display: flex;
+		flex-direction: column;
 		position: relative;
-		min-height: 620px;
-		/* Промежуточный резерв справа: текст слегка заходит на фото */
-		padding-right: clamp(180px, 11.3vw, 216px);
 	}
 
 	.about-text {
 		position: relative;
 		z-index: 2;
-		max-width: 700px;
-		/* Опускаем текстовый блок ниже */
-		margin-top: clamp(40px, 11vh, 140px);
+		max-width: 90%;
+		margin: 0 auto 20px auto;
 	}
 
 	.about-text h1 {
-		font-size: 2.5rem;
+		font-size: clamp(1.75rem, 3.15vw, 3.15rem);
 		font-weight: 300;
-		line-height: 1.2;
-		margin-bottom: 30px;
+		line-height: 1.1;
+		margin-bottom: 15px;
+		letter-spacing: -2px;
 		animation: fadeInUp 1s ease-out;
 	}
 
@@ -155,18 +157,15 @@ function getLink(path: string) {
 	}
 
 	.intro-text p {
-		font-size: 1.2rem;
-		line-height: 1.6;
+		font-size: clamp(0.9rem, 1.6vw, 1.6rem);
+		line-height: 1.4;
 		opacity: 0.9;
 	}
 
 	.about-image {
-		position: absolute;
-		bottom: -10px;
-		right: calc(clamp(6px, 1.9vw, 34px) - 20px);
-		width: clamp(240px, 13.8vw, 265px);
-		z-index: 1;
-		pointer-events: none;
+		position: relative;
+		width: 90%;
+		margin: 0 auto 0 auto;
 		animation: fadeIn 1s ease-out 0.4s both;
 	}
 
@@ -176,6 +175,7 @@ function getLink(path: string) {
 		display: block;
 		object-fit: cover;
 		animation: fadeIn 1s ease-out;
+		border-radius: 8px;
 	}
 
 	.story-section {
@@ -192,7 +192,7 @@ function getLink(path: string) {
 	}
 
 	.story-left {
-		max-width: 500px;
+		max-width: 98%;
 	}
 
 	.story-divider {
@@ -213,8 +213,16 @@ function getLink(path: string) {
 		color: var(--accent-copper);
 		font-size: 1.8rem;
 		font-weight: 400;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 		line-height: 1.2;
+	}
+
+	.experience-subtitle {
+		color: var(--text-light);
+		font-size: 0.9rem;
+		margin-bottom: 25px;
+		display: block;
+		font-weight: 500;
 	}
 
 	.motivation-block > p {
@@ -266,11 +274,15 @@ function getLink(path: string) {
 	}
 
 	.story-block {
-		margin-bottom: 40px;
-		padding: 30px;
+		margin-bottom: 15px;
+		padding: 30px 30px 30px 0;
 		background: transparent;
 		border-radius: 2px;
 		transition: opacity 0.3s ease;
+	}
+
+	.story-block:first-child {
+		margin-top: -90px;
 	}
 
 	.story-block:hover {
@@ -393,20 +405,27 @@ function getLink(path: string) {
 			text-align: center;
 			flex-direction: column;
 			align-items: center;
-			padding-right: 0;
 		}
 
 		.about-text {
-			margin-top: 24px;
+			margin: 0 auto 15px auto;
+			text-align: center;
+			max-width: clamp(280px, 90%, 600px);
 		}
 
 		.about-text h1 {
-			font-size: 2rem;
+			font-size: clamp(1.5rem, 5vw, 2.2rem);
 			letter-spacing: 0;
+			margin-bottom: 12px;
 		}
 
 		.intro-text p {
-			font-size: 1.1rem;
+			font-size: clamp(0.95rem, 3vw, 1.2rem);
+		}
+
+		.about-image {
+			width: clamp(280px, 90%, 600px);
+			margin: 0 auto 0 auto;
 		}
 
 		.story-wrapper {
@@ -455,27 +474,6 @@ function getLink(path: string) {
 			width: 100%;
 			max-width: 300px;
 		}
-
-		.about-image {
-			position: relative;
-			z-index: 1;
-			width: 100%;
-			max-width: 239px;
-			margin: 30px auto 0;
-			pointer-events: none;
-		}
 	}
 
-	@media (min-width: 769px) and (max-width: 1024px) {
-		/* Точное положение на планшетах */
-		.about-image {
-			bottom: -12px;
-			right: calc(clamp(4px, 2vw, 32px) - 20px);
-			width: clamp(220px, 14vw, 239px);
-		}
-
-		.about-content {
-			padding-right: clamp(155px, 10vw, 173px);
-		}
-	}
 </style>
