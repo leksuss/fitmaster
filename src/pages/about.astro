@@ -54,9 +54,6 @@ function getLink(path: string) {
 
 					<div class="story-block">
 						<img src={`${base.endsWith('/') ? base : base + '/'}photos/vlad-sports.jpg`} alt="Влад спорт" class="story-block-image" />
-						<div class="story-block-divider"></div>
-						<h2>Что мною движет</h2>
-						<p>Я искренне заряжаюсь, когда вижу, как люди меняют свои привычки и становятся лучше благодаря нашей совместной работе. Это мой главный двигатель. Я хочу помочь как можно большему количеству людей стать красивыми, здоровыми и, главное, любящими себя личностями.</p>
 					</div>
 
 				</div>
@@ -206,8 +203,9 @@ function getLink(path: string) {
 	.story-divider {
 		width: 1px;
 		background: var(--border-color);
-		min-height: 635px;
-		margin-bottom: 51px;
+		min-height: 725px;
+		margin-top: -30px;
+		margin-bottom: 21px;
 	}
 
 	.story-right {
@@ -221,11 +219,13 @@ function getLink(path: string) {
 
 	.motivation-block h2 {
 		color: var(--accent-copper);
-		font-size: 2.2rem;
+		font-size: 2.1rem;
 		font-weight: 400;
 		margin-bottom: 15px;
 		line-height: 1.2;
-		margin-top: -4px;
+		margin-top: 0px;
+		position: relative;
+		top: 2px;
 	}
 
 	.experience-subtitle {
@@ -345,22 +345,17 @@ function getLink(path: string) {
 		object-fit: cover;
 		margin-bottom: 15px;
 		border-radius: 8px;
-		margin-top: 50px;
-	}
-
-	.story-block-divider {
-		width: 1px;
-		height: 30px;
-		background: var(--border-color);
-		margin: 15px 0;
+		margin-top: 5px;
+		transform: scale(1.07);
+		transform-origin: top left;
 	}
 
 	.story-left .story-block:nth-child(5) {
-		margin-top: 0;
+		margin-top: 20px;
 	}
 
 	.story-right .story-block:last-child {
-		margin-top: 60px;
+		margin-top: 110px;
 	}
 
 	.horizontal-divider {
