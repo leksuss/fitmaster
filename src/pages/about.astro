@@ -101,6 +101,18 @@ function getLink(path: string) {
 				</div>
 
 				<div class="horizontal-divider-bottom"></div>
+
+				<div class="mission-block-left">
+					<h3>Моя миссия</h3>
+					<p>Я знаю, как важно чувствовать себя уверенно, не бояться осуждения и радоваться отражению в зеркале. Моя миссия — избавить тебя от стресса в питании, улучшить отношение к себе и показать, что здоровый образ жизни — это доступно и очень вкусно. Да, кушать придётся действительно много! Не удивляйся.</p>
+				</div>
+
+				<div></div>
+
+				<div class="mission-block-right">
+					<h3>Постоянное развитие</h3>
+					<p>Я ежедневно изучаю новые материалы по тренингу и нутрициологии: смотрю обзоры исследований, читаю зарубежных авторов о связи питания с долголетием. Всё, что я узнаю, я структурирую и передаю тем, кто готов взять ответственность за своё здоровье.</p>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -386,9 +398,48 @@ function getLink(path: string) {
 		grid-column: 1 / -1;
 		height: 1px;
 		background: var(--border-color);
-		margin: -7px 0 25px -5px;
+		margin: -2px 0 25px -5px;
 		padding-right: 0px;
 		width: calc(100% + 9px);
+	}
+
+	.mission-block-left {
+		max-width: 90%;
+		margin-left: auto;
+		margin-top: -72px;
+		margin-right: -30px;
+		padding: 10px 30px 10px 0;
+	}
+
+	.mission-block-right {
+		max-width: 115%;
+		margin-top: -72px;
+		margin-left: -120px;
+		padding: 10px 30px 10px 0;
+	}
+
+	.mission-block-left h3,
+	.mission-block-right h3 {
+		color: var(--accent-copper);
+		font-size: 1.8rem;
+		font-weight: 400;
+		margin: 0 0 5px 0;
+	}
+
+	.mission-block-left p,
+	.mission-block-right p {
+		color: var(--text-color);
+		line-height: 1.7;
+		font-size: 0.95rem;
+		margin: 0;
+	}
+
+	.mission-block-left p {
+		max-width: 85%;
+	}
+
+	.mission-block-right p {
+		max-width: 100%;
 	}
 
 .cta-section {
