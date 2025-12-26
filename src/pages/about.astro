@@ -581,8 +581,51 @@ function getLink(path: string) {
 			display: none;
 		}
 
+		.horizontal-divider {
+			margin: 20px 0;
+			padding-right: 0;
+			width: 100%;
+		}
+
+		.horizontal-divider-bottom {
+			margin: 20px 0;
+			padding-right: 0;
+			width: 100%;
+		}
+
+		.motivation-block {
+			margin-bottom: 30px;
+			margin-top: 0;
+			padding: 0 20px;
+		}
+
 		.motivation-block h2 {
-			font-size: 1.5rem;
+			font-size: 1.3rem;
+			margin-bottom: 15px;
+			margin-top: 0;
+		}
+
+		.motivation-block > p {
+			font-size: 0.95rem;
+			line-height: 1.6;
+		}
+
+		.experience-subtitle {
+			font-size: 1rem;
+			margin-bottom: 15px;
+			margin-top: 0;
+		}
+
+		.stats-grid {
+			gap: 15px;
+		}
+
+		.stat-value {
+			font-size: 1.1rem;
+		}
+
+		.stat-label {
+			font-size: 0.95rem;
 		}
 
 		.cta-content h2 {
@@ -590,15 +633,50 @@ function getLink(path: string) {
 		}
 
 		.story-block {
-			padding: 20px;
+			padding: 15px 20px;
+			margin-bottom: 20px;
+		}
+
+		.story-block:first-child {
+			margin-top: 0;
 		}
 
 		.story-block h2 {
 			font-size: 1.3rem;
+			margin-bottom: 10px;
+		}
+
+		.story-block:first-child h2 {
+			font-size: 1.3rem;
+			margin-top: 0;
+			margin-bottom: 10px;
 		}
 
 		.story-block p {
-			font-size: 1rem;
+			font-size: 0.95rem;
+			line-height: 1.6;
+		}
+
+		.story-block-image {
+			transform: scale(1);
+		}
+
+		.story-right .story-block:last-child {
+			margin-top: 0;
+			margin-left: 0;
+			width: 100%;
+			padding: 15px 20px;
+		}
+
+		.story-right .story-block:last-child h2 {
+			font-size: 1.3rem;
+		}
+
+		.story-right .story-block:last-child p {
+			font-size: 0.95rem;
+			color: var(--text-color);
+			line-height: 1.6;
+			font-weight: 400;
 		}
 
 		.cta-buttons {
@@ -609,6 +687,32 @@ function getLink(path: string) {
 		.cta-button {
 			width: 100%;
 			max-width: 300px;
+		}
+
+		.mission-block-left {
+			max-width: 100%;
+			margin-left: 0;
+			margin-top: 0;
+			margin-right: 0;
+			padding: 15px 20px;
+		}
+
+		.mission-block-right {
+			max-width: 100%;
+			margin-top: 0;
+			margin-left: 0;
+			padding: 15px 20px;
+		}
+
+		.mission-block-left h3,
+		.mission-block-right h3 {
+			font-size: 1.3rem;
+		}
+
+		.mission-block-left p,
+		.mission-block-right p {
+			font-size: 0.95rem;
+			max-width: 100%;
 		}
 	}
 
