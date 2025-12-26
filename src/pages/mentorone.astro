@@ -9,6 +9,8 @@ import phoneIcon from '../assets/icons/udobno.svg?url';
 import familyIcon from '../assets/icons/vliyanie_na_blizkih.svg?url';
 import effektivnoIcon from '../assets/icons/effektivno.svg?url';
 import confidenceIcon from '../assets/icons/uverennost.svg?url';
+import nutritionBlockIcon from '../assets/icons/bezopasno.svg?url';
+import trainingBlockIcon from '../assets/icons/trenirovki_aktivnost.svg?url';
 
 const base = import.meta.env.BASE_URL;
 
@@ -48,7 +50,7 @@ function getLink(path: string) {
 
 					<div class="benefit-item" style="border-left-color: #D4A574;">
 						<div class="benefit-icon">
-							<img src={settingsIcon} alt="БЛОК 1" width="32" height="32">
+							<img src={nutritionBlockIcon} alt="БЛОК 1" width="32" height="32">
 						</div>
 						<details style="width: 100%;">
 							<summary style="cursor: pointer; font-weight: 600; color: var(--text-color); user-select: none; font-size: 1.1rem; list-style: none;"><strong>БЛОК 1: ПИТАНИЕ И ПРИВЫЧКИ</strong></summary>
@@ -74,7 +76,7 @@ function getLink(path: string) {
 
 					<div class="benefit-item" style="border-left-color: #D4A574;">
 						<div class="benefit-icon">
-							<img src={settingsIcon} alt="БЛОК 2" width="32" height="32">
+							<img src={trainingBlockIcon} alt="БЛОК 2" width="32" height="32">
 						</div>
 						<details style="width: 100%;">
 							<summary style="cursor: pointer; font-weight: 600; color: var(--text-color); user-select: none; font-size: 1.1rem; list-style: none;"><strong>БЛОК 2: ТРЕНИРОВКИ</strong></summary>
