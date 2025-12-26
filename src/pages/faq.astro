@@ -349,12 +349,12 @@ const faqData = {
       a: 'Да, без проблем.'
     },
     {
-      q: 'Можно ли оплатить в рублях?',
-      a: 'Да, принимаю оплату на рублёвые карты.'
+      q: 'Можно ли оплатить в ₽?',
+      a: 'Да, принимаю оплаты с российских карт'
     },
     {
-      q: 'Можно ли оплатить в € по карте или счёту?',
-      a: 'Сейчас нет, но в будущем обязательно будет доступна такая опция.'
+      q: 'Можно ли оплатить в €?',
+      a: 'Да, принимаю оплаты с европейских карт'
     },
     {
       q: 'Откуда я знаю, что вы не шарлатан?',
@@ -650,14 +650,15 @@ const faqEntries = Object.entries(faqData) as [keyof typeof faqData, (typeof faq
 
 	.cta-button {
 		display: inline-block;
-		padding: 12px 30px;
+		padding: 15px 45px;
 		border-radius: 2px;
 		text-decoration: none;
 		font-weight: 500;
-		font-size: 13px;
+		font-size: 15px;
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		transition: background-color 0.3s ease, color 0.3s ease;
+		line-height: 1.2;
 	}
 
 	.cta-button.primary {

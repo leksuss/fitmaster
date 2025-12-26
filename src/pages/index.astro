@@ -110,7 +110,7 @@ function getLink(path: string) {
 
 	<section class="features-cta-section">
 		<div class="container">
-			<button class="cta-button primary" onclick="openBookingModal('Хочу пробный разбор')">Хочу пробный разбор</button>
+			<button class="cta-button primary" onclick="openBookingModal('Бесплатная консультация')">Хочу бесплатную консультацию</button>
 		</div>
 	</section>
 
@@ -265,7 +265,7 @@ function getLink(path: string) {
 			<div class="cta-content">
 				<h2>Готов начать свое преображение?</h2>
 				<div class="cta-buttons">
-					<button class="cta-button primary" onclick="openBookingModal('Хочу пробный разбор')">Хочу пробный разбор</button>
+					<button class="cta-button primary" onclick="openBookingModal('Бесплатная консультация')">Хочу бесплатную консультацию</button>
 					<a href={getLink('services')} class="cta-button secondary">Мои услуги</a>
 					<a href={getLink('about')} class="cta-button secondary">Обо мне</a>
 				</div>
@@ -412,15 +412,16 @@ function getLink(path: string) {
 		display: inline-block;
 		background: var(--text-color);
 		color: var(--bg-color);
-		padding: 15px 30px;
+		padding: 15px 45px;
 		border-radius: 2px;
 		text-decoration: none;
 		font-weight: 500;
-		font-size: 13px;
+		font-size: 15px;
 		transition: opacity 0.3s ease;
 		animation: fadeInUp 1s ease-out 0.4s both;
 		letter-spacing: 1px;
 		text-transform: uppercase;
+		line-height: 1.2;
 	}
 
 	.cta-button:hover {
@@ -532,12 +533,13 @@ function getLink(path: string) {
 	.cta-button.primary {
 		background: var(--accent-normal);
 		color: white;
-		font-size: 13px;
-		padding: 18px 40px;
+		font-size: 15px;
+		padding: 15px 45px;
 		border: none;
 		cursor: pointer;
 		font-family: inherit;
 		transition: background-color 0.3s ease;
+		line-height: 1.2;
 	}
 
 	.cta-button.primary:hover {
@@ -549,6 +551,8 @@ function getLink(path: string) {
 		background: var(--text-color);
 		color: var(--bg-color);
 		border: none;
+		padding: 15px 45px;
+		font-size: 15px;
 	}
 
 	.features-cta-section .cta-button.primary:hover {
@@ -830,8 +834,8 @@ function getLink(path: string) {
 		color: var(--text-color);
 		border: 1px solid var(--text-color);
 		transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-		font-size: 13px;
-		padding: 15px 30px;
+		font-size: 15px;
+		padding: 15px 45px;
 	}
 
 	.cta-section .cta-button.primary:hover {
@@ -845,7 +849,8 @@ function getLink(path: string) {
 		border: 1px solid var(--text-color);
 		color: var(--text-color);
 		transition: background-color 0.3s ease, color 0.3s ease;
-		font-size: 13px;
+		font-size: 15px;
+		padding: 15px 45px;
 	}
 
 	.cta-section .cta-button.secondary:hover {
