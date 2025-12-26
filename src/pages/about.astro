@@ -99,6 +99,8 @@ function getLink(path: string) {
 					</div>
 
 				</div>
+
+				<div class="horizontal-divider-bottom"></div>
 			</div>
 		</div>
 	</section>
@@ -372,6 +374,15 @@ function getLink(path: string) {
 	}
 
 	.horizontal-divider {
+		grid-column: 1 / -1;
+		height: 1.5px;
+		background: var(--border-color);
+		margin: 30px 0 30px -100px;
+		padding-right: 250px;
+		width: calc(100% + 350px);
+	}
+
+	.horizontal-divider-bottom {
 		grid-column: 1 / -1;
 		height: 1.5px;
 		background: var(--border-color);
