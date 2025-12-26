@@ -444,6 +444,28 @@ function getLink(path: string) {
 			padding: 8px 16px;
 		}
 	}
+
+	details summary {
+		position: relative;
+		padding-right: 30px;
+	}
+
+	details summary::after {
+		content: '+';
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 1.5rem;
+		font-weight: 300;
+		color: var(--accent-copper);
+		transition: transform 0.3s ease;
+		line-height: 1;
+	}
+
+	details[open] summary::after {
+		transform: translateY(-50%) rotate(45deg);
+	}
 </style>
 
 <script is:inline>
