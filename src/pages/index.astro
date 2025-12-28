@@ -30,14 +30,14 @@ function getLink(path: string) {
 						<h3>DISCIPLINE</h3>
 						<div class="hero-service-subtitle">На связи раз в неделю</div>
 						<p class="hero-service-description">Системный подход для максимального результата с подсчётом КБЖУ</p>
-						<div class="hero-service-price">199 €/месяц</div>
+						<div class="hero-service-price">199 €/месяц<br><span class="price-rub">19 000 ₽</span></div>
 						<button class="hero-service-button" onclick="openBookingModal('DISCIPLINE: На связи раз в неделю')">Записаться</button>
 					</div>
 					<div class="hero-service-card hard-mode">
 						<h3>MENTOR</h3>
 						<div class="hero-service-subtitle">На связи каждый день</div>
 						<p class="hero-service-description">Пошаговое сопровождение, где я выстраиваю систему питания под твой образ жизни, психологию и цели.</p>
-						<div class="hero-service-price">399 €/месяц</div>
+						<div class="hero-service-price">399 €/месяц<br><span class="price-rub">39 000 ₽</span></div>
 						<button class="hero-service-button" onclick="openBookingModal('MENTOR: На связи каждый день')">Записаться</button>
 					</div>
 				</div>
@@ -384,6 +384,17 @@ function getLink(path: string) {
 		color: var(--accent-copper);
 		margin-bottom: 15px;
 		margin-top: auto;
+	}
+
+	.price-rub {
+		font-size: 0.85rem;
+		font-style: italic;
+		color: var(--accent-copper);
+		font-weight: 300;
+		display: block;
+		text-align: center;
+		line-height: 1;
+		margin-top: 4px;
 	}
 
 	.hero-service-button {

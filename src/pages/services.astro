@@ -58,8 +58,7 @@ function getLink(path: string) {
 						<div class="service-subtitle">Ведение: на связи раз в неделю</div>
 					</div>
 					<div class="service-price">
-						<span class="price">199 €/месяц</span>
-						<span class="duration">от 2-х месяцев</span>
+						<span class="price">199 €/месяц<br><span class="price-rub">19 000 ₽</span></span>
 					</div>
 					<div class="service-content">
 						<p class="service-description">Твой пошаговый план для максимального контроля и понимания процесса с подсчетом КБЖУ. Отлично подходит для тех, кто любит системный подход и умеет работать самостоятельно.</p>
@@ -77,8 +76,7 @@ function getLink(path: string) {
 						<div class="service-subtitle">Ведение: на связи каждый день</div>
 					</div>
 					<div class="service-price">
-						<span class="price">399 €/месяц</span>
-						<span class="duration">от 2-х месяцев</span>
+						<span class="price">399 €/месяц<br><span class="price-rub">39 000 ₽</span></span>
 					</div>
 					<div class="service-content">
 						<p class="service-description">Моё пошаговое сопровождение, где я выстраиваю систему питания под твой образ жизни, психологию и цели. Ты научишься управлять этой системой так, чтобы результат работал на тебя.</p>
@@ -96,8 +94,7 @@ function getLink(path: string) {
 						<div class="service-subtitle">Приоритетная связь</div>
 					</div>
 					<div class="service-price">
-						<span class="price">799 €/месяц</span>
-						<span class="duration">от 2-х месяцев</span>
+						<span class="price">799 €/месяц<br><span class="price-rub">79 000 ₽</span></span>
 					</div>
 					<div class="service-content">
 						<p class="service-description">Персональное сопровождение с приоритетной связью. Максимально сглаживаю углы и убираю сложности. Помогаю поменять привычки не только тебе, но и твоим близким.</p>
@@ -123,7 +120,7 @@ function getLink(path: string) {
 					</div>
 					<div class="service-price">
 						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
-						<span class="price">199 €/месяц</span>
+						<span class="price">199 €/месяц<br><span class="price-rub">19 000 ₽</span></span>
 					</div>
 					<div class="service-content">
 						<p class="service-description">Индивидуальные программы тренировок, разработанные специально под твои цели образ жизни.</p>
@@ -140,7 +137,7 @@ function getLink(path: string) {
 					</div>
 					<div class="service-price">
 						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
-						<span class="price">299 €/месяц</span>
+						<span class="price">299 €/месяц<br><span class="price-rub">29 000 ₽</span></span>
 					</div>
 					<div class="service-content">
 						<p class="service-description">Сопровождение по питанию. Плюс индивидуальные программы тренировок, разработанные специально для твоих целей и образа жизни.</p>
@@ -157,7 +154,7 @@ function getLink(path: string) {
 					</div>
 					<div class="service-price">
 						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
-						<span class="price">499 €/месяц</span>
+						<span class="price">499 €/месяц<br><span class="price-rub">49 000 ₽</span></span>
 					</div>
 					<div class="service-content">
 						<p class="service-description">Сопровождение по питанию. Плюс индивидуальные программы тренировок, разработанные специально для твоих целей и образа жизни.</p>
@@ -179,7 +176,7 @@ function getLink(path: string) {
 				<div class="additional-card guide">
 					<div class="additional-header">
 						<h3>Гайд: Как подготовиться к похудению</h3>
-						<div class="additional-price">19 €</div>
+						<div class="additional-price">19 €<br><span class="price-rub">1 900 ₽</span></div>
 					</div>
 					<div class="additional-content">
 						<p>Полный гайд по подготовке к успешному похудению. Узнай, что нужно сделать ДО того, как начать менять питание.</p>
@@ -506,6 +503,17 @@ function getLink(path: string) {
 		display: block;
 	}
 
+	.price-rub {
+		font-size: 0.85rem;
+		font-style: italic;
+		color: var(--accent-copper);
+		font-weight: 300;
+		display: block;
+		text-align: center;
+		line-height: 1;
+		margin-top: 4px;
+	}
+
 	.service-price .duration {
 		color: var(--text-light);
 		font-size: 0.9rem;
@@ -653,6 +661,12 @@ function getLink(path: string) {
 		font-weight: 400;
 		color: var(--accent-copper);
 		margin-bottom: 10px;
+	}
+
+	.additional-price .price-rub {
+		display: block;
+		margin-top: 4px;
+		text-align: left !important;
 	}
 
 	.additional-duration {
@@ -1261,8 +1275,7 @@ function getLink(path: string) {
 			normal: `
 				<div class="modal-header">
 					<h2>DISCIPLINE</h2>
-					<div class="price">199 €/месяц</div>
-					<div class="duration">от 2-х месяцев</div>
+					<div class="price">199 €/месяц<br><span class="price-rub">19 000 ₽</span></div>
 				</div>
 				<div class="modal-body">
 					<p><strong>Ведение: на связи раз в неделю</strong></p>
@@ -1301,8 +1314,7 @@ function getLink(path: string) {
 			hard: `
 				<div class="modal-header">
 					<h2>MENTOR</h2>
-					<div class="price">399 €/месяц</div>
-					<div class="duration">от 2-х месяцев</div>
+					<div class="price">399 €/месяц<br><span class="price-rub">39 000 ₽</span></div>
 				</div>
 				<div class="modal-body">
 					<p><strong>Ведение: на связи каждый день</strong></p>
@@ -1345,7 +1357,7 @@ function getLink(path: string) {
 			fit: `
 				<div class="modal-header">
 					<h2>FIT</h2>
-					<div class="price">199 €/месяц</div>
+					<div class="price">199 €/месяц<br><span class="price-rub">19 000 ₽</span></div>
 				</div>
 				<div class="modal-body">
 					<p>Выстраиваю тренировочный процесс под твой образ жизни, психологию и цели.</p>
@@ -1366,7 +1378,7 @@ function getLink(path: string) {
 			'discipline-fit': `
 				<div class="modal-header">
 					<h2>DISCIPLINE FIT</h2>
-					<div class="price">299 €/месяц</div>
+					<div class="price">299 €/месяц<br><span class="price-rub">29 000 ₽</span></div>
 				</div>
 				<div class="modal-body">
 					<p>Выстраиваю тренировочный процесс под твой образ жизни, психологию и цели.</p>
@@ -1387,7 +1399,7 @@ function getLink(path: string) {
 			'mentor-fit': `
 				<div class="modal-header">
 					<h2>MENTOR FIT</h2>
-					<div class="price">499 €/месяц</div>
+					<div class="price">499 €/месяц<br><span class="price-rub">49 000 ₽</span></div>
 				</div>
 				<div class="modal-body">
 					<p>Выстраиваю тренировочный процесс под твой образ жизни, психологию и цели.</p>

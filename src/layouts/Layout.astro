@@ -51,6 +51,8 @@ function getLink(path: string) {
 						</div>
 						<div class="footer-center">
 							<p>&copy; 2025 Влад — хелс-коуч. Все права защищены.</p>
+						<p class="footer-link"><a href={getLink('oferta')}>Публичная оферта</a></p>
+						<p class="footer-link"><a href={getLink('privacy')}>Политика конфиденциальности</a></p>
 						</div>
 						<div class="footer-right">
 							<p class="footer-contacts-title">По всем вопросам:</p>
@@ -61,6 +63,11 @@ function getLink(path: string) {
 				) : (
 					<div class="footer-center">
 						<p>&copy; 2025 Влад — хелс-коуч. Все права защищены.</p>
+					<p class="footer-links">
+						<a href={getLink('oferta')}>Публичная оферта</a>
+						<span class="separator">|</span>
+						<a href={getLink('privacy')}>Политика конфиденциальности</a>
+					</p>
 					</div>
 				)}
 			</div>
@@ -322,6 +329,21 @@ function getLink(path: string) {
 	.footer-center p {
 		margin: 0;
 		font-size: 0.9rem;
+	}
+
+	.footer-link {
+		margin: 4px 0 !important;
+		font-size: 0.85rem;
+	}
+
+	.footer-link a {
+		color: var(--accent-copper);
+		text-decoration: none;
+		transition: opacity 0.3s ease;
+	}
+
+	.footer-link a:hover {
+		opacity: 0.8;
 	}
 
 	@media (max-width: 768px) {
