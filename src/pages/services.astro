@@ -58,7 +58,7 @@ function getLink(path: string) {
 						<div class="service-subtitle">Ведение: на связи раз в неделю</div>
 					</div>
 					<div class="service-price">
-						<span class="price">199 €/месяц<br><span class="price-rub">19 000 ₽</span></span>
+						<span class="price">199 €/месяц<br><span class="price-rub">18 000 ₽</span><br><span class="price-rub">от 2 месяцев*</span></span>
 					</div>
 					<div class="service-content">
 						<p class="service-description">Твой пошаговый план для максимального контроля и понимания процесса с подсчетом КБЖУ. Отлично подходит для тех, кто любит системный подход и умеет работать самостоятельно.</p>
@@ -76,7 +76,7 @@ function getLink(path: string) {
 						<div class="service-subtitle">Ведение: на связи каждый день</div>
 					</div>
 					<div class="service-price">
-						<span class="price">399 €/месяц<br><span class="price-rub">39 000 ₽</span></span>
+						<span class="price">299 €/месяц<br><span class="price-rub">27 000 ₽</span><br><span class="price-rub">от 2 месяцев*</span></span>
 					</div>
 					<div class="service-content">
 						<p class="service-description">Моё пошаговое сопровождение, где я выстраиваю систему питания под твой образ жизни, психологию и цели. Ты научишься управлять этой системой так, чтобы результат работал на тебя.</p>
@@ -94,7 +94,7 @@ function getLink(path: string) {
 						<div class="service-subtitle">Приоритетная связь</div>
 					</div>
 					<div class="service-price">
-						<span class="price">799 €/месяц<br><span class="price-rub">79 000 ₽</span></span>
+						<span class="price">599 €/месяц<br><span class="price-rub">54 000 ₽</span><br><span class="price-rub">от 2 месяцев*</span></span>
 					</div>
 					<div class="service-content">
 						<p class="service-description">Персональное сопровождение с приоритетной связью. Максимально сглаживаю углы и убираю сложности. Помогаю поменять привычки не только тебе, но и твоим близким.</p>
@@ -120,7 +120,7 @@ function getLink(path: string) {
 					</div>
 					<div class="service-price">
 						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
-						<span class="price">199 €/месяц<br><span class="price-rub">19 000 ₽</span></span>
+						<span class="price">199 €/месяц<br><span class="price-rub">18 000 ₽</span><br><span class="price-rub">от 2 месяцев*</span></span>
 					</div>
 					<div class="service-content">
 						<p class="service-description">Индивидуальные программы тренировок, разработанные специально под твои цели образ жизни.</p>
@@ -137,7 +137,7 @@ function getLink(path: string) {
 					</div>
 					<div class="service-price">
 						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
-						<span class="price">299 €/месяц<br><span class="price-rub">29 000 ₽</span></span>
+						<span class="price">249 €/месяц<br><span class="price-rub">22 000 ₽</span></span>
 					</div>
 					<div class="service-content">
 						<p class="service-description">Сопровождение по питанию. Плюс индивидуальные программы тренировок, разработанные специально для твоих целей и образа жизни.</p>
@@ -154,7 +154,7 @@ function getLink(path: string) {
 					</div>
 					<div class="service-price">
 						<img src={paymentIcon} alt="Оплата" width="24" height="24" class="price-icon">
-						<span class="price">499 €/месяц<br><span class="price-rub">49 000 ₽</span></span>
+						<span class="price">349 €/месяц<br><span class="price-rub">33 000 ₽</span><br><span class="price-rub">от 2 месяцев*</span></span>
 					</div>
 					<div class="service-content">
 						<p class="service-description">Сопровождение по питанию. Плюс индивидуальные программы тренировок, разработанные специально для твоих целей и образа жизни.</p>
@@ -1275,7 +1275,7 @@ function getLink(path: string) {
 			normal: `
 				<div class="modal-header">
 					<h2>DISCIPLINE</h2>
-					<div class="price">199 €/месяц<br><span class="price-rub">19 000 ₽</span></div>
+					<div class="price">199 €/месяц<br><span class="price-rub">18 000 ₽</span><br><span class="price-rub">от 2 месяцев*</span></div>
 				</div>
 				<div class="modal-body">
 					<p><strong>Ведение: на связи раз в неделю</strong></p>
@@ -1302,8 +1302,9 @@ function getLink(path: string) {
 					<div style="background: #f0f9ff; padding: 15px; border-radius: 0; border-left: 4px solid var(--accent-easy); margin: 20px 0;">
 						<strong>Условия:</strong>
 						<ul style="margin-top: 10px;">
-							<li><strong>Минимум — 2 месяца</strong> — получаешь основу по питанию, сбрасываешь лишнее и начинаешь уверенно ориентироваться в порциях, но часть вопросов останется.</li>
-							<li><strong>Рекомендую — 4 месяца</strong> — скидка 50 € в месяц, выработанные привычки и полный набор знаний, которые откроют ответы на 99% твоих вопросов.</li>
+							<li><strong>Минимум — 2 месяца</strong> — получаешь базу по питанию, сбрасываешь лишнее и начинаешь уверенно двигаться, но часть вопросов останется.</li>
+							<li><strong>Рекомендую — 3 месяца</strong> — выработанные привычки и полный набор знаний, которые откроют ответы на 99% твоих вопросов.</li>
+							<li><strong>Сопровождение от 4 месяцев</strong> — скидка 50€ за каждый месяц.</li>
 						</ul>
 					</div>
 				</div>
@@ -1314,7 +1315,7 @@ function getLink(path: string) {
 			hard: `
 				<div class="modal-header">
 					<h2>MENTOR</h2>
-					<div class="price">399 €/месяц<br><span class="price-rub">39 000 ₽</span></div>
+					<div class="price">299 €/месяц<br><span class="price-rub">27 000 ₽</span><br><span class="price-rub">от 2 месяцев*</span></div>
 				</div>
 				<div class="modal-body">
 					<p><strong>Ведение: на связи каждый день</strong></p>
@@ -1345,8 +1346,9 @@ function getLink(path: string) {
 					<div style="background: #f0f9ff; padding: 15px; border-radius: 0; border-left: 4px solid var(--accent-easy); margin: 20px 0;">
 						<strong>Условия:</strong>
 						<ul style="margin-top: 10px;">
-							<li><strong>Минимум — 2 месяца</strong> — получаешь основу по питанию, сбрасываешь лишнее и начинаешь уверенно ориентироваться в порциях, но часть вопросов останется.</li>
-							<li><strong>Рекомендую — 4 месяца</strong> — скидка 50 € в месяц, выработанные привычки и полный набор знаний, который даст ответы на 99% твоих вопросов.</li>
+							<li><strong>Минимум — 2 месяца</strong> — получаешь базу по питанию, сбрасываешь лишнее и начинаешь уверенно двигаться, но часть вопросов останется.</li>
+							<li><strong>Рекомендую — 3 месяца</strong> — выработанные привычки и полный набор знаний, которые откроют ответы на 99% твоих вопросов.</li>
+							<li><strong>Сопровождение от 4 месяцев</strong> — скидка 50€ за каждый месяц.</li>
 						</ul>
 					</div>
 				</div>
@@ -1357,7 +1359,7 @@ function getLink(path: string) {
 			fit: `
 				<div class="modal-header">
 					<h2>FIT</h2>
-					<div class="price">199 €/месяц<br><span class="price-rub">19 000 ₽</span></div>
+					<div class="price">199 €/месяц<br><span class="price-rub">18 000 ₽</span><br><span class="price-rub">от 2 месяцев*</span></div>
 				</div>
 				<div class="modal-body">
 					<p>Выстраиваю тренировочный процесс под твой образ жизни, психологию и цели.</p>
@@ -1370,6 +1372,15 @@ function getLink(path: string) {
 						<li><strong>Полноценный цикл (8–12 недель).</strong> Проходим путь от настройки весов (1–2 недели) до мощной рабочей фазы (8–10 недель) и обязательной разгрузки для восстановления.</li>
 						<li><strong>Ежедневный мониторинг.</strong> Я на связи между тренировками: анализирую отчеты, корректирую объем и нагрузку в реальном времени. Ты прогрессируешь без травм и перегорания.</li>
 					</ul>
+
+					<div style="background: #f0f9ff; padding: 15px; border-radius: 0; border-left: 4px solid var(--accent-easy); margin: 20px 0;">
+						<strong>Условия:</strong>
+						<ul style="margin-top: 10px;">
+							<li><strong>Минимум — 2 месяца.</strong></li>
+							<li><strong>Рекомендую — 3 месяца.</strong></li>
+							<li><strong>Сопровождение от 4 месяцев</strong> — скидка 50€ за каждый месяц.</li>
+						</ul>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button onclick="openBookingModal('FIT - Индивидуальные тренировки')" onmouseover="this.style.background='#A67C52'; this.style.borderColor='#A67C52';" onmouseout="this.style.background='#2C2C2C'; this.style.borderColor='#2C2C2C';" style="padding: 15px 30px; background: #2C2C2C; color: white; border: 1px solid #2C2C2C; border-radius: 2px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; min-width: 150px; display: block; margin: 0 auto; font-family: inherit;">Записаться</button>
@@ -1378,7 +1389,7 @@ function getLink(path: string) {
 			'discipline-fit': `
 				<div class="modal-header">
 					<h2>DISCIPLINE FIT</h2>
-					<div class="price">299 €/месяц<br><span class="price-rub">29 000 ₽</span></div>
+					<div class="price">249 €/месяц<br><span class="price-rub">22 000 ₽</span></div>
 				</div>
 				<div class="modal-body">
 					<p>Выстраиваю тренировочный процесс под твой образ жизни, психологию и цели.</p>
@@ -1391,6 +1402,15 @@ function getLink(path: string) {
 						<li><strong>Полноценный цикл (8–12 недель).</strong> Проходим путь от настройки весов (1–2 недели) до мощной рабочей фазы (8–10 недель) и обязательной разгрузки для восстановления.</li>
 						<li><strong>Ежедневный мониторинг.</strong> Я на связи между тренировками: анализирую отчеты, корректирую объем и нагрузку в реальном времени. Ты прогрессируешь без травм и перегорания.</li>
 					</ul>
+
+					<div style="background: #f0f9ff; padding: 15px; border-radius: 0; border-left: 4px solid var(--accent-easy); margin: 20px 0;">
+						<strong>Условия:</strong>
+						<ul style="margin-top: 10px;">
+							<li><strong>Минимум — 2 месяца</strong> — получаешь базу по питанию, сбрасываешь лишнее и начинаешь уверенно двигаться, но часть вопросов останется.</li>
+							<li><strong>Рекомендую — 3 месяца</strong> — выработанные привычки и полный набор знаний, которые откроют ответы на 99% твоих вопросов.</li>
+							<li><strong>Сопровождение от 4 месяцев</strong> — скидка 50€ за каждый месяц.</li>
+						</ul>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button onclick="openBookingModal('DISCIPLINE FIT - Питание + тренировки')" onmouseover="this.style.background='#A67C52'; this.style.borderColor='#A67C52';" onmouseout="this.style.background='#2C2C2C'; this.style.borderColor='#2C2C2C';" style="padding: 15px 30px; background: #2C2C2C; color: white; border: 1px solid #2C2C2C; border-radius: 2px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; min-width: 150px; display: block; margin: 0 auto; font-family: inherit;">Записаться</button>
@@ -1399,7 +1419,7 @@ function getLink(path: string) {
 			'mentor-fit': `
 				<div class="modal-header">
 					<h2>MENTOR FIT</h2>
-					<div class="price">499 €/месяц<br><span class="price-rub">49 000 ₽</span></div>
+					<div class="price">349 €/месяц<br><span class="price-rub">33 000 ₽</span><br><span class="price-rub">от 2 месяцев*</span></div>
 				</div>
 				<div class="modal-body">
 					<p>Выстраиваю тренировочный процесс под твой образ жизни, психологию и цели.</p>
@@ -1412,6 +1432,15 @@ function getLink(path: string) {
 						<li><strong>Полноценный цикл (8–12 недель).</strong> Проходим путь от настройки весов (1–2 недели) до мощной рабочей фазы (8–10 недель) и обязательной разгрузки для восстановления.</li>
 						<li><strong>Ежедневный мониторинг.</strong> Я на связи между тренировками: анализирую отчеты, корректирую объем и нагрузку в реальном времени. Ты прогрессируешь без травм и перегорания.</li>
 					</ul>
+
+					<div style="background: #f0f9ff; padding: 15px; border-radius: 0; border-left: 4px solid var(--accent-easy); margin: 20px 0;">
+						<strong>Условия:</strong>
+						<ul style="margin-top: 10px;">
+							<li><strong>Минимум — 2 месяца</strong> — получаешь базу по питанию, сбрасываешь лишнее и начинаешь уверенно двигаться, но часть вопросов останется.</li>
+							<li><strong>Рекомендую — 3 месяца</strong> — выработанные привычки и полный набор знаний, которые откроют ответы на 99% твоих вопросов.</li>
+							<li><strong>Сопровождение от 4 месяцев</strong> — скидка 50€ за каждый месяц.</li>
+						</ul>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button onclick="openBookingModal('MENTOR FIT - Питание + тренировки')" onmouseover="this.style.background='#A67C52'; this.style.borderColor='#A67C52';" onmouseout="this.style.background='#2C2C2C'; this.style.borderColor='#2C2C2C';" style="padding: 15px 30px; background: #2C2C2C; color: white; border: 1px solid #2C2C2C; border-radius: 2px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; min-width: 150px; display: block; margin: 0 auto; font-family: inherit;">Записаться</button>
